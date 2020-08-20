@@ -16,9 +16,7 @@
 </head>
 <body>
 	<div class="container col-sm-4" align="center">
-		<div class="jumbotron">
 			<h3 class="display-4">로그인</h3>
-		</div>
 			<form action="#" class="was-validated">
 				<div class="form-group">
 					<label>ID:</label> <input type="text" class="form-control" id="id" placeholder="Enter username" name="id" required="required" />
@@ -33,11 +31,13 @@
 				</div>
 				<input class="btn btn-primary btn-block" type="submit" value="로그인">
 			</form>
-			<ul class="list-group list-group-horizontal">
-		    <li class="list-group-item"><a href="#">회원 가입</a></li>
-		    <li class="list-group-item"><a href="#">아이디 찾기</a></li>
-		    <li class="list-group-item"><a href="#">비밀번호 찾기</a></li>
-		  </ul>
+			<table class="table table-boarded">
+				<tr class="list-group list-group-horizontal col-sm-12">
+					<td class="list-group-item"><a href="#">회원 가입</a></td>
+					<td class="list-group-item"><a href="#">아이디 찾기</a></td>
+					<td class="list-group-item"><a href="#">비밀번호 찾기</a></td>
+				</tr>
+			</table>
 	</div>	
 </body>
 </html>
