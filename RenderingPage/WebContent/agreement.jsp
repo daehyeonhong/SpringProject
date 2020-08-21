@@ -30,6 +30,7 @@
 							<div class="form-check-inline">
 								<label class="form-check-label">
 									<input type="checkbox" class="form-check-input" value="" />SK렌터카 이용 약관
+									<span class="text-warning">(필수)</span>
 								</label>
 							</div>
 						</th>
@@ -48,6 +49,7 @@
 							<div class="form-check-inline">
 								<label class="form-check-label">
 									<input type="checkbox" class="form-check-input" value="" />SK렌터카 이용 약관
+									<span class="text-warning">(필수)</span>
 								</label>
 							</div>
 						</th>
