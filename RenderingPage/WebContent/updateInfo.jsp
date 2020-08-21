@@ -15,12 +15,39 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-	<div class="container col-sm-3" align="center">
+	<div class="container" align="center">
 		<h1 class="display-6">개인정보수정</h1>
 		<form action="#" class="form-group">
 			<div class="form-group">
-				<p class="form-control"></p>
-				<input type="text" class="form-control" id="id" name="id" placeholder="아이디 입력 (띄어쓰기 없이 영문 소문자, 숫자 포함 4 ~ 20자 이내)" required="required" />
+				<p class="form-control">이름</p>
+				<input type="hidden" name="name" value="name" />
+			</div>
+			<div class="form-group">
+				<p class="form-control">ID</p>
+				<input type="button" value="비밀번호 변경" />
+			</div>
+			<div class="form-group">
+				<p class="form-control">01010101010</p>
+				<input type="hidden" name="phone" value="01010101010" />
+				<input type="button" value="휴대폰 인증" />
+			</div>
+			<div class="form-group row">
+				<div class="input-group mb-3">
+		      <div class="input-group-prepend">
+					<label class="col-sm-2">이메일</label>
+					<input name="mail1" id="mail1" maxlength="50" class="form-control col-sm-3" placeholder="Your Email" required="required"/>
+						<span class="form-control">@</span>
+						<select class="form-control" name="mail2" id="mail2" required>
+							<option value="naver.com">naver.com</option>
+							<option value="daum.net">daum.net</option>
+							<option value="gmail.com">gmail.com</option>
+						</select>
+						<input class="form-control btn btn-info" type="button" id="mailBtn" value="이메일 인증">
+						<input class="form-control btn btn-warning" style="color: #FFF;" type="hidden" id="updMailBtn" value="이메일 변경">
+						</div>
+						<input type="hidden" id="mailChecked" value="false" /> 
+					</div>
+				</div>
 			</div>
 			<div class="form-group">
 				<input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 입력 (띄어쓰기 없이 영문, 숫자 포함 10 ~ 20자 이내)" required="required" />
