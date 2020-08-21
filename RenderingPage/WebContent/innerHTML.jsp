@@ -17,10 +17,6 @@
 		<option value="secondOption">두번째 옵션</option>
 		<option value="lastOption">마지막 옵션</option>
 	</select>
-	<table>
-		<tr>
-			<td><span id="result"></span></td>
-		</tr>
-	</table>
+	<span id="result"></span>
 </body>
 </html>
