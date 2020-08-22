@@ -41,9 +41,9 @@
 			<tr>
 				<td>
 					<div class="input-group input-group-prepend">
-						<input name="mail1" id="mail1" maxlength="50" class="form-control col-sm-6" placeholder="Your Email" required="required"/>
+						<input name="email" maxlength="50" class="form-control col-sm-6" placeholder="Your Email" required="required"/>
 						<span class="form-control col-sm-1">@</span>
-						<select class="form-control col-sm-5" name="mail2" id="mail2" required>
+						<select class="form-control" name="domain" required>
 							<option value="naver.com">naver.com</option>
 							<option value="daum.net">daum.net</option>
 							<option value="gmail.com">gmail.com</option>
