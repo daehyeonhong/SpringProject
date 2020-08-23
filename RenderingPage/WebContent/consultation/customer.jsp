@@ -25,7 +25,6 @@
 
 		<!-- Tab panes -->
 		<div class="container">
-			<span>대박! 일반상담이잖아?</span>
 			<br />
 			<form action="#">
 				<table class="col-sm-12">
