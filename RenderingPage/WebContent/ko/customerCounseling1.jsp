@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>고객상담</title>
-</head>
-<link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
+</head><!-- 
+<link rel="stylesheet" href="./resources/css/bootstrap.min.css" /> -->
 <body>
 <%@include file="mainBar.jsp" %>	
 <%@include file="customerCenterBar.jsp" %>	
@@ -15,26 +15,24 @@
 <form action="#">
 <h1>고객상담</h1>
 <br> <br>
-<!-- Nav pills -->
-<div class="row" style="text-align: center; margin:0;">
-  <ul class="container nav nav-pills bg-light" role="tablist">
-    <li class="col nav-item">
-      <a class=" nav-link active" data-toggle="pill" href="#home"> 일반상담</a>
-    </li>
-    <li class="col nav-item">
-      <a class="nav-link" data-toggle="pill" href="#menu1">렌터카상담</a>
-    </li>
-    <li class="col nav-item">
-      <a class="col nav-link" data-toggle="pill" href="#menu2">상담안내</a>
-    </li>
-  </ul>
-  </div>
-  <!-- Tab panes -->
+<div class="row">
+   <!--  <div class="col" style="background-color:lavender;">.col</div>
+    <div class="col" style="background-color:orange;">.col</div>
+    <div class="col" style="background-color:lavender;">.col</div>
+  </div> -->
+<!-- <div class="btn-group btn-group-lg btn-block" style="margin:0px; "> -->
+  <button type="button" class="btn btn-light col" data-toggle="tab" href="#1">일반상담</button>
+  <button type="button" class="btn btn-light col">렌터카상담</button>
+  <button type="button" class="btn btn-light col">상담안내</button>
+</div>
 <hr style="border: solid 0.5px silver; margin:0px; ">
 <br><br>
 <p style="color:red;">*상담신청 시 등록하신 유선 또는 이메일로만 답변을 받으실 수 있으며, 홈페이지에서는 답변 확인 불가능합니다.</p>
 <hr>
-
+<div class="container tab-content">
+    <div id="1" class="tab-pane active">
+ </div>
+ </div>
 <div class="container">
 <div class="row">
 <span>상담유형</span> 

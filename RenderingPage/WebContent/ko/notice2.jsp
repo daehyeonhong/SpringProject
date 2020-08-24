@@ -49,60 +49,22 @@
   </div>
   <br>
   <br>
-   
- <div class="container">         
- <hr style="border: solid 1px silver; margin:0px; ">
-  <table class="table table-hover">
-    <thead class="bg-light">
-      <tr>
-        <th>번호</th>
-        <th>구분</th>
-        <th>제목</th>
-        <th>등록일</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>223</td>
-        <td>장기렌터카</td>
-        <td>20년 8월 2차 리콜 서비스 대상 차량 안내 N</td>
-        <td>2020-08-20</td>
-      </tr>
-      <tr>
-         <td>222</td>
-        <td>공통</td>
-        <td>SKT 본인확인 서비스 시스템 작업 안내 </td>
-        <td>2020-08-11 </td>
-      </tr>
-      <tr>
-         <td>221</td>
-        <td>장기렌터카</td>
-        <td>20년 8월 1차 리콜 서비스 대상 차량 안내 </td>
-        <td>2020-08-06</td>
-      </tr>
-      <tr>
-         <td>220</td>
-        <td>공통</td>
-        <td>본인확인 서비스 시스템 작업 공지 </td>
-        <td>2020-08-03</td>
-      </tr>
-      <tr>
-         <td>219</td>
-        <td>단기렌터카</td>
-        <td>20년 제주지점 추석, 한글날 연휴 기간 제휴할인율 변경 안내(정정) </td>
-        <td>2020-08-02</td>
-      </tr>
-      <tr>
-         <td>218</td>
-        <td>공통</td>
-        <td>시스템 점검 작업 안내_8/5 </td>
-        <td>2020-08-01</td>
-      </tr>
-    </tbody>
-  </table>
-  <hr style="border: solid 1px silver; margin:0px; ">
-</div>
-  
+ 
+  <hr style="border: solid 1px light; ">
+  <table cellspacing="0" cellpadding="0" style="width:100%; text-align:center;">
+		<tr bgcolor="#FAFAFA"> <!-- style="height:50px; -->
+			<th width="10%">번호</th>
+		 	<th width="20%">구분</th>
+		 	<th width="50%">제목</th>
+		 	<th width="20%">등록일</th>
+		</tr>
+		<tr>
+			<td>01</td>
+			<td>장기렌터카</td>
+			<td>20년 8월 2차 리콜 서비스 대상 차량 안내 N</td>
+			<td>2020-08-20</td>
+		</tr>
+	</table>
 <br>
 <nav aria-label="Page navigation example" >
   <ul class="pagination">
