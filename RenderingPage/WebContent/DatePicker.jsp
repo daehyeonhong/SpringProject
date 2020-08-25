@@ -108,8 +108,18 @@
 					});
 
 		});
+		function checkForm() {
+			let from = document.getElementById("fromDate").value;
+			let to = document.getElementById("toDate").value;
+			
+			document.getElementById("result").innerHTML = from + to; 
+		}
 	</script>
-	<input type="text" name="sdate" id="fromDate" value="">
-	<input type="text" name="edate" id="toDate" value="">
+	<form action="#">
+		<input type="text" name="sdate" id="fromDate" value="" />
+		<input type="text" name="edate" id="toDate" value="" />
+		<input type="button" value="전송" onclick="checkForm()"/>
+	</form>
+	<p id="result">
 </body>
 </html>
