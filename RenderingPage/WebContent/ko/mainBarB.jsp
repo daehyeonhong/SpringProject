@@ -3,18 +3,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
 <meta charset="UTF-8">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<!-- <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
 <title>Insert title here</title>
 <script>
-	$(document).ready(function() {
+	$().ready(function() {
 		$("#long_term").mouseover(function() {
 			$("#pp").slideDown("fast");
-			/*   $("#long_list").css("color","red");
-			  $("#long_list").css("position","fixed"); */
 		});
 		$("#pp").mouseleave(function() {
 			$(this).slideUp("fast");
@@ -22,7 +23,6 @@
 
 		$("#short_term").mouseover(function() {
 			$("#pp").slideDown("fast");
-			/*  $("#short_list1").css("color","red");*/
 		});
 		$("#pp").mouseleave(function() {
 			$(this).slideUp("fast");
@@ -31,7 +31,7 @@
 </script>
 </head>
 <body>
-	<div class="jumbotron bg-white" id="menuBar">
+	<div class="jumbotron bg-white" style="margin: 0px;" id="menuBar">
 		<div class="row">
 			<div class="col-sm-3">
 				<h1 style="color: orange;">TT렌터카</h1>
@@ -52,7 +52,6 @@
 			</div>
 		</div>
 	</div>
-
 	<nav class="container" id="pp">
 		<div class="row">
 			<div class="col">
@@ -71,8 +70,7 @@
 				<ul style="list-style: none; padding: 0;">
 					<li>실시간으로 빠르게 예약/확인!</li>
 				</ul>
-				<br> <br> <br> <img
-					src="./resources/images/arrow.png" style="width: 70px;">
+				<br> <br> <br> <img src="./resources/images/arrow.png" style="width: 70px;">
 			</div>
 			<div class="col bg-light">
 				<h4 id="short_list1">단기렌터카</h4>
@@ -92,6 +90,7 @@
 					<li><a href="#">중고차 장기 상담신청</a></li>
 				</ul>
 			</div>
+
 		</div>
 	</nav>
 
