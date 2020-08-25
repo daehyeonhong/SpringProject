@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 
-<!-- cssÀû¿ë -->
+<!-- cssï¿½ï¿½ï¿½ï¿½ -->
 <style type="text/css">
 .container {
 	max-width: 700px;
@@ -64,20 +64,20 @@
 <body>
 	<div class="container">
 		<div class="container1">
-			<h1 align="center">½Å±Ô ºñ¹Ð¹øÈ£ µî·Ï</h1>
-			<p align="center">º»ÀÎÈ®ÀÎÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù. ½Å±Ô ºñ¹Ð¹øÈ£¸¦ µî·Ï ÈÄ »ç¿ëÇØÁÖ¼¼¿ä.</p>
+			<h1 align="center">ï¿½Å±ï¿½ ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½</h1>
+			<p align="center">ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½Å±ï¿½ ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½.</p>
 
 			<div class="textDiv1">
 				<input type="text" class="text"
-					placeholder="ºñ¹Ð¹øÈ£ ÀÔ·Â(¶ç¾î¾²±â ¾øÀÌ ¿µ¹®,¼ýÀÚ Æ÷ÇÔ 10~20ÀÚ ÀÌ³»)" />
+					placeholder="ï¿½ï¿½Ð¹ï¿½È£ ï¿½Ô·ï¿½(ï¿½ï¿½î¾²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 10~20ï¿½ï¿½ ï¿½Ì³ï¿½)" />
 			</div>
 			<div class="textDiv2">
-				<input type="text" class="text" placeholder="ºñ¹Ð¹øÈ£ ÀçÀÔ·Â" />
+				<input type="text" class="text" placeholder="ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½Ô·ï¿½" />
 			</div>
 
 			<div class="btnCtl">
-				<button class="button4">Ãë¼Ò</button>
-				<button class="button4">º¯°æ¿Ï·á</button>
+				<button class="button4">ï¿½ï¿½ï¿½</button>
+				<button class="button4">ï¿½ï¿½ï¿½ï¿½Ï·ï¿½</button>
 			</div>
 		</div>
 	</div>

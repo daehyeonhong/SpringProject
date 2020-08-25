@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 
-<!-- css적용 -->
+<!-- css占쏙옙占쏙옙 -->
 <style type="text/css">
 .container {
 	max-width: 700px;
@@ -49,18 +49,18 @@
 <body>
 	<div class="container">
 		<div class="container1">
-			<h1 align="center">아이디 찾기완료</h1>
-			<p align="center">회원님이 입력하신 정보와 일치하는 아이디입니다.</p>
-			<p align="center">개인정보보호를 위해 개인정보의 일부는 ***로 표시하였습니다.</p>
+			<h1 align="center">占쏙옙占싱듸옙 찾占쏙옙狗占�</h1>
+			<p align="center">회占쏙옙占쏙옙占쏙옙 占쌉뤄옙占싹쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙치占싹댐옙 占쏙옙占싱듸옙占쌉니댐옙.</p>
+			<p align="center">占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙호占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 占싹부댐옙 ***占쏙옙 표占쏙옙占싹울옙占쏙옙占싹댐옙.</p>
 
 			<div class="divInfo">
-				<p align="center">dnwjdal***&nbsp;&nbsp;&nbsp;가입일 : 2020.08.19</p>
-				<p align="center">가입채널 : SK렌터카</p>
+				<p align="center">dnwjdal***&nbsp;&nbsp;&nbsp;占쏙옙占쏙옙占쏙옙 : 2020.08.19</p>
+				<p align="center">占쏙옙占쏙옙채占쏙옙 : SK占쏙옙占쏙옙카</p>
 			</div>
 
 			<div class="btnCtl">
-				<button class="button4">비밀번호 찾기</button>
-				<button class="button4">로그인</button>
+				<button class="button4">占쏙옙橘占싫� 찾占쏙옙</button>
+				<button class="button4">占싸깍옙占쏙옙</button>
 			</div>
 		</div>
 	</div>
