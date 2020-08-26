@@ -30,8 +30,6 @@
 	<div class="container">
 		<h2>검색</h2>
 
-
-
 		<div class="btn-group">
 			<button type="button" class="btn btn-primary">제조사 선택</button>
 			<button type="button"
@@ -57,8 +55,6 @@
 			</div>
 		</div>
 
-
-
 		<div class="btn-group">
 			<button type="button" class="btn btn-primary">차량 선택</button>
 			<button type="button"
@@ -73,9 +69,6 @@
 
 		<button type="button" class="btn btn-primary">검색</button>
 
-
-
-
 		<table>
 			<tr>
 				<td><img
@@ -115,9 +108,6 @@
 			</tr>
 		</table>
 
-
-
-
 		<table>
 			<tr>
 				<td><img
@@ -156,7 +146,6 @@
 				</td>
 			</tr>
 		</table>
-
 	</div>
 
 </body>

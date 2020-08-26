@@ -62,9 +62,9 @@
 					<!-- collapse -->
 					<div class="container">
 						<div id="accordion">
-							<div class="card">
-								<div class="card-header">
-									<a class="card-link" data-toggle="collapse" href="#collapseOne">
+							<div>
+								<div>
+									<a data-toggle="collapse" href="#collapseOne">
 										<span><b style="color: orange;">[준장기]</b> 중고 렌터카의 장점은
 											무엇인가요? </span>
 									</a>
@@ -123,48 +123,6 @@
 						</div>
 					</div>
 				</div>
-				<!-- <div id="all2" class="container tab-pane fade">
-					<br>
-					<h3>Menu 1</h3>
-					<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco
-						laboris nisi ut aliquip ex ea commodo consequat.</p>
-				</div> -->
-				<!-- <div id="all3" class="container tab-pane fade">
-					<br>
-
-					<div class="container">
-						<div id="accordion">
-							<div class="card">
-								<div class="card-header">
-									<a class="card-link" data-toggle="collapse" href="#collapseOne">
-										0 </a>
-								</div>
-								<div id="collapseOne" class="collapse" data-parent="#accordion">
-									<div class="card-body">0</div>
-								</div>
-							</div>
-							<div class="card">
-								<div class="card-header">
-									<a class="collapsed card-link" data-toggle="collapse"
-										href="#collapseTwo"> 1 </a>
-								</div>
-								<div id="collapseTwo" class="collapse" data-parent="#accordion">
-									<div class="card-body">1</div>
-								</div>
-							</div>
-							<div class="card">
-								<div class="card-header">
-									<a class="collapsed card-link" data-toggle="collapse"
-										href="#collapseThree"> 3 </a>
-								</div>
-								<div id="collapseThree" class="collapse"
-									data-parent="#accordion">
-									<div class="card-body">3</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div> -->
 			</div>
 
 			<!--페이지 쪽수  -->

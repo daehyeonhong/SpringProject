@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 가입</title>
+<title>개인정보수정</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -40,10 +40,10 @@
 			</tr>
 			<tr>
 				<td>
-					<div class="input-group input-group-prepend">
-						<input name="mail1" id="mail1" maxlength="50" class="form-control col-sm-6" placeholder="Your Email" required="required"/>
+					<div class="input-group">
+						<input name="email" maxlength="50" class="form-control col-sm-6" placeholder="Your Email" required="required"/>
 						<span class="form-control col-sm-1">@</span>
-						<select class="form-control col-sm-5" name="mail2" id="mail2" required>
+						<select class="form-control" name="domain" required>
 							<option value="naver.com">naver.com</option>
 							<option value="daum.net">daum.net</option>
 							<option value="gmail.com">gmail.com</option>
@@ -110,7 +110,7 @@
 					<input class="btn btn-secondary btn-block" type="button" value="취소" />
 				</td>
 				<td>
-					<input class="btn btn-danger btn-block" type="submit" value="가입완료" />
+					<input class="btn btn-danger btn-block" type="submit" value="수정완료" />
 				</td>
 			</tr>
 		</table>
