@@ -54,16 +54,17 @@
 						<span>차량 정보</span>
 					<td>
 						<span>차량 가격</span>
-						<a class="btn btn-outline-dark btn-sm" data-toggle="collapse" href="#pop">변경</a>
+						<a class="btn btn-info btn-sm" data-toggle="collapse" href="#pop">변경</a>
 					</td>
 				</tr>
 			</table>
+			<div class="container"></div>
 			<div id="accordion" class="table bg-light">
 				<div id="pop" class="collapse" data-parent="#accordion">
-					<table class="container">
+					<table>
 						<tr class="overflow-scroll">
 							<td class="carImage" rowspan="2"></td>
-							<td class="col-sm-10">
+							<td class="col-sm-9">
 								<ul class="nav nav-tabs container row" role="tablist">
 									<li class="nav-item">
 										<a class="nav-link" data-toggle="tab" href="#all">전체</a>
@@ -74,6 +75,15 @@
 									<li class="nav-item">
 										<a class="nav-link" data-toggle="tab" href="#diesel">경유</a>
 									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#lpg">LPG</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#hybrid">하이브리드</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#electric">전기</a>
+									</li>
 								</ul>
 							</td>
 						</tr>
@@ -82,18 +92,33 @@
 								<div class="tab-content container">
 									<div id="all" class="container tab-pane active">
 										<br>
-										<h3>HOME</h3>
-										<p>ㅁ</p>
+										<h3>all</h3>
+										<p>전체</p>
 									</div>
 									<div id="gasoline" class="container tab-pane fade">
 										<br>
-										<h3>Menu 1</h3>
-										<p>ㅜ.</p>
+										<h3>gasoline</h3>
+										<p>휘발유</p>
 									</div>
 									<div id="diesel" class="container tab-pane fade">
 										<br>
-										<h3>Menu 2</h3>
-										<p>ㅊ</p>
+										<h3>diesel</h3>
+										<p>디젤</p>
+									</div>
+									<div id="lpg" class="container tab-pane fade">
+										<br>
+										<h3>lpg</h3>
+										<p>lpg</p>
+									</div>
+									<div id="hybrid" class="container tab-pane fade">
+										<br>
+										<h3>hybrid</h3>
+										<p>하이브리드</p>
+									</div>
+									<div id="electric" class="container tab-pane fade">
+										<br>
+										<h3>electric</h3>
+										<p>전기</p>
 									</div>
 								</div>
 							</td>
@@ -102,9 +127,30 @@
 				</div>
 			</div>
 		</form>
-		<hr>
-	</div>
-	
+	</div><hr style="border: 1px solid red;">
+
+	<div style="height: 80px"></div>
+		<div id="nav" class="navbar bg-dark navbar-dark" style="position: sticky; bottom: 0; margin:0 auto; left: 0; right: 0;">
+			<table>
+				<tr>
+					<td>
+					</td>
+					<td rowspan="2">
+						<button class="btn btn-secondary btn-sm">
+							<p>맞춤형 렌탈료</p>
+							<p>상담신청</p>
+						</button>
+					</td>
+					<td rowspan="2">
+						<button class="btn btn-info btn-sm">
+							<p>무방문/무서류</p>
+							<p>다이렉트 계약</p>
+						</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	<jsp:include page="../ko/footer.jsp" />
 	<script>
 		$().ready(function() {
 			$('.carImage').html('<img alt="CarImage" src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Japan_road_sign_402.svg" width="150px" height="150px" />');
