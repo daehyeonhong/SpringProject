@@ -13,8 +13,6 @@
 	$(document).ready(function() {
 		$("#long_term").mouseover(function() {
 			$("#pp").slideDown("fast");
-			/*   $("#long_list").css("color","red");
-			  $("#long_list").css("position","fixed"); */
 		});
 		$("#pp").mouseleave(function() {
 			$(this).slideUp("fast");

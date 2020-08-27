@@ -11,6 +11,7 @@
 </head>
 <body>
 
+	<jsp:include page="../customerMenu.jsp" />
 	<div class="container col-sm-6">
 		<div class="container">
 			<h1 class="display-5">고객상담</h1>
@@ -18,9 +19,9 @@
 
 		<!-- Nav tabs -->
 		<nav class="navbar text-center">
-				<a class="btn btn-light col-sm-4" href="${pageContext.request.contextPath}/consultation/customer.jsp">일반상담</a>
-				<a class="btn btn-light col-sm-4" href="${pageContext.request.contextPath}/consultation/rent.jsp">렌터카상담</a>
-				<a class="btn btn-info col-sm-4" href="${pageContext.request.contextPath}/consultation/info.jsp">상담안내</a>
+				<a class="btn btn-light col-sm-4" href="${pageContext.request.contextPath}/board/consultation/customer.jsp">일반상담</a>
+				<a class="btn btn-light col-sm-4" href="${pageContext.request.contextPath}/board/consultation/rent.jsp">렌터카상담</a>
+				<a class="btn btn-info col-sm-4" href="${pageContext.request.contextPath}/board/consultation/info.jsp">상담안내</a>
 		</nav>
 
 		<div class="container">
