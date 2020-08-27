@@ -74,6 +74,15 @@
 									<li class="nav-item">
 										<a class="nav-link" data-toggle="tab" href="#diesel">경유</a>
 									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#lpg">LPG</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#hybrid">하이브리드</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#electric">전기</a>
+									</li>
 								</ul>
 							</td>
 						</tr>
@@ -82,18 +91,225 @@
 								<div class="tab-content container">
 									<div id="all" class="container tab-pane active">
 										<br>
-										<h3>HOME</h3>
-										<p>ㅁ</p>
+										<h3>all</h3>
+										<p>전체</p>
 									</div>
 									<div id="gasoline" class="container tab-pane fade">
 										<br>
-										<h3>Menu 1</h3>
-										<p>ㅜ.</p>
+										<h3>gasoline</h3>
+										<p>휘발유</p>
 									</div>
 									<div id="diesel" class="container tab-pane fade">
 										<br>
-										<h3>Menu 2</h3>
-										<p>ㅊ</p>
+										<h3>diesel</h3>
+										<p>디젤</p>
+									</div>
+									<div id="lpg" class="container tab-pane fade">
+										<br>
+										<h3>lpg</h3>
+										<p>lpg</p>
+									</div>
+									<div id="hybrid" class="container tab-pane fade">
+										<br>
+										<h3>hybrid</h3>
+										<p>하이브리드</p>
+									</div>
+									<div id="electric" class="container tab-pane fade">
+										<br>
+										<h3>electric</h3>
+										<p>전기</p>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</form>
+		<table class="table">
+			<tr>
+				<td class="carImage"></td>
+				<td>
+					<p>차량 제조사 --> 차량 이름</p>
+					<p>차량 설명 울라 불라</p>
+				</td>
+			</tr>
+		</table>
+		<div>
+			<span class="h4">상세 차량 및 옵션 선택</span>
+			<span>선구매 차량은 차종, 내/외부 색상, 옵션 선택이 불가할 수 있습니다.</span>
+		</div>
+		<form action="#">
+			<table class="container">
+				<tr>
+					<td>
+						<span>상세차량</span>
+						<a id="tooltipIcon" data-toggle="tooltip" data-placement="bottom" title="~~!~~!"></a>
+					<td>
+						<label class="badge badge-pill badge-danger">Hot Deal</label>
+						<span>차량 정보</span>
+					<td>
+						<span>차량 가격</span>
+						<a class="btn btn-outline-dark btn-sm" data-toggle="collapse" href="#pop">변경</a>
+					</td>
+				</tr>
+			</table>
+			<div id="accordion" class="table bg-light">
+				<div id="pop" class="collapse" data-parent="#accordion">
+					<table class="container">
+						<tr class="overflow-scroll">
+							<td class="carImage" rowspan="2"></td>
+							<td class="col-sm-10">
+								<ul class="nav nav-tabs container row" role="tablist">
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#all">전체</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#gasoline">휘발유</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#diesel">경유</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#lpg">LPG</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#hybrid">하이브리드</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#electric">전기</a>
+									</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="tab-content container">
+									<div id="all" class="container tab-pane active">
+										<br>
+										<h3>all</h3>
+										<p>전체</p>
+									</div>
+									<div id="gasoline" class="container tab-pane fade">
+										<br>
+										<h3>gasoline</h3>
+										<p>휘발유</p>
+									</div>
+									<div id="diesel" class="container tab-pane fade">
+										<br>
+										<h3>diesel</h3>
+										<p>디젤</p>
+									</div>
+									<div id="lpg" class="container tab-pane fade">
+										<br>
+										<h3>lpg</h3>
+										<p>lpg</p>
+									</div>
+									<div id="hybrid" class="container tab-pane fade">
+										<br>
+										<h3>hybrid</h3>
+										<p>하이브리드</p>
+									</div>
+									<div id="electric" class="container tab-pane fade">
+										<br>
+										<h3>electric</h3>
+										<p>전기</p>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</form>
+		<table class="table">
+			<tr>
+				<td class="carImage"></td>
+				<td>
+					<p>차량 제조사 --> 차량 이름</p>
+					<p>차량 설명 울라 불라</p>
+				</td>
+			</tr>
+		</table>
+		<div>
+			<span class="h4">상세 차량 및 옵션 선택</span>
+			<span>선구매 차량은 차종, 내/외부 색상, 옵션 선택이 불가할 수 있습니다.</span>
+		</div>
+		<form action="#">
+			<table class="container">
+				<tr>
+					<td>
+						<span>상세차량</span>
+						<a id="tooltipIcon" data-toggle="tooltip" data-placement="bottom" title="~~!~~!"></a>
+					<td>
+						<label class="badge badge-pill badge-danger">Hot Deal</label>
+						<span>차량 정보</span>
+					<td>
+						<span>차량 가격</span>
+						<a class="btn btn-outline-dark btn-sm" data-toggle="collapse" href="#pop">변경</a>
+					</td>
+				</tr>
+			</table>
+			<div id="accordion" class="table bg-light">
+				<div id="pop" class="collapse" data-parent="#accordion">
+					<table class="container">
+						<tr class="overflow-scroll">
+							<td class="carImage" rowspan="2"></td>
+							<td class="col-sm-10">
+								<ul class="nav nav-tabs container row" role="tablist">
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#all">전체</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#gasoline">휘발유</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#diesel">경유</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#lpg">LPG</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#hybrid">하이브리드</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#electric">전기</a>
+									</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="tab-content container">
+									<div id="all" class="container tab-pane active">
+										<br>
+										<h3>all</h3>
+										<p>전체</p>
+									</div>
+									<div id="gasoline" class="container tab-pane fade">
+										<br>
+										<h3>gasoline</h3>
+										<p>휘발유</p>
+									</div>
+									<div id="diesel" class="container tab-pane fade">
+										<br>
+										<h3>diesel</h3>
+										<p>디젤</p>
+									</div>
+									<div id="lpg" class="container tab-pane fade">
+										<br>
+										<h3>lpg</h3>
+										<p>lpg</p>
+									</div>
+									<div id="hybrid" class="container tab-pane fade">
+										<br>
+										<h3>hybrid</h3>
+										<p>하이브리드</p>
+									</div>
+									<div id="electric" class="container tab-pane fade">
+										<br>
+										<h3>electric</h3>
+										<p>전기</p>
 									</div>
 								</div>
 							</td>
@@ -104,7 +320,11 @@
 		</form>
 		<hr>
 	</div>
-	
+
+	<nav class="bg-danger container col-sm-4" style="position: fixed;bottom: 0; margin: 0 auto; left: 0; right: 0;">
+		하하
+	</nav>
+
 	<script>
 		$().ready(function() {
 			$('.carImage').html('<img alt="CarImage" src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Japan_road_sign_402.svg" width="150px" height="150px" />');
