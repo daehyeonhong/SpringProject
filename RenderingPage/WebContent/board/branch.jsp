@@ -22,7 +22,7 @@
 					단기렌터카 지점 안내
 				</button>
 				<button type="button" class="btn btn-<c:if test="${type == 'long'}">secondary</c:if><c:if test="${type != 'long'}">outline-dark</c:if> col-sm-6" onclick="location.href='?type=long'">
-					단기렌터카 지점 안내
+					장기렌터카 지점 안내
 				</button>
 			</div>
 
