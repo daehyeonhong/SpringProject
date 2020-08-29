@@ -10,7 +10,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 <body>
-
 	<jsp:include page="../customerMenu.jsp" />
 	<div class="container col-sm-6">
 		<div class="container">
@@ -18,21 +17,23 @@
 		</div>
 
 		<!-- Nav tabs -->
-		<nav class="navbar text-center">
-				<a class="btn btn-light col-sm-4" href="${pageContext.request.contextPath}/board/consultation/customer.jsp">일반상담</a>
-				<a class="btn btn-info col-sm-4" href="${pageContext.request.contextPath}/board/consultation/rent.jsp">렌터카상담</a>
-				<a class="btn btn-light col-sm-4" href="${pageContext.request.contextPath}/board/consultation/info.jsp">상담안내</a>
-		</nav>
+		<jsp:include page="consultationNav.jsp" />
 
 		<div class="container">
 			<span>중고차장기/개인장기/법인장기 상담신청 시 등록하신 유선 또는 이메일로만 답변을 받으실 수 있으며, 홈페이지에서는 답변 확인 불가능합니다.</span>
 			<hr />
-			<ul class="nav nav-tabs text-center" role="tablist">
-				<li class="col-sm-2"><span>상담유형</span></li>
-				<li class="col-sm-5"><a class="btn btn-light" data-toggle="tab" href="#usedCar">중고차 장기렌터카</a></li>
-				<li class="col-sm-5"><a class="btn btn-light" data-toggle="tab" href="#personal">개인 장기렌터카</a></li>
+			<ul class="nav nav-pills nav-justified" role="tablist">
+				<li class="nav-item">
+					<span class="nav-link border">상담유형</span>
+				</li>
+				<li class="nav-item">
+					<a class="btn btn-primary nav-link" href="?category=usedCar">중고차 장기렌터카</a>
+				</li>
+				<li class="nav-item">
+					<a class="btn btn-secondary nav-link" href="?category=personal">개인 장기렌터카</a>
+				</li>
 			</ul>
-			
+
 			<div class="tab-content">
 				<div id="usedCar" class="container tab-pane active">
 					<br />

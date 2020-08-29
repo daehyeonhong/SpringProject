@@ -18,11 +18,7 @@
 		</div>
 
 		<!-- Nav tabs -->
-		<nav class="navbar text-center">
-				<a class="btn btn-light col-sm-4" href="${pageContext.request.contextPath}/board/consultation/customer.jsp">일반상담</a>
-				<a class="btn btn-light col-sm-4" href="${pageContext.request.contextPath}/board/consultation/rent.jsp">렌터카상담</a>
-				<a class="btn btn-info col-sm-4" href="${pageContext.request.contextPath}/board/consultation/info.jsp">상담안내</a>
-		</nav>
+		<jsp:include page="consultationNav.jsp" />
 
 		<div class="container">
 			<table class="col-sm-12" border="1">
