@@ -1,7 +1,6 @@
 package shop.carrental.mapper;
 
 import org.apache.ibatis.annotations.Select;
-import shop.carrental.model.UserVO;
 
 public interface UserMapper {
 

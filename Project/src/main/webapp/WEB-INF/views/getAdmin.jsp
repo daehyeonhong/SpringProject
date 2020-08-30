@@ -8,6 +8,7 @@
 <body>
 ${userVO}
 ${UserMapper}
+${UserMapper.getAdmin}
 	<table>
 		<thead>
 			<tr>
