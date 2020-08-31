@@ -9,8 +9,9 @@
 
 	<jsp:include page="../customerMenu.jsp" />
 	<div class="container col-sm-6">
-		<div class="container">
-			<h1 class="display-5">고객상담</h1>
+		<div class="container row">
+			<span class="h2 col-sm-10">고객상담</span>
+			<span class="col-sm-2">breadcrumb</span>
 		</div>
 
 		<!-- Nav tabs -->

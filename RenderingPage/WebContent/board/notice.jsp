@@ -10,14 +10,14 @@
 	<jsp:include page="./customerMenu.jsp" />
 	<article>
 		<div class="container col-sm-6">
-			<div class="row">
+			<div class="container row">
 				<span class="h2 col-sm-10">공지사항</span>
 				<span class="col-sm-2">breadcrumb</span>
 			</div>
 
-			<div>
-				<form class="form-inline my-2 my-lg-0" action="#" method="post">
-					<div class="input-group mt-3 mb-3">
+			<div align="right">
+				<form class="form col-sm-6" action="#" method="post">
+					<div class="input-group">
 						<div class="input-group-prepend">
 							<select class="form-control dropdown-toggle" data-toggle="dropdown" name="items">
 								<option value="all">전체</option>
@@ -33,26 +33,28 @@
 				</form>
 			</div>
 
-			<table class="table text-center">
-				<thead>
-					<tr>
-						<th class="col-sm-1">번호</th>
-						<th class="col-sm-2">구분</th>
-						<th class="col-sm-7">제목</th>
-						<th class="col-sm-2">등록일</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="row" begin="1" end="10">
+			<div class="container">
+				<table class="table text-center">
+					<thead>
 						<tr>
-							<td><span>${row}</span></td>
-							<td><span>구분</span></td>
-							<td><a href="#">제목</a></td>
-							<td><span>등록일</span></td>
+							<th class="col-sm-1">번호</th>
+							<th class="col-sm-2">구분</th>
+							<th class="col-sm-7">제목</th>
+							<th class="col-sm-2">등록일</th>
 						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
+						<c:forEach var="row" begin="1" end="10">
+							<tr>
+								<td class="col-sm-1"><span>${row}</span></td>
+								<td class="col-sm-2"><span>구분</span></td>
+								<td class="col-sm-7"><a href="#">제목</a></td>
+								<td class="col-sm-2"><span>등록일</span></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
 
 			<%-- <nav aria-label="Page navigation">
 				<ul class="pagination justify-content-center">

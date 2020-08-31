@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,10 +7,15 @@
 <title>렌터카상담</title>
 </head>
 <body>
+	<%
+		String category = request.getParameter("category");
+	%>
+	<c:set var="category" value="<%=category%>"/>
 	<jsp:include page="../customerMenu.jsp" />
 	<div class="container col-sm-6">
-		<div class="container">
-			<h1 class="display-5">고객상담</h1>
+		<div class="container row">
+			<span class="h2 col-sm-10">고객상담</span>
+			<span class="col-sm-2">breadcrumb</span>
 		</div>
 
 		<!-- Nav tabs -->
@@ -23,10 +29,10 @@
 					<span class="nav-link border">상담유형</span>
 				</li>
 				<li class="nav-item">
-					<a class="btn btn-primary nav-link" href="?category=usedCar">중고차 장기렌터카</a>
+					<a class="btn btn<c:if test="${category != 'usedCar'}">-outline</c:if>-info nav-link" href="?category=usedCar">중고차 장기렌터카</a>
 				</li>
 				<li class="nav-item">
-					<a class="btn btn-secondary nav-link" href="?category=personal">개인 장기렌터카</a>
+					<a class="btn btn<c:if test="${category != 'personal'}">-outline</c:if>-info nav-link" href="?category=personal">개인 장기렌터카</a>
 				</li>
 			</ul>
 
