@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <!-- CSS only -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -26,7 +28,7 @@
 					<a class="nav-link h5" href="${pageContext.request.contextPath}/board/branch.jsp">지점안내</a>
 				</td>
 				<td class="nav-item">
-					<a class="nav-link h5" href="${pageContext.request.contextPath}/board/notice.jsp">양식다운로드</a>
+					<a class="nav-link h5" href="${pageContext.request.contextPath}/board/form/applicationForm.jsp">양식다운로드</a>
 				</td>
 			</tr>
 		</table>

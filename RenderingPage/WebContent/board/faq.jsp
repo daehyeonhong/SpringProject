@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,34 +20,38 @@
 
 			<!-- Tag List -->
 			<div class="container">
-				<div class="row">
-						<a class="btn btn-<c:if test="${keyword != 'all'}">outline-</c:if>dark col-sm-2" href="?keyword=all">전체</a>
-						<a class="btn btn-<c:if test="${keyword != 'direct'}">outline-</c:if>dark col-sm-2" href="?keyword=direct">다이렉트</a>
-						<a class="btn btn-<c:if test="${keyword != 'newLongterm'}">outline-</c:if>dark col-sm-2" href="?keyword=newLongterm">신차장기</a>
-						<a class="btn btn-<c:if test="${keyword != 'shortterm'}">outline-</c:if>dark col-sm-2" href="?keyword=shortterm">단기</a>
-						<a class="btn btn-<c:if test="${keyword != 'usedLongterm'}">outline-</c:if>dark col-sm-2" href="?keyword=usedLongterm">중고차장기</a>
-						<a class="btn btn-<c:if test="${keyword != 'electric'}">outline-</c:if>dark col-sm-2" href="?keyword=electric">전기차</a>
-				</div>
-			</div>
-			<hr>
-
-			<div class="container">
-				<div class="row">
-					<a class="btn h4 btn-outline-info col-sm-2" href="${pageContext.request.contextPath}/board/consultation/customer.jsp">고객상담</a>
-					<div class="col-sm-10" align="right">
-						<form class="form col-sm-8" action="#" method="post">
-							<div class="input-group row">
-								<input type="text" class="form-control" name="keyword" placeholder="검색어를 입력해주세요" />
-								<div class="input-group-append">
-									<button class="btn btn-secondary" type="submit">검색하기</button>
-								</div>
-							</div>
-						</form>
+				<div class="container">
+					<div class="row">
+							<a class="btn btn-<c:if test="${keyword != 'all'}">outline-</c:if>dark col-sm-2" href="?keyword=all">전체</a>
+							<a class="btn btn-<c:if test="${keyword != 'direct'}">outline-</c:if>dark col-sm-2" href="?keyword=direct">다이렉트</a>
+							<a class="btn btn-<c:if test="${keyword != 'newLongterm'}">outline-</c:if>dark col-sm-2" href="?keyword=newLongterm">신차장기</a>
+							<a class="btn btn-<c:if test="${keyword != 'shortterm'}">outline-</c:if>dark col-sm-2" href="?keyword=shortterm">단기</a>
+							<a class="btn btn-<c:if test="${keyword != 'usedLongterm'}">outline-</c:if>dark col-sm-2" href="?keyword=usedLongterm">중고차장기</a>
+							<a class="btn btn-<c:if test="${keyword != 'electric'}">outline-</c:if>dark col-sm-2" href="?keyword=electric">전기차</a>
 					</div>
 				</div>
+				<hr>
 			</div>
-			<div align="center">
-			<hr />
+
+			<div class="container">
+				<div class="container">
+					<div class="row">
+						<a class="btn h4 btn-outline-info col-sm-2" href="${pageContext.request.contextPath}/board/consultation/customer.jsp">고객상담</a>
+						<div class="col-sm-10" align="right">
+							<form class="form col-sm-8" action="#" method="post">
+								<div class="input-group row">
+									<input type="text" class="form-control" name="keyword" placeholder="검색어를 입력해주세요" />
+									<div class="input-group-append">
+										<button class="btn btn-secondary" type="submit">검색하기</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div align="center">
+				<hr />
+			</div>
 
 			<!-- Content List -->
 			<div class="accordion col-sm-11" id="accordiona">

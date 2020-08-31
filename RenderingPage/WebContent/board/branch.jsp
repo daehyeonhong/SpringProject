@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,19 +25,20 @@
 					장기렌터카 지점 안내
 				</button>
 			</div>
+			<hr />
 		</div>
 
-		<div class="container">
-			<form class="form-inline my-2 my-lg-0" action="#" method="post">
-				<div class="input-group mt-3 mb-3">
-					<input type="text" class="form-control" name="keyword"
-						placeholder="검색어를 입력해주세요" />
-					<div class="input-group-append">
-						<button class="btn btn-secondary" type="submit">검색하기</button>
+		<div align="right">
+				<form class="form col-sm-6" action="#" method="post">
+					<div class="input-group">
+						<input type="text" class="form-control" name="keyword" placeholder="검색어를 입력해주세요" />
+						<div class="input-group-append">
+							<button class="btn btn-secondary" type="submit">검색하기</button>
+						</div>
 					</div>
-				</div>
-			</form>
-		</div>
+				</form>
+				<hr />
+			</div>
 
 		<div align="center">
 			<c:if test="${type == 'long'}">
