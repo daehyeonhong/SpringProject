@@ -13,55 +13,41 @@
 	<c:set var="keyword" value="<%=keyword%>"/>
 	<jsp:include page="./customerMenu.jsp" />
 	<article>
-		<div class="container">
-			<div class="col-sm-12 row">
+		<div class="container col-sm-6">
+
+			<div class="row">
 				<span class="h2 col-sm-10">자주 찾는 질문</span>
 				<span class="col-sm-2">breadcrumb</span>
 			</div>
-			<div>
-				<ul class="navbar-nav navbar-expand-sm navbar-light nav-pills">
-					<li class="nav-item">
-					<a class="btn h4 btn-<c:if test="${keyword != 'all'}">outline-</c:if>secondary" href="?keyword=all">전체</a>
-					</li>
-					<li class="nav-item">
-					<a class="btn h4 btn-<c:if test="${keyword != 'direct'}">outline-</c:if>secondary" href="?keyword=direct">다이렉트</a>
-					</li>
-					<li class="nav-item">
-					<a class="btn h4 btn-<c:if test="${keyword != 'newLongterm'}">outline-</c:if>secondary" href="?keyword=newLongterm">신차장기</a>
-					</li>
-					<li class="nav-item">
-					<a class="btn h4 btn-<c:if test="${keyword != 'shortterm'}">outline-</c:if>secondary" href="?keyword=shortterm">단기</a>
-					</li>
-					<li class="nav-item">
-					<a class="btn h4 btn-<c:if test="${keyword != 'usedLongterm'}">outline-</c:if>secondary" href="?keyword=usedLongterm">중고차장기</a>
-					</li>
-					<li class="nav-item">
-					<a class="btn h4 btn-<c:if test="${keyword != 'electric'}">outline-</c:if>secondary" href="?keyword=electric">전기차</a>
-					</li>
-				</ul>
-				<a class="btn h4 btn-outline-secondary" href="${pageContext.request.contextPath}/board/consultation/customer.jsp">고객상담</a>
-			</div>
 
-			 <div align="center">
-			<div class="container col-sm-11 float-right">
-				<form class="form" action="#" method="post">
-					<div class="input-group mt-3 mb-3">
-						<input type="text" class="form-control col-sm-4" name="keyword" placeholder="검색어를 입력해주세요" />
-						<div class="input-group-append">
-							<button class="btn btn-secondary" type="submit">검색하기</button>
-						</div>
+			<div class="container col-sm-12 row">
+				<div class="col-sm-4">
+					<a class="btn h4 btn-outline-info" href="${pageContext.request.contextPath}/board/consultation/customer.jsp">고객상담</a>
+				</div>
+	
+				<div class="col-sm-8">
+					<div class="float-sm-right">
+						<form class="form" action="#" method="post">
+							<div class="input-group mt-3 mb-3 row">
+								<input type="text" class="form-control" name="keyword" placeholder="검색어를 입력해주세요" />
+								<div class="input-group-append">
+									<button class="btn btn-secondary" type="submit">검색하기</button>
+								</div>
+							</div>
+						</form>
 					</div>
-				</form>
+				</div>
 			</div>
+			<div align="center">
 
 			<!-- Tag List -->
-			<div class="container col-sm-11 row">
-					<a class="btn btn-<c:if test="${keyword != 'all'}">outline-</c:if>secondary col-sm-2" href="?keyword=all">전체</a>
-					<a class="btn btn-<c:if test="${keyword != 'direct'}">outline-</c:if>secondary col-sm-2" href="?keyword=direct">다이렉트</a>
-					<a class="btn btn-<c:if test="${keyword != 'newLongterm'}">outline-</c:if>secondary col-sm-2" href="?keyword=newLongterm">신차장기</a>
-					<a class="btn btn-<c:if test="${keyword != 'shortterm'}">outline-</c:if>secondary col-sm-2" href="?keyword=shortterm">단기</a>
-					<a class="btn btn-<c:if test="${keyword != 'usedLongterm'}">outline-</c:if>secondary col-sm-2" href="?keyword=usedLongterm">중고차장기</a>
-					<a class="btn btn-<c:if test="${keyword != 'electric'}">outline-</c:if>secondary col-sm-2" href="?keyword=electric">전기차</a>
+			<div class="container row">
+					<a class="btn btn-<c:if test="${keyword != 'all'}">outline-</c:if>dark col-sm-2" href="?keyword=all">전체</a>
+					<a class="btn btn-<c:if test="${keyword != 'direct'}">outline-</c:if>dark col-sm-2" href="?keyword=direct">다이렉트</a>
+					<a class="btn btn-<c:if test="${keyword != 'newLongterm'}">outline-</c:if>dark col-sm-2" href="?keyword=newLongterm">신차장기</a>
+					<a class="btn btn-<c:if test="${keyword != 'shortterm'}">outline-</c:if>dark col-sm-2" href="?keyword=shortterm">단기</a>
+					<a class="btn btn-<c:if test="${keyword != 'usedLongterm'}">outline-</c:if>dark col-sm-2" href="?keyword=usedLongterm">중고차장기</a>
+					<a class="btn btn-<c:if test="${keyword != 'electric'}">outline-</c:if>dark col-sm-2" href="?keyword=electric">전기차</a>
 			</div>
 
 			<!-- Content List -->
