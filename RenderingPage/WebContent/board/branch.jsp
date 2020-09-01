@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 		String type = request.getParameter("type");
 	%>
 	<c:set var="type" value="<%=type%>" />
-	<jsp:include page="./customerMenu.jsp" />
+	<%@ include file="customerMenu.jsp" %>
 	<article class="container col-sm-6">
 		<div class="col-sm-12 row">
 			<span class="h2 col-sm-10">지점안내</span> <span class="col-sm-2">breadcrumb</span>
@@ -80,42 +81,26 @@
 				</c:forEach>
 			</c:if>
 			<c:if test="${type != 'long'}">
-				<c:forEach var="i" begin="0" end="14">
-					<div class="row container">
-						<div class="col-sm-6">
-							<table class="table table-bordered container">
-								<thead>
-									<tr>
-										<td><span>지점명: ${i}지점</span></td>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>
-											<p>주소: ${i}~${i}~${i}~${i}</p>
-											<p>연락처: ${i}~${i}~${i}~${i}</p>
-										</td>
-								</tbody>
-							</table>
-						</div>
-						<div class="col-sm-6">
-							<table class="table table-bordered container">
-								<thead>
-									<tr>
-										<td><span>지점명: ${i}지점</span></td>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>
-											<p>주소: ${i}~${i}~${i}~${i}</p>
-											<p>연락처: ${i}~${i}~${i}~${i}</p>
-										</td>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</c:forEach>
+				<div class="row container">
+					<c:forEach var="i" begin="0" end="14">
+							<div class="col-sm-6">
+								<table class="table table-bordered container">
+									<thead>
+										<tr>
+											<td><span>지점명: ${i}지점</span></td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												<p>주소: ${i}~${i}~${i}~${i}</p>
+												<p>연락처: ${i}~${i}~${i}~${i}</p>
+											</td>
+									</tbody>
+								</table>
+							</div>
+					</c:forEach>
+				</div>
 			</c:if>
 		</div>
 	</article>

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,22 +55,24 @@
 			</div>
 
 			<!-- Content List -->
-			<div class="accordion col-sm-11" id="accordiona">
-				<c:forEach var="i" begin="0" end="14">
-						<div class="card">
-							<div class="card-header" id="heading${i}">
-								<h2 class="mb-0">
-									<button class="btn btn-link card-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${i}" aria-expanded="true" aria-controls="collapse${i}">
-										<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit,${i}</span>
-									</button>
-								</h2>
+			<div align="center">
+				<div class="accordion col-sm-11" id="accordiona">
+					<c:forEach var="i" begin="0" end="14">
+							<div class="card">
+								<div class="card-header" id="heading${i}">
+									<h2 class="mb-0">
+										<button class="btn btn-link card-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${i}" aria-expanded="true" aria-controls="collapse${i}">
+											<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit,${i}</span>
+										</button>
+									</h2>
+								</div>
+
+								<div id="collapse${i}" class="collapse" aria-labelledby="heading${i}" data-parent="#accordiona">
+									<div class="card-body"><span>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra massa massa ultricies mi quis hendrerit dolor magna eget.${i}</span></div>
+								</div>
 							</div>
-		
-							<div id="collapse${i}" class="collapse" aria-labelledby="heading${i}" data-parent="#accordiona">
-								<div class="card-body"><span>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra massa massa ultricies mi quis hendrerit dolor magna eget.${i}</span></div>
-							</div>
-						</div>
-				</c:forEach>
+					</c:forEach>
+				</div>
 			</div>
 
 			<div align="center">

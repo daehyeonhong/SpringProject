@@ -9,6 +9,11 @@
 ${userVO}
 ${UserMapper}
 ${UserMapper.getAdmin}
+${vo.getAdmin}
+${vo.admin}
+${UserVO.getAdmin}
+${vo.id}
+${vo.getId}
 	<table>
 		<thead>
 			<tr>

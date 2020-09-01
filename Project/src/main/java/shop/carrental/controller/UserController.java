@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
-import shop.carrental.mapper.UserMapper;
+import shop.carrental.model.UserVO;
 
 @Controller
 @RequestMapping("/users/*")
@@ -13,7 +13,7 @@ import shop.carrental.mapper.UserMapper;
 public class UserController {
 
 	@Setter(onMethod_ = @Autowired)
-	private UserMapper userMapper;
+	private UserVO vo;
 
 	@RequestMapping("")
 	public void basic() {
@@ -23,7 +23,7 @@ public class UserController {
 	@RequestMapping("/getAdmin")
 	public String getAdmin() {
 		log.info("getAdmin 접근");
-		log.info("UserVO 정보: " + userMapper.getAdmin());
+		log.info("UserVO 정보: " + vo.getAdmin());
 		return "getAdmin";
 	}
 
