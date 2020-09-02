@@ -2,6 +2,7 @@ package shop.carrental.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -24,7 +25,7 @@ public class UserController {
 	public String getAdmin() {
 		log.info("getAdmin 접근");
 		log.info("UserVO 정보: " + vo.getAdmin());
-		return "getAdmin";
+		return "users/getAdmin";
 	}
 
 }

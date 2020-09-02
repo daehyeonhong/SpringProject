@@ -46,7 +46,7 @@ border: 1px solid red;}
 </style>
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
 <meta charset="UTF-8" />
-<title>장기 중고</title>
+<title>장기 중고 상세</title>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -79,13 +79,105 @@ border: 1px solid red;}
 			<h1 class="display-3">장기 중고 렌트</h1>
 		</div>
 	</div>	
+	
 <div class="container">
+<h4>다이렉트 견적조회</h4>
+<hr style="border: solid 1px black " /> 
+
+	<div class="row" style="border: 1px solid #eeeeee">
+			<div class="col-md-5" style="border-spacing: 5px;">
+				<img src="car.jpg" style="width: 100%;">
+			</div>
+			<div class="col-md-1">
+			
+			</div>
+			<div class="col-md-6">
+				<br><br>
+				<h3>기아자동차 모닝</h3>
+				<!-- <p>
+					<small style="color: red;">작은 차 큰 기쁨을 느끼고 싶다면, 기아 모닝</small>
+				</p> -->
+				<hr>
+				<table>
+					<tr>
+						<td colspan="2"><span><strong>모델명</strong></span></td>
+						<td>올 뉴모닝 1.0[가솔린]VAN</td>
+					</tr>
+					<tr>
+						<td colspan="2"><span><strong>소비자 가</strong></span>  &nbsp; &nbsp; &nbsp;</td>
+						<td>10,700,000 원</td>
+					</tr>
+					<tr>
+						<td colspan="2"><span><strong>계약 기간</strong></span></td>
+						<td>최대11개월</td>
+					</tr>
+				</table>
+				<hr>
+				<p>
+					표준렌탈료 &nbsp; &nbsp; &nbsp; <font size="5" color="red"> 280,000</font>원
+				</p>
+				
+			</div>
+		</div>
 
 
 
+		<div>
+		<br><br>
+			<h4>차량 정보</h4>
+			<hr style="border: solid 1px black " /> 
+			<div>
+				<table class="table" id="table">
+					<tr>
+						<th class="bg-light text-dark">제조사</th>
+						<td>기아자동차</td>
+						<th class="bg-light text-dark">차량번호</th>
+						<td>18호5047</td>
+					</tr>
+					<tr>
+						<th class="bg-light text-dark">차종</th>
+						<td>모닝</td>
+						<th class="bg-light text-dark">최초 등록일</th>
+						<td>2017-10-18</td>
+					</tr>
+					<tr>
+						<th class="bg-light text-dark">모델명</th>
+						<td colspan="3">올 뉴모닝 1.0[가솔린]VAN</td>
+					</tr>
+					<tr>
+						<th class="bg-light text-dark">제조사차량옵션</th>
+						<td colspan="3">4단자동변속기</td>
+					</tr>
+					<tr>
+						<th class="bg-light text-dark" >제조사차량옵션2</th>
+						<td colspan="3">-</td>
+					</tr>
+					<tr>
+						<th class="bg-light text-dark">주행거리</th>
+						<td>62,256 km</td>
+						<th class="bg-light text-dark">연료</th>
+						<td>휘발유</td>
+					</tr>
+					<tr>
+						<th class="bg-light text-dark">배기량</th>
+						<td>1,000 cc</td>
+						<th class="bg-light text-dark">색상</th>
+						<td>스파클링실버</td>
+					</tr>
+					<tr>
+						<th class="bg-light text-dark">지역</th>
+						<td colspan="3"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
 
-<button class="accordion">계약 기간: &nbsp&nbsp&nbsp <span id="result1"></span></button>
-<div class="panel"><span>차량 운행할수 있는 총 대여기간: &nbsp &nbsp &nbsp &nbsp</span>
+
+<h4> 렌트 조건 선택 </h4>
+<hr style="border: solid 1px black " /> 
+
+<button class="accordion">계약 기간: &nbsp;&nbsp;&nbsp;<span id="result1"></span></button>
+<div class="panel"><span>차량 운행할수 있는 총 대여기간: &nbsp; &nbsp; &nbsp; &nbsp;</span>
 <select name="cntrTermMm" id="cntrTermMm1" class="option01" onchange="checkTest1()" >
 <option value="1개월">1개월</option>	
 <option value="2개월">2개월</option>	
