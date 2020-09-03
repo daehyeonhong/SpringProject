@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.0/css/bootstrap.min.css">
 </head>
 <body>
-<div class="container col-sm-8">
+<div class="container col-sm-6">
 <!--후기 가이드라인 -->
 <div class="form-group border">
     	<fieldset>
@@ -17,12 +17,12 @@
     			   	<div  style="text-align: center; color:#7A7A7A;">
     			   	<b>봄,여름,가을,겨울시즌마다 포토후기를 써주신 고객들 중 네분을 추첨하여 TT렌터카 적립금 30000만원을 드립니다.</b>
     			   	</div>
-    	
     	</fieldset>
     	</div>
 
 
 
+<div class="container">
 <!-- 리뷰메뉴바 -->
 <nav class="navbar navbar-expand-sm bg-light navbar-light">
   <ul class="container navbar-nav">
@@ -43,12 +43,12 @@
 	<div class="nav navbar-secondary bg-secondary">2020년 Review Winner</div>
 	<div class="row">
 	<c:forEach begin="0" end="3">
-		<table class="col-sm-3" style="max-height: 400px">
+		<table class="col-sm-3" style="width: 100%;">
 			<tr>
-				<td>
+				<td class="col-sm-12">
 	 					<div class="card"><!-- style="border:1px solid red;" -->
 	   				<img class="card-img-top" src="./resources/images/king.PNG " width="100%" onclick="location.href='./review_winnerDetail.jsp'">
-	  					 <div class="card-body">
+	  					 <div class="card-body" align="center">
 	    					 <p class="card-text">SUMMER WINNER</p>
 	  					 </div>
 					 </div>
@@ -59,7 +59,7 @@
 </c:forEach>
 </div>
 </c:forEach>
-
+</div>
 <!-- 페이지쪽수 -->
 	<ul class="pagination justify-content-center">
 				<li class="page-item"><a class="page-link" href="#pre"
@@ -76,7 +76,6 @@
 						class="sr-only">Next</span>
 				</a></li>
 			</ul>
-
 
 </div>
 </body>

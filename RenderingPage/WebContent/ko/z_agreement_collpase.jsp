@@ -7,12 +7,44 @@
 <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#0,#1, #2, #3, #4, #5").mouseover(function(){
+			$(this).css("cursor","pointer");
+		});
+		
+ $("#0").click(function(){
+		if($("#0").get(0).style.color == "black"){
+					$("#0").css("color","orange");
+					$("#1").css("color","orange");
+					$("#2").css("color","orange");
+					$("#3").css("color","orange");
+					$("#4").css("color","orange");
+					$("#5").css("color","orange");
+				}else{
+					$("#0").css("color","black");
+					$("#1").css("color","black");
+					$("#2").css("color","black");
+					$("#3").css("color","black");
+					$("#4").css("color","black");
+					$("#5").css("color","black");
+				}
+		});  
+
+ $("#1, #2, #3, #4, #5").click(function(){ 
+		if($(this).get(0).style.color == "black") {
+			$(this).css("color", "orange");
+		} else {
+			$(this).css("color", "black");
+		}
+	});
+	});
+</script>
 </head>
 <body>
-
   <div id="accordion">
    <div class="card-header">
-        <svg style="color:black;" width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <svg id="0" style="color:black;" width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
   <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/>
 </svg> 
@@ -20,11 +52,11 @@
       </div>
     <div class="card">
       <div class="card-header">
-        <a style="color:black;"class="card-link" data-toggle="collapse" href="#collapseOne">
-        <svg width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <svg id="1" width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
   <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/>
 </svg> 
+        <a style="color:black;"class="card-link" data-toggle="collapse" href="#collapseOne">
           고유식별정보 수집 및 이용에 관한 동의<strong>(필수)</strong>
         </a>
       </div>
@@ -43,11 +75,11 @@
     </div>
     <div class="card">
       <div class="card-header">
-        <a style="color:black;" class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-        <svg  width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <svg  id="2" width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
   <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/>
 </svg> 
+        <a style="color:black;" class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
         개인정보의 수집 항목 및 이용목적<strong>(필수)</strong>
       </a>
       </div>
@@ -67,11 +99,11 @@
 </div>
     <div class="card">
       <div class="card-header">
-        <a class="collapsed card-link" style="color:black;" data-toggle="collapse" href="#collapseThree">
-        <svg width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <svg id="3" width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
   <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/>
 </svg> 
+        <a class="collapsed card-link" style="color:black;" data-toggle="collapse" href="#collapseThree">
           자동차 표준 대여 약관 동의<strong>(필수)</strong>
         </a>
       </div>
@@ -180,11 +212,11 @@
       </div>
     <div class="card">
       <div class="card-header">
-        <a class="collapsed card-link" style="color:black;" data-toggle="collapse" href="#collapseFour">
-        <svg width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <svg id="4" width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
   <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/>
 </svg> 
+        <a class="collapsed card-link" style="color:black;" data-toggle="collapse" href="#collapseFour">
           취소 및 위약금 규정 동의<strong>(필수)</strong>
         </a>
       </div>
@@ -202,11 +234,11 @@
     </div>
     <div class="card">
       <div class="card-header">
-        <a class="collapsed card-link" style="color:black;" data-toggle="collapse" href="#collapseFive">
-        <svg width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <svg id="5" width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L8 9.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
   <path fill-rule="evenodd" d="M8 2.5A5.5 5.5 0 1 0 13.5 8a.5.5 0 0 1 1 0 6.5 6.5 0 1 1-3.25-5.63.5.5 0 1 1-.5.865A5.472 5.472 0 0 0 8 2.5z"/>
 </svg> 
+        <a class="collapsed card-link" style="color:black;" data-toggle="collapse" href="#collapseFive">
          대여자격 확인 동의<strong>(필수)</strong>
         </a>
       </div>

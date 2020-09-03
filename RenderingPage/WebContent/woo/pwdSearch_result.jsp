@@ -1,86 +1,40 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-
-<!-- css���� -->
-<style type="text/css">
-.container {
-	max-width: 700px;
-	height: 200px;
-	margin: 10px auto;
-	padding: 5px;
-	position: relative;
-}
-
-.container1 {
-	width: 550px;
-	border-radius: 5px;
-	padding: 100px;
-}
-
-.textDiv1 {
-	padding: 10px;
-	margin-bottom: 10px;
-	text-align: center;
-}
-
-.textDiv2 {
-	padding: 10px;
-	margin-bottom: 10px;
-	text-align: center;
-}
-
-.text {
-	border-style: solid;
-	border-width: 2px;
-	padding: 12px;
-	word-break: break-all;
-	border-color: #EAEAEA;
-	width: 450px;
-}
-
-.button4 {
-	background-color: white;
-	color: black;
-	border: 2px solid #E7E7E7;
-	width: 150px;
-	height: 40px;
-}
-
-.button4:hover {
-	background-color: #e7e7e7;
-}
-
-.btnCtl {
-	text-align: center;
-}
-</style>
-
+<title>비밀번호 찾기 결과</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="container">
-		<div class="container1">
-			<h1 align="center">�ű� ��й�ȣ ���</h1>
-			<p align="center">����Ȯ���� �Ϸ�Ǿ����ϴ�. �ű� ��й�ȣ�� ��� �� ������ּ���.</p>
+	<div class="container col-sm-3" align="center">
+		<h2>신규 비밀번호 등록</h2>
+		<p align="center">본인확인이 완료되었습니다.</p>
+		<p align="center">신규 비밀번호를 등록 후 사용해주세요.</p>
+		<br>
 
-			<div class="textDiv1">
-				<input type="text" class="text"
-					placeholder="��й�ȣ �Է�(���� ���� ����,���� ���� 10~20�� �̳�)" />
+		<form action="./login.jsp">
+			<div class="form-group">
+				<input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 입력(띄어쓰기 없이 영문,숫자 포함 10~20자 이내)">
 			</div>
-			<div class="textDiv2">
-				<input type="text" class="text" placeholder="��й�ȣ ���Է�" />
+			<div class="form-group">
+				<input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" placeholder="비밀번호 재입력">
 			</div>
-
-			<div class="btnCtl">
-				<button class="button4">���</button>
-				<button class="button4">����Ϸ�</button>
+			<div class="row container">
+				<!-- 눌렀을시 로그인으로 되돌아오기 -->
+				<button type="button" class="btn btn-secondary col-sm-6" onclick="location.href='./login.jsp'">취소</button>
+				<!--눌렀을시 이벤트주기   -->
+				<input type="submit" class="btn btn-danger col-sm-6" value="변경완료" />
 			</div>
-		</div>
+			<script>
+				function button1_click() {
+					alert("비밀번호가 새로 변경되었습니다.");
+				}
+			</script>
+		</form>
 	</div>
-
 </body>
 </html>

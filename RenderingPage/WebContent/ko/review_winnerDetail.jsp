@@ -1,32 +1,40 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>올해의 리뷰</title>
+<title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.0/css/bootstrap.min.css">
 </head>
 <body>
-<div class="container col-sm-8">
-<!--후기 가이드라인 -->
+<div class="container col-sm-6">
+<div class="container">
+<br>
+<br>
+<table style="width: 100%;">
+<tr class="row" style="text-align: center;">
+<td class="col-sm-4"></td>
+<td class="col-sm-4 border" width="100%">
+<img src="./resources/images/camera.PNG" width="50%">
+		<div class="card" style="border: none;">
+		<h1>REVIEW</h1>
+		<h1>WINNER</h1>
+		</div>
+</td>
+<td class="col-sm-4"></td> 
+</tr>
+<tr>
+<td colspan="3" align="center">
+<br>
+<h4>TT렌터카 2020년 SUMMER 리뷰</h4>
+</td>
+</tr>
+</table>
 
-<!-- 리뷰메뉴바 -->
-<nav class="navbar navbar-expand-sm bg-light navbar-light">
-  <ul class="container navbar-nav">
-    <li class="nav-item active">    
-      <a class="nav-link" href="review.jsp">포토리뷰</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="review_text.jsp">글리뷰</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="review_winner.jsp">리뷰위너</a>
-    </li>
-  </ul>
-</nav>
-
-<c:forEach var="i" begin="1" end="3">
+<br>
+<c:forEach var="i" begin="1" end="2">
 <div class="shadow p-4 mb-4 bg-light">
 <hr>
 	<div class="row">
@@ -40,7 +48,7 @@
 			<tr class="row">
 			<td class="col"></td>
 			<td>
-			<div class="imageimage" onclick="location.href='./branch_product.jsp'" style="width:150px">
+			<div class="imageimage" onclick="location.href='../lim/product.jsp'" style="width:150px">
 			<div class="top bg-info" align="center">자세히 보기
 			<img src="./resources/images/car.jpg" width="150px">
 			</div>
@@ -73,7 +81,7 @@
 			<table>
 			<tr class="row">
 			<td class="col">
-			<div class="imageimage" onclick="location.href='./branch_product.jsp'" style="width:150px">
+			<div class="imageimage" onclick="location.href='../lim/product.jsp'" style="width:150px">
 			<div class="top bg-info" align="center">자세히 보기
 			<img src="./resources/images/car.jpg" width="150px">
 			</div>
@@ -106,26 +114,7 @@
 </div>
 </div>
 </c:forEach>
-
-
-<!-- 페이지쪽수 -->
-	<ul class="pagination justify-content-center">
-				<li class="page-item"><a class="page-link" href="#pre"
-					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-						<span class="sr-only">Previous</span>
-				</a></li>
-				<c:forEach var="i" begin="1" end="10">
-					<li class="page-item">
-						<a class="page-link" href="#">${i}</a>
-					</li>
-				</c:forEach>
-				<li class="page-item"><a class="page-link" href="#next"
-					aria-label="Next"> <span aria-hidden="true">&raquo;</span> <span
-						class="sr-only">Next</span>
-				</a></li>
-			</ul>
-
-
+</div>
 </div>
 </body>
 </html>

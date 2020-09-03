@@ -4,9 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>TT장기렌터카 다이렉트</title>
+<title>TT 신차 장기 렌터카</title>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
@@ -19,25 +18,21 @@
 <body>
 
 
-	<div class="content">
+	<div class="container col-sm-6">
 		<div class="container">
+			<h1 class="display-5">TT 신차 장기 렌터카</h1>
+		</div>
+		<br>
+		<br>
 
-			<!--  -->
-			<div class="jumbotron">
-				<h1 class="display-3">TT장기렌터카 다이렉트</h1>
-			</div>
+		<div class="container">
+			<table style="width: 100%">
+				<tr>
+					<td align="left"><h2>TT 신차 장기 렌터카</h2></td>
+					<td align="right">? > 장기렌터카 > TT 신차 장기 렌터카</td>
+				</tr>
+			</table>
 
-			<!--  -->
-
-
-			<div class="row">
-				<table style="width: 100%">
-					<tr>
-						<td align="left"><h2>TT장기렌터카 다이렉트</h2></td>
-						<td align="right">? > 장기렌터카 > TT장기렌터카 다이렉트</td>
-					</tr>
-				</table>
-			</div>
 
 			<!--  -->
 
@@ -74,7 +69,7 @@
 					<tr>
 						<td rowspan="6" style="width: 35%"><img
 							src="https://image.speedmate.com/speedimg/rentcar/687048/20200515/17/175355397mbl_41f63b7b95834433a740529d4de12a75.png"
-							alt="현대자동차 G80 2.5T AWD" width="100%" height="100%"></td>
+							alt="현대자동차 G80 2.5T AWD" width="100%" height="80%"></td>
 					</tr>
 					<tr width="100%" height="100%">
 						<td align="center">벤츠</td>
@@ -119,7 +114,7 @@
 					<tr>
 						<td rowspan="6" style="width: 35%"><img
 							src="https://image.speedmate.com/speedimg/rentcar/687048/20200515/17/175355397mbl_41f63b7b95834433a740529d4de12a75.png"
-							alt="현대자동차 G80 2.5T AWD" width="100%" height="100%"></td>
+							alt="현대자동차 G80 2.5T AWD" width="100%" height="80%"></td>
 					</tr>
 					<tr width="100%" height="100%">
 						<td align="center">벤츠</td>
@@ -163,7 +158,7 @@
 					<tr>
 						<td rowspan="6" style="width: 35%"><img
 							src="https://image.speedmate.com/speedimg/rentcar/687048/20200515/17/175355397mbl_41f63b7b95834433a740529d4de12a75.png"
-							alt="현대자동차 G80 2.5T AWD" width="100%" height="100%"></td>
+							alt="현대자동차 G80 2.5T AWD" width="100%" height="80%"></td>
 					</tr>
 					<tr width="100%" height="100%">
 						<td align="center">벤츠</td>
@@ -210,7 +205,7 @@
 					<tr>
 						<td rowspan="6" style="width: 35%"><img
 							src="https://image.speedmate.com/speedimg/rentcar/687048/20200515/17/175355397mbl_41f63b7b95834433a740529d4de12a75.png"
-							alt="현대자동차 G80 2.5T AWD" width="100%" height="100%"></td>
+							alt="현대자동차 G80 2.5T AWD" width="100%" height="80%"></td>
 					</tr>
 					<tr width="100%" height="100%">
 						<td align="center">벤츠</td>
@@ -253,7 +248,7 @@
 					<tr>
 						<td rowspan="6" style="width: 35%"><img
 							src="https://image.speedmate.com/speedimg/rentcar/687048/20200515/17/175355397mbl_41f63b7b95834433a740529d4de12a75.png"
-							alt="현대자동차 G80 2.5T AWD" width="100%" height="100%"></td>
+							alt="현대자동차 G80 2.5T AWD" width="100%" height="80%"></td>
 					</tr>
 					<tr width="100%" height="100%">
 						<td align="center">벤츠</td>
@@ -290,13 +285,6 @@
 
 			<hr>
 			<br>
-
-
-			<!--  -->
-
-			<div class="jumbotron">
-				<h1 class="display-3">TT장기렌터카 다이렉트</h1>
-			</div>
 
 		</div>
 	</div>

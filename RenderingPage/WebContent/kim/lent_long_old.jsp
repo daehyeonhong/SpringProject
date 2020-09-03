@@ -1,4 +1,9 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"  %>
+<% request.setCharacterEncoding("utf-8"); 
+String carname=request.getParameter("carname"); %>
+<%@include file="dbconn.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,14 +91,25 @@ border: 1px solid red;}
 
 	<div class="row" style="border: 1px solid #eeeeee">
 			<div class="col-md-5" style="border-spacing: 5px;">
-				<img src="car.jpg" style="width: 100%;">
+				<img src="resources/images/car.jpg" style="width: 100%;">
 			</div>
 			<div class="col-md-1">
 			
 			</div>
 			<div class="col-md-6">
 				<br><br>
-				<h3>기아자동차 모닝</h3>
+				<sql:setDataSource var="dataSource"
+			url="jdbc:oracle:thin:@localhost:1521:XE"
+			driver="oracle.jdbc.driver.OracleDriver"
+			user="hr" password="hr"/>
+			<sql:query var="resultSet" dataSource="${dataSource}">
+			select * from member where carname=?
+			 <sql:param value="<%=carname%>"/>
+			</sql:query>
+				
+				<h3><c:forEach var="row" items="${resultSet.rows}">
+				<c:out value="${row.carname}"/>
+				</c:forEach></h3>
 				<!-- <p>
 					<small style="color: red;">작은 차 큰 기쁨을 느끼고 싶다면, 기아 모닝</small>
 				</p> -->

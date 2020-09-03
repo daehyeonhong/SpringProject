@@ -1,18 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page import="java.time.LocalDate"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<meta charset="UTF-8">
+<title>포토리뷰</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.0/css/bootstrap.min.css">
 </head>
 <body>
-<div class="container col-sm-8">
-
-<!--후기 가이드라인 -->
+<div class="container col-sm-6">
 <div class="form-group" style="background-color: #FFF4F0;">
     	<fieldset>
     		<legend align="center"><h1>Review Guideline</h1></legend>
@@ -20,22 +19,28 @@
     		 		<div class="col-sm-3"></div>
     		 			 <div class="card bg-light float-left col-sm-2">
      					 <div class="card-body text-center">
-     					 <img src="./resources/images/pen.PNG" width="100px" height="76.14px">
-     					   <h5 class="card-text"><br>글 후기</h5>
+     					 <div class="image-top">
+     					 <img src="./resources/images/pen.PNG" width="65%">
+     					 </div>
+     					   <h6 class="card-text"><br>글 후기</h6>
      					   	 <b>5000 won</b>
     					</div>
     					</div>
     		              <div class="card bg-light float-left col-sm-2">
      					 <div class="card-body text-center">
-     					 <img src="./resources/images/camera.PNG" width="100px" >
-     					   <h5 class="card-text"><br>사진 후기</h5>
+     					 <div class="image-top">
+     					 <img src="./resources/images/camera.PNG" width="100%" >
+     					 </div>
+     					   <h6 class="card-text"><br>사진 후기</h6>
      					   	 <b>10000 won</b>
       					  </div>
     					</div>
     					 <div class="card bg-light float-left col-sm-2">
      					 <div class="card-body text-center">
-     					 <img src="./resources/images/king.PNG" width="100px" >
-     					   <h5 class="card-text"><br>올해의 후기</h5>
+     					 <div class="image-top">
+     					 <img src="./resources/images/king.PNG" width="100%" >
+     					 </div>
+     					   <h6 class="card-text"><br>올해의 후기</h6>
      					   	 <b>30000 won</b>
       					  </div>
     			   		 </div>
@@ -45,23 +50,20 @@
     			   	<br>
     		 		<div class="row">
     		 	 <div class="col-sm-6" style="border-right: 2px solid white;">
-     					 <div class="col-sm-10">
-     					 <div class="card-body" style="background-color: #FFF4F0;">
-     					 <h4 class="text-center">[적립금 지급 관련 공지사항]</h4>
+     					 <div class="card-body col-sm-12" style="background-color: #FFF4F0; width:100%;">
+     					 <h5 class="text-center">[적립금 지급 관련 공지사항]</h5>
      					   <ul class="card-text">
      					   	<li>300만원 이하 상품인 경우 최대 30000원지급</li>
     		 				<li>후기적립금은 상품 예약 수 당 1회로 지급</li>
     		 				<li>글자 수가 100자 이상 되어야 함</li>
     		 				<li>후기 적립금은 휴먼 적립금으로 전환시 소멸됩니다.</li>
      					   </ul> 
-    					</div> 
     					</div>
     					</div>
     
     					<div class="col-sm-6">
-    					 <div class="col-sm-10">
-     					 <div class="card-body" style="background-color: #FFF4F0;">
-     					 <h4 class="text-center">[적립금 지급이 되지 않는 경우]</h4>
+     					 <div class="card-body col-sm-12" style="background-color: #FFF4F0; width:100%;">
+     					 <h5 class="text-center">[적립금 지급이 되지 않는 경우]</h5>
      					 <ul class="card-text">
      					   	<li>구매내역을 확인할 수 없는 경우</li>
     		 			<li>렌트 수령 후 7일이 지난 경우</li>
@@ -70,17 +72,18 @@
     		 			<li>성의 없는 후기는 적립금 지급 제외</li>
      					   </ul> 
     					</div>
-    					</div>
     			 </div> 
     			 </div>
     	</fieldset>
     	</div>
-    	
-<!-- 리뷰 메뉴바-->
+
+<!-- 리뷰메뉴바 -->
+
+<div class="container">
 <nav class="navbar navbar-expand-sm bg-light navbar-light"><!--  style="text-align: center;" --><!--  style="position:fixed;" -->
   <ul class="container navbar-nav">
     <li class="nav-item active">    
-      <a class="nav-link" href="#">포토리뷰</a>
+      <a class="nav-link" href="review_photo.jsp">포토리뷰</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="review_text.jsp">글리뷰</a>
@@ -89,15 +92,18 @@
       <a class="nav-link" href="review_winner.jsp">리뷰위너</a>
     </li>
   </ul>
-</nav> 
+</nav>
+</div>
 
-<nav class="navbar navbar-inverse row" style="border:1px solid orange">
-  <div class="container-fluid">
-    <div class="navbar-header col-sm-2">
+
+<div class="container col-sm-12">
+<nav class="navbar navbar-inverse" style="border:1px solid orange ">
+  <div class="container-fluid row" style="width: 100%;">
+    <div class="navbar-header col-sm-2" style="font-size: 14px; ">
              카테고리별 보기
     </div>
     <ul class="nav navbar-nav navbar-left col-sm-5">
-    	<li><select class="form-control " id="sel1" style="width: 100%;">
+    	<li><select class="form-control row" id="sel1" style="width: 100%;">
         <option>전체</option>
         <option>단기렌트</option>
         <option>중고장기</option>
@@ -123,36 +129,42 @@
     </form>
   </div>
 </nav>
+</div>
 <br>
 <br>
 
-<!--글 테이블-->
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>NO</th>
-        <th>CATEGORY</th>
-        <th>SUBJECT</th>
-        <th>NAME</th>
-        <th>DATE</th>
-      </tr>
-    </thead>
-    <tbody>
-    <c:forEach begin="0" end="14"  step="1" varStatus="status">           
-      <tr>
-        <td>${status.count}</td>
-        <td>[단기렌터카]</td>
-        <td>8월 무이자 할부안내 </td>
-        <td>TT렌터카</td>
-        <td>20-08-27</td>
-      </tr>
-      </c:forEach>
-    </tbody>
-  </table>
-  <br>
-  
-  <!-- 페이지 쪽수  -->
-  <ul class="pagination justify-content-center">
+
+<div class="container  col-sm-12">
+<!-- 포토리뷰창 -->
+<div class="row">
+	<c:forEach begin="0" end="10">
+		<table class="col-sm-4" style=" width: 100%;">
+			<tr>
+				<td class="container">
+	 					<div class="card">
+	   				<img class="card-img-top" src="./resources/images/car.jpg" alt="Card image" onclick="location.href='./review_photoDetail.jsp'">
+	  					 <div class="card-body">
+	    					 <div class="float-right">평점 : 5</div>
+	    					  <span class="badge badge-danger col-sm-3" style="font-size: 10px;">강남지점</span>
+	    					  <div class="row input-group-append">
+	    					 <b class="col-sm-8"><br>람보르기니 좋아요</b>
+	    					 </div>
+	    					 <hr>
+	    					 <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+	     					<hr>
+							 <span id="id" style="width: 50%">ID:all1</span>
+							 <p id="date1" class="float-right" class="alldate"></p>
+	  					 </div>
+					 </div>
+					 <br>
+	  			</td>
+	  		</tr>
+		</table>	
+	</c:forEach>
+</div>
+	
+	<!-- 페이지쪽수 -->
+	<ul class="pagination justify-content-center">
 				<li class="page-item"><a class="page-link" href="#pre"
 					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 						<span class="sr-only">Previous</span>
@@ -168,6 +180,28 @@
 				</a></li>
 			</ul>
 </div>
-  
+</div>
+<!-- 
+<script>
+
+ $(document).ready(function(){
+	$(".alldate").css("color", "red");
+ });
+</script> -->
+<script>
+$(document).ready(function(){
+  $(".id").click(function(){
+    $(this).css("color", "red");
+  });
+});
+</script>
+</head>
+
+
+<script>
+let d = new Date();
+document.getElementById("date1").innerHTML = d.getFullYear()+'/'+d.getMonth()+'/'+d.getDate();
+
+</script>
 </body>
 </html>

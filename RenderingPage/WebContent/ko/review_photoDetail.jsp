@@ -11,9 +11,10 @@
 <body>
 <br>
 <br>
-<div class="container col-sm-8">
+<div class="container col-sm-6">
 <div class="row">
 <!-- 포토리뷰창 -->
+<div class="col-sm-12">
 	<table style="width:100%;">
 		<tr style="height: 100%">
 			<td>
@@ -38,7 +39,7 @@
   			</td>
   			<td>
 	</table>	
-	
+</div>	
 </div>
 </div>
 <script>

@@ -1,68 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-
-<!-- css���� -->
-<style type="text/css">
-.container {
-	max-width: 700px;
-	height: 200px;
-	margin: 10px auto;
-	padding: 5px;
-	position: relative;
-}
-
-.container1 {
-	width: 550px;
-	border-radius: 5px;
-	padding: 100px;
-}
-
-.btnCtl {
-	text-align: center;
-	margin-top: 20px;
-}
-
-.button4 {
-	background-color: white;
-	color: black;
-	border: 2px solid #E7E7E7;
-	width: 150px;
-	height: 40px;
-}
-
-.button4:hover {
-	background-color: #e7e7e7;
-}
-
-.divInfo {
-	border-bottom: 2px solid #E7E7E7;
-	margin-top: 50px;
-}
-</style>
-
+<title>아이디찾기 결과</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="container">
-		<div class="container1">
-			<h1 align="center">���̵� ã��Ϸ�</h1>
-			<p align="center">ȸ������ �Է��Ͻ� ������ ��ġ�ϴ� ���̵��Դϴ�.</p>
-			<p align="center">����������ȣ�� ���� ���������� �Ϻδ� ***�� ǥ���Ͽ����ϴ�.</p>
-
-			<div class="divInfo">
-				<p align="center">dnwjdal***&nbsp;&nbsp;&nbsp;������ : 2020.08.19</p>
-				<p align="center">����ä�� : SK����ī</p>
-			</div>
-
-			<div class="btnCtl">
-				<button class="button4">��й�ȣ ã��</button>
-				<button class="button4">�α���</button>
-			</div>
+<div class="container col-sm-3" align="center">
+	<h3 class="display-4">아이디 찾기 완료</h3>
+		<p align="center">회원님이 입력하신 정보와 일치하는 아이디입니다.</p>
+		<p align="center">개인정보보호를 위해 개인정보의 일부는 ***로 표시하였습니다.</p>
+		<div class="divInfo">
+			<p align="center">dnwjdal***&nbsp;&nbsp;&nbsp;가입일 : 2020.08.19</p>
+			<p align="center">가입채널 : SK렌터카</p>
 		</div>
+		<hr />
+				<button type="button" class="btn btn-secondary col-sm-5" onclick="location.href='./pwdSearch.jsp'">비밀번호 찾기</button>
+				<button type="button" class="btn btn-danger col-sm-5" onclick="location.href='./login.jsp'">로그인</button>
 	</div>
 
 </body>

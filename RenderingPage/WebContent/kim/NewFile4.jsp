@@ -1,26 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@include file="dbconn.jsp" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- CSS only -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<!-- JS, Popper.js, and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
 
 <title>중고차 장기 검색</title>
 </head>
 <body>
-<!-- <script>
-$(document).ready(function(){
-	$("#sellist1").click(function(){
-		$("#sellist2").attr("disabled",false);
-	});
-});
-</script> -->
+
+
 
 <script>
 function chtest1(){
@@ -116,7 +112,7 @@ if(checked==0){
 </script>
 
 
-
+	
 
 <div class="jumbotron">
 <h2>중고차 장기 렌트</h2>
@@ -252,26 +248,39 @@ if(checked==0){
 <h3>검색결과</h3>
 <hr style="border: solid 1px black " /> 
 
-<table class="table table-bordered">
-<tr>
-<td>
-  <div onclick="location.href='NewFile3.jsp'" class="card" style="width:550px; height:300px; ">
+<%ResultSet rs=null;
+PreparedStatement pstmt=null;
+try{
+	String sql="select * from member where facname=?";
+	pstmt = con.prepareStatement(sql); 
+ 	pstmt.setString(1, "기아");
+	rs=pstmt.executeQuery();%>
+	
+	<div class="row" >
+	<% while(rs.next()){
+		String id=rs.getString("id");
+		String carname=rs.getString("carname");
+		String facname=rs.getString("facname");
+		%>
+
+
+  <div  onclick="location.href='lent_long_old.jsp?carname=<%=carname %>'" class="card col-sm-6 " style="width:500px; height:300px; ">
     <div>
    <img class="card-img-top col-sm-8" src="./resources/images/car.jpg" alt="Card image" style="width:250px">
-    <span class="col-sm-3">기아 자동차 	2018 K7 2.4 GDI </span>
+    <span class="col-sm-3"><%=carname%> </span>
     </div>
     <div class="card-body">
       <a class="card-title" style="border:1px solid">소비자가 </a>
-      <a class="card-title">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;14,860,000원&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</a>
+      <a >&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;14,860,000원&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</a>
       <a class="card-title" style="border:1px solid red"><span style="color:red"><strong>월 렌탈료</strong></span></a>
-      <a class="card-title">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color:red"><strong>346,000원~</strong></span></a>
+      <a >&nbsp;&nbsp; <span style="color:red"><strong>346,000원~</strong></span></a>
      
       <hr style="border:1px solid"></hr>
       <div class="row">
       <ul class="col-sm-6">
       
-      <li>차량 등록 &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span>2018년</span></li>
-      <li>주행거리  &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span>27,594km</span></li>
+      <li>차량 등록 &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span><%=id %></span></li>
+      <li>주행거리  &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span><%=facname %></span></li>
       </ul>
       <ul class="col-sm-6">
       <li>계약기간  &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span>최대21개월</span></li>
@@ -281,105 +290,32 @@ if(checked==0){
      
     </div>
   </div>
-  </td>
-  
-  <td>
-<div onclick="location.href='NewFile3.jsp'" class="card" style="width:550px; height:300px; ">
-    <div>
-   <img class="card-img-top col-sm-8" src="./resources/images/car.jpg" alt="Card image" style="width:250px">
-    <span class="col-sm-3">기아 자동차 	2018 K7 2.4 GDI </span>
-    </div>
-    <div class="card-body">
-      <a class="card-title" style="border:1px solid">소비자가 </a>
-      <a class="card-title">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;14,860,000원&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</a>
-      <a class="card-title" style="border:1px solid red"><span style="color:red"><strong>월 렌탈료</strong></span></a>
-      <a class="card-title">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color:red"><strong>346,000원~</strong></span></a>
-     
-      <hr style="border:1px solid"></hr>
-      <div class="row">
-      <ul class="col-sm-6">
-      
-      <li>차량 등록 &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span>2018년</span></li>
-      <li>주행거리  &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span>27,594km</span></li>
-      </ul>
-      <ul class="col-sm-6">
-      <li>계약기간  &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span>최대21개월</span></li>
-      <li>지역   &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span>부산</span></li>
-      </ul>
-     </div>
-     
-    </div>
+
+ 
+ 
+  <% 
+	}
+}catch(Exception e){
+	e.getStackTrace();
+}finally{
+	
+		if(rs != null)
+		rs.close();
+		if(pstmt != null)
+			pstmt.close();
+		if(con != null)
+			con.close();
+	
+}
+%>
+
   </div>
-  </td>
-  </tr>
-  
-  <tr><td>
- <div onclick="location.href='NewFile3.jsp'" class="card" style="width:550px; height:300px; ">
-    <div>
-   <img class="card-img-top col-sm-8" src="./resources/images/car.jpg" alt="Card image" style="width:250px">
-    <span class="col-sm-3">기아 자동차 	2018 K7 2.4 GDI </span>
+
     </div>
-    <div class="card-body">
-      <a class="card-title" style="border:1px solid"> 소비자가 </a>
-      <a class="card-title">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;14,860,000원&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</a>
-      <a class="card-title" style="border:1px solid red"><span style="color:red"><strong>월 렌탈료</strong></span></a>
-      <a class="card-title">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color:red"><strong>346,000원~</strong></span></a>
-     
-      <hr style="border:1px solid"></hr>
-      <div class="row">
-      <ul class="col-sm-6">
-      
-      <li>차량 등록 &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span>2018년</span></li>
-      <li>주행거리  &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span>27,594km</span></li>
-      </ul>
-      <ul class="col-sm-6">
-      <li>계약기간  &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span>최대21개월</span></li>
-      <li>지역   &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span>부산</span></li>
-      </ul>
-     </div>
-     
-    </div>
-  </div>
-  </td>
-  
-  <td><div onclick="location.href='NewFile3.jsp'" class="card" style="width:550px; height:300px; ">
-    <div>
-   <img class="card-img-top col-sm-8" src="./resources/images/car.jpg" alt="Card image" style="width:250px">
-    <span class="col-sm-3">기아 자동차 	2018 K7 2.4 GDI </span>
-    </div>
-    <div class="card-body">
-      <a class="card-title" style="border:1px solid">소비자가 </a>
-      <a class="card-title">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;14,860,000원&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</a>
-      <a class="card-title" style="border:1px solid red"><span style="color:red"><strong>월 렌탈료</strong></span></a>
-      <a class="card-title">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="color:red"><strong>346,000원~</strong></span></a>
-      
-      <hr style="border:1px solid"></hr>
-      <div class="row">
-      <ul class="col-sm-6">
-      
-      <li>차량 등록 &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span>2018년</span></li>
-      <li>주행거리  &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span>27,594km</span></li>
-      </ul>
-      <ul class="col-sm-6">
-      <li>계약기간  &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span>최대21개월</span></li>
-      <li>지역   &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span>부산</span></li>
-       
-      </ul>
-     
-     </div>
-    
-     
-    </div>
-  </div>
-  </td>
-  </tr>
-  
-  
-  </table>
 
   
   
   
-  </div>
+  
 </body>
 </html>

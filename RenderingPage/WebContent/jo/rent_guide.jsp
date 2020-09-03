@@ -4,9 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>TT개인 장기 렌트카 안내</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TT 장기 렌트카 서비스 안내</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
@@ -19,25 +17,22 @@
 <body>
 
 
-	<div class="content">
+	<
+	<div class="container col-sm-6">
 		<div class="container">
-
-			<!--  -->
-			<div class="jumbotron">
-				<h1 class="display-3">TT개인 장기 렌트카 안내</h1>
-			</div>
-
-			<!--  -->
+			<h1 class="display-5">TT 장기 렌트카 서비스 안내</h1>
+		</div>
+		<br> <br>
 
 
-			<div class="row">
-				<table style="width: 100%">
-					<tr>
-						<td align="left"><h2>TT개인 장기 렌트카 안내</h2></td>
-						<td align="right">? > 장기렌터카 > 개인 장기렌터카 > TT개인 장기 렌트카 안내</td>
-					</tr>
-				</table>
-			</div>
+		<div class="container">
+			<table style="width: 100%">
+				<tr>
+					<td align="left"><h2>TT 장기 렌트카 서비스 안내</h2></td>
+					<td align="right">? > 장기렌터카 > TT 장기 렌트카 서비스 안내</td>
+				</tr>
+			</table>
+
 
 			<!--  -->
 
@@ -85,7 +80,7 @@
 			</ul>
 
 
-			<!-- Tab panes -->
+			<!-- STEP.01 -->
 			<div class="tab-content">
 				<div id="step1" class="container tab-pane active">
 					<br> <br>
@@ -216,29 +211,20 @@
 							</ul>
 						</div>
 					</div>
-					
-					
-					
+
+
 				</div>
-
-
-
+				<!-- STEP.01 끝 -->
 
 
 				<br> <br>
 
 
-
-
-
-
+				<!-- STEP.02-->
 				<div id="step2" class="container tab-pane fade">
 
 					<h3>STEP.02 결제방법선택</h3>
-					<br>
-
-
-
+					<br> <br>
 
 					<p>차량선택 후 ‘할부, 리스, 렌터카’ 등 결제방법을 선택하셔야 합니다. 하지만 차량 선택 그 이상만큼
 						복잡하고 고려사항이 많은 부분이 결제방법의 선택입니다.</p>
@@ -253,8 +239,6 @@
 						<li>무이자 저리할부 등</li>
 					</ul>
 
-
-
 					<strong>렌터카</strong>
 					<ul>
 						<li>선택형 렌터카</li>
@@ -262,14 +246,16 @@
 						<li>반납형 렌터카</li>
 					</ul>
 
-
-
 					<strong>리스</strong>
 					<ul>
 						<li>금융리스 방식</li>
 						<li>운용리스 방식</li>
 						<li>유예리스 방식</li>
 					</ul>
+
+					<div>
+						<a href="#modal-compare-list">개인 장기렌터카/직접구매/리스 비교</a>
+					</div>
 
 					<br>
 
@@ -304,77 +290,79 @@
 						렌터카는 금융상품의 제약을 최소화하여 편리하게 이용할 수 있습니다.
 					</p>
 					<br> <strong>장기렌터카는 신차구매의 가장 합리적 그리고 안정적인 방법입니다.</strong>
-				
-				
-				
-				<div>
+
+
+
+					<div>
 						<h3>개인사업자 대여요금 비용 처리에 따른 세제 절감 혜택</h3>
 					</div>
 					<hr>
 					<br>
-					
-						
-							<div>
-								<h4>개인사업자</h4>
-							</div>
-							<br>
-							<table border="1">
-								<colgroup>
-									<col width="230px">
-									<col width="230px">
-									<col width="230px">
-									<col width="*">
-								</colgroup>
 
 
-								<thead>
-									<tr>
-										<th scope="col">과제표준</th>
-										<th scope="col">1,200만원 초과 ~ 4,600만원 이하</th>
-										<th scope="col">4,600만원 초과 ~ 8,800만원 이하</th>
-										<th scope="col">8,800만원 초과 ~ 3억원 이하</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>소득세율</td>
-										<td>15%</td>
-										<td>24%</td>
-										<td>35%</td>
-									</tr>
-									<tr>
-										<td>주민세율</td>
-										<td>1.5%</td>
-										<td>2.4%</td>
-										<td>3.5%</td>
-									</tr>
-									<tr>
-										<td>세율합계</td>
-										<td>16.5%</td>
-										<td>26.4%</td>
-										<td>38.2%</td>
-									</tr>
-								</tbody>
-							</table>
-							<br> <br>
-							<div>
-								<h4>개인사업자 절감금액 산출 예시(1대 운영 기준)</h4>
-							</div>
-							<ul>
-								<li>과세표준 3억 이하, 월 대여료 80만원 기준</li>
-								<li><span>3년간 손금 인정액 = 80만원/1대 X 36개월 X 1대 → 2,880만원
-										></span><span>3년간 세액 절감총액= 2,880만원 X 38.5% ></span><strong>11,090,000원</strong></li>
-							</ul>
-						</div>
-				
-		
+					<div>
+						<h4>개인사업자</h4>
+					</div>
+					<br>
+					<table border="1">
+						<colgroup>
+							<col width="230px">
+							<col width="230px">
+							<col width="230px">
+							<col width="*">
+						</colgroup>
+
+
+						<thead>
+							<tr>
+								<th scope="col">과제표준</th>
+								<th scope="col">1,200만원 초과 ~ 4,600만원 이하</th>
+								<th scope="col">4,600만원 초과 ~ 8,800만원 이하</th>
+								<th scope="col">8,800만원 초과 ~ 3억원 이하</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>소득세율</td>
+								<td>15%</td>
+								<td>24%</td>
+								<td>35%</td>
+							</tr>
+							<tr>
+								<td>주민세율</td>
+								<td>1.5%</td>
+								<td>2.4%</td>
+								<td>3.5%</td>
+							</tr>
+							<tr>
+								<td>세율합계</td>
+								<td>16.5%</td>
+								<td>26.4%</td>
+								<td>38.2%</td>
+							</tr>
+						</tbody>
+					</table>
+					<br> <br>
+					<div>
+						<h4>개인사업자 절감금액 산출 예시(1대 운영 기준)</h4>
+					</div>
+					<ul>
+						<li>과세표준 3억 이하, 월 대여료 80만원 기준</li>
+						<li><span>3년간 손금 인정액 = 80만원/1대 X 36개월 X 1대 → 2,880만원 ></span><span>3년간
+								세액 절감총액= 2,880만원 X 38.5% ></span><strong>11,090,000원</strong></li>
+					</ul>
+				</div>
+				<!-- STEP.02 끝 -->
 
 
 
 
+
+				<!-- STEP.03 -->
 				<div id="step3" class="container tab-pane fade">
 
 					<h3>STEP.03 보험선택</h3>
+					<br> <br>
 					<p>차량 및 결제방법의 선택이 끝나도 필수 선택사항인 보험상품을 선택해야 합니다.</p>
 					<br>
 
@@ -394,7 +382,7 @@
 
 					<br>
 
-<div>
+					<div>
 						<h3>개인사업자 대여요금 비용 처리에 따른 세제 절감 혜택</h3>
 					</div>
 					<hr>
@@ -455,40 +443,107 @@
 						</div>
 					</div>
 
-
-
-
-					
-					</div>
-				
+				</div>
+				<!-- STEP.03 끝 -->
 
 
 
 
+
+				<!-- STEP.04 -->
 				<div id="step4" class="container tab-pane fade">
 
 					<h3>STEP.04 유지관리</h3>
-					<p>Sed ut perspiciatis unde omnis iste natus error sit
-						voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+					<br> <br> <strong>구입 순간부터 완벽한 자동차 생활을 누리는 유일한
+						SK렌터카</strong>
+					<p>유지관리는 일정시점이 지날 시 차 값보다 유지비용이 더 크게 발생되는 매우 중요한 관리사항입니다.
+						(주행거리, 사고유무등 개인편차 존재)</p>
+
+					<div>
+						<strong>경제적인 유지비용</strong>
+						<ul>
+							<li>리터당 최대 200원 유류할인 (유료 멤버십 가입 시, 기본할인 100원 적용)</li>
+							<li>무료세차 12회/ 년 (유류 멤버십 가입 시 제공혜택)</li>
+							<li>엔진오일 2회 무료 / 년</li>
+							<li>와이퍼 무료교환 1회/ 년</li>
+							<li>정비 20%, 공임 10% 할인혜택 등</li>
+						</ul>
+						<strong>전문적 차량관리</strong>
+						<ul>
+							<li>사고 및 정비 입고에 따른 대차서비스 (유료 옵션)</li>
+							<li>24시간 긴급출동 서비스 (연간 5회)</li>
+							<li>전국 700여개 Speedmate 활용한 빠른 정비</li>
+						</ul>
+					</div>
+
+
+					<div>
+						<img src="./resources/images/img-longterm-graph.jpg"
+							alt="감가상각과 정비비용">
+					</div>
+					<p>연간주행거리 20,000Km 가정</p>
+
+
+					<br> <br>
+					<div>
+						<h4>개인사업자</h4>
+					</div>
+					<br>
+					<table border="1">
+						<colgroup>
+							<col width="230px">
+							<col width="230px">
+							<col width="230px">
+							<col width="*">
+						</colgroup>
+
+
+						<thead>
+							<tr>
+								<th scope="col">과제표준</th>
+								<th scope="col">1,200만원 초과 ~ 4,600만원 이하</th>
+								<th scope="col">4,600만원 초과 ~ 8,800만원 이하</th>
+								<th scope="col">8,800만원 초과 ~ 3억원 이하</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>소득세율</td>
+								<td>15%</td>
+								<td>24%</td>
+								<td>35%</td>
+							</tr>
+							<tr>
+								<td>주민세율</td>
+								<td>1.5%</td>
+								<td>2.4%</td>
+								<td>3.5%</td>
+							</tr>
+							<tr>
+								<td>세율합계</td>
+								<td>16.5%</td>
+								<td>26.4%</td>
+								<td>38.2%</td>
+							</tr>
+						</tbody>
+					</table>
+					<br> <br>
+					<div>
+						<h4>개인사업자 절감금액 산출 예시(1대 운영 기준)</h4>
+					</div>
+					<ul>
+						<li>과세표준 3억 이하, 월 대여료 80만원 기준</li>
+						<li><span>3년간 손금 인정액 = 80만원/1대 X 36개월 X 1대 → 2,880만원 ></span><span>3년간
+								세액 절감총액= 2,880만원 X 38.5% ></span><strong>11,090,000원</strong></li>
+					</ul>
 				</div>
+				<!-- STEP.04 끝 -->
+
 			</div>
-
-
-
-
 
 			<br> <br> <br> <br>
-
-			<!--  -->
-
-			<div class="jumbotron">
-				<h1 class="display-3">TT개인 장기 렌트카 안내</h1>
-			</div>
-
 		</div>
 	</div>
-
-
 
 </body>
 </html>
