@@ -7,10 +7,7 @@
 <title>공지사항</title>
 </head>
 <body>
-	<%
-		String type = request.getParameter("type");
-	%>
-	<c:set var="type" value="<%=type%>" />
+	<c:set var="type" value="${param.type}" />
 	<%@ include file="customerMenu.jsp" %>
 	<article class="container col-sm-6">
 		<div class="col-sm-12 row">

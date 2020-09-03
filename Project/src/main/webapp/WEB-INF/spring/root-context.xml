@@ -10,12 +10,23 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<context:component-scan base-package="shop.carrental" />
 
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>/WEB-INF/spring/config/database.properties</value>
+			</list>
+		</property>
+	</bean>
+
 	<!-- Configuration Hirkari -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
-		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@15.165.66.140:1521:xe" />
-		<property name="username" value="ttestt" />
-		<property name="password" value="ttestt11" />
+		<property name="jdbcUrl" value="${dataSource.url}" />
+		<property name="username" value="${dataSource.user}" />
+		<property name="password" value="${dataSource.password}" />
+		<property name="connectionTestQuery" value="SELECT 1 FROM dual" />
+		<property name="maximumPoolSize" value="10" />
+		<property name="idleTimeout" value="30000" />
 	</bean>
 
 	<!-- Configuration DataSource -->
@@ -29,5 +40,9 @@
 	</bean>
 
 	<mybatis-spring:scan base-package="shop.carrental.mapper" />
+
+	<bean id="sqlMapMysql" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
 
 </beans>

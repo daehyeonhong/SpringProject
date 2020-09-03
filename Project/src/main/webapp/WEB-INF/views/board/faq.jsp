@@ -7,10 +7,7 @@
 <title>공지사항</title>
 </head>
 <body>
-	<%
-		String keyword = request.getParameter("keyword");
-	%>
-	<c:set var="keyword" value="<%=keyword%>"/>
+	<c:set var="keyword" value="${param.keyword}"/>
 	<jsp:include page="./customerMenu.jsp" />
 	<article>
 		<div class="container col-sm-6">
@@ -37,7 +34,7 @@
 			<div class="container">
 				<div class="container">
 					<div class="row">
-						<a class="btn h4 btn-outline-info col-sm-2" href="${pageContext.request.contextPath}/board/consultation/customer.jsp">고객상담</a>
+						<a class="btn h4 btn-outline-info col-sm-2" href="${pageContext.request.contextPath}/board/consultation/customer">고객상담</a>
 						<div class="col-sm-10" align="right">
 							<form class="form col-sm-8" action="#" method="post">
 								<div class="input-group row">

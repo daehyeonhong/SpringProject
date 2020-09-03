@@ -17,10 +17,10 @@
 	<div class="container">
 		<div class="container">
 			<div class="row">
-				<a class="btn btn-<c:if test="${target != 'applicationForm.jsp'}">outline-</c:if>dark col-sm-3" href="${route}/applicationForm.jsp">신청서</a>
-				<a class="btn btn-<c:if test="${target != 'terminateForm.jsp'}">outline-</c:if>dark col-sm-3" href="${route}/terminateForm.jsp">계약종료(안내)</a>
-				<a class="btn btn-<c:if test="${target != 'contractForm.jsp'}">outline-</c:if>dark col-sm-3" href="${route}/contractForm.jsp">계약서 작성(예)</a>
-				<a class="btn btn-<c:if test="${target != 'handoverForm.jsp'}">outline-</c:if>dark col-sm-3" href="${route}/handoverForm.jsp">양도합의서	작성(예)</a>
+				<a class="btn btn-<c:if test="${target != 'applicationForm.jsp'}">outline-</c:if>dark col-sm-3" href="${route}/applicationForm">신청서</a>
+				<a class="btn btn-<c:if test="${target != 'terminateForm.jsp'}">outline-</c:if>dark col-sm-3" href="${route}/terminateForm">계약종료(안내)</a>
+				<a class="btn btn-<c:if test="${target != 'contractForm.jsp'}">outline-</c:if>dark col-sm-3" href="${route}/contractForm">계약서 작성(예)</a>
+				<a class="btn btn-<c:if test="${target != 'handoverForm.jsp'}">outline-</c:if>dark col-sm-3" href="${route}/handoverForm">양도합의서	작성(예)</a>
 			</div>
 		</div>
 		<hr>

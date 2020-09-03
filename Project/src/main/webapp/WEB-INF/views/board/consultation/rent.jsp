@@ -7,10 +7,7 @@
 <title>렌터카상담</title>
 </head>
 <body>
-	<%
-		String category = request.getParameter("category");
-	%>
-	<c:set var="category" value="<%=category%>"/>
+	<c:set var="category" value="${param.category}"/>
 	<jsp:include page="../customerMenu.jsp" />
 	<div class="container col-sm-6">
 		<div class="container row">

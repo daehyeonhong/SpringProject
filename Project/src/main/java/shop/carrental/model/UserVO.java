@@ -15,9 +15,9 @@ public class UserVO {
 
 	private String id, password, name, role;
 
-	public UserVO getAdmin() {
+	public UserVO getAdmin(String id) {
 		UserVO vo = new UserVO();
-		vo.id = userMapper.getAdmin();
+		vo = userMapper.getAdmin(id);
 		return vo;
 	}
 
