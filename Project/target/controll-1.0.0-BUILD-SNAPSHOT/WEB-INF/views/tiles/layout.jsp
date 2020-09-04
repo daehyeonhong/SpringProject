@@ -3,7 +3,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <html>
 <head>
-<title>어쩌고 렌터카</title>
+<title>title</title>
 <tiles:insertAttribute name="css" />
 <tiles:insertAttribute name="script" />
 </head>

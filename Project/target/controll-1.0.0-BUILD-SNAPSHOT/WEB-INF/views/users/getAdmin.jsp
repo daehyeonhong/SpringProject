@@ -6,6 +6,14 @@
 <title>Users</title>
 </head>
 <body>
+${userVO}
+${UserMapper}
+${UserMapper.getAdmin}
+${vo.getAdmin}
+${vo.admin}
+${UserVO.getAdmin}
+${vo.id}
+${vo.getId}
 	<table>
 		<thead>
 			<tr>
@@ -17,10 +25,10 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>${users.id}</td>
-				<td>${password}</td>
-				<td>${name}</td>
-				<td>${role}</td>
+				<td>${vo.id}</td>
+				<td>${vo.password}</td>
+				<td>${vo.name}</td>
+				<td>${vo.role}</td>
 			</tr>
 		</tbody>
 	</table>
