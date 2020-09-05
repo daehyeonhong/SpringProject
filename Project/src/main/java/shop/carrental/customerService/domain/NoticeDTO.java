@@ -3,7 +3,6 @@ package shop.carrental.customerService.domain;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
@@ -24,19 +23,22 @@ public class NoticeDTO {
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private Date regDate;
 
-	public List<NoticeDTO> noticeList() {
+	public List<NoticeDTO> noticeList(int pageNumber, int limit) {
 		List<NoticeDTO> notice = noticeMapper.getNoticeList();
+		int totalRecord = noticeMapper.getTotalRecord(),
+			start = (pageNumber - 1) * limit,
+			index = start + 1;
 
 		List<NoticeDTO> noticeList = new ArrayList<NoticeDTO>();
-		for (NoticeDTO list : notice) {
-			noticeList.add(notice);
+		for (int i = index; i < notice.size(); i++) {
+			noticeList.add(notice.get(i));
 			if (index < (start + limit) && index <= totalRecord) {
 				index++;
 			} else {
 				break;
 			}
 		}
-		return notice;
+		return noticeList;
 	}
 
 	public NoticeDTO noticeDetail(int seq) {

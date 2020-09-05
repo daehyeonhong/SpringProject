@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 
 <div class="fixed-top bg-white border border-warning border-top-0 border-left-0 border-right-0">
 	<nav class="navbar navbar-expand-sm justify-content-center" style="height: 90px;">
@@ -28,6 +30,15 @@
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" href="#">!!</a>
 				</div>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="${path}/user/login" >로그인</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#" >MY렌터카</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="${path}/board/notice?pageNumber=1" >고객센터</a>
 			</li>
 		</ul>
 	</nav>

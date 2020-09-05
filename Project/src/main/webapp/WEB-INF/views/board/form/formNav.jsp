@@ -4,10 +4,10 @@
 
 <meta charset="UTF-8">
 <c:set var="path" value="${pageContext.request.contextPath}" />
-<c:set var="URI" value="${pageContext.request.requestURL}" />
 <c:set var="route" value="${path}/board/form" />
+<%-- <c:set var="URI" value="${pageContext.request.requestURL}" />
 <c:set var="targets" value="${fn:split(URI, '/')}" />
-<c:set var="target" value="${targets[fn:length(targets) - 1]}" />
+<c:set var="target" value="${targets[fn:length(targets) - 1]}" /> --%>
 <nav>
 	<div class="container row">
 		<span class="h2 col-sm-10">양식 다운로드</span>
@@ -17,10 +17,10 @@
 	<div class="container">
 		<div class="container">
 			<div class="row">
-				<a class="btn btn-<c:if test="${target != 'applicationForm.jsp'}">outline-</c:if>dark col-sm-3" href="${route}/applicationForm">신청서</a>
-				<a class="btn btn-<c:if test="${target != 'terminateForm.jsp'}">outline-</c:if>dark col-sm-3" href="${route}/terminateForm">계약종료(안내)</a>
-				<a class="btn btn-<c:if test="${target != 'contractForm.jsp'}">outline-</c:if>dark col-sm-3" href="${route}/contractForm">계약서 작성(예)</a>
-				<a class="btn btn-<c:if test="${target != 'handoverForm.jsp'}">outline-</c:if>dark col-sm-3" href="${route}/handoverForm">양도합의서	작성(예)</a>
+				<a class="btn btn-<c:if test="${target != 'applicationForm'}">outline-</c:if>dark col-sm-3" href="${route}/applicationForm">신청서</a>
+				<a class="btn btn-<c:if test="${target != 'terminateForm'}">outline-</c:if>dark col-sm-3" href="${route}/terminateForm">계약종료(안내)</a>
+				<a class="btn btn-<c:if test="${target != 'contractForm'}">outline-</c:if>dark col-sm-3" href="${route}/contractForm">계약서 작성(예)</a>
+				<a class="btn btn-<c:if test="${target != 'handoverForm'}">outline-</c:if>dark col-sm-3" href="${route}/handoverForm">양도합의서	작성(예)</a>
 			</div>
 		</div>
 		<hr>

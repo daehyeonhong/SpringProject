@@ -1,7 +1,6 @@
 package shop.carrental.customerService.controller;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +18,7 @@ import shop.carrental.customerService.domain.NoticeDTO;
 @Controller
 @RequestMapping("/board/*")
 @Log4j
-public class BoardController {
-
-	@Setter(onMethod_ = @Autowired)
-	NoticeDTO notice;
+public class BoardControllerBU {
 
 	private static final int LISTCOUNT = 10;
 	private static final int FIRST = 1;
@@ -49,13 +45,17 @@ public class BoardController {
 		log.info("정상 접근 성공!");
 	}
 
+	@Setter(onMethod_ = @Autowired)
+	NoticeDTO notice;
+
 	@RequestMapping("notice")
 	public void notice(@RequestParam("pageNumber") int pageNumber, Model model) {
-		List<NoticeDTO> noticeList = new ArrayList<NoticeDTO>();
-		int limit = LISTCOUNT, totalRecord = notice.getListCount();
-		noticeList = notice.noticeList(pageNumber, limit);
+		int limit = LISTCOUNT,
+			totalRecord = notice.getListCount(),
+			start = (pageNumber - 1) * limit,
+			index = start + 1,
+			totalPage = totalRecord / limit;
 
-		int totalPage = totalRecord / limit;
 		Math.floor(totalPage);
 		totalPage = (totalRecord % limit == 0) ? totalPage : (totalPage + 1);
 
@@ -65,6 +65,7 @@ public class BoardController {
 			totalSegment = (totalRecord % (limit * pageLength) == 0) ? (totalRecord / (limit * pageLength)) : (totalRecord / (limit * pageLength) + 1);
 		endPage = (endPage > totalPage) ? totalPage : endPage;
 
+		List<NoticeDTO> noticeList = notice.noticeList(index, start);
 		log.info("noticeList");
 		log.info("정상 접근 성공!");
 		model.addAttribute("pageNumber", pageNumber);
@@ -86,58 +87,51 @@ public class BoardController {
 	}
 
 	@RequestMapping("consultation/customer")
-	public String customer(Model model) {
+	public String customer() {
 		log.info("customer");
 		log.info("정상 접근 성공!");
-		model.addAttribute("target", "customer");
 		return "board/consultation/customer";
 	}
 
 	@RequestMapping("consultation/info")
-	public String info(Model model) {
+	public String info() {
 		log.info("info");
 		log.info("정상 접근 성공!");
-		model.addAttribute("target", "info");
 		return "board/consultation/info";
 	}
 
 	@RequestMapping("consultation/rent")
-	public String rent(Model model) {
+	public String rent() {
 		log.info("rent");
 		log.info("정상 접근 성공!");
-		model.addAttribute("target", "rent");
 		return "board/consultation/rent";
 	}
 
 	@RequestMapping("form/applicationForm")
-	public String applicationForm(Model model) {
+	public String applicationForm() {
 		log.info("applicationForm");
 		log.info("정상 접근 성공!");
-		model.addAttribute("target", "applicationForm");
 		return "board/form/applicationForm";
 	}
 
 	@RequestMapping("form/contractForm")
-	public String contractForm(Model model) {
+	public String contractForm() {
 		log.info("contractForm");
 		log.info("정상 접근 성공!");
-		model.addAttribute("target", "contractForm");
 		return "board/form/contractForm";
 	}
 
 	@RequestMapping("form/handoverForm")
-	public String handoverForm(Model model) {
+	public String handoverForm() {
 		log.info("handoverForm");
 		log.info("정상 접근 성공!");
-		model.addAttribute("target", "handoverForm");
 		return "board/form/handoverForm";
 	}
 
 	@RequestMapping("form/terminateForm")
-	public String terminateForm(Model model) {
+	public String terminateForm() {
 		log.info("terminateForm");
 		log.info("정상 접근 성공!");
-		model.addAttribute("target", "terminateForm");
 		return "board/form/terminateForm";
 	}
 
