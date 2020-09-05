@@ -27,7 +27,7 @@
 			</div>
 
 			<div class="container">
-				<table class="table text-center table-bordered">
+				<table class="table text-center">
 					<thead>
 						<tr>
 							<th class="col-sm-1">번호</th>
@@ -37,48 +37,43 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="row" items="${noticeList}" >
-							<c:set var="seq" value="${row.seq}" />
+						<c:forEach var="row" begin="1" end="10">
 							<tr>
-								<td class="col-sm-1"><span>${seq}</span></td>
+								<td class="col-sm-1"><span>${row}</span></td>
 								<td class="col-sm-2"><span>구분</span></td>
-								<td class="col-sm-7 text-left"><a href="noticeDetail?seq=${seq}">${row.content}</a></td>
-								<td class="col-sm-2"><span>${row.regDate}</span></td>
+								<td class="col-sm-7 text-left"><a href="#">제목${row}${row}${row}${row}${row}${row}${row}${row}${row}</a></td>
+								<td class="col-sm-2"><span>등록일</span></td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
 			</div>
-			${currentBlock}
-			${totalSegment}
+
 			<div align="center">
 				<nav aria-label="Page navigation">
 					<ul class="pagination justify-content-center">
-							<li class="page-item<c:if test="${pageNumber <= 1}"> disabled</c:if>">
-								<a class="page-link" href="?pageNumber=1" aria-label="Previous">
-									<span aria-hidden="true">&laquo;</span>
-									<span class="sr-only">FirstPage</span>
-								</a>
+							<li class="page-item"><a class="page-link" href="#" aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span>
+								<span class="sr-only">Previous</span></a>
 							</li>
-							<li class="page-item<c:if test="${pageNumber <= 1}"> disabled</c:if>">
-								<a class="page-link" href="?pageNumber=${pageNumber - 1}" aria-label="Previous">
+							<li class="page-item"><a class="page-link" href="#" aria-label="Previous">
 								<span aria-hidden="true">&lt;</span>
 								<span class="sr-only">Previous</span></a>
 							</li>
-						<c:forEach var="i" begin="${startPage}" end="${endPage}">
-							<li class="page-item<c:if test="${pageNumber == i}"> active</c:if>">
-								<a class="page-link" href="?pageNumber=${i}">${i}</a>
+						<c:forEach var="i" begin="1" end="10">
+							<li class="page-item">
+								<a class="page-link" href="?page=${i}">${i}</a>
 							</li>
 						</c:forEach>
-						<li class="page-item<c:if test="${pageNumber >= totalPage}"> disabled</c:if>">
-							<a class="page-link" href="?pageNumber=${pageNumber + 1}" aria-label="Next">
+						<li class="page-item">
+							<a class="page-link" href="#" aria-label="Next">
 							<span aria-hidden="true">&gt;</span>
 							<span class="sr-only">Next</span></a>
 						</li>
-						<li class="page-item<c:if test="${pageNumber >= totalPage}"> disabled</c:if>">
-							<a class="page-link" href="?pageNumber=${totalPage}" aria-label="Next">
+						<li class="page-item">
+							<a class="page-link" href="#" aria-label="Next">
 							<span aria-hidden="true">&raquo;</span>
-							<span class="sr-only">LastPage</span></a>
+							<span class="sr-only">Next</span></a>
 						</li>
 					</ul>
 				</nav>
