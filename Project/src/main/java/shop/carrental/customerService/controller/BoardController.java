@@ -22,7 +22,7 @@ import shop.carrental.customerService.domain.NoticeDTO;
 public class BoardController {
 
 	@Setter(onMethod_ = @Autowired)
-	NoticeDTO notice;
+	NoticeDTO noticeDTO;
 
 	private static final int LISTCOUNT = 10;
 	private static final int FIRST = 1;
@@ -52,8 +52,8 @@ public class BoardController {
 	@RequestMapping("notice")
 	public void notice(@RequestParam("pageNumber") int pageNumber, Model model) {
 		List<NoticeDTO> noticeList = new ArrayList<NoticeDTO>();
-		int limit = LISTCOUNT, totalRecord = notice.getListCount();
-		noticeList = notice.noticeList(pageNumber, limit);
+		int limit = LISTCOUNT, totalRecord = noticeDTO.getListCount();
+		noticeList = noticeDTO.noticeList(pageNumber, limit);
 
 		int totalPage = totalRecord / limit;
 		Math.floor(totalPage);
@@ -79,7 +79,7 @@ public class BoardController {
 
 	@RequestMapping("noticeDetail")
 	public void noticeDetail(@RequestParam("seq") int seq, Model model) {
-		NoticeDTO notice = this.notice.noticeDetail(seq);
+		NoticeDTO notice = noticeDTO.noticeDetail(seq);
 		log.info("noticeDetail");
 		log.info("정상 접근 성공!");
 		model.addAttribute("notice", notice);

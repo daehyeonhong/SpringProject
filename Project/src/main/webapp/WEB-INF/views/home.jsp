@@ -1,18 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-	<header>
-		<nav class="navbar navbar-expand-sm bg-light navbar-light">
-			<a class="navbar-brand" href="#"> <img src="bird.jpg" alt="Logo"
-				style="width: 40px;">
-			</a>
-			<ul class="navbar-nav justify-content-end">
-				<li class="nav-item"><a class="nav-link" href="#">로그인</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">My렌터카</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">이벤트</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">고객 센터</a></li>
-			</ul>
-		</nav>
-	</header>
+<!-- <header>
+	<nav class="navbar navbar-expand-sm bg-light navbar-light">
+		<a class="navbar-brand" href="#"><img src="bird.jpg" alt="Logo" style="width: 40px;"></a>
+		<ul class="navbar-nav justify-content-end">
+			<li class="nav-item"><a class="nav-link" href="#">로그인</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">My렌터카</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">이벤트</a></li>
+			<li class="nav-item"><a class="nav-link" href="#">고객 센터</a></li>
+		</ul>
+	</nav>
+</header> -->
 
 <article>
 	<div class="container">

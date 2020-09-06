@@ -35,6 +35,9 @@
 				<a class="nav-link" href="${path}/user/login" >로그인</a>
 			</li>
 			<li class="nav-item">
+				<a class="nav-link" href="${path}/user/logout" >로그아웃</a>
+			</li>
+			<li class="nav-item">
 				<a class="nav-link" href="#" >MY렌터카</a>
 			</li>
 			<li class="nav-item">

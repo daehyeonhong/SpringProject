@@ -2,7 +2,7 @@
 <article>
 	<div class="container col-sm-3" align="center">
 		<h1 class="display-6">기본 정보 입력</h1>
-		<form action="#" class="form-group">
+		<form action="signUp" class="form-group" method="post">
 			<table class="col-sm-10">
 				<tr>
 					<td>
@@ -23,19 +23,29 @@
 					<td>
 						<!--기능구현할때  전에 입력한 이름,전화번호 같이 넘어와야함 -->
 						<span class="form-control">이름</span>
-						<input type="hidden" id="name" name="name" value="이름" required="required" />
+						<input type="hidden" id="name" name="name" value="name" required="required" />
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<span class="form-control">전화번호</span>
-						<input type="hidden" id="phone" name="phone" value="전화번호" required="required" />
+						<span class="form-control">PHONE</span>
+						<input type="hidden" id="phone" name="phone" value="010101010" required="required" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="form-control">EMAIL</span>
+						<input type="hidden" id="email" name="email" value="email" required="required" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="form-control">2020/10/10</span>
+						<input type="hidden" id="birth_date" name="birth_date" value="2020/10/10" required="required" />
 					</td>
 				</tr>
 			</table>
-			<button type="button" onclick="button1_click();" class="btn btn-danger col-sm-6">
-				가입완료
-			</button>
+			<input type="submit" class="btn btn-danger col-sm-6" value="가입완료" />
 		</form>
 		<div class="container">
 			<ul style="text-align: left;">
@@ -47,9 +57,3 @@
 		</div>
 	</div>
 </article>
-	<script>
-		function button1_click() {
-			alert("가입이 완료 되었습니다.");
-			location.href = './login.jsp';
-		}
-	</script>

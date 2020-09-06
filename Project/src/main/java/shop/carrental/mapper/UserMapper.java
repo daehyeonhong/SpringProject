@@ -10,8 +10,10 @@ public interface UserMapper {
 	@Select("SELECT*FROM users WHERE id=#{id}")
 	public UserVO getAdmin(String id);
 
-	@Insert("INSERT INTO test_user (user_seq,id,password,name,email,birth_date,licence,zipcode,address,address_detail)"
-			+ "VALUES(user_seq.NEXTVAL,#{id},#{password},#{email},#{birth_date},#{licence},#{zipcode},#{address},#{address_detail})")
+	@Insert("INSERT INTO test_user(user_seq,id,password,name,email,birth_date,licence)VALUES(user_seq.NEXTVAL,#{id},#{password},#{name},#{email},#{birth_date},#{licence});")
 	public void insertUser(UserDTO user);
+
+	@Select("SELECT COUNT(*)FROM test_user WHERE id=#{user.id}")
+	public boolean login(UserDTO user);
 
 }
