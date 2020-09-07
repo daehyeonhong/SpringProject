@@ -23,9 +23,6 @@ import shop.carrental.customerService.service.NoticeService;
 @Log4j
 public class BoardController {
 
-	@Autowired
-	private NoticeService noticeService;
-
 	@Setter(onMethod_ = @Autowired)
 	NoticeDTO noticeDTO;
 
@@ -54,34 +51,33 @@ public class BoardController {
 		log.info("정상 접근 성공!");
 	}
 
-	/*
-	 * @RequestMapping("notice") public void notice(@ModelAttribute("pageNumber")
-	 * int pageNumber, Model model) { List<NoticeDTO> noticeList = new
-	 * ArrayList<NoticeDTO>(); int limit = LISTCOUNT, totalRecord =
-	 * noticeDTO.getListCount(); noticeList = noticeDTO.noticeList(pageNumber,
-	 * limit);
-	 * 
-	 * int totalPage = totalRecord / limit; Math.floor(totalPage); totalPage =
-	 * (totalRecord % limit == 0) ? totalPage : (totalPage + 1);
-	 * 
-	 * int pageLength = LISTCOUNT, currentBlock = (pageNumber % pageLength == 0) ?
-	 * (pageNumber / pageLength) : (pageNumber / pageLength + 1), startPage = FIRST
-	 * + (currentBlock - 1) * pageLength, endPage = startPage + pageLength - 1,
-	 * totalSegment = (totalRecord % (limit * pageLength) == 0) ? (totalRecord /
-	 * (limit * pageLength)) : (totalRecord / (limit * pageLength) + 1); endPage =
-	 * (endPage > totalPage) ? totalPage : endPage;
-	 * 
-	 * log.info("noticeList"); log.info("정상 접근 성공!");
-	 * model.addAttribute("noticeList", noticeList); model.addAttribute("totalPage",
-	 * totalPage); model.addAttribute("totalRecord", totalRecord);
-	 * model.addAttribute("currentBlock", currentBlock);
-	 * model.addAttribute("startPage", startPage); model.addAttribute("endPage",
-	 * endPage); model.addAttribute("totalSegment", totalSegment); }
-	 */
-
 	@RequestMapping("notice")
-	public void notice(NoticeDTO dto, Model model) {
-		model.addAttribute("noticeList", noticeService.getNoticeList(dto));
+	public void notice(@ModelAttribute("pageNumber") int pageNumber, Model model) {
+		List<NoticeDTO> noticeList = new ArrayList<NoticeDTO>();
+		int limit = LISTCOUNT, totalRecord = noticeDTO.getListCount();
+		noticeList = noticeDTO.noticeList(pageNumber, limit);
+
+		int totalPage = totalRecord / limit;
+		Math.floor(totalPage);
+		totalPage = (totalRecord % limit == 0) ? totalPage : (totalPage + 1);
+
+		int pageLength = LISTCOUNT,
+				currentBlock = (pageNumber % pageLength == 0) ? (pageNumber / pageLength)
+						: (pageNumber / pageLength + 1),
+				startPage = FIRST + (currentBlock - 1) * pageLength, endPage = startPage + pageLength - 1,
+				totalSegment = (totalRecord % (limit * pageLength) == 0) ? (totalRecord / (limit * pageLength))
+						: (totalRecord / (limit * pageLength) + 1);
+		endPage = (endPage > totalPage) ? totalPage : endPage;
+
+		log.info("noticeList");
+		log.info("정상 접근 성공!");
+		model.addAttribute("noticeList", noticeList);
+		model.addAttribute("totalPage", totalPage);
+		model.addAttribute("totalRecord", totalRecord);
+		model.addAttribute("currentBlock", currentBlock);
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
+		model.addAttribute("totalSegment", totalSegment);
 	}
 
 	@RequestMapping("noticeDetail")
