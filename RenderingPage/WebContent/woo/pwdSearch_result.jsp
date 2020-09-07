@@ -27,7 +27,7 @@
 				<!-- 눌렀을시 로그인으로 되돌아오기 -->
 				<button type="button" class="btn btn-secondary col-sm-6" onclick="location.href='./login.jsp'">취소</button>
 				<!--눌렀을시 이벤트주기   -->
-				<input type="submit" class="btn btn-danger col-sm-6" value="변경완료" />
+				<input type="submit" class="btn btn-danger col-sm-6" onclick="button1_click();" value="변경완료" />
 			</div>
 			<script>
 				function button1_click() {

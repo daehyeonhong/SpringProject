@@ -18,7 +18,7 @@
 <body>
 
 
-	<div class="container col-sm-6">
+	<div class="container col-sm-10">
 		<div class="container">
 			<h1 class="display-5">TT 신차 장기 렌터카</h1>
 		</div>
@@ -64,7 +64,7 @@
 			<hr>
 
 			<div class="row" style="border: 1px solid #eeeeee;">
-				<table border="1" class="col-md-12" style="height: 200px;">
+				<table class="table" style="height: 200px;">
 
 					<tr>
 						<td rowspan="6" style="width: 35%"><img
@@ -109,7 +109,7 @@
 			<hr>
 
 			<div class="row" style="border: 1px solid #eeeeee;">
-				<table border="1" class="col-md-12" style="height: 200px;">
+				<table class="table" style="height: 200px;">
 
 					<tr>
 						<td rowspan="6" style="width: 35%"><img
@@ -153,7 +153,7 @@
 			<hr>
 
 			<div class="row" style="border: 1px solid #eeeeee;">
-				<table border="1" class="col-md-12" style="height: 200px;">
+				<table class="table" style="height: 200px;">
 
 					<tr>
 						<td rowspan="6" style="width: 35%"><img
@@ -200,7 +200,7 @@
 			<h3>이런차는 어떠세요?</h3>
 			<hr>
 			<div class="row" style="border: 1px solid #eeeeee;">
-				<table border="1" class="col-md-12" style="height: 200px;">
+				<table class="table" style="height: 200px;">
 
 					<tr>
 						<td rowspan="6" style="width: 35%"><img
@@ -243,7 +243,7 @@
 			<hr>
 
 			<div class="row" style="border: 1px solid #eeeeee;">
-				<table border="1" class="col-md-12" style="height: 200px;">
+				<table class="table" style="height: 200px;">
 
 					<tr>
 						<td rowspan="6" style="width: 35%"><img

@@ -60,7 +60,7 @@
 		}
 		
 		function insurance(){
-		 var insuranceFrame = window.open("shortTerm_Insurance.jsp","", "left=1500, top=900, width=600, height=600,toolbar=no, scrollbars=no, status=no, resizable=no");
+		 var insuranceFrame = window.open("z_shortTerm_Insurance.jsp","", "left=1500, top=900, width=600, height=600,toolbar=no, scrollbars=no, status=no, resizable=no");
 		}
 
 </script>
@@ -82,9 +82,9 @@
 <body>
 
 <!-- 단기렌트 제목틀-->
-<div class="jumbotron">
-  <div class="container col-sm-8">
-  <h1>단기렌터카_내륙</h1>
+<div class="jumbotron bg-white">
+  <div class="container col-sm-6">
+  <h1>단기렌터카 예약/확인</h1>
   </div>
 </div>
 
@@ -100,7 +100,7 @@
       <a class="nav-link" href="shortTerm_inland.jsp">내륙예약</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="">예약확인</a>
+      <a class="nav-link" href="shortTerm_history.jsp">예약확인</a>
     </li>
   </ul>
 </nav>
@@ -351,6 +351,6 @@
 <br>
 <br>
 <br>
-<%@ include  file="shortTerm_show.jsp"%>
+<%@ include  file="z_shortTerm_show.jsp"%>
 </body>
 </html>

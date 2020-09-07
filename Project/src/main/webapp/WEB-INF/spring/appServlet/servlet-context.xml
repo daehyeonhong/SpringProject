@@ -20,6 +20,7 @@
 		<beans:property name="order" value="0" /><!-- Servlet 호출  순서 -->
 	</beans:bean>
 
+	<!-- Tiles -->
 	<beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<beans:property name="definitions">
 			<beans:list>
@@ -32,6 +33,17 @@
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+
+	<!-- MultiPart -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="defaultEncoding" value="UTF-8" />
+		<!-- 1024 * 1024 * 10 bytes 10MB -->
+		<beans:property name="maxUploadSize" value="104857860" />
+		<!-- 1024 * 1024 * 2 bytes 2MB -->
+		<beans:property name="maxUploadSizePerFile" value="2097152" />
+		<beans:property name="uploadTempDir" value="s" />
+		<beans:property name="maxInMemorySize" value="10485756" />
 	</beans:bean>
 
 	<context:component-scan base-package="shop.carrental" />

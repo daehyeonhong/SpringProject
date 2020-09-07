@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.0/css/bootstrap.min.css">
 </head>
 <body>
+<!--  홈바 -->
+<%@ include file="z_home.jsp" %>
 <div class="container col-sm-6">
 <!--후기 가이드라인 -->
 <div class="form-group border">

@@ -12,6 +12,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
+</head>
  <script>
     $(function () {
     	
@@ -61,8 +62,13 @@
 			}
 		
 			function insurance(){
-			 	var insuranceFrame = window.open("shortTerm_Insurance.jsp","", "left=1500, top=900, width=600, height=600,toolbar=no, scrollbars=no, status=no, resizable=no");
+			 	var insuranceFrame = window.open("z_shortTerm_Insurance.jsp","", "left=1500, top=900, width=600, height=600,toolbar=no, scrollbars=no, status=no, resizable=no");
 			}
+			
+			/* function location_jeju(){
+				document.getElementById("location_jeju").src = "jejulocation.gif"
+			} */
+	
 </script>
 <script>
 	$(document).ready(function(){
@@ -75,13 +81,6 @@
 			}
 		});
 	});
-			/* if(attr("id")=="s1"){
-				$("#s1").css("background-color","orange");
-			}else if(attr("id")=="s2"){
-				$("#s2").css("background-color","orange");
-			}else if(attr("id")=="s3"){
-				$("#s3").css("background-color","orange");
-			}; */
 </script>
 <style>
 	strong{color: orange;}
@@ -89,11 +88,13 @@
 </style>
 </head>
 <body>
+<!--  홈바 -->
+<%@ include file="z_home.jsp" %>
 
 <!-- 단기렌트 제목틀-->
-<div class="jumbotron">
-  <div class="container col-sm-8">
-  <h1>단기렌터카_제주</h1>
+<div class="jumbotron bg-white">
+  <div class="container col-sm-6">
+  <h1>단기렌터카 예약/확인</h1>
   </div>
 </div>
 
@@ -109,7 +110,7 @@
       <a class="nav-link" href="shortTerm_inland.jsp">내륙예약</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="">예약확인</a>
+      <a class="nav-link" href="shortTerm_history.jsp">예약확인</a>
     </li>
   </ul>
 </nav>
@@ -176,7 +177,7 @@
   				<option>제주/제주지점</option>
   		</select>
   		&nbsp;
-  			<button type="button" class="btn btn-dark col-sm-4">지도보기</button>
+  			<button type="button" class="btn btn-dark col-sm-4" data-toggle="modal" data-target="#location_jeju" >지도보기</button>
   			</div>
   			</div>
   	</td>
@@ -187,7 +188,7 @@
   				<option>제주/제주지점</option>
   			</select>
   			&nbsp;
-  			<button type="button" class="btn btn-dark col-sm-4">지도보기</button>
+  			<button type="button" class="btn btn-dark col-sm-4" data-toggle="modal" data-target="#location_jeju" >지도보기</button>
   			</div>
   			</div>
   	</td>
@@ -354,6 +355,7 @@
 <br>
 <br>
 <br>
-<%@ include  file="shortTerm_show.jsp"%>
+<%@ include  file="z_shortTerm_show.jsp"%>
+<%@ include file="z_shortTerm_show_brachLocation.jsp" %>
 </body>
 </html>

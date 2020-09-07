@@ -9,6 +9,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+
+<script>
+	function emailSend() {
+		var sep = document.getElementById("sep").value;
+		
+		location.href = "./emailAuthentication.jsp?sep=" + sep;
+	}
+</script>
+
 <body>
 
 	<div class="container col-sm-3" align="center">
@@ -20,8 +29,8 @@
 					name="id" required="required" />
 				<div class="valid-feedback">입력 완료</div>
 			</div>
-			<a href="#"><img src="images/phone.png" class="square" width="150" height="150"></a>
-			<a href="#"><img src="images/ipin.png" class="square" width="150" height="150"></a>
+			<img onclick="emailSend()" 
+		     style="cursor:pointer" src="images/e-mail_2.png" class="square" width="100" height="100">
 		</form>
 		<ul>
 			<li>고객님의 가입여부확인 및 개인정보보호를 위해 본인확인을 통한 회원인증 서비스를 시행하고 있습니다.</li>
@@ -34,6 +43,6 @@
 			</li>
 		</ul>
 	</div>
-
+<input type="hidden" id="sep" value="pw"/>
 </body>
 </html>

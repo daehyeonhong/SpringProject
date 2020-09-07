@@ -16,7 +16,7 @@
 </head>
 <body>
 
-	<div class="container col-sm-6">
+	<div class="container col-sm-7">
 		<div class="container">
 			<h1 class="display-5">TT 장기 렌터카 상품 안내</h1>
 		</div>
@@ -64,7 +64,7 @@
 			<!-- Nav pills -->
 			<ul class="nav nav-pills" role="tablist">
 				<li class="nav-item" style="width: 50%"><a
-					class="nav-link active" data-toggle="pill" href="#car-domestic" >국산차</a></li>
+					class="nav-link active" data-toggle="pill" href="#car-domestic">국산차</a></li>
 				<li class="nav-item" style="width: 50%"><a class="nav-link"
 					data-toggle="pill" href="#car-overseas">수입차</a></li>
 
@@ -78,7 +78,7 @@
 					<br> <br>
 					<h3>국산차</h3>
 					<br>
-					<table border="1">
+					<table class="table">
 
 						<colgroup>
 							<col width="*">
@@ -97,14 +97,14 @@
 						<tbody>
 							<tr>
 								<td>추천고객</td>
-								<td>전 고객대상 이용가능한 상품으로<br> 계약기간 종료 후 인수, 반납, 재렌탈의<br>
+								<td>전 고객대상 이용가능한 상품으로 계약기간 종료 후 인수, 반납, 재렌탈의
 									선택권이 부여되는 상품
 								</td>
-								<td>법인사업자 중 업무용으로 이용을<br> 희망하는 고객대상 전용 상품으로<br>
+								<td>법인사업자 중 업무용으로 이용을 희망하는 고객대상 전용 상품으로
 									계약기간 사용 후 반납하는 상품
 								</td>
-								<td>주행거리가 많아 유류비를 절감하고자 하는<br> 프리랜서, 장거리출퇴근 고객들에게<br>
-									최적화된 상품으로 5년간 이용 후<br> 본인명의로 차량인수 가능한 상품
+								<td>주행거리가 많아 유류비를 절감하고자 하는 프리랜서, 장거리출퇴근 고객들에게
+									최적화된 상품으로 5년간 이용 후 본인명의로 차량인수 가능한 상품
 								</td>
 							</tr>
 							<tr>
@@ -252,7 +252,7 @@
 							<h3>구비서류</h3>
 						</div>
 						<br>
-						<table border="1">
+						<table class="table">
 							<colgroup>
 								<col width="*">
 								<col width="395px">
@@ -269,10 +269,10 @@
 							<tbody>
 								<tr>
 									<td scope="row">계약자</td>
-									<td>재직증명서,근로소득원천징수영수증,인감증명서(인감도장),<br>주민등록등본,운전면허증
+									<td>재직증명서,근로소득원천징수영수증,인감증명서(인감도장),주민등록등본,운전면허증
 										사본,통장사본
 									</td>
-									<td>사업자등록증사본,소득증명원,인감증명서(인감도장),<br>주민등록등본,운전면허증
+									<td>사업자등록증사본,소득증명원,인감증명서(인감도장),주민등록등본,운전면허증
 										사본,통장사본 (통장도장)<br> <span>*1년 미만 시 소득증명원 불필요</span></td>
 								</tr>
 								<tr>
@@ -299,7 +299,7 @@
 					<br>
 
 					<div>
-						<table border="1">
+						<table class="table">
 
 							<colgroup>
 								<col width="*">
@@ -442,7 +442,7 @@
 							<h3>구비서류</h3>
 						</div>
 						<br>
-						<table border="1">
+						<table class="table">
 							<colgroup>
 								<col width="*">
 								<col width="395px">
@@ -459,10 +459,10 @@
 							<tbody>
 								<tr>
 									<td scope="row">계약자</td>
-									<td>재직증명서,근로소득원천징수영수증,인감증명서(인감도장),<br>주민등록등본,운전면허증
+									<td>재직증명서,근로소득원천징수영수증,인감증명서(인감도장),주민등록등본,운전면허증
 										사본,통장사본
 									</td>
-									<td>사업자등록증사본,소득증명원,인감증명서(인감도장),<br>주민등록등본,운전면허증
+									<td>사업자등록증사본,소득증명원,인감증명서(인감도장),주민등록등본,운전면허증
 										사본,통장사본 (통장도장)<br> <span>*1년 미만 시 소득증명원 불필요</span></td>
 								</tr>
 								<tr>

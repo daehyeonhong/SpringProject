@@ -37,11 +37,12 @@
 	<!-- Get SQLSessionFactory -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:/META-INF/mybatis/mybatisConfiguration.xml" />
 	</bean>
 
 	<mybatis-spring:scan base-package="shop.carrental.mapper" />
 
-	<bean id="sqlMapMysql" class="org.mybatis.spring.SqlSessionTemplate">
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
 

@@ -1,13 +1,13 @@
 package shop.carrental.user.controller;
 
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.user.domain.UserDTO;
@@ -20,20 +20,20 @@ public class UserController {
 	@Setter(onMethod_ = @Autowired)
 	private UserDTO userDTO;
 
-	@RequestMapping("")
+	@GetMapping("")
 	public void basic() {
 		log.info("user");
 		log.info("정상 접근 성공");
 	}
 
-	@RequestMapping(path = "login", method = RequestMethod.GET)
+	@GetMapping("login")
 	public String login() {
 		log.info("login");
 		log.info("정상 접근..?");
 		return "user/login";
 	}
 
-	@RequestMapping(path = "login", method = RequestMethod.POST)
+	@PostMapping("login")
 	public String loginResult(@ModelAttribute UserDTO dto, Model model, HttpSession session) {
 		boolean result = userDTO.login(dto, session);
 		String view = "";
@@ -52,21 +52,21 @@ public class UserController {
 		return view;
 	}
 
-	@RequestMapping("logout")
+	@GetMapping("logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
 		log.info("logout");
 		log.info("성공!");
-		return "user/login";
+		return "redirect:login";
 	}
 
-	@RequestMapping(path = "signUp", method = RequestMethod.GET)
+	@GetMapping("signUp")
 	public void signUp() {
 		log.info("signUp");
 		log.info("정상 접근..?");
 	}
 
-	@RequestMapping(path = "signUp", method = RequestMethod.POST)
+	@PostMapping("signUp")
 	public String signUpC(@ModelAttribute UserDTO dto) {
 		log.info("signUpC");
 		log.info("정상 접근..?");

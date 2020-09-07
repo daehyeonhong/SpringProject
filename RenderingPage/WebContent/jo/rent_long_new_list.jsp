@@ -92,7 +92,7 @@ dd {
 </head>
 <body>
 
-	<div class="container col-sm-6">
+	<div class="container col-sm-10">
 		<div class="container">
 			<h1 class="display-5">TT 신차 장기 렌터카 목록</h1>
 		</div>
@@ -100,7 +100,7 @@ dd {
 
 		<!--  -->
 		<div class="container">
-			<table style="width: 100%">
+			<table style="width: 100%" >
 				<tr>
 					<td align="left"><h2>TT 신차 장기 렌터카 목록</h2></td>
 					<td align="right">? > 장기렌터카 > TT 신차 장기 렌터카 > TT 신차 장기 렌터카 목록</td>
@@ -115,15 +115,15 @@ dd {
 				<table style="width: 100%">
 					<tr>
 						<td align="left"><h3>견적 조회</h3></td>
-						<td align="right"><button type="button"
-								class="btn btn-primary btn-lg">목록</button></td>
+						<td align="right" ><button type="button"
+								class="btn btn-primary btn-lg" onclick="location.href='rent_long_new_car.jsp' ">목록</button></td>
 					</tr>
 				</table>
 			</div>
 			<hr>
 
 			<div class="row" style="border: 1px solid #eeeeee;">
-				<table border="1" class="col-md-12" style="height: 200px;">
+				<table class="table" style="height: 200px;">
 
 					<tr>
 						<td rowspan="6" style="width: 35%"><img

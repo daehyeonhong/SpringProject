@@ -17,8 +17,8 @@
 <body>
 
 
-	<
-	<div class="container col-sm-6">
+	
+	<div class="container col-sm-10">
 		<div class="container">
 			<h1 class="display-5">TT 장기 렌트카 서비스 안내</h1>
 		</div>
@@ -92,7 +92,7 @@
 					<br>
 
 					<div>
-						<table border="1">
+						<table class="table">
 							<tr>
 								<td align="center"><img width="50px" height="30px"
 									src="./resources/images/img-company-logo-hy.png" alt="현대자동차"></td>
@@ -162,21 +162,16 @@
 								<h4>개인사업자</h4>
 							</div>
 							<br>
-							<table border="1">
-								<colgroup>
-									<col width="230px">
-									<col width="230px">
-									<col width="230px">
-									<col width="*">
-								</colgroup>
+							<table class="table">
+							
 
 
 								<thead>
 									<tr>
-										<th scope="col">과제표준</th>
-										<th scope="col">1,200만원 초과 ~ 4,600만원 이하</th>
-										<th scope="col">4,600만원 초과 ~ 8,800만원 이하</th>
-										<th scope="col">8,800만원 초과 ~ 3억원 이하</th>
+										<th >과제표준</th>
+										<th >1,200만원 초과 ~ 4,600만원 이하</th>
+										<th >4,600만원 초과 ~ 8,800만원 이하</th>
+										<th >8,800만원 초과 ~ 3억원 이하</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -227,7 +222,7 @@
 					<br> <br>
 
 					<p>차량선택 후 ‘할부, 리스, 렌터카’ 등 결제방법을 선택하셔야 합니다. 하지만 차량 선택 그 이상만큼
-						복잡하고 고려사항이 많은 부분이 결제방법의 선택입니다.</p>
+						복잡하고 고려사항이<br> 많은 부분이 결제방법의 선택입니다.</p>
 					<br> <br> <strong>신차구매 결제방법 및 대표상품</strong> <br> <br>
 					<strong>할부</strong>
 					<ul>
@@ -261,11 +256,11 @@
 
 					<p>
 						3가지 결제방법에서 또다시 파생되는 수많은 선택방법들을 재선택 해야되며 각 상품을 취급하는 금융사들의 장, 단점의
-						분석과정까지<br>(할부, 리스상품 취급 금융사 약 40여개) 고려되어야 합니다. 하지만 상기 수많은
+						분석과정까지(할부, 리스상품 취급 금융사 약 40여개) 고려되어야 합니다. 하지만 상기 수많은
 						결제방법은 아래와 같이 간략하게 구분 지을 수 있습니다.
 					</p>
 					<br>
-					<table border="1">
+					<table class="table">
 						<thead>
 							<tr>
 								<th>구분</th>
@@ -286,7 +281,7 @@
 						구분할 수 있습니다.</strong>
 					<p>
 						대출상품은(할부, 리스) 개인의 재정상황을 고려하여 알맞게 이용하면 매력적일 수 있으나 금융상품의 특성 상 한번의
-						실수도 신용등급 하락 및 연체이자 증대,추가대출의<br>제약등의 불편함이 발생됩니다. 반면의 대여상품인
+						실수도 신용등급 하락 및 연체이자 증대,추가대출의제약등의 불편함이 발생됩니다. 반면의 대여상품인
 						렌터카는 금융상품의 제약을 최소화하여 편리하게 이용할 수 있습니다.
 					</p>
 					<br> <strong>장기렌터카는 신차구매의 가장 합리적 그리고 안정적인 방법입니다.</strong>
@@ -304,21 +299,16 @@
 						<h4>개인사업자</h4>
 					</div>
 					<br>
-					<table border="1">
-						<colgroup>
-							<col width="230px">
-							<col width="230px">
-							<col width="230px">
-							<col width="*">
-						</colgroup>
+					<table class="table">
+					
 
 
 						<thead>
 							<tr>
-								<th scope="col">과제표준</th>
-								<th scope="col">1,200만원 초과 ~ 4,600만원 이하</th>
-								<th scope="col">4,600만원 초과 ~ 8,800만원 이하</th>
-								<th scope="col">8,800만원 초과 ~ 3억원 이하</th>
+								<th>과제표준</th>
+								<th >1,200만원 초과 ~ 4,600만원 이하</th>
+								<th >4,600만원 초과 ~ 8,800만원 이하</th>
+								<th >8,800만원 초과 ~ 3억원 이하</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -393,21 +383,16 @@
 								<h4>개인사업자</h4>
 							</div>
 							<br>
-							<table border="1">
-								<colgroup>
-									<col width="230px">
-									<col width="230px">
-									<col width="230px">
-									<col width="*">
-								</colgroup>
+							<table class="table">
+								
 
 
 								<thead>
 									<tr>
-										<th scope="col">과제표준</th>
-										<th scope="col">1,200만원 초과 ~ 4,600만원 이하</th>
-										<th scope="col">4,600만원 초과 ~ 8,800만원 이하</th>
-										<th scope="col">8,800만원 초과 ~ 3억원 이하</th>
+										<th >과제표준</th>
+										<th >1,200만원 초과 ~ 4,600만원 이하</th>
+										<th >4,600만원 초과 ~ 8,800만원 이하</th>
+										<th >8,800만원 초과 ~ 3억원 이하</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -489,21 +474,16 @@
 						<h4>개인사업자</h4>
 					</div>
 					<br>
-					<table border="1">
-						<colgroup>
-							<col width="230px">
-							<col width="230px">
-							<col width="230px">
-							<col width="*">
-						</colgroup>
+					<table class="table">
+					
 
 
 						<thead>
 							<tr>
-								<th scope="col">과제표준</th>
-								<th scope="col">1,200만원 초과 ~ 4,600만원 이하</th>
-								<th scope="col">4,600만원 초과 ~ 8,800만원 이하</th>
-								<th scope="col">8,800만원 초과 ~ 3억원 이하</th>
+								<th >과제표준</th>
+								<th >1,200만원 초과 ~ 4,600만원 이하</th>
+								<th >4,600만원 초과 ~ 8,800만원 이하</th>
+								<th >8,800만원 초과 ~ 3억원 이하</th>
 							</tr>
 						</thead>
 						<tbody>
