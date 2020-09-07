@@ -5,10 +5,12 @@
 <title>어쩌고 렌터카</title>
 <tiles:insertAttribute name="css" />
 <tiles:insertAttribute name="script" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body>
 	<tiles:insertAttribute name="header" />
-	<div id="content">
+	<div id="content" style="min-height: 700px;">
 		<div class="page-contentinbe">
 			<tiles:insertAttribute name="body" />
 		</div>
