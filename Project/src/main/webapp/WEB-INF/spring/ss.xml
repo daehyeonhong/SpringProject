@@ -31,7 +31,8 @@
 
 	<!-- Get SQLSessionFactory -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
-		p:dataSource-ref="dataSource" />
+		p:dataSource-ref="dataSource"
+		p:configLocation="classpath:/shop/carrental/config/mybatisConfiguration.xml" />
 
 	<mybatis-spring:scan base-package="shop.carrental.mapper" />
 
