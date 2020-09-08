@@ -1,7 +1,7 @@
-package shop.carrental.customerService.mapper;
+package shop.carrental.mapper;
 
 import java.util.List;
-import shop.carrental.customerService.domain.NoticeDTO;
+import shop.carrental.domain.NoticeDTO;
 
 public interface NoticeMapper {
 

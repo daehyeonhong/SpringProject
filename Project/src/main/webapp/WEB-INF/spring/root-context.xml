@@ -18,7 +18,8 @@
 	<!-- Configuration Hirkari -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig"
 		p:driverClassName="${dataSource.driverClassName}"
-		p:jdbcUrl="${dataSource.url}" p:username="${dataSource.user}"
+		p:jdbcUrl="${dataSource.url}"
+		p:username="${dataSource.user}"
 		p:password="${dataSource.password}"
 		p:connectionTestQuery="${properti.hikari.connectionTestQuery}"
 		p:maximumPoolSize="${property.hikari.maximumPoolSize}"
@@ -31,7 +32,8 @@
 
 	<!-- Get SQLSessionFactory -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
-		p:dataSource-ref="dataSource" />
+		p:dataSource-ref="dataSource"
+		 />
 
 	<mybatis-spring:scan base-package="shop.carrental.mapper" />
 

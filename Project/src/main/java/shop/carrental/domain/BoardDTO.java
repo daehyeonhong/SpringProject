@@ -1,4 +1,4 @@
-package shop.carrental.customerService.domain;
+package shop.carrental.domain;
 
 import lombok.Getter;
 import lombok.Setter;

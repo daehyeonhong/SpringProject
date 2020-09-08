@@ -1,4 +1,4 @@
-package shop.carrental.customerService.domain;
+package shop.carrental.domain;
 
 import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;

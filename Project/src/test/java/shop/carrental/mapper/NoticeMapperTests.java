@@ -6,11 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
-import shop.carrental.customerService.domain.NoticeDTO;
-import shop.carrental.customerService.mapper.NoticeMapper;
+import shop.carrental.domain.NoticeDTO;
 
 @WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -22,15 +20,29 @@ public class NoticeMapperTests {
 	private NoticeMapper mapper;
 
 	@Test
+	public void testGetNoticeList() {
+		mapper.getNoticeList().forEach(notice -> log.info(notice));
+	}
+
+	@Test
 	public void testInsert() {
 		NoticeDTO dto = new NoticeDTO();
-		dto.setTitle("Mybatis Test Title");
-		dto.setContent("MyBatis Test Content");
-		dto.setWriter("MyBatis Test Writer");
+		dto.setTitle("Title");
+		dto.setContent("Content");
+		dto.setWriter("Writer");
 
 		mapper.insert(dto);
 
 		log.info(dto);
 	}
 
+	@Test
+	public void testGetNotice() {
+		NoticeDTO dto = mapper.read(87L);
+		log.info(dto);
+	}
+
+	public void testDelete() {
+		log.info("Delete Count: " + mapper.delete(42L));
+	}
 }
