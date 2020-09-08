@@ -24,7 +24,8 @@
 		p:connectionTestQuery="${properti.hikari.connectionTestQuery}"
 		p:maximumPoolSize="${property.hikari.maximumPoolSize}"
 		p:idleTimeout="${property.hikari.idleTimeout}"
-		p:maxLifetime="${property.hikari.maxLifetime}" />
+		p:maxLifetime="${property.hikari.maxLifetime}"
+		p:connectionTimeout="${property.hikari.connectionTimeout}" />
 
 	<!-- Configuration DataSource -->
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close"
@@ -33,9 +34,9 @@
 	<!-- Get SQLSessionFactory -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
 		p:dataSource-ref="dataSource"
-		 />
+		p:configLocation="classpath:/shop/carrental/config/mybatis-config.xml" />
 
-	<mybatis-spring:scan base-package="shop.carrental.mapper" />
+	<mybatis-spring:scan base-package="shop.carrental.mappers" />
 
 	<!-- 내일 질문 -->
 	<!-- <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">

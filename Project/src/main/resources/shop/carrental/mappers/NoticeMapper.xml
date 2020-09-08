@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="shop.carrental.mapper.NoticeMapper">
 
-	<select id="getNoticeList" resultType="shop.carrental.domain.NoticeDTO">
+<mapper namespace="shop.carrental.mappers.NoticeMapper">
+
+	<select id="getNoticeList" resultType="notice">
 		<![CDATA[
 			SELECT*FROM notice WHERE seq>0
 		]]>
@@ -14,7 +15,7 @@
 		]]>
 	</insert>
 
-	<select id="read" parameterType="long" resultType="shop.carrental.domain.NoticeDTO">
+	<select id="read" parameterType="long" resultType="notice">
 		<![CDATA[
 			SELECT*FROM notice WHERE seq=#{seq}
 		]]>

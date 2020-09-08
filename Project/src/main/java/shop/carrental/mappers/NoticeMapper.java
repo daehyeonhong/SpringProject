@@ -1,4 +1,4 @@
-package shop.carrental.mapper;
+package shop.carrental.mappers;
 
 import java.util.List;
 import shop.carrental.domain.NoticeDTO;
