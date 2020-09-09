@@ -1,6 +1,7 @@
-package shop.carrental.controller;
 /*
- * package shop.carrental.customerService.controller;
+ * package shop.carrental.controller;
+ * 
+ * package shop.carrental.controller;
  * 
  * import java.text.SimpleDateFormat; import java.util.ArrayList; import
  * java.util.Date; import java.util.List; import
@@ -13,9 +14,7 @@ package shop.carrental.controller;
  * org.springframework.web.bind.annotation.ModelAttribute; import
  * org.springframework.web.bind.annotation.RequestMapping; import
  * org.springframework.web.bind.annotation.RequestParam; import lombok.Setter;
- * import lombok.extern.log4j.Log4j; import
- * shop.carrental.customerService.domain.NoticeDTO; import
- * shop.carrental.customerService.service.NoticeService;
+ * import lombok.extern.log4j.Log4j; import shop.carrental.domain.NoticeDTO;
  * 
  * @Controller
  * 

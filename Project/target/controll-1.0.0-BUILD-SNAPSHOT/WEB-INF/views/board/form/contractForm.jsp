@@ -6,10 +6,10 @@
 <title>공지사항</title>
 </head>
 <body>
-	<%@ include file="../customerMenu.jsp" %>
+	<%@ include file="../customerMenu.jsp"%>
 	<article>
 		<div class="container col-sm-6">
-			<%@ include file="formNav.jsp" %>
+			<%@ include file="formNav.jsp"%>
 		</div>
 	</article>
 </body>

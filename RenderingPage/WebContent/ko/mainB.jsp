@@ -8,7 +8,7 @@
 <title>고객센터</title>
 </head>
 <body>
-<%@include file="mainBar.jsp" %>	
+<%@include file="mainBar.jsp"%>	
 <%@include file="customerCenterBar.jsp"%>
 <div class="container">
 <br> <br>
@@ -16,6 +16,6 @@
 <br> <br>
 </div>
 
-<%@include file="footer.jsp" %>
+<%@include file="footer.jsp"%>
 </body>
 </html>

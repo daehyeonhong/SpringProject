@@ -18,8 +18,8 @@
 	}
 </style>
 <body>
-<%@include file="mainBar.jsp" %>	
-<%@include file="customerCenterBar.jsp" %>	
+<%@include file="mainBar.jsp"%>	
+<%@include file="customerCenterBar.jsp"%>	
 <div class="container">
 <br>
  <br>
@@ -136,6 +136,6 @@
  <br>
  <br>
  <br>
-<%@include file="footer.jsp" %>
+<%@include file="footer.jsp"%>
 </body>
 </html>

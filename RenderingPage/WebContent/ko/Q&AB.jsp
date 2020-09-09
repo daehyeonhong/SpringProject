@@ -9,8 +9,8 @@
 <title>자주찾는 질문</title>
 </head>
 <body>
-<%@include file="mainBar.jsp" %>
-<%@include file="customerCenterBar.jsp" %>
+<%@include file="mainBar.jsp"%>
+<%@include file="customerCenterBar.jsp"%>
 <br>
 <br>
 <div class="container">
@@ -205,6 +205,6 @@
 </div>
 <br>
 <br>
-<%@include file="footer.jsp" %>
+<%@include file="footer.jsp"%>
 </body>
 </html>

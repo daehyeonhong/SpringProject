@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,7 @@
 </head>
 <body>
 	<c:set var="type" value="${param.type}" />
-	<%@ include file="customerMenu.jsp" %>
+	<%@ include file="customerMenu.jsp"%>
 	<article class="container col-sm-6">
 		<div class="col-sm-12 row">
 			<span class="h2 col-sm-10">지점안내</span> <span class="col-sm-2">breadcrumb</span>

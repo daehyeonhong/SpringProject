@@ -1,19 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>공지사항</title>
-</head>
-<body>
-	<c:set var="type" value="${param.type}" />
-	<%@ include file="customerMenu.jsp" %>
-	<article class="container col-sm-6">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="type" value="${param.type}" />
+<article>
+	<%@ include file="customerMenu.jsp"%>
+	<div class="container col-sm-6">
 		<div class="col-sm-12 row">
 			<span class="h2 col-sm-10">지점안내</span> <span class="col-sm-2">breadcrumb</span>
 		</div>
-
+	
 		<div align="center">
 			<div class="row container">
 				<button type="button" class="btn btn-<c:if test="${type == 'long'}">outline-dark</c:if><c:if test="${type != 'long'}">secondary</c:if> col-sm-6" onclick="location.href='?type=short'">
@@ -25,7 +19,7 @@
 			</div>
 			<hr />
 		</div>
-
+	
 		<div align="right">
 				<form class="form col-sm-6" action="#" method="post">
 					<div class="input-group">
@@ -37,7 +31,7 @@
 				</form>
 				<hr />
 			</div>
-
+	
 		<div align="center">
 			<c:if test="${type == 'long'}">
 				<c:forEach var="i" begin="0" end="29" step="2">
@@ -76,6 +70,7 @@
 						</div>
 					</div>
 				</c:forEach>
+	
 			</c:if>
 			<c:if test="${type != 'long'}">
 				<div class="row container">
@@ -100,6 +95,5 @@
 				</div>
 			</c:if>
 		</div>
-	</article>
-</body>
-</html>
+	</div>
+</article>

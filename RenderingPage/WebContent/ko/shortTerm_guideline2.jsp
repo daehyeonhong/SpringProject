@@ -22,7 +22,7 @@
 </head>
 <body>
 <!--  홈바 -->
-<%@ include file="z_home.jsp" %>
+<%@ include file="z_home.jsp"%>
 
 <!-- 단기렌트 제목틀-->
 <div class="jumbotron bg-white">

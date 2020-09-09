@@ -8,8 +8,8 @@
 </head>
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
 <body>
-<%@include file="mainBar.jsp" %>	
-<%@include file="customerCenterBar.jsp" %>	
+<%@include file="mainBar.jsp"%>	
+<%@include file="customerCenterBar.jsp"%>	
 <br> <br>
 <div class="container">
 <form action="#">
@@ -115,7 +115,7 @@
   <span class="spinner-borderspinner-border-lg"></span>
   Loading..
 </button> -->
-<%@include file="agreement.jsp" %>
+<%@include file="agreement.jsp"%>
 <br>
 <br>
 <center>
@@ -125,6 +125,6 @@
 </form>
 </div>
 
-<%@include file="footer.jsp" %>
+<%@include file="footer.jsp"%>
 </body>
 </html>

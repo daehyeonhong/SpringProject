@@ -1,13 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
-<meta charset="UTF-8">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
-<c:set var="route" value="${path}/board/form" />
-<%-- <c:set var="URI" value="${pageContext.request.requestURL}" />
-<c:set var="targets" value="${fn:split(URI, '/')}" />
-<c:set var="target" value="${targets[fn:length(targets) - 1]}" /> --%>
+<c:set var="route" value="${path}/customer/form" />
 <nav>
 	<div class="container row">
 		<span class="h2 col-sm-10">양식 다운로드</span>

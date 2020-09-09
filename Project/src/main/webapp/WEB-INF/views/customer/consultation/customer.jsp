@@ -1,13 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>고객상담</title>
-</head>
-<body>
-
-	<jsp:include page="../customerMenu.jsp" />
+<article>
+	<%@ include file="../customerMenu.jsp"%>
 	<div class="container col-sm-6">
 		<div class="container row">
 			<span class="h2 col-sm-10">고객상담</span>
@@ -15,7 +8,7 @@
 		</div>
 
 		<!-- Nav tabs -->
-		<jsp:include page="consultationNav.jsp" />
+		<%@ include file="consultationNav.jsp"%>
 
 		<!-- Tab panes -->
 		<div class="container">
@@ -63,6 +56,4 @@
 			</form>
 		</div>
 	</div>
-
-</body>
-</html>
+</article>

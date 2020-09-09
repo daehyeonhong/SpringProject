@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,7 @@
 </head>
 <body>
 	<c:set var="keyword" value="${param.keyword}"/>
-	<jsp:include page="./customerMenu.jsp" />
+	<jsp:include page="customerMenu.jsp" />
 	<article>
 		<div class="container col-sm-6">
 			<div class="container row">

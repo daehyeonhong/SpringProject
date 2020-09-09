@@ -27,4 +27,28 @@
 		]]>
 	</delete>
 
+	<select id="search" resultType="notice">
+		<if test="searchBy=='all'">
+			<![CDATA[
+				SELECT*FROM notice WHERE UPPER(title) LIKE '%'||UPPER(#{keyword})||'%' OR UPPER(content) LIKE '%'||UPPER(#{keyword})||'%' ORDER BY seq
+			]]>
+		</if>
+		<if test="searchBy=='title'">
+			<![CDATA[
+				SELECT*FROM notice WHERE UPPER(title) LIKE '%'||UPPER(#{keyword})||'%' ORDER BY seq
+			]]>
+		</if>
+		<if test="searchBy=='content'">
+			<![CDATA[
+				SELECT*FROM notice WHERE UPPER(content) LIKE '%'||UPPER(#{keyword})||'%' ORDER BY seq
+			]]>
+		</if>
+	</select>
+
+	<select id="getListCount">
+		<![CDATA[
+			SELECT COUNT(*)FROM notice
+		]]>
+	</select>
+
 </mapper>

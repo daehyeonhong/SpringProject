@@ -1,14 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>렌터카상담</title>
-</head>
-<body>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<article>
 	<c:set var="category" value="${param.category}"/>
-	<jsp:include page="../customerMenu.jsp" />
+	<%@ include file="../customerMenu.jsp"%>
 	<div class="container col-sm-6">
 		<div class="container row">
 			<span class="h2 col-sm-10">고객상담</span>
@@ -16,7 +10,7 @@
 		</div>
 
 		<!-- Nav tabs -->
-		<jsp:include page="consultationNav.jsp" />
+		<%@ include file="consultationNav.jsp"%>
 
 		<div class="container">
 			<span>중고차장기/개인장기/법인장기 상담신청 시 등록하신 유선 또는 이메일로만 답변을 받으실 수 있으며, 홈페이지에서는 답변 확인 불가능합니다.</span>
@@ -368,6 +362,4 @@
 			<hr />
 		</div>
 	</div>
-
-</body>
-</html>
+</article>

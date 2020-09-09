@@ -18,8 +18,8 @@
 </script>
 </head>
 <body>
-<%@include file="mainBar.jsp" %>	
-<%@include file="customerCenterBar.jsp" %>	
+<%@include file="mainBar.jsp"%>	
+<%@include file="customerCenterBar.jsp"%>	
 <br> <br>
 <div class="container">
 <h1>고객상담</h1>
@@ -151,7 +151,7 @@
   <span class="spinner-borderspinner-border-lg"></span>
   Loading..
 </button> -->
-<%@include file="agreement.jsp" %>
+<%@include file="agreement.jsp"%>
 <br>
 <br>
 <center>
@@ -169,6 +169,6 @@
  
 </div>
 
-<%@include file="footer.jsp" %>
+<%@include file="footer.jsp"%>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="dbconn.jsp" %>
+<%@include file="dbconn.jsp"%>
 
 <!DOCTYPE html>
 <html>
@@ -264,7 +264,7 @@ try{
 		%>
 
 
-  <div  onclick="location.href='lent_long_old.jsp?carname=<%=carname %>'" class="card col-sm-6 " style="width:500px; height:300px; ">
+  <div  onclick="location.href='lent_long_old.jsp?carname=<%=carname%>'" class="card col-sm-6 " style="width:500px; height:300px; ">
     <div>
    <img class="card-img-top col-sm-8" src="./resources/images/car.jpg" alt="Card image" style="width:250px">
     <span class="col-sm-3"><%=carname%> </span>
@@ -279,8 +279,8 @@ try{
       <div class="row">
       <ul class="col-sm-6">
       
-      <li>차량 등록 &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span><%=id %></span></li>
-      <li>주행거리  &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span><%=facname %></span></li>
+      <li>차량 등록 &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span><%=id%></span></li>
+      <li>주행거리  &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span><%=facname%></span></li>
       </ul>
       <ul class="col-sm-6">
       <li>계약기간  &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span>최대21개월</span></li>

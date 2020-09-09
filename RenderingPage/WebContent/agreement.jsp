@@ -11,7 +11,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 <body>
-<%@ include file="nav.jsp" %>
+<%@ include file="nav.jsp"%>
 	<div class="container col-sm-8" align="center">
 		<h1 class="display-6">약관동의 및 본인확인</h1>
 		<form action="#">

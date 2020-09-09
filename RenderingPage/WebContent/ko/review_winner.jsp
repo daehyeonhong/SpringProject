@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,7 @@
 </head>
 <body>
 <!--  홈바 -->
-<%@ include file="z_home.jsp" %>
+<%@ include file="z_home.jsp"%>
 <div class="container col-sm-6">
 <!--후기 가이드라인 -->
 <div class="form-group border">

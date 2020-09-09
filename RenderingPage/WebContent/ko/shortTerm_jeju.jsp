@@ -1,5 +1,5 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
@@ -89,7 +89,7 @@
 </head>
 <body>
 <!--  홈바 -->
-<%@ include file="z_home.jsp" %>
+<%@ include file="z_home.jsp"%>
 
 <!-- 단기렌트 제목틀-->
 <div class="jumbotron bg-white">
@@ -333,7 +333,7 @@
 	<p style="font-size: 14px;">TT렌터카㈜는 적법하고 공정한 방법으로 개인정보를 수집하며, 고객의 개인정보를 최우선으로 생각하여 안전하게 보유·관리하고 있습니다.</p>
 	<h5>개인정보 제공 활용 동의</h5>
 	
-<%@include file="z_agreement_collpase.jsp" %>
+<%@include file="z_agreement_collpase.jsp"%>
 
 </div>	
 	<ul class="row">
@@ -356,6 +356,6 @@
 <br>
 <br>
 <%@ include  file="z_shortTerm_show.jsp"%>
-<%@ include file="z_shortTerm_show_brachLocation.jsp" %>
+<%@ include file="z_shortTerm_show_brachLocation.jsp"%>
 </body>
 </html>

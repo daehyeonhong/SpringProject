@@ -11,8 +11,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@include file="mainBar.jsp" %>	
-<%@include file="customerCenterBar.jsp" %>	
+<%@include file="mainBar.jsp"%>	
+<%@include file="customerCenterBar.jsp"%>	
 <br>
 <br>
 <div class="container">
@@ -177,6 +177,6 @@
 
 </div>
 <br>
-<%@include file="footer.jsp" %>
+<%@include file="footer.jsp"%>
 </body>
 </html>

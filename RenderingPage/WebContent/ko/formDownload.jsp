@@ -11,8 +11,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <!-- <link rel="stylesheet" href="./resources/css/bootstrap.min.css" /> -->
-<%@include file="mainBar.jsp" %>	
-<%@include file="customerCenterBar.jsp" %>
+<%@include file="mainBar.jsp"%>	
+<%@include file="customerCenterBar.jsp"%>
 <br>
 <br>
 <div class="container">
@@ -174,6 +174,6 @@
 
 <br>
 <br>
-<%@include file="footer.jsp" %>
+<%@include file="footer.jsp"%>
 </body>
 </html>
