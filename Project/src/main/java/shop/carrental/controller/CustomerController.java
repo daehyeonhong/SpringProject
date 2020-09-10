@@ -108,7 +108,6 @@ public class CustomerController {
 	public void notice(@RequestParam("pageNumber") Integer pageNumber, Model model) {
 		log.info("notice");
 		MultiValueMap<String, Object> map = noticeService.getNoticeList(pageNumber);
-		map.get(key)
 		model.addAttribute("noticeList", "");
 	}
 
