@@ -32,7 +32,7 @@ public class CustomerController {
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(simpleDateFormat, false));
 	}
 
-	@RequestMapping("")
+	@RequestMapping("/")
 	public void basic() {
 		log.info("board");
 		log.info("정상 접근 성공!");
@@ -48,7 +48,7 @@ public class CustomerController {
 		log.info("정상 접근 성공!");
 	}
 
-	@RequestMapping("consultation/customer")
+	@RequestMapping("/consultation/customer")
 	public String customer(Model model) {
 		log.info("customer");
 		log.info("정상 접근 성공!");
@@ -56,7 +56,7 @@ public class CustomerController {
 		return "customer/consultation/customer";
 	}
 
-	@RequestMapping("consultation/info")
+	@RequestMapping("/consultation/info")
 	public String info(Model model) {
 		log.info("info");
 		log.info("정상 접근 성공!");
@@ -64,7 +64,7 @@ public class CustomerController {
 		return "customer/consultation/info";
 	}
 
-	@RequestMapping("consultation/rent")
+	@RequestMapping("/consultation/rent")
 	public String rent(Model model) {
 		log.info("rent");
 		log.info("정상 접근 성공!");
@@ -72,7 +72,7 @@ public class CustomerController {
 		return "customer/consultation/rent";
 	}
 
-	@RequestMapping("form/applicationForm")
+	@RequestMapping("/form/applicationForm")
 	public String applicationForm(Model model) {
 		log.info("applicationForm");
 		log.info("정상 접근 성공!");
@@ -80,7 +80,7 @@ public class CustomerController {
 		return "customer/form/applicationForm";
 	}
 
-	@RequestMapping("form/contractForm")
+	@RequestMapping("/form/contractForm")
 	public String contractForm(Model model) {
 		log.info("contractForm");
 		log.info("정상 접근 성공!");
@@ -88,7 +88,7 @@ public class CustomerController {
 		return "customer/form/contractForm";
 	}
 
-	@RequestMapping("form/handoverForm")
+	@RequestMapping("/form/handoverForm")
 	public String handoverForm(Model model) {
 		log.info("handoverForm");
 		log.info("정상 접근 성공!");
@@ -96,7 +96,7 @@ public class CustomerController {
 		return "customer/form/handoverForm";
 	}
 
-	@RequestMapping("form/terminateForm")
+	@RequestMapping("/form/terminateForm")
 	public String terminateForm(Model model) {
 		log.info("terminateForm");
 		log.info("정상 접근 성공!");
@@ -104,7 +104,7 @@ public class CustomerController {
 		return "customer/form/terminateForm";
 	}
 
-	@GetMapping("notice")
+	@GetMapping("/notice")
 	public void notice(@RequestParam("pageNumber") Integer pageNumber, Model model) {
 		log.info("notice");
 		MultiValueMap<String, Object> map = noticeService.getNoticeList(pageNumber);
@@ -112,14 +112,14 @@ public class CustomerController {
 		model.addAttribute("noticeList", "");
 	}
 
-	@GetMapping("noticeDetail")
+	@GetMapping("/noticeDetail")
 	public void noticeDetail(@RequestParam("seq") Long seq, Model model) {
 		log.info("noticeDetail");
 
 		model.addAttribute("notice", noticeService.getNoticeDetail(seq));
 	}
 
-	@GetMapping("noticeSearch")
+	@GetMapping("/noticeSearch")
 	public void noticeSearch(@RequestParam("searchBy") String searchBy, @RequestParam("keyword") String keyword,
 			Model model) {
 		HashMap<String, String> map = new HashMap<String, String>();

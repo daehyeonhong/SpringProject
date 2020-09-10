@@ -13,12 +13,12 @@
 		<div class="container">
 			<div class="container">
 				<div class="row">
-						<a class="btn btn-<c:if test="${keyword != 'all'}">outline-</c:if>dark col-sm-2" href="?keyword=all">전체</a>
-						<a class="btn btn-<c:if test="${keyword != 'direct'}">outline-</c:if>dark col-sm-2" href="?keyword=direct">다이렉트</a>
-						<a class="btn btn-<c:if test="${keyword != 'newLongterm'}">outline-</c:if>dark col-sm-2" href="?keyword=newLongterm">신차장기</a>
-						<a class="btn btn-<c:if test="${keyword != 'shortterm'}">outline-</c:if>dark col-sm-2" href="?keyword=shortterm">단기</a>
-						<a class="btn btn-<c:if test="${keyword != 'usedLongterm'}">outline-</c:if>dark col-sm-2" href="?keyword=usedLongterm">중고차장기</a>
-						<a class="btn btn-<c:if test="${keyword != 'electric'}">outline-</c:if>dark col-sm-2" href="?keyword=electric">전기차</a>
+						<a class="btn btn-${keyword != 'all' ? 'outline-' : ''}dark col-sm-2" href="?keyword=all">전체</a>
+						<a class="btn btn-${keyword != 'direct' ? 'outline-' : ''}dark col-sm-2" href="?keyword=direct">다이렉트</a>
+						<a class="btn btn-${keyword != 'newLongterm' ? 'outline-' : ''}dark col-sm-2" href="?keyword=newLongterm">신차장기</a>
+						<a class="btn btn-${keyword != 'shortterm' ? 'outline-' : ''}dark col-sm-2" href="?keyword=shortterm">단기</a>
+						<a class="btn btn-${keyword != 'usedLongterm' ? 'outline-' : ''}dark col-sm-2" href="?keyword=usedLongterm">중고차장기</a>
+						<a class="btn btn-${keyword != 'electric' ? 'outline-' : ''}dark col-sm-2" href="?keyword=electric">전기차</a>
 				</div>
 			</div>
 			<hr>

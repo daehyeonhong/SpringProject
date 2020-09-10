@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <article>
 	<%@ include file="customerMenu.jsp"%>
 	<div class="container col-sm-6">
@@ -23,11 +24,12 @@
 				<tbody>
 					<c:forEach var="row" items="${noticeList}" >
 						<c:set var="seq" value="${row.seq}" />
+						<fmt:formatDate var="regDate" value="${row.regDate}" pattern="yyyy-MM-dd" />
 						<tr>
 							<td class="col-sm-1"><span>${seq}</span></td>
 							<td class="col-sm-2"><span>구분</span></td>
 							<td class="col-sm-7 text-left"><a href="noticeDetail?seq=${seq}">${row.title}</a></td>
-							<td class="col-sm-2"><span>${row.regDate}</span></td>
+							<td class="col-sm-2"><span>${regDate}</span></td>
 						</tr>
 					</c:forEach>
 				</tbody>
