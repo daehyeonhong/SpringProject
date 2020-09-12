@@ -5,49 +5,62 @@
 
 	<select id="getNoticeList" resultType="notice">
 		<![CDATA[
-			SELECT*FROM notice WHERE seq>0
+			SELECT notice_seq,category,title,writer_id,content,count,like_it,reg_date,update_date
+				FROM
+					(
+						SELECT /*+INDEX_DESC(table_board pk_notice)*/
+							ROWNUM rn,notice_seq,category,title,writer_id,content,count,like_it,reg_date,update_date
+							FROM table_notice
+						WHERE ROWNUM<=#{pageNumber}*#{amount}
+					)
+			WHERE rn>(#{pageNumber}-1)*#{amount}
 		]]>
 	</select>
 
 	<insert id="insert">
 		<![CDATA[
-			INSERT INTO notice(seq,title,content,writer)VALUES(testseq.NEXTVAL,#{title},#{content},#{writer})
+			INSERT INTO notice_seq
+				(notice_seq,category,title,writer,content)
+			VALUES(
+				notice_seq.NEXTVAL,#{category},#{title},#{writer},#{content})
 		]]>
 	</insert>
 
 	<select id="read" parameterType="long" resultType="notice">
 		<![CDATA[
-			SELECT*FROM notice WHERE seq=#{seq}
+			SELECT*FROM table_notice WHERE notice_seq=#{notice_seq}
 		]]>
 	</select>
 
 	<delete id="delete">
 		<![CDATA[
-			DELETE FROM notice WHERE seq=#{seq}
+			DELETE FROM table_notice WHERE notice_seq=#{notice_seq}
 		]]>
 	</delete>
 
 	<select id="search" resultType="notice">
 		<if test="searchBy=='all'">
 			<![CDATA[
-				SELECT*FROM notice WHERE UPPER(title) LIKE '%'||UPPER(#{keyword})||'%' OR UPPER(content) LIKE '%'||UPPER(#{keyword})||'%' ORDER BY seq
+				SELECT*FROM table_notice WHERE UPPER(title) LIKE '%'||UPPER(#{keyword})||'%' OR UPPER(content) LIKE '%'||UPPER(#{keyword})||'%' ORDER BY notice_seq
 			]]>
 		</if>
 		<if test="searchBy=='title'">
 			<![CDATA[
-				SELECT*FROM notice WHERE UPPER(title) LIKE '%'||UPPER(#{keyword})||'%' ORDER BY seq
+				SELECT*FROM table_notice WHERE UPPER(title) LIKE '%'||UPPER(#{keyword})||'%' ORDER BY notice_seq
 			]]>
 		</if>
 		<if test="searchBy=='content'">
 			<![CDATA[
-				SELECT*FROM notice WHERE UPPER(content) LIKE '%'||UPPER(#{keyword})||'%' ORDER BY seq
+				SELECT*FROM table_notice WHERE UPPER(content) LIKE '%'||UPPER(#{keyword})||'%' ORDER BY notice_seq
 			]]>
 		</if>
 	</select>
 
-	<select id="getListCount">
+	<select id="getTotal">
 		<![CDATA[
-			SELECT COUNT(*)FROM notice
+			SELECT COUNT(*)
+				FROM table_notice
+			WHERE notice_seq>0
 		]]>
 	</select>
 

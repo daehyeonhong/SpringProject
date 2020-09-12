@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
+import shop.carrental.domain.Criteria;
 import shop.carrental.domain.NoticeDTO;
+import shop.carrental.domain.PageDTO;
 import shop.carrental.service.NoticeService;
 
 @Controller
@@ -105,10 +107,15 @@ public class CustomerController {
 	}
 
 	@GetMapping("/notice")
-	public void notice(@RequestParam("pageNumber") Integer pageNumber, Model model) {
-		log.info("notice");
-		MultiValueMap<String, Object> map = noticeService.getNoticeList(pageNumber);
-		model.addAttribute("noticeList", "");
+	public void noticeList(Criteria criteria, Model model) {
+		log.info("noticeList" + criteria);
+
+		model.addAttribute("noticeList", noticeService.getNoticeList(criteria));
+		int total = noticeService.getTotal(criteria);
+		log.info("total: " + total);
+
+		model.addAttribute("pageMaker", new PageDTO(criteria, total));
+
 	}
 
 	@GetMapping("/noticeDetail")

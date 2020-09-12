@@ -2,20 +2,17 @@ package shop.carrental.mappers;
 
 import java.util.HashMap;
 import java.util.List;
+import shop.carrental.domain.Criteria;
 import shop.carrental.domain.NoticeDTO;
 
 public interface NoticeMapper {
 
-	public List<NoticeDTO> getNoticeList();
+	public int getTotal(Criteria criteria);
 
-	public void insert(NoticeDTO dto);
+	public List<NoticeDTO> getNoticeList(Criteria criteria);
 
 	public NoticeDTO read(Long seq);
 
-	public int delete(Long seq);
-
 	public List<NoticeDTO> search(HashMap<String, String> map);
-
-	public int getListCount();
 
 }
