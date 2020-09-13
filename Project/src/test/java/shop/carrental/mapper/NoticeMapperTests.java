@@ -1,5 +1,7 @@
 package shop.carrental.mapper;
 
+import java.util.function.Consumer;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
+import shop.carrental.domain.Criteria;
 import shop.carrental.domain.NoticeDTO;
 import shop.carrental.mappers.NoticeMapper;
 
@@ -18,32 +21,37 @@ import shop.carrental.mappers.NoticeMapper;
 public class NoticeMapperTests {
 
 	@Setter(onMethod_ = @Autowired)
-	private NoticeMapper mapper;
+	private NoticeMapper noticeMapper;
 
 	@Test
 	public void testGetNoticeList() {
-		mapper.getNoticeList().forEach(notice -> log.info(notice));
+		Criteria criteria = new Criteria(2);
+		noticeMapper.getNoticeList(criteria).forEach(new Consumer<NoticeDTO>() {
+
+			@Override
+			public void accept(NoticeDTO notice) {
+				log.info(notice);
+			}
+		});
 	}
 
-	@Test
-	public void testInsert() {
-		NoticeDTO dto = new NoticeDTO();
-		dto.setTitle("Title");
-		dto.setContent("Content");
-		dto.setWriter("Writer");
-
-		mapper.insert(dto);
-
-		log.info(dto);
-	}
+	/*
+	 * @Test public void testInsert() { NoticeDTO dto = new NoticeDTO();
+	 * dto.setTitle("Title"); dto.setContent("Content"); dto.setWriter("Writer");
+	 * 
+	 * noticeMapper.(dto);
+	 * 
+	 * log.info(dto); }
+	 */
 
 	@Test
 	public void testGetNotice() {
-		NoticeDTO dto = mapper.read(87L);
+		NoticeDTO dto = noticeMapper.read(87L);
 		log.info(dto);
 	}
 
-	public void testDelete() {
-		log.info("Delete Count: " + mapper.delete(42L));
-	}
+	/*
+	 * public void testDelete() { log.info("Delete Count: " +
+	 * noticeMapper.delete(42L)); }
+	 */
 }

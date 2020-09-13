@@ -2,11 +2,11 @@
 <article>
 	<div class="container col-sm-3" align="center">
 		<h1 class="display-6">기본 정보 입력</h1>
-		<form action="signUp" class="form-group" method="post">
+		<form class="form-group" action="/user/signUp" method="POST">
 			<table class="col-sm-10">
 				<tr>
 					<td>
-						<input type="text" class="form-control" id="id" name="id" placeholder="아이디 입력 (띄어쓰기 없이 영문 소문자, 숫자 포함 4 ~ 20자 이내)" required="required" />
+						<input type="text" class="form-control" id="id" name="id" placeholder="아이디 입력 (띄어쓰기 없이 영문 소문자, 숫자 포함 4 ~ 20자 이내)" required="required" autofocus="autofocus" />
 					</td>
 				</tr>
 				<tr>
@@ -17,6 +17,11 @@
 				<tr>
 					<td>
 						<input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" placeholder="비밀번호 재입력" required="required" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" class="form-control" id="nickname" name="nickname" placeholder="닉네임" required="required" />
 					</td>
 				</tr>
 				<tr>

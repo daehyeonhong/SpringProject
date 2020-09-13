@@ -3,42 +3,54 @@
 
 <mapper namespace="shop.carrental.mappers.NoticeMapper">
 
-	<select id="getNoticeList" resultType="notice">
+	<resultMap type="notice" id="noticeMap">
+		<id property="notice_seq" column="notice_seq" />
+		<result property="count" column="count" />
+		<result property="like_it" column="like_it" />
+		<result property="category" column="category" />
+		<result property="title" column="title" />
+		<result property="writer_id" column="writer_id" />
+		<result property="content" column="content" />
+		<result property="reg_date" column="reg_date" />
+		<result property="update_date" column="update_date" />
+	</resultMap>
+
+	<select id="getNoticeList" resultMap="noticeMap">
 		<![CDATA[
 			SELECT notice_seq,category,title,writer_id,content,count,like_it,reg_date,update_date
 				FROM
 					(
-						SELECT /*+INDEX_DESC(table_board pk_notice)*/
+						SELECT /*+INDEX_DESC(table_notice pk_notice)*/
 							ROWNUM rn,notice_seq,category,title,writer_id,content,count,like_it,reg_date,update_date
 							FROM table_notice
-						WHERE ROWNUM<=#{pageNumber}*#{amount}
+						WHERE ROWNUM<=#{pageNumber}*#{AMOUNT}
 					)
-			WHERE rn>(#{pageNumber}-1)*#{amount}
+			WHERE rn>(#{pageNumber}-1)*#{AMOUNT}
 		]]>
 	</select>
 
-	<insert id="insert">
+	<!-- <insert id="insert">
 		<![CDATA[
-			INSERT INTO notice_seq
-				(notice_seq,category,title,writer,content)
-			VALUES(
-				notice_seq.NEXTVAL,#{category},#{title},#{writer},#{content})
+			INSERT INTO table_notice
+				(notice_seq,category,title,writer_id,content)
+			VALUES
+				(notice_seq.NEXTVAL,#{category},#{title},#{writer_id},#{content})
 		]]>
-	</insert>
+	</insert> -->
 
-	<select id="read" parameterType="long" resultType="notice">
+	<select id="read" parameterType="long" resultMap="noticeMap">
 		<![CDATA[
 			SELECT*FROM table_notice WHERE notice_seq=#{notice_seq}
 		]]>
 	</select>
 
-	<delete id="delete">
+	<!-- <delete id="delete">
 		<![CDATA[
 			DELETE FROM table_notice WHERE notice_seq=#{notice_seq}
 		]]>
-	</delete>
+	</delete> -->
 
-	<select id="search" resultType="notice">
+	<select id="search" resultMap="noticeMap">
 		<if test="searchBy=='all'">
 			<![CDATA[
 				SELECT*FROM table_notice WHERE UPPER(title) LIKE '%'||UPPER(#{keyword})||'%' OR UPPER(content) LIKE '%'||UPPER(#{keyword})||'%' ORDER BY notice_seq
@@ -56,7 +68,7 @@
 		</if>
 	</select>
 
-	<select id="getTotal">
+	<select id="getTotal" resultType="int">
 		<![CDATA[
 			SELECT COUNT(*)
 				FROM table_notice

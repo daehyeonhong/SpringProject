@@ -7,7 +7,9 @@ import lombok.Setter;
 @Setter
 public class PageDTO {
 
-	private int startPage, endPage, total;
+	private int startPage, endPage, total, realEnd;
+
+	private final int FINAL = 10;
 
 	private boolean previous, next;
 
@@ -17,16 +19,16 @@ public class PageDTO {
 		this.criteria = criteria;
 		this.total = total;
 
-		this.endPage = (int) Math.ceil(criteria.getPageNumber() / 10.0) * 10;
+		this.endPage = (int) Math.ceil(criteria.getPageNumber() / 10.0) * FINAL;
 
 		this.startPage = this.endPage - 9;
 
-		int realEnd = (int) (Math.ceil((this.total * 1.0) / criteria.getAmount()));
+		this.realEnd = (int) (Math.ceil((this.total * 1.0) / criteria.getAMOUNT()));
 
-		this.endPage = (realEnd <= this.endPage) ? this.endPage = realEnd : this.endPage;
+		this.endPage = (this.realEnd <= this.endPage) ? this.endPage = this.realEnd : this.endPage;
 
 		this.previous = this.startPage > 1;
-		this.next = this.endPage < realEnd;
+		this.next = this.endPage < this.realEnd;
 	}
 
 }

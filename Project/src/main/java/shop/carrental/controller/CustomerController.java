@@ -7,7 +7,6 @@ import java.util.List;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -34,23 +33,26 @@ public class CustomerController {
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(simpleDateFormat, false));
 	}
 
-	@RequestMapping("/")
+	@GetMapping("/")
 	public void basic() {
 		log.info("board");
 		log.info("정상 접근 성공!");
 	}
 
+	@GetMapping("/branch")
 	public void branch() {
 		log.info("branch");
 		log.info("정상 접근 성공!");
 	}
 
+	@GetMapping("/faq")
 	public void faq() {
 		log.info("faq");
+
 		log.info("정상 접근 성공!");
 	}
 
-	@RequestMapping("/consultation/customer")
+	@GetMapping("/consultation/customer")
 	public String customer(Model model) {
 		log.info("customer");
 		log.info("정상 접근 성공!");
@@ -58,7 +60,7 @@ public class CustomerController {
 		return "customer/consultation/customer";
 	}
 
-	@RequestMapping("/consultation/info")
+	@GetMapping("/consultation/info")
 	public String info(Model model) {
 		log.info("info");
 		log.info("정상 접근 성공!");
@@ -66,7 +68,7 @@ public class CustomerController {
 		return "customer/consultation/info";
 	}
 
-	@RequestMapping("/consultation/rent")
+	@GetMapping("/consultation/rent")
 	public String rent(Model model) {
 		log.info("rent");
 		log.info("정상 접근 성공!");
@@ -74,7 +76,7 @@ public class CustomerController {
 		return "customer/consultation/rent";
 	}
 
-	@RequestMapping("/form/applicationForm")
+	@GetMapping("/form/applicationForm")
 	public String applicationForm(Model model) {
 		log.info("applicationForm");
 		log.info("정상 접근 성공!");
@@ -82,7 +84,7 @@ public class CustomerController {
 		return "customer/form/applicationForm";
 	}
 
-	@RequestMapping("/form/contractForm")
+	@GetMapping("/form/contractForm")
 	public String contractForm(Model model) {
 		log.info("contractForm");
 		log.info("정상 접근 성공!");
@@ -90,7 +92,7 @@ public class CustomerController {
 		return "customer/form/contractForm";
 	}
 
-	@RequestMapping("/form/handoverForm")
+	@GetMapping("/form/handoverForm")
 	public String handoverForm(Model model) {
 		log.info("handoverForm");
 		log.info("정상 접근 성공!");
@@ -98,7 +100,7 @@ public class CustomerController {
 		return "customer/form/handoverForm";
 	}
 
-	@RequestMapping("/form/terminateForm")
+	@GetMapping("/form/terminateForm")
 	public String terminateForm(Model model) {
 		log.info("terminateForm");
 		log.info("정상 접근 성공!");
@@ -122,7 +124,7 @@ public class CustomerController {
 	public void noticeDetail(@RequestParam("seq") Long seq, Model model) {
 		log.info("noticeDetail");
 
-		model.addAttribute("notice", noticeService.getNoticeDetail(seq));
+		model.addAttribute("notice", noticeService.read(seq));
 	}
 
 	@GetMapping("/noticeSearch")
@@ -141,7 +143,7 @@ public class CustomerController {
 			map.put("searchBy", searchBy);
 			map.put("keyword", keyword);
 			log.info("noticeSearch Success");
-			List<NoticeDTO> noticeSearchResult = noticeService.getNoticeSearchList(map);
+			List<NoticeDTO> noticeSearchResult = noticeService.search(map);
 			log.info("noticeSearch Result: " + noticeSearchResult);
 			model.addAttribute("result", "success");
 			model.addAttribute("searchResult", noticeSearchResult);

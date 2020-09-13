@@ -2,15 +2,8 @@
 <article>
 	<div class="container col-sm-3" align="center">
 		<h2>로그인</h2>
-		<%
-			String error = request.getParameter("error");
-			if(error != null){
-				out.print("<div class='alert alert-danger'><strong>");
-				out.print("Please Id & Password check!");
-				out.print("</strong></div>");
-			}
-		%>
-		<form action="login" method="post">
+		${result == 'failure' ? "<div class='alert alert-danger'><strong>Please Id & Password check!</strong></div>" : ""}
+		<form action="/user/login" method="post">
 			<div class="form-group">
 				<input type="text" class="form-control" name="id" id="id" placeholder="아이디 입력" required="required" />
 			</div>
@@ -27,7 +20,7 @@
 		<table class="table">
 			<tr class="list-group list-group-horizontal text-center">
 				<td class="col-sm-4">
-					<a class="text-secondary text-decoration-none" href="signUp.jsp">회원 가입</a>
+					<a class="text-secondary text-decoration-none" href="/user/agreement">회원 가입</a>
 				</td>
 				<td class="col-sm-4">
 					<a class="text-secondary text-decoration-none" href="idSearch.jsp">아이디 찾기</a>

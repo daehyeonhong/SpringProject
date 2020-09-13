@@ -7,12 +7,12 @@ import shop.carrental.domain.NoticeDTO;
 
 public interface NoticeService {
 
-	public List<NoticeDTO> getNoticeList(Criteria criteria);
-
 	public int getTotal(Criteria criteria);
 
-	public NoticeDTO getNoticeDetail(Long seq);
+	public List<NoticeDTO> getNoticeList(Criteria criteria);
 
-	List<NoticeDTO> getNoticeSearchList(HashMap<String, String> map);
+	public NoticeDTO read(Long seq);
+
+	List<NoticeDTO> search(HashMap<String, String> map);
 
 }

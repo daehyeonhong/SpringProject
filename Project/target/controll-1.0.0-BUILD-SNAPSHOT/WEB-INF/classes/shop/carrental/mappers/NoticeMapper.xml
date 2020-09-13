@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="shop.carrental.mappers.NoticeMapper">
+
+	<select id="getNoticeList" resultType="notice">
+		<![CDATA[
+			SELECT notice_seq,category,title,writer_id,content,count,like_it,reg_date,update_date
+				FROM
+					(
+						SELECT /*+INDEX_DESC(table_notice pk_notice)*/
+							ROWNUM rn,notice_seq,category,title,writer_id,content,count,like_it,reg_date,update_date
+							FROM table_notice
+						WHERE ROWNUM<=#{pageNumber}*#{amount}
+					)
+			WHERE rn>(#{pageNumber}-1)*#{amount}
+		]]>
+	</select>
+
+	<insert id="insert">
+		<![CDATA[
+			INSERT INTO table_notice
+				(notice_seq,category,title,writer_id,content)
+			VALUES
+				(notice_seq.NEXTVAL,#{category},#{title},#{writer_id},#{content})
+		]]>
+	</insert>
+
+	<select id="read" parameterType="long" resultType="notice">
+		<![CDATA[
+			SELECT*FROM table_notice WHERE notice_seq=#{notice_seq}
+		]]>
+	</select>
+
+	<delete id="delete">
+		<![CDATA[
+			DELETE FROM table_notice WHERE notice_seq=#{notice_seq}
+		]]>
+	</delete>
+
+	<select id="search" resultType="notice">
+		<if test="searchBy=='all'">
+			<![CDATA[
+				SELECT*FROM table_notice WHERE UPPER(title) LIKE '%'||UPPER(#{keyword})||'%' OR UPPER(content) LIKE '%'||UPPER(#{keyword})||'%' ORDER BY notice_seq
+			]]>
+		</if>
+		<if test="searchBy=='title'">
+			<![CDATA[
+				SELECT*FROM table_notice WHERE UPPER(title) LIKE '%'||UPPER(#{keyword})||'%' ORDER BY notice_seq
+			]]>
+		</if>
+		<if test="searchBy=='content'">
+			<![CDATA[
+				SELECT*FROM table_notice WHERE UPPER(content) LIKE '%'||UPPER(#{keyword})||'%' ORDER BY notice_seq
+			]]>
+		</if>
+	</select>
+
+	<select id="getTotal">
+		<![CDATA[
+			SELECT COUNT(*)
+				FROM table_notice
+			WHERE notice_seq>0
+		]]>
+	</select>
+
+</mapper>

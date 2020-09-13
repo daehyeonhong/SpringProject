@@ -9,24 +9,21 @@ import lombok.ToString;
 @ToString
 public class Criteria {
 
-	private final static int FIRST = 1;
-
-	private final static int LAST = 10;
-
-	private int pageNumber, amount;
+	private int pageNumber;
+	private final int AMOUNT = 10;
 
 	private String searchBy, keyword;
 
 	public Criteria() {
-		this(FIRST, LAST);
+		this(1);
 	}
 
-	public Criteria(int pageNumber, int amount) {
+	public Criteria(int pageNumber) {
 		this.pageNumber = pageNumber;
-		this.amount = amount;
 	}
 
 	public String[] getSearchByArray() {
 		return searchBy == null ? new String[] {} : searchBy.split("");
 	}
+
 }

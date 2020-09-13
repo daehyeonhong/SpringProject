@@ -17,15 +17,16 @@ public class NoticeServiceImpl implements NoticeService {
 	private NoticeMapper noticeMapper;
 
 	@Override
-	public NoticeDTO getNoticeDetail(Long seq) {
+	public NoticeDTO read(Long seq) {
 		log.info("getNoticeDetail()");
 
 		return noticeMapper.read(seq);
 	}
 
 	@Override
-	public List<NoticeDTO> getNoticeSearchList(HashMap<String, String> map) {
+	public List<NoticeDTO> search(HashMap<String, String> map) {
 		log.info("getNoticeSearchList()");
+
 		return noticeMapper.search(map);
 	}
 
@@ -39,6 +40,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public int getTotal(Criteria criteria) {
 		log.info("getTotal");
+
 		return noticeMapper.getTotal(criteria);
 	}
 

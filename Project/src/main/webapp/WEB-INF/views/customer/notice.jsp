@@ -22,14 +22,14 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="row" items="${noticeList}" >
-						<c:set var="seq" value="${row.seq}" />
-						<fmt:formatDate var="regDate" value="${row.regDate}" pattern="yyyy-MM-dd" />
+					<c:forEach var="notice" items="${noticeList}">
+						<c:set var="seq" value="${notice.notice_seq}" />
+						<fmt:formatDate var="reg_date" value="${notice.reg_date}" pattern="yyyy-MM-dd" />
 						<tr>
 							<td class="col-sm-1"><span>${seq}</span></td>
-							<td class="col-sm-2"><span>구분</span></td>
-							<td class="col-sm-7 text-left"><a href="noticeDetail?seq=${seq}">${row.title}</a></td>
-							<td class="col-sm-2"><span>${regDate}</span></td>
+							<td class="col-sm-2"><span>${notice.category}</span></td>
+							<td class="col-sm-7 text-left"><a href="noticeDetail?seq=${seq}">${notice.title}</a></td>
+							<td class="col-sm-2"><span>${reg_date}</span></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -38,31 +38,31 @@
 		<div align="center">
 			<nav aria-label="Page navigation">
 				<ul class="pagination justify-content-center">
-						<li class="page-item<c:if test="${pageNumber <= 1}"> disabled</c:if>">
-							<a class="page-link" href="?pageNumber=1" aria-label="Previous">
-								<span aria-hidden="true">&laquo;</span>
-								<span class="sr-only">FirstPage</span>
-							</a>
-						</li>
-						<li class="page-item<c:if test="${pageNumber <= 1}"> disabled</c:if>">
-							<a class="page-link" href="?pageNumber=${pageNumber - 1}" aria-label="Previous">
+					<li class="page-item${pageMaker.criteria.pageNumber <= 1 ? ' disabled' : ''}">
+						<a class="page-link" href="?pageNumber=1" aria-label="Previous">
+							<span aria-hidden="true">&laquo;</span>
+							<span class="sr-only">FirstPage</span>
+						</a>
+					</li>
+					<li class="page-item${pageMaker.previous ? '' : ' disabled'}">
+						<a class="page-link" href="?pageNumber=${pageMaker.startPage - 1}" aria-label="Previous">
 							<span aria-hidden="true">&lt;</span>
 							<span class="sr-only">Previous</span></a>
-						</li>
-					<c:forEach var="i" begin="${startPage}" end="${endPage}">
-						<li class="page-item<c:if test="${pageNumber == i}"> active</c:if>">
-							<a class="page-link" href="?pageNumber=${i}">${i}</a>
+					</li>
+					<c:forEach var="number" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+						<li class="page-item${pageMaker.criteria.pageNumber == number? ' active' : ''}">
+							<a class="page-link" href="?pageNumber=${number}">${number}</a>
 						</li>
 					</c:forEach>
-					<li class="page-item<c:if test="${pageNumber >= totalPage}"> disabled</c:if>">
-						<a class="page-link" href="?pageNumber=${pageNumber + 1}" aria-label="Next">
-						<span aria-hidden="true">&gt;</span>
-						<span class="sr-only">Next</span></a>
+					<li class="page-item${pageMaker.next ? '' : ' disabled'}">
+						<a class="page-link" href="?pageNumber=${pageMaker.endPage +1}" aria-label="Next">
+							<span aria-hidden="true">&gt;</span>
+							<span class="sr-only">Next</span></a>
 					</li>
-					<li class="page-item<c:if test="${pageNumber >= totalPage}"> disabled</c:if>">
-						<a class="page-link" href="?pageNumber=${totalPage}" aria-label="Next">
-						<span aria-hidden="true">&raquo;</span>
-						<span class="sr-only">LastPage</span></a>
+					<li class="page-item${pageMaker.criteria.pageNumber == pageMaker.realEnd ? ' disabled' : ''}">
+						<a class="page-link" href="?pageNumber=${pageMaker.realEnd}" aria-label="Next">
+							<span aria-hidden="true">&raquo;</span>
+							<span class="sr-only">LastPage</span></a>
 					</li>
 				</ul>
 			</nav>
