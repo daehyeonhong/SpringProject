@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<c:set var="path" value="${pageContext.request.contextPath}"/>
-
 <div class="fixed-top bg-white border border-warning border-top-0 border-left-0 border-right-0">
 	<nav class="navbar navbar-expand-sm justify-content-center" style="height: 90px;">
 		<ul class="navbar-nav">
@@ -31,22 +29,33 @@
 					<a class="dropdown-item" href="#">!!</a>
 				</div>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="${path}/user/login" >로그인</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="${path}/user/logout" >로그아웃</a>
+			<li class="nav-item${sessionId == null ? '' : ' dropdown'}">
+				<c:choose>
+					<c:when test="${sessionId == null}">
+						<a class="nav-link" href="/user/login">로그인</a>
+					</c:when>
+					<c:otherwise>
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							${sessionId}님
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown4">
+							<a class="dropdown-item" href="/user/logout">로그아웃</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="/user/updateInfo">개인정보수정</a>
+						</div>
+					</c:otherwise>
+				</c:choose>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#" >MY렌터카</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="${path}/customer/notice?pageNumber=1" >고객센터</a>
+				<a class="nav-link" href="/customer/notice?pageNumber=1">고객센터</a>
 			</li>
 		</ul>
 	</nav>
 </div>
-<div style="height: 125px;"></div>
+<div style="height: 90px;"></div>
 <script>
 	const $dropdown = $('.dropdown');
 	const $dropdownToggle = $('.dropdown-toggle');

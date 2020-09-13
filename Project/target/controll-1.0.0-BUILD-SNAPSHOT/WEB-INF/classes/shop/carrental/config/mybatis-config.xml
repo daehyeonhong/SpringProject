@@ -20,6 +20,7 @@
 	<typeAliases>
 		<typeAlias alias="board" type="shop.carrental.domain.BoardDTO" />
 		<typeAlias alias="notice" type="shop.carrental.domain.NoticeDTO" />
+		<typeAlias alias="user" type="shop.carrental.domain.UserDTO"/>
 	</typeAliases>
 
 </configuration>

@@ -1,5 +1,6 @@
 package shop.carrental.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -7,12 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.UserDTO;
 import shop.carrental.service.UserService;
+import shop.carrental.util.VerifyReCAPTCHA;
 
 @Controller
 @Log4j
@@ -95,6 +98,23 @@ public class UserController {
 		}
 		log.info("실패!");
 		return "redirect:/user/updateInfo";
+	}
+
+	@ResponseBody
+	@PostMapping("/VerifyReCAPTCHA")
+	public int verifyReCAPTCHA(HttpServletRequest request) {
+		VerifyReCAPTCHA.setSecretKey("6LcN1sIZAAAAAFtcJ6qVR_vmtTltorutmH-NGUvS");
+		String gReCAPTCHAResponse = request.getParameter("recaptcha");
+		try {
+			if (VerifyReCAPTCHA.verify(gReCAPTCHAResponse)) {
+				return 0;
+			} else {
+				return 1;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}
 	}
 
 }

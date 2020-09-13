@@ -38,9 +38,4 @@
 
 	<mybatis-spring:scan base-package="shop.carrental.mappers" />
 
-	<!-- 내일 질문 -->
-	<!-- <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg index="0" ref="sqlSessionFactory" />
-	</bean> -->
-
 </beans>
