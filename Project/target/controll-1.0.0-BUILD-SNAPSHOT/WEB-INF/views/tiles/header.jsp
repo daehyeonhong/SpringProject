@@ -50,7 +50,7 @@
 				<a class="nav-link" href="#" >MY렌터카</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/customer/notice?pageNumber=1">고객센터</a>
+				<a class="nav-link" href="/customer/notice">고객센터</a>
 			</li>
 		</ul>
 	</nav>

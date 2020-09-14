@@ -2,8 +2,6 @@ package shop.carrental.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.Criteria;
-import shop.carrental.domain.NoticeDTO;
 import shop.carrental.domain.PageDTO;
 import shop.carrental.service.NoticeService;
 
@@ -113,41 +110,35 @@ public class CustomerController {
 		log.info("noticeList" + criteria);
 
 		model.addAttribute("noticeList", noticeService.getNoticeList(criteria));
+
 		int total = noticeService.getTotal(criteria);
 		log.info("total: " + total);
 
 		model.addAttribute("pageMaker", new PageDTO(criteria, total));
-
 	}
 
-	@GetMapping("/noticeDetail")
-	public void noticeDetail(@RequestParam("seq") Long seq, Model model) {
-		log.info("noticeDetail");
+	@GetMapping("/get")
+	public void get(@RequestParam("notice_seq") Long notice_seq, Model model) {
+		log.info("get");
 
-		model.addAttribute("notice", noticeService.read(seq));
+		model.addAttribute("notice", noticeService.read(notice_seq));
 	}
 
-	@GetMapping("/noticeSearch")
-	public void noticeSearch(@RequestParam("searchBy") String searchBy, @RequestParam("keyword") String keyword,
-			Model model) {
-		HashMap<String, String> map = new HashMap<String, String>();
-		searchBy = searchBy.trim();
-		keyword = keyword.trim();
-		log.info(searchBy);
-		log.info(keyword);
-
-		if (searchBy == null || keyword.length() == 0) {
-			log.info("noticeSearch Error");
-			model.addAttribute("result", "failure");
-		} else {
-			map.put("searchBy", searchBy);
-			map.put("keyword", keyword);
-			log.info("noticeSearch Success");
-			List<NoticeDTO> noticeSearchResult = noticeService.search(map);
-			log.info("noticeSearch Result: " + noticeSearchResult);
-			model.addAttribute("result", "success");
-			model.addAttribute("searchResult", noticeSearchResult);
-		}
-	}
+	/*
+	 * @GetMapping("/noticeSearch") public void
+	 * noticeSearch(@RequestParam("searchBy") String
+	 * searchBy, @RequestParam("keyword") String keyword, Model model) {
+	 * HashMap<String, String> map = new HashMap<String, String>(); searchBy =
+	 * searchBy.trim(); keyword = keyword.trim(); log.info(searchBy);
+	 * log.info(keyword);
+	 * 
+	 * if (searchBy == null || keyword.length() == 0) {
+	 * log.info("noticeSearch Error"); model.addAttribute("result", "failure"); }
+	 * else { map.put("searchBy", searchBy); map.put("keyword", keyword);
+	 * log.info("noticeSearch Success"); List<NoticeDTO> noticeSearchResult =
+	 * noticeService.search(map); log.info("noticeSearch Result: " +
+	 * noticeSearchResult); model.addAttribute("result", "success");
+	 * model.addAttribute("searchResult", noticeSearchResult); } }
+	 */
 
 }

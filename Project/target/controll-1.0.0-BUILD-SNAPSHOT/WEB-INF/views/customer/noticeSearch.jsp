@@ -26,7 +26,7 @@
 						<tr>
 							<td class="col-sm-1"><span>${seq}</span></td>
 							<td class="col-sm-2"><span>구분</span></td>
-							<td class="col-sm-7 text-left"><a href="noticeDetail?seq=${seq}">${notice.title}</a></td>
+							<td class="col-sm-7 text-left"><a href="get?seq=${seq}">${notice.title}</a></td>
 							<td class="col-sm-2"><span>${notice.reg_date}</span></td>
 						</tr>
 					</c:forEach>

@@ -1,7 +1,8 @@
 package shop.carrental.mapper;
 
+import java.util.List;
 import java.util.function.Consumer;
-
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,7 @@ public class NoticeMapperTests {
 	 * log.info(dto); }
 	 */
 
+	@Ignore
 	@Test
 	public void testGetNotice() {
 		NoticeDTO dto = noticeMapper.read(87L);
@@ -54,4 +56,26 @@ public class NoticeMapperTests {
 	 * public void testDelete() { log.info("Delete Count: " +
 	 * noticeMapper.delete(42L)); }
 	 */
+
+	@Test
+	public void testSearch() {
+		Criteria criteria = new Criteria();
+		criteria.setKeyword("4");
+		criteria.setSearchBy("content");
+		criteria.setPageNumber(5);
+
+		List<NoticeDTO> list = noticeMapper.getNoticeList(criteria);
+
+		list.forEach(notice -> log.info(notice));
+
+		int total = noticeMapper.getTotal(criteria);
+		log.info("전체 건수: " + total);
+	}
+
+	public void testTotal() {
+		Criteria criteria = new Criteria();
+		criteria.setKeyword("4");
+		criteria.setSearchBy("all");
+	}
+
 }

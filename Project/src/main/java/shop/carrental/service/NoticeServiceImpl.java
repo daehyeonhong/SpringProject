@@ -1,6 +1,5 @@
 package shop.carrental.service;
 
-import java.util.HashMap;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import lombok.AllArgsConstructor;
@@ -17,17 +16,10 @@ public class NoticeServiceImpl implements NoticeService {
 	private NoticeMapper noticeMapper;
 
 	@Override
-	public NoticeDTO read(Long seq) {
-		log.info("getNoticeDetail()");
+	public NoticeDTO read(Long notice_seq) {
+		log.info("getget()");
 
-		return noticeMapper.read(seq);
-	}
-
-	@Override
-	public List<NoticeDTO> search(HashMap<String, String> map) {
-		log.info("getNoticeSearchList()");
-
-		return noticeMapper.search(map);
+		return noticeMapper.read(notice_seq);
 	}
 
 	@Override

@@ -7,10 +7,10 @@
 		<table class="navbar-nav">
 			<tr>
 				<td class="nav-item">
-					<a class="nav-link h3 "style="border: 1px solid #000;" href="${route}/notice?pageNumber=1">고객센터</a>
+					<a class="nav-link h3 "style="border: 1px solid #000;" href="${route}/notice">고객센터</a>
 				</td>
 				<td class="nav-item">
-					<a class="nav-link h5" href="${route}/notice?pageNumber=1">공지사항</a>
+					<a class="nav-link h5" href="${route}/notice">공지사항</a>
 				</td>
 				<td class="nav-item">
 					<a class="nav-link h5" href="${route}/consultation/rent?category=usedCar">고객상담</a>
