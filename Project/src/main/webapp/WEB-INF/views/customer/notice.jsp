@@ -80,18 +80,22 @@
 	$().ready(function () {
 		let result = '${result}';
 		let actionForm = $('#actionForm');
+		history.replaceState({}, null, null);
+
 		$('.page-item a').on('click', function (event) {
 			event.preventDefault();
 			console.log('click');
 			actionForm.find('input[name="pageNumber"').val($(this).attr('href'));
 			actionForm.submit();
 		});
+
 		$('.move').on('click', function (event) {
 			event.preventDefault();
 			actionForm.append('<input type="hidden" name="notice_seq" value="' + $(this).attr('href') + '">');
-			actionForm.attr('action', '/customer/get');
+			actionForm.attr('action', '/customer/noticeDetail');
 			actionForm.submit();
 		});
+
 		let searchForm = $('#searchForm');
 		$('#searchForm button').on('click', function (event) {
 			if (!searchForm.find('input[name="keyword"]').val().trim()) {

@@ -3,7 +3,7 @@
 
 <mapper namespace="shop.carrental.mappers.NoticeMapper">
 
-	<resultMap type="notice" id="noticeMap">
+	<resultMap type="noticeVO" id="noticeMap">
 		<id property="notice_seq" column="notice_seq" />
 		<result property="count" column="count" />
 		<result property="like_it" column="like_it" />

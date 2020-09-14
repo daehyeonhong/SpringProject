@@ -2,7 +2,6 @@ package shop.carrental.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,10 +9,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.UserDTO;
+import shop.carrental.domain.UserVO;
 import shop.carrental.service.UserService;
 import shop.carrental.util.VerifyReCAPTCHA;
 
@@ -38,24 +37,17 @@ public class UserController {
 	}
 
 	@PostMapping("/login")
-	public String login(UserDTO dto, HttpSession session, RedirectAttributes redirectAttributes) {
+	public String login(UserVO vo, HttpSession session, RedirectAttributes redirectAttributes) {
 		log.info("login 시도");
-		if (userService.login(dto)) {
-			log.info("성공!");
-			session.setAttribute("sessionId", dto.getId());
-		} else {
-			redirectAttributes.addFlashAttribute("result", "failure");
-			log.info("실패!");
-			return "redirect:/user/login";
-		}
-		return "redirect:/";
+
+		return userService.login(vo, session, redirectAttributes) ? "redirect:/" : "redirect:/user/login";
 	}
 
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		log.info("logout 시도");
-		session.invalidate();
 
+		session.invalidate();
 		return "redirect:/user/login";
 	}
 
@@ -88,16 +80,10 @@ public class UserController {
 	}
 
 	@PostMapping("/confirm")
-	public String confirm(UserDTO dto, Model model) {
+	public String confirm(UserVO vo, HttpSession session, RedirectAttributes redirectAttributes, Model model) {
 		log.info("passwordCheck 시도");
-		if (userService.login(dto)) {
-			UserDTO user = userService.information(dto);
-			log.info("성공!");
-			model.addAttribute("user", user);
-			return "/user/updateInfo";
-		}
-		log.info("실패!");
-		return "redirect:/user/updateInfo";
+
+		return userService.confirm(vo, redirectAttributes, model) ? "/user/updateInfo" : "redirect:/user/updateInfo";
 	}
 
 	@ResponseBody

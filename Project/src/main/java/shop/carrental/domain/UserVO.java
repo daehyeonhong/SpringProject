@@ -11,7 +11,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class UserDTO {
+public class UserVO {
 
 	private int user_seq, user_age, login_attempts;
 

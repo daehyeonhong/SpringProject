@@ -2,14 +2,14 @@ package shop.carrental.mappers;
 
 import java.util.List;
 import shop.carrental.domain.Criteria;
-import shop.carrental.domain.NoticeDTO;
+import shop.carrental.domain.NoticeVO;
 
 public interface NoticeMapper {
 
 	public int getTotal(Criteria criteria);
 
-	public List<NoticeDTO> getNoticeList(Criteria criteria);
+	public List<NoticeVO> getNoticeList(Criteria criteria);
 
-	public NoticeDTO read(Long notice_seq);
+	public NoticeVO read(Long notice_seq);
 
 }

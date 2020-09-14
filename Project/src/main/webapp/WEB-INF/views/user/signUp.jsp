@@ -27,26 +27,25 @@
 				<tr>
 					<td>
 						<!--기능구현할때  전에 입력한 이름,전화번호 같이 넘어와야함 -->
-						<span class="form-control">이름</span>
-						<input type="hidden" id="name" name="name" value="name" required="required" />
+						<input type="text" class="form-control" id="name" name="name" required="required" />
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<span class="form-control">PHONE</span>
-						<input type="hidden" id="phone" name="phone" value="010101010" required="required" />
+						<input type="text" class="form-control" id="phone" name="phone" required="required" />
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<span class="form-control">EMAIL</span>
-						<input type="hidden" id="email" name="email" value="email" required="required" />
+						<input type="text" class="form-control" id="email" name="email" required="required" />
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<span class="form-control">2020/10/10</span>
-						<input type="hidden" id="birth_date" name="birth_date" value="2020/10/10" required="required" />
+						<input type="text" class="form-control" id="user_age" name="user_age" required="required" />
+					</td>
+					<td>
+						<input type="text" class="form-control" id="birth_date" name="birth_date" placeholder="birth_date" required="required" />
 					</td>
 				</tr>
 			</table>

@@ -12,7 +12,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.Criteria;
-import shop.carrental.domain.NoticeDTO;
+import shop.carrental.domain.NoticeVO;
 import shop.carrental.mappers.NoticeMapper;
 
 @WebAppConfiguration
@@ -27,10 +27,10 @@ public class NoticeMapperTests {
 	@Test
 	public void testGetNoticeList() {
 		Criteria criteria = new Criteria(2);
-		noticeMapper.getNoticeList(criteria).forEach(new Consumer<NoticeDTO>() {
+		noticeMapper.getNoticeList(criteria).forEach(new Consumer<NoticeVO>() {
 
 			@Override
-			public void accept(NoticeDTO notice) {
+			public void accept(NoticeVO notice) {
 				log.info(notice);
 			}
 		});
@@ -48,8 +48,8 @@ public class NoticeMapperTests {
 	@Ignore
 	@Test
 	public void testGetNotice() {
-		NoticeDTO dto = noticeMapper.read(87L);
-		log.info(dto);
+		NoticeVO vo = noticeMapper.read(87L);
+		log.info(vo);
 	}
 
 	/*
@@ -64,7 +64,7 @@ public class NoticeMapperTests {
 		criteria.setSearchBy("content");
 		criteria.setPageNumber(5);
 
-		List<NoticeDTO> list = noticeMapper.getNoticeList(criteria);
+		List<NoticeVO> list = noticeMapper.getNoticeList(criteria);
 
 		list.forEach(notice -> log.info(notice));
 

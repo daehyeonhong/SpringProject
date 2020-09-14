@@ -1,13 +1,14 @@
 package shop.carrental.mappers;
 
 import shop.carrental.domain.UserDTO;
+import shop.carrental.domain.UserVO;
 
 public interface UserMapper {
 
-	public int login(UserDTO dto);
-
 	public boolean signUp(UserDTO dto);
 
-	public UserDTO information(UserDTO dto);
+	public UserVO information(UserVO vo);
+
+	public String check(UserVO vo);
 
 }

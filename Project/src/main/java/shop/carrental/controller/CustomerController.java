@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import lombok.AllArgsConstructor;
@@ -117,11 +118,12 @@ public class CustomerController {
 		model.addAttribute("pageMaker", new PageVO(criteria, total));
 	}
 
-	@GetMapping("/get")
-	public void get(@RequestParam("notice_seq") Long notice_seq, Model model) {
+	@GetMapping("/noticeDetail")
+	public void noticeDetail(@RequestParam("notice_seq") Long notice_seq, @ModelAttribute("criteria") Criteria criteria,
+			Model model) {
 		log.info("get");
 
-		model.addAttribute("notice", noticeService.read(notice_seq));
+		noticeService.read(notice_seq, criteria, model);
 	}
 
 	/*
