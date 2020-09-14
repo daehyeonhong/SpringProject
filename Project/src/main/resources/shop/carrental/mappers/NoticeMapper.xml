@@ -20,17 +20,17 @@
 			<foreach collection="searchByArray" item="searchBy">
 				<trim prefix="OR">
 					<choose>
-						<when test="searchBy=='all'.toString()">
+						<when test="searchBy=='all'">
 							<![CDATA[
 								UPPER(title) LIKE'%'||UPPER(#{keyword})||'%'OR UPPER(content) LIKE'%'||UPPER(#{keyword})||'%'
 							]]>
 						</when>
-						<when test="searchBy=='title'.toString()">
+						<when test="searchBy=='title'">
 							<![CDATA[
 								UPPER(title) LIKE'%'||UPPER(#{keyword})||'%'
 							]]>
 						</when>
-						<when test="searchBy=='content'.toString()">
+						<when test="searchBy=='content'">
 							<![CDATA[
 								UPPER(content) LIKE'%'||UPPER(#{keyword})||'%'
 							]]>

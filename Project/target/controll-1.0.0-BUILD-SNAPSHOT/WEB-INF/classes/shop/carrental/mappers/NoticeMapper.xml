@@ -15,6 +15,32 @@
 		<result property="update_date" column="update_date" />
 	</resultMap>
 
+	<sql id="criteria">
+		<trim prefix="(" suffix=")AND" prefixOverrides="OR">
+			<foreach collection="searchByArray" item="searchBy">
+				<trim prefix="OR">
+					<choose>
+						<when test="searchBy=='all'.toString()">
+							<![CDATA[
+								UPPER(title) LIKE'%'||UPPER(#{keyword})||'%'OR UPPER(content) LIKE'%'||UPPER(#{keyword})||'%'
+							]]>
+						</when>
+						<when test="searchBy=='title'.toString()">
+							<![CDATA[
+								UPPER(title) LIKE'%'||UPPER(#{keyword})||'%'
+							]]>
+						</when>
+						<when test="searchBy=='content'.toString()">
+							<![CDATA[
+								UPPER(content) LIKE'%'||UPPER(#{keyword})||'%'
+							]]>
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
 	<select id="getNoticeList" resultMap="noticeMap">
 		<![CDATA[
 			SELECT notice_seq,category,title,writer_id,content,count,like_it,reg_date,update_date
@@ -23,20 +49,19 @@
 						SELECT /*+INDEX_DESC(table_notice pk_notice)*/
 							ROWNUM rn,notice_seq,category,title,writer_id,content,count,like_it,reg_date,update_date
 							FROM table_notice
-						WHERE ROWNUM<=#{pageNumber}*#{AMOUNT}
+						WHERE
+			]]>
+		<include refid="criteria" />
+		<![CDATA[
+						ROWNUM<=#{pageNumber}*#{AMOUNT}
 					)
-			WHERE rn>(#{pageNumber}-1)*#{AMOUNT}
+				WHERE rn>(#{pageNumber}-1)*#{AMOUNT}
 		]]>
 	</select>
 
-	<!-- <insert id="insert">
-		<![CDATA[
-			INSERT INTO table_notice
-				(notice_seq,category,title,writer_id,content)
-			VALUES
-				(notice_seq.NEXTVAL,#{category},#{title},#{writer_id},#{content})
-		]]>
-	</insert> -->
+	<!-- <insert id="insert"> <![CDATA[ INSERT INTO table_notice (notice_seq,category,title,writer_id,content) 
+		VALUES (notice_seq.NEXTVAL,#{category},#{title},#{writer_id},#{content}) 
+		]]> </insert> -->
 
 	<select id="read" parameterType="long" resultMap="noticeMap">
 		<![CDATA[
@@ -44,35 +69,18 @@
 		]]>
 	</select>
 
-	<!-- <delete id="delete">
-		<![CDATA[
-			DELETE FROM table_notice WHERE notice_seq=#{notice_seq}
-		]]>
-	</delete> -->
-
-	<select id="search" resultMap="noticeMap">
-		<if test="searchBy=='all'">
-			<![CDATA[
-				SELECT*FROM table_notice WHERE UPPER(title) LIKE '%'||UPPER(#{keyword})||'%' OR UPPER(content) LIKE '%'||UPPER(#{keyword})||'%' ORDER BY notice_seq
-			]]>
-		</if>
-		<if test="searchBy=='title'">
-			<![CDATA[
-				SELECT*FROM table_notice WHERE UPPER(title) LIKE '%'||UPPER(#{keyword})||'%' ORDER BY notice_seq
-			]]>
-		</if>
-		<if test="searchBy=='content'">
-			<![CDATA[
-				SELECT*FROM table_notice WHERE UPPER(content) LIKE '%'||UPPER(#{keyword})||'%' ORDER BY notice_seq
-			]]>
-		</if>
-	</select>
+	<!-- <delete id="delete"> <![CDATA[ DELETE FROM table_notice WHERE notice_seq=#{notice_seq} 
+		]]> </delete> -->
 
 	<select id="getTotal" resultType="int">
 		<![CDATA[
 			SELECT COUNT(*)
 				FROM table_notice
-			WHERE notice_seq>0
+			WHERE
+		]]>
+		<include refid="criteria" />
+		<![CDATA[
+			notice_seq>0
 		]]>
 	</select>
 

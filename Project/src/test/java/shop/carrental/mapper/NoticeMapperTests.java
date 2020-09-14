@@ -72,10 +72,13 @@ public class NoticeMapperTests {
 		log.info("전체 건수: " + total);
 	}
 
+	@Test
 	public void testTotal() {
 		Criteria criteria = new Criteria();
 		criteria.setKeyword("4");
 		criteria.setSearchBy("all");
+
+		noticeMapper.getTotal(criteria);
 	}
 
 }
