@@ -16,6 +16,7 @@
 					<input class="form-check-input" type="checkbox" name="remember">아이디 저장
 				</label>
 			</div>
+			<div class="g-recaptcha" data-sitekey=6LcN1sIZAAAAAAYYJlsLB4oC9wV2UV3udl-RmQF5></div>
 			<input class="btn btn-danger btn-block" type="submit" value="로그인">
 		</form>
 		<table class="table">
@@ -32,17 +33,16 @@
 			</tr>
 		</table>
 	</div>
-	<div class="g-recaptcha" data-sitekey=6LcN1sIZAAAAAAYYJlsLB4oC9wV2UV3udl-RmQF5></div>
 </article>
 
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
 	$(function () {
 		$('#loginForm').submit(function () {
-			var captcha = 1;
+			let captcha = 1;
 			$.ajax({
-				url: '/pro/VerifyRecaptcha',
-				type: 'post',
+				url: '/user/VerifyReCAPTCHA',
+				type: 'POST',
 				data: {
 					recaptcha: $("#g-recaptcha-response").val()
 				},
