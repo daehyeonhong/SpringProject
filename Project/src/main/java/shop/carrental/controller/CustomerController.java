@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.Criteria;
-import shop.carrental.domain.PageDTO;
+import shop.carrental.domain.PageVO;
 import shop.carrental.service.NoticeService;
 
 @Controller
@@ -114,7 +114,7 @@ public class CustomerController {
 		int total = noticeService.getTotal(criteria);
 		log.info("total: " + total);
 
-		model.addAttribute("pageMaker", new PageDTO(criteria, total));
+		model.addAttribute("pageMaker", new PageVO(criteria, total));
 	}
 
 	@GetMapping("/get")

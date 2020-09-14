@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PageDTO {
+public class PageVO {
 
 	private int startPage, endPage, total, realEnd;
 
@@ -15,7 +15,7 @@ public class PageDTO {
 
 	private Criteria criteria;
 
-	public PageDTO(Criteria criteria, int total) {
+	public PageVO(Criteria criteria, int total) {
 		this.criteria = criteria;
 		this.total = total;
 
