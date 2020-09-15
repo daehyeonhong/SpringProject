@@ -19,19 +19,21 @@
 			<div class="g-recaptcha" data-sitekey=6LcN1sIZAAAAAAYYJlsLB4oC9wV2UV3udl-RmQF5></div>
 			<input class="btn btn-danger btn-block" type="submit" value="로그인">
 		</form>
+		<div class="col-sm-12">
 		<table class="table">
 			<tr class="list-group list-group-horizontal text-center">
-				<td class="col-sm-4">
+				<td>
 					<a class="text-secondary text-decoration-none" href="/user/agreement">회원 가입</a>
 				</td>
-				<td class="col-sm-4">
+				<td>
 					<a class="text-secondary text-decoration-none" href="idSearch.jsp">아이디 찾기</a>
 				</td>
-				<td class="col-sm-4">
+				<td>
 					<a class="text-secondary text-decoration-none" href="pwdSearch.jsp">비밀번호 찾기</a>
 				</td>
 			</tr>
 		</table>
+		</div>
 	</div>
 </article>
 

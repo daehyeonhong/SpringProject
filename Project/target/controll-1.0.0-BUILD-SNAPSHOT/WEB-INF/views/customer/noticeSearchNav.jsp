@@ -10,7 +10,7 @@
 					<select class="form-control" name="searchBy">
 						<option value="all" ${searchBy eq 'all' ? "selected":""}>전체</option>
 						<option value="title" ${searchBy eq 'title' ? "selected":""}>제목</option>
-						<option value="content" ${searchBy == 'content' ? "selected":""}>내용</option>
+						<option value="content" ${searchBy eq 'content' ? "selected":""}>내용</option>
 					</select>
 				</div>
 				<input type="text" class="form-control" name="keyword" placeholder="검색어를 입력해주세요" value="${keyword}" required="required" />

@@ -27,13 +27,11 @@ public class UserController {
 	@GetMapping("/")
 	public void basic() {
 		log.info("user");
-		log.info("정상 접근 성공!");
 	}
 
 	@GetMapping("/login")
 	public void login() {
 		log.info("loginPage");
-		log.info("정상 접근 성공!");
 	}
 
 	@PostMapping("/login")
@@ -54,13 +52,11 @@ public class UserController {
 	@GetMapping("/agreement")
 	public void agreement() {
 		log.info("agreement");
-		log.info("정상 접근 성공!");
 	}
 
 	@GetMapping("/signUp")
 	public void signUp() {
 		log.info("signUpPage");
-		log.info("정상 접근 성공!");
 	}
 
 	@PostMapping("/signUp")
@@ -75,7 +71,7 @@ public class UserController {
 	@GetMapping("/updateInfo")
 	public String updateInfo() {
 		log.info("updateInfo");
-		log.info("정상 접근 성공!");
+
 		return "/user/confirm";
 	}
 

@@ -24,10 +24,11 @@ public class NoticeMapperTests {
 	@Setter(onMethod_ = @Autowired)
 	private NoticeMapper noticeMapper;
 
+	@Ignore
 	@Test
 	public void testGetNoticeList() {
 		Criteria criteria = new Criteria(2);
-		noticeMapper.getNoticeList(criteria).forEach(new Consumer<NoticeVO>() {
+		noticeMapper.list(criteria).forEach(new Consumer<NoticeVO>() {
 
 			@Override
 			public void accept(NoticeVO notice) {
@@ -60,25 +61,24 @@ public class NoticeMapperTests {
 	@Test
 	public void testSearch() {
 		Criteria criteria = new Criteria();
-		criteria.setKeyword("4");
-		criteria.setSearchBy("content");
-		criteria.setPageNumber(5);
+		criteria.setKeyword("i");
+		criteria.setSearchBy("C");
 
-		List<NoticeVO> list = noticeMapper.getNoticeList(criteria);
+		List<NoticeVO> list = noticeMapper.list(criteria);
 
 		list.forEach(notice -> log.info(notice));
 
-		int total = noticeMapper.getTotal(criteria);
+		int total = noticeMapper.total(criteria);
 		log.info("전체 건수: " + total);
 	}
 
 	@Test
 	public void testTotal() {
 		Criteria criteria = new Criteria();
-		criteria.setKeyword("4");
-		criteria.setSearchBy("all");
+		criteria.setKeyword("i");
+		criteria.setSearchBy("T");
 
-		noticeMapper.getTotal(criteria);
+		noticeMapper.total(criteria);
 	}
 
 }

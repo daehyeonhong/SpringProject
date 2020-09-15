@@ -15,10 +15,10 @@
 			<table class="table text-center table-bordered">
 				<thead>
 					<tr>
-						<th class="col-sm-1">번호</th>
-						<th class="col-sm-2">구분</th>
-						<th class="col-sm-7">제목</th>
-						<th class="col-sm-2">등록일</th>
+						<th>번호</th>
+						<th>구분</th>
+						<th>제목</th>
+						<th>등록일</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -26,10 +26,10 @@
 						<c:set var="seq" value="${notice.notice_seq}" />
 						<fmt:formatDate var="reg_date" value="${notice.reg_date}" pattern="yyyy-MM-dd" />
 						<tr>
-							<td class="col-sm-1"><span>${seq}</span></td>
-							<td class="col-sm-2"><span>${notice.category}</span></td>
-							<td class="col-sm-7 text-left"><a class="move" href="${seq}">${notice.title}</a></td>
-							<td class="col-sm-2"><span>${reg_date}</span></td>
+							<td><span>${seq}</span></td>
+							<td><span>${notice.category}</span></td>
+							<td class="text-left"><a class="move" href="${seq}">${notice.title}</a></td>
+							<td><span>${reg_date}</span></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -80,12 +80,11 @@
 	$().ready(function () {
 		let result = '${result}';
 		let actionForm = $('#actionForm');
-		history.replaceState({}, null, null);
 
 		$('.page-item a').on('click', function (event) {
 			event.preventDefault();
 			console.log('click');
-			actionForm.find('input[name="pageNumber"').val($(this).attr('href'));
+			actionForm.find('input[name="pageNumber"]').val($(this).attr('href'));
 			actionForm.submit();
 		});
 
@@ -102,7 +101,7 @@
 				alert('키워드를 입력하세요');
 				return false;
 			}
-			searchForm.find('input[name="pageNumber"').val('1');
+			searchForm.find('input[name="pageNumber"]').val('1');
 			e.preventDefault();
 			searchForm.submit();
 		});

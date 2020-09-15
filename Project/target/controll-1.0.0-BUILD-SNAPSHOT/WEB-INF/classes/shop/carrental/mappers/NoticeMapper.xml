@@ -3,7 +3,7 @@
 
 <mapper namespace="shop.carrental.mappers.NoticeMapper">
 
-	<resultMap type="notice" id="noticeMap">
+	<resultMap type="noticeVO" id="noticeMap">
 		<id property="notice_seq" column="notice_seq" />
 		<result property="count" column="count" />
 		<result property="like_it" column="like_it" />
@@ -19,29 +19,27 @@
 		<trim prefix="(" suffix=")AND" prefixOverrides="OR">
 			<foreach collection="searchByArray" item="searchBy">
 				<trim prefix="OR">
-					<choose>
-						<when test="searchBy=='all'.toString()">
-							<![CDATA[
-								UPPER(title) LIKE'%'||UPPER(#{keyword})||'%'OR UPPER(content) LIKE'%'||UPPER(#{keyword})||'%'
-							]]>
-						</when>
-						<when test="searchBy=='title'.toString()">
-							<![CDATA[
-								UPPER(title) LIKE'%'||UPPER(#{keyword})||'%'
-							]]>
-						</when>
-						<when test="searchBy=='content'.toString()">
-							<![CDATA[
-								UPPER(content) LIKE'%'||UPPER(#{keyword})||'%'
-							]]>
-						</when>
-					</choose>
+					<if test="searchBy=='all'">
+						<![CDATA[
+							UPPER(title) LIKE'%'||UPPER(#{keyword})||'%'OR UPPER(content) LIKE'%'||UPPER(#{keyword})||'%'
+						]]>
+					</if>
+					<if test="searchBy=='title'">
+						<![CDATA[
+							UPPER(title) LIKE'%'||UPPER(#{keyword})||'%'
+						]]>
+					</if>
+					<if test="searchBy=='content'">
+						<![CDATA[
+							UPPER(content) LIKE'%'||UPPER(#{keyword})||'%'
+						]]>
+					</if>
 				</trim>
 			</foreach>
 		</trim>
 	</sql>
 
-	<select id="getNoticeList" resultMap="noticeMap">
+	<select id="list" resultMap="noticeMap">
 		<![CDATA[
 			SELECT notice_seq,category,title,writer_id,content,count,like_it,reg_date,update_date
 				FROM
@@ -51,7 +49,7 @@
 							FROM table_notice
 						WHERE
 			]]>
-		<include refid="criteria" />
+		<include refid="criteria"></include>
 		<![CDATA[
 						ROWNUM<=#{pageNumber}*#{AMOUNT}
 					)
@@ -72,13 +70,13 @@
 	<!-- <delete id="delete"> <![CDATA[ DELETE FROM table_notice WHERE notice_seq=#{notice_seq} 
 		]]> </delete> -->
 
-	<select id="getTotal" resultType="int">
+	<select id="total" resultType="int">
 		<![CDATA[
 			SELECT COUNT(*)
 				FROM table_notice
 			WHERE
 		]]>
-		<include refid="criteria" />
+		<include refid="criteria"></include>
 		<![CDATA[
 			notice_seq>0
 		]]>

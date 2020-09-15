@@ -6,9 +6,9 @@ import shop.carrental.domain.NoticeVO;
 
 public interface NoticeMapper {
 
-	public int getTotal(Criteria criteria);
+	public int total(Criteria criteria);
 
-	public List<NoticeVO> getNoticeList(Criteria criteria);
+	public List<NoticeVO> list(Criteria criteria);
 
 	public NoticeVO read(Long notice_seq);
 

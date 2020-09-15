@@ -29,14 +29,14 @@
 					<a class="dropdown-item" href="#">!!</a>
 				</div>
 			</li>
-			<li class="nav-item${sessionId == null ? '' : ' dropdown'}">
+			<li class="nav-item${userId == null ? '' : ' dropdown'}">
 				<c:choose>
-					<c:when test="${sessionId == null}">
+					<c:when test="${userId == null}">
 						<a class="nav-link" href="/user/login">로그인</a>
 					</c:when>
 					<c:otherwise>
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							${sessionId}님
+							${userName}님
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown4">
 							<a class="dropdown-item" href="/user/logout">로그아웃</a>

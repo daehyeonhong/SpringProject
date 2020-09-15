@@ -25,7 +25,32 @@
 					</tr>
 				</tbody>
 			</table>
+			
+			<button data-operation="modify" class="btn btn-info">수정</button>
+			<button data-operation="list" class="btn btn-default">글목록</button>
+			
+			<form id="operationForm" action="/customer/noticeModify" method="get">
+				<input type="hidden" id="notice_seq" name="notice_seq" value="${notice_seq}" />
+				<input type="hidden" id="pageNumber" name="pageNumber" value="${pageMaker.criteria.pageNumber}" />
+				<input type="hidden" id="searchBy" name="searchBy" value="${pageMaker.criteria.searchBy}" />
+				<input type="hidden" id="keyword" name="keyword" value="${pageMaker.criteria.keyword}" />
+			</form>
+			
 		</div>
 
 	</div>
 </article>
+<script type="text/javascript">
+	$().ready(function(){
+		let operationForm=$("#operationForm");
+
+		$("button[data-operation='modify']").on("click",function(event){
+			operationForm.attr("action","/customer/noticeModify").submit();
+			});
+
+		$("button[data-operation='list']").on("click",function(event){
+			operationForm.find("#notice_seq").remove();
+			operationForm.attr("action","/customer/notice").submit();
+			});
+		});
+</script>

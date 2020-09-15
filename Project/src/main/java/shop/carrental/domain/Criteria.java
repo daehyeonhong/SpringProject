@@ -23,7 +23,10 @@ public class Criteria {
 	}
 
 	public String[] getSearchByArray() {
-		return searchBy == null ? new String[] {} : searchBy.split("");
+		String[] searchByArray;
+		searchByArray = searchBy == null ? new String[] {} : searchBy.split("");
+		System.out.println(searchByArray);
+		return searchByArray;
 	}
 
 }
