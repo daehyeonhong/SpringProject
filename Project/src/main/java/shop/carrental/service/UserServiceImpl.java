@@ -55,4 +55,9 @@ public class UserServiceImpl implements UserService {
 		return result;
 	}
 
+	@Override
+	public void logout(HttpSession session) {
+		session.invalidate();
+	}
+
 }

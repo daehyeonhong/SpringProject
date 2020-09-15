@@ -13,7 +13,7 @@
 			</div>
 			<div class="form-group form-check" align="left">
 				<label class="form-check-label">
-					<input class="form-check-input" type="checkbox" name="remember">아이디 저장
+					<input class="form-check-input" type="checkbox" name="remember">로그인 유지
 				</label>
 			</div>
 			<div class="g-recaptcha" data-sitekey=6LcN1sIZAAAAAAYYJlsLB4oC9wV2UV3udl-RmQF5></div>

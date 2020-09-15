@@ -45,7 +45,7 @@ public class UserController {
 	public String logout(HttpSession session) {
 		log.info("logout 시도");
 
-		session.invalidate();
+		userService.logout(session);
 		return "redirect:/user/login";
 	}
 
@@ -68,9 +68,9 @@ public class UserController {
 		return "redirect:/user/login";
 	}
 
-	@GetMapping("/updateInfo")
-	public String updateInfo() {
-		log.info("updateInfo");
+	@GetMapping("/update")
+	public String update() {
+		log.info("update");
 
 		return "/user/confirm";
 	}
@@ -79,7 +79,7 @@ public class UserController {
 	public String confirm(UserVO vo, HttpSession session, RedirectAttributes redirectAttributes, Model model) {
 		log.info("passwordCheck 시도");
 
-		return userService.confirm(vo, redirectAttributes, model) ? "/user/updateInfo" : "redirect:/user/updateInfo";
+		return userService.confirm(vo, redirectAttributes, model) ? "/user/update" : "redirect:/user/update";
 	}
 
 	@ResponseBody
