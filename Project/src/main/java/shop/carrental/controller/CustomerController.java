@@ -1,20 +1,14 @@
 package shop.carrental.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.Criteria;
@@ -28,12 +22,6 @@ import shop.carrental.service.NoticeService;
 public class CustomerController {
 
 	private NoticeService noticeService;
-
-	@InitBinder
-	public void initBinder(WebDataBinder binder) {
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(simpleDateFormat, false));
-	}
 
 	@GetMapping("/")
 	public void basic() {
@@ -115,7 +103,7 @@ public class CustomerController {
 	}
 
 	@GetMapping("/notice/register")
-	public void registerNotice(Criteria criteria, Model model) {
+	public void registerNotice(Criteria criteria) {
 		log.info("registerNotice" + criteria);
 	}
 

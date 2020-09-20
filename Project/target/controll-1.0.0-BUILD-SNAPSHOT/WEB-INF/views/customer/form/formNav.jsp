@@ -12,10 +12,10 @@
 	<div class="container">
 		<div class="container">
 			<div class="row">
-				<a class="btn btn-${target != 'applicationForm' ? 'outline-' : ''}dark col-sm-3" href="${route}/applicationForm">신청서</a>
-				<a class="btn btn-${target != 'terminateForm' ? 'outline-' : ''}dark col-sm-3" href="${route}/terminateForm">계약종료(안내)</a>
-				<a class="btn btn-${target != 'contractForm' ? 'outline-' : ''}dark col-sm-3" href="${route}/contractForm">계약서 작성(예)</a>
-				<a class="btn btn-${target != 'handoverForm' ? 'outline-' : ''}dark col-sm-3" href="${route}/handoverForm">양도합의서	작성(예)</a>
+				<a class="btn btn-${target != 'application' ? 'outline-' : ''}dark col-sm-3" href="${route}/application">신청서</a>
+				<a class="btn btn-${target != 'terminate' ? 'outline-' : ''}dark col-sm-3" href="${route}/terminate">계약종료(안내)</a>
+				<a class="btn btn-${target != 'contract' ? 'outline-' : ''}dark col-sm-3" href="${route}/contract">계약서 작성(예)</a>
+				<a class="btn btn-${target != 'handover' ? 'outline-' : ''}dark col-sm-3" href="${route}/handover">양도합의서	작성(예)</a>
 			</div>
 		</div>
 		<hr>

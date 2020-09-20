@@ -13,7 +13,7 @@ import lombok.ToString;
 @ToString
 public class UserDTO {
 
-	private int seq;
+	private Long seq;
 
 	private String id, password, name, nickname, email, phone, license;
 

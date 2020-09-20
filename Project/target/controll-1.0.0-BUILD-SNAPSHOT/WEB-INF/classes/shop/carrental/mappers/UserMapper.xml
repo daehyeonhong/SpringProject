@@ -3,7 +3,7 @@
 <mapper namespace="shop.carrental.mappers.UserMapper">
 
 	<resultMap type="userVO" id="informationMap">
-		<id property="user_seq" column="user_seq" />
+		<id property="seq" column="seq" />
 		<result property="id" column="id" />
 		<result property="name" column="name" />
 		<result property="nickname" column="nickname" />
@@ -21,9 +21,9 @@
 	<insert id="register">
 		<![CDATA[
 			INSERT INTO users
-				(user_seq,id,password,name,nickname,email,user_age,birth_date)
+				(seq,id,password,name,nickname,birth_date,email,phone)
 			VALUES
-				(user_seq.NEXTVAL,#{id},#{password},#{name},#{nickname},#{email},#{user_age},#{birth_date})
+				(seq_users.NEXTVAL,#{id},#{password},#{name},#{nickname},#{birth_date},#{email},#{phone})
 		]]>
 	</insert>
 

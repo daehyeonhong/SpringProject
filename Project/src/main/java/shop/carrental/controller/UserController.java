@@ -35,10 +35,11 @@ public class UserController {
 	}
 
 	@PostMapping("/login")
-	public String login(UserVO vo, HttpSession session, RedirectAttributes redirectAttributes) {
+	public String login(UserVO vo, HttpServletRequest request, HttpSession session,
+			RedirectAttributes redirectAttributes) {
 		log.info("login 시도");
 
-		return userService.login(vo, session, redirectAttributes) ? "redirect:/" : "redirect:/user/login";
+		return userService.login(vo, request, session, redirectAttributes) ? "redirect:/" : "redirect:/user/login";
 	}
 
 	@GetMapping("/logout")

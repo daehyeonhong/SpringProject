@@ -11,7 +11,6 @@ public class Criteria {
 
 	private int pageNumber;
 	private final int AMOUNT = 10;
-
 	private String searchBy, keyword;
 
 	public Criteria() {

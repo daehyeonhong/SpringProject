@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <article>
-	<%@ include file="customerMenu.jsp"%>
+	<%@ include file="../customerMenu.jsp"%>
 	<div class="container col-sm-6">
 		<div class="container row">
 			<span class="h2 col-sm-10">공지사항</span>
@@ -15,10 +15,10 @@
 			<table class="table text-center table-bordered">
 				<thead>
 					<tr>
-						<th class="col-sm-1">번호</th>
-						<th class="col-sm-2">구분</th>
-						<th class="col-sm-7">제목</th>
-						<th class="col-sm-2">등록일</th>
+						<th>번호</th>
+						<th>구분</th>
+						<th>제목</th>
+						<th>등록일</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -59,16 +59,19 @@
 							<span aria-hidden="true">&gt;</span>
 							<span class="sr-only">Next</span></a>
 					</li>
-					<li class="page-item${pageMaker.criteria.pageNumber == pageMaker.realEnd ? ' disabled' : ''}">
+					<li class="page-item${pageMaker.realEnd == 0 || pageMaker.criteria.pageNumber == pageMaker.realEnd ? ' disabled' : ''}">
 						<a class="page-link" href="${pageMaker.realEnd}" aria-label="Next">
 							<span aria-hidden="true">&raquo;</span>
 							<span class="sr-only">LastPage</span></a>
 					</li>
 				</ul>
 			</nav>
+			<div>
+				<button id="registerBtn" type="button" class="btn btn-xs btn-primary">새 글 동록</button>
+			</div>
 		</div>
 
-		<form id="actionForm" action="/customer/notice" method="GET">
+		<form id="actionForm" action="/customer/notice/list" method="GET">
 			<input type="hidden" name="pageNumber" value="${pageMaker.criteria.pageNumber}" />
 			<input type="hidden" name="searchBy" value="${pageMaker.criteria.searchBy}" />
 			<input type="hidden" name="keyword" value="${pageMaker.criteria.keyword}" />
@@ -91,7 +94,7 @@
 		$('.move').on('click', function (event) {
 			event.preventDefault();
 			actionForm.append('<input type="hidden" name="seq" value="' + $(this).attr('href') + '">');
-			actionForm.attr('action', '/customer/noticeDetail');
+			actionForm.attr('action', '/customer/notice/page');
 			actionForm.submit();
 		});
 
@@ -105,5 +108,10 @@
 			e.preventDefault();
 			searchForm.submit();
 		});
+
+		$('#registerBtn').on('click', function() {
+				self.location = '/customer/notice/register'
+			});
+
 	});
 </script>

@@ -36,7 +36,5 @@
 		p:maxUploadSizePerFile="2097152"
 		p:uploadTempDir="s"
 		p:maxInMemorySize="10485756" />
-
 	<context:component-scan base-package="shop.carrental" />
-
 </beans:beans>

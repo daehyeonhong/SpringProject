@@ -11,7 +11,8 @@ import lombok.ToString;
 @ToString
 public class NoticeDTO {
 
-	private int seq, count, good, bad, category;
+	private Long seq;
+	private int count, good, bad, category;
 	private String title, writer, content;
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private Date register_date, update_date;

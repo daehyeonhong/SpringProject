@@ -1,5 +1,6 @@
 package shop.carrental.service;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -18,7 +19,8 @@ public class UserServiceImpl implements UserService {
 	private UserMapper userMapper;
 
 	@Override
-	public boolean login(UserVO vo, HttpSession session, RedirectAttributes redirectAttributes) {
+	public boolean login(UserVO vo, HttpServletRequest request, HttpSession session,
+			RedirectAttributes redirectAttributes) {
 		log.info("login");
 		String name = userMapper.check(vo);
 

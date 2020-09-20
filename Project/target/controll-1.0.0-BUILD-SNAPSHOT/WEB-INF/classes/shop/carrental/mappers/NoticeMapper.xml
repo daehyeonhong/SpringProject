@@ -7,6 +7,7 @@
 		<id property="seq" column="seq" />
 		<result property="count" column="count" />
 		<result property="good" column="good" />
+		<result property="bad" column="bad" />
 		<result property="category" column="category" />
 		<result property="title" column="title" />
 		<result property="writer" column="writer" />
@@ -19,21 +20,18 @@
 		<trim prefix="(" suffix=")AND" prefixOverrides="OR">
 			<foreach collection="searchByArray" item="searchBy">
 				<trim prefix="OR">
-					<if test="searchBy=='all'">
-						<![CDATA[
-							UPPER(title) LIKE'%'||UPPER(#{keyword})||'%'OR UPPER(content) LIKE'%'||UPPER(#{keyword})||'%'
-						]]>
-					</if>
-					<if test="searchBy=='title'">
-						<![CDATA[
-							UPPER(title) LIKE'%'||UPPER(#{keyword})||'%'
-						]]>
-					</if>
-					<if test="searchBy=='content'">
-						<![CDATA[
-							UPPER(content) LIKE'%'||UPPER(#{keyword})||'%'
-						]]>
-					</if>
+					<choose>
+						<when test="searchBy=='T'.toString()">
+							<![CDATA[
+								UPPER(title) LIKE'%'||UPPER(#{keyword})||'%'
+							]]>
+						</when>
+						<when test="searchBy=='C'.toString()">
+							<![CDATA[
+								UPPER(content) LIKE'%'||UPPER(#{keyword})||'%'
+							]]>
+						</when>
+					</choose>
 				</trim>
 			</foreach>
 		</trim>
@@ -41,15 +39,15 @@
 
 	<select id="list" resultMap="noticeMap">
 		<![CDATA[
-			SELECT seq,category,title,writer,content,count,good,register_date,update_date
+			SELECT seq,category,title,writer,content,count,good,bad,register_date,update_date
 				FROM
 					(
 						SELECT /*+INDEX_DESC(notice pk_notice)*/
-							ROWNUM rn,seq,category,title,writer,content,count,good,register_date,update_date
+							ROWNUM rn,seq,category,title,writer,content,count,good,bad,register_date,update_date
 							FROM notice
 						WHERE
 			]]>
-		<include refid="criteria"></include>
+		<include refid="criteria" />
 		<![CDATA[
 						ROWNUM<=#{pageNumber}*#{AMOUNT}
 					)
@@ -57,9 +55,6 @@
 		]]>
 	</select>
 
-	<!-- <insert id="insert"> <![CDATA[ INSERT INTO notice (seq,category,title,writer,content) 
-		VALUES (seq.NEXTVAL,#{category},#{title},#{writer},#{content}) 
-		]]> </insert> -->
 
 	<select id="read" parameterType="long" resultMap="noticeMap">
 		<![CDATA[
@@ -67,19 +62,24 @@
 		]]>
 	</select>
 
-	<!-- <delete id="delete"> <![CDATA[ DELETE FROM notice WHERE seq=#{seq} 
-		]]> </delete> -->
-
 	<select id="total" resultType="int">
 		<![CDATA[
 			SELECT COUNT(*)
 				FROM notice
 			WHERE
 		]]>
-		<include refid="criteria"></include>
+		<include refid="criteria" />
 		<![CDATA[
 			seq>0
 		]]>
 	</select>
+
+	<insert id="register">
+			<![CDATA[
+				INSERT INTO notice(seq,category,title,writer,content)
+					VALUES
+				(seq_notice.NEXTVAL,#{category},#{title},#{writer},#{content})
+			]]>
+	</insert>
 
 </mapper>
