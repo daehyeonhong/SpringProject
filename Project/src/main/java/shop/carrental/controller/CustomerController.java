@@ -10,11 +10,15 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.Criteria;
+import shop.carrental.domain.NoticeDTO;
 import shop.carrental.service.NoticeService;
 
 @Controller
@@ -103,19 +107,32 @@ public class CustomerController {
 		return "customer/form/terminateForm";
 	}
 
-	@GetMapping("/notice")
+	@GetMapping("/notice/list")
 	public void noticeList(Criteria criteria, Model model) {
 		log.info("noticeList" + criteria);
 
 		noticeService.list(criteria, model);
 	}
 
-	@GetMapping("/noticeDetail")
-	public void noticeDetail(@RequestParam("notice_seq") Long notice_seq, @ModelAttribute("criteria") Criteria criteria,
+	@GetMapping("/notice/register")
+	public void registerNotice(Criteria criteria, Model model) {
+		log.info("registerNotice" + criteria);
+	}
+
+	@PostMapping("/notice/register")
+	public String registerNotice(NoticeDTO dto, RedirectAttributes redirectAttributes) {
+		log.info("registerNotice" + dto);
+
+		noticeService.register(dto, redirectAttributes);
+		return "redirect:/customer/notice/list";
+	}
+
+	@GetMapping("/notice/get")
+	public void noticeDetail(@RequestParam("seq") Long seq, @ModelAttribute("criteria") Criteria criteria,
 			Model model) {
 		log.info("get");
 
-		noticeService.read(notice_seq, criteria, model);
+		noticeService.read(seq, criteria, model);
 	}
 
 }

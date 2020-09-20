@@ -28,6 +28,7 @@ public class UserServiceImpl implements UserService {
 			session.setAttribute("userId", vo.getId());
 			session.setAttribute("userName", name);
 		}
+
 		redirectAttributes.addFlashAttribute("result", result ? "success" : "failure");
 		return result;
 	}

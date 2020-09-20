@@ -2,6 +2,7 @@ package shop.carrental.mappers;
 
 import java.util.List;
 import shop.carrental.domain.Criteria;
+import shop.carrental.domain.NoticeDTO;
 import shop.carrental.domain.NoticeVO;
 
 public interface NoticeMapper {
@@ -10,6 +11,8 @@ public interface NoticeMapper {
 
 	public List<NoticeVO> list(Criteria criteria);
 
-	public NoticeVO read(Long notice_seq);
+	public NoticeVO read(Long seq);
+
+	public void register(NoticeDTO dto);
 
 }

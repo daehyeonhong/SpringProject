@@ -3,7 +3,7 @@
 <mapper namespace="shop.carrental.mappers.UserMapper">
 
 	<resultMap type="userVO" id="informationMap">
-		<id property="user_seq" column="user_seq" />
+		<id property="seq" column="seq" />
 		<result property="id" column="id" />
 		<result property="name" column="name" />
 		<result property="nickname" column="nickname" />
@@ -14,22 +14,22 @@
 
 	<select id="check" resultType="String">
 		<![CDATA[
-			SELECT name FROM table_user WHERE id=#{id} AND password=#{password}
+			SELECT name FROM users WHERE id=#{id} AND password=#{password}
 		]]>
 	</select>
 
 	<insert id="signUp">
 		<![CDATA[
-			INSERT INTO table_user
-				(user_seq,id,password,name,nickname,email,user_age,birth_date)
+			INSERT INTO users
+				(seq,id,password,name,nickname,birth_date,email,phone)
 			VALUES
-				(user_seq.NEXTVAL,#{id},#{password},#{name},#{nickname},#{email},#{user_age},#{birth_date})
+				(seq_users.NEXTVAL,#{id},#{password},#{name},#{nickname},#{birth_date},#{email},#{phone})
 		]]>
 	</insert>
 
 	<select id="information" resultMap="informationMap">
 		<![CDATA[
-			SELECT id,name,nickname,phone,email,birth_date FROM table_user WHERE id=#{id}
+			SELECT id,name,nickname,phone,email,birth_date FROM users WHERE id=#{id}
 		]]>
 	</select>
 

@@ -11,9 +11,9 @@ import lombok.ToString;
 @ToString
 public class NoticeVO {
 
-	private int notice_seq, count, like_it, category;
-	private String title, writer_id, content;
+	private int seq, count, good, bad, category;
+	private String title, writer, content;
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private Date reg_date, update_date;
+	private Date register_date, update_date;
 
 }

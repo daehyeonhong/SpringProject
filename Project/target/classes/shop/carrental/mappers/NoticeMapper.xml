@@ -4,14 +4,15 @@
 <mapper namespace="shop.carrental.mappers.NoticeMapper">
 
 	<resultMap type="noticeVO" id="noticeMap">
-		<id property="notice_seq" column="notice_seq" />
+		<id property="seq" column="seq" />
 		<result property="count" column="count" />
-		<result property="like_it" column="like_it" />
+		<result property="good" column="good" />
+		<result property="bad" column="bad" />
 		<result property="category" column="category" />
 		<result property="title" column="title" />
-		<result property="writer_id" column="writer_id" />
+		<result property="writer" column="writer" />
 		<result property="content" column="content" />
-		<result property="reg_date" column="reg_date" />
+		<result property="register_date" column="register_date" />
 		<result property="update_date" column="update_date" />
 	</resultMap>
 
@@ -38,12 +39,12 @@
 
 	<select id="list" resultMap="noticeMap">
 		<![CDATA[
-			SELECT notice_seq,category,title,writer_id,content,count,like_it,reg_date,update_date
+			SELECT seq,category,title,writer,content,count,good,bad,register_date,update_date
 				FROM
 					(
-						SELECT /*+INDEX_DESC(table_notice pk_notice)*/
-							ROWNUM rn,notice_seq,category,title,writer_id,content,count,like_it,reg_date,update_date
-							FROM table_notice
+						SELECT /*+INDEX_DESC(notice pk_notice)*/
+							ROWNUM rn,seq,category,title,writer,content,count,good,bad,register_date,update_date
+							FROM notice
 						WHERE
 			]]>
 		<include refid="criteria" />
@@ -54,29 +55,31 @@
 		]]>
 	</select>
 
-	<!-- <insert id="insert"> <![CDATA[ INSERT INTO table_notice (notice_seq,category,title,writer_id,content) 
-		VALUES (notice_seq.NEXTVAL,#{category},#{title},#{writer_id},#{content}) 
-		]]> </insert> -->
 
 	<select id="read" parameterType="long" resultMap="noticeMap">
 		<![CDATA[
-			SELECT*FROM table_notice WHERE notice_seq=#{notice_seq}
+			SELECT*FROM notice WHERE seq=#{seq}
 		]]>
 	</select>
-
-	<!-- <delete id="delete"> <![CDATA[ DELETE FROM table_notice WHERE notice_seq=#{notice_seq} 
-		]]> </delete> -->
 
 	<select id="total" resultType="int">
 		<![CDATA[
 			SELECT COUNT(*)
-				FROM table_notice
+				FROM notice
 			WHERE
 		]]>
 		<include refid="criteria" />
 		<![CDATA[
-			notice_seq>0
+			seq>0
 		]]>
 	</select>
+
+	<insert id="register">
+			<![CDATA[
+				INSERT INTO notice(seq,category,title,writer,content)
+					VALUES
+				(seq_notice.NEXTVAL,#{category},#{title},#{writer},#{content})
+			]]>
+	</insert>
 
 </mapper>

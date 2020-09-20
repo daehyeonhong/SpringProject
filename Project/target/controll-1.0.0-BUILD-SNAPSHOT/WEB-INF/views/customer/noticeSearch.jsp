@@ -22,12 +22,12 @@
 				</thead>
 				<tbody>
 					<c:forEach var="notice" items="${searchResult}" >
-						<c:set var="seq" value="${notice.notice_seq}" />
+						<c:set var="seq" value="${notice.seq}" />
 						<tr>
 							<td class="col-sm-1"><span>${seq}</span></td>
 							<td class="col-sm-2"><span>구분</span></td>
 							<td class="col-sm-7 text-left"><a href="get?seq=${seq}">${notice.title}</a></td>
-							<td class="col-sm-2"><span>${notice.reg_date}</span></td>
+							<td class="col-sm-2"><span>${notice.register_date}</span></td>
 						</tr>
 					</c:forEach>
 				</tbody>

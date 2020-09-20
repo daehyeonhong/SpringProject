@@ -42,11 +42,6 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="text" class="form-control" id="user_age" name="user_age" required="required" />
-					</td>
-				</tr>
-				<tr>
-					<td>
 						<input type="text" class="form-control" id="birth_date" name="birth_date" placeholder="yyyy/MM/dd" required="required" />
 					</td>
 				</tr>

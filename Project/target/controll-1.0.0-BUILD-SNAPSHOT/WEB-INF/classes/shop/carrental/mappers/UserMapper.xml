@@ -14,13 +14,13 @@
 
 	<select id="check" resultType="String">
 		<![CDATA[
-			SELECT name FROM table_user WHERE id=#{id} AND password=#{password}
+			SELECT name FROM users WHERE id=#{id} AND password=#{password}
 		]]>
 	</select>
 
 	<insert id="signUp">
 		<![CDATA[
-			INSERT INTO table_user
+			INSERT INTO users
 				(user_seq,id,password,name,nickname,email,user_age,birth_date)
 			VALUES
 				(user_seq.NEXTVAL,#{id},#{password},#{name},#{nickname},#{email},#{user_age},#{birth_date})
@@ -29,7 +29,7 @@
 
 	<select id="information" resultMap="informationMap">
 		<![CDATA[
-			SELECT id,name,nickname,phone,email,birth_date FROM table_user WHERE id=#{id}
+			SELECT id,name,nickname,phone,email,birth_date FROM users WHERE id=#{id}
 		]]>
 	</select>
 
