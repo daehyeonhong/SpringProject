@@ -18,7 +18,7 @@
 		]]>
 	</select>
 
-	<insert id="signUp">
+	<insert id="register">
 		<![CDATA[
 			INSERT INTO users
 				(user_seq,id,password,name,nickname,email,user_age,birth_date)

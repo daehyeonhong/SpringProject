@@ -34,10 +34,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void signUp(UserDTO dto) {
-		log.info("signUp");
+	public void register(UserDTO dto) {
+		log.info("register");
 
-		userMapper.signUp(dto);
+		userMapper.register(dto);
 	}
 
 	@Override

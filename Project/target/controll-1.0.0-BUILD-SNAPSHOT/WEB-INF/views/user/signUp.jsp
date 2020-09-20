@@ -2,7 +2,7 @@
 <article>
 	<div class="container col-sm-3" align="center">
 		<h1 class="display-6">기본 정보 입력</h1>
-		<form class="form-group" action="/user/signUp" method="POST">
+		<form class="form-group" action="/user/register" method="POST">
 			<table class="col-sm-10">
 				<tr>
 					<td>

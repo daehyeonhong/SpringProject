@@ -50,7 +50,7 @@
 						</div>
 					</c:otherwise>
 				</c:choose></li>
-			<li class="nav-item"><a class="nav-link" href="#">MY렌터카</a></li>
+			<li class="nav-item"><a class="nav-link" href="/user/myPage">MY렌터카</a></li>
 			<li class="nav-item"><a class="nav-link" href="/customer/notice/list">고객센터</a>
 			</li>
 		</ul>

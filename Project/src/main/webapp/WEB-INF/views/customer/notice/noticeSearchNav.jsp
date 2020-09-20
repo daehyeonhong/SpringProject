@@ -4,7 +4,7 @@
 <c:set var="keyword" value="${pageMaker.criteria.keyword}"/>
 <nav>
 	<div align="right">
-		<form id="searchForm" class="form col-sm-6" action="/customer/notice" method="get">
+		<form id="searchForm" class="form col-sm-6" action="/customer/notice/list" method="get">
 			<div class="input-group">
 				<div class="input-group-prepend">
 					<select class="form-control" name="searchBy">

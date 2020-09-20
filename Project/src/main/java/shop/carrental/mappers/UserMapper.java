@@ -5,7 +5,7 @@ import shop.carrental.domain.UserVO;
 
 public interface UserMapper {
 
-	public boolean signUp(UserDTO dto);
+	public boolean register(UserDTO dto);
 
 	public UserVO information(UserVO vo);
 

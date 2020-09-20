@@ -337,7 +337,7 @@
 				</tr>
 			</table>
 			<div class="col-sm-6">
-				<button class="btn btn-primary btn-block" type="button" onclick="location.href='/user/signUp'">약관 동의 및 회원가입</button>
+				<button class="btn btn-primary btn-block" type="button" onclick="location.href='/user/register'">약관 동의 및 회원가입</button>
 			</div>
 		</form>
 	</div>

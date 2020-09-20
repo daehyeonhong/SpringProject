@@ -22,7 +22,7 @@
 					<a class="nav-link h5" href="${route}/branch">지점안내</a>
 				</td>
 				<td class="nav-item">
-					<a class="nav-link h5" href="${route}/form/applicationForm">양식다운로드</a>
+					<a class="nav-link h5" href="${route}/form/application">양식다운로드</a>
 				</td>
 			</tr>
 		</table>

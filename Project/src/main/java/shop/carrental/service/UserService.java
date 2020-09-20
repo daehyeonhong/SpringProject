@@ -8,7 +8,7 @@ import shop.carrental.domain.UserVO;
 
 public interface UserService {
 
-	public void signUp(UserDTO dto);
+	public void register(UserDTO dto);
 
 	public UserVO information(UserVO vo);
 

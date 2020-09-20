@@ -94,7 +94,7 @@
 		$('.move').on('click', function (event) {
 			event.preventDefault();
 			actionForm.append('<input type="hidden" name="seq" value="' + $(this).attr('href') + '">');
-			actionForm.attr('action', '/customer/notice/get');
+			actionForm.attr('action', '/customer/notice/page');
 			actionForm.submit();
 		});
 

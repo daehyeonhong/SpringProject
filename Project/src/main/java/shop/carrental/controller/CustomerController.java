@@ -75,36 +75,36 @@ public class CustomerController {
 		return "customer/consultation/rent";
 	}
 
-	@GetMapping("/form/applicationForm")
-	public String applicationForm(Model model) {
-		log.info("applicationForm");
+	@GetMapping("/form/application")
+	public String application(Model model) {
+		log.info("application");
 
-		model.addAttribute("target", "applicationForm");
-		return "customer/form/applicationForm";
+		model.addAttribute("target", "application");
+		return "customer/form/application";
 	}
 
-	@GetMapping("/form/contractForm")
-	public String contractForm(Model model) {
-		log.info("contractForm");
+	@GetMapping("/form/contract")
+	public String contract(Model model) {
+		log.info("contract");
 
-		model.addAttribute("target", "contractForm");
-		return "customer/form/contractForm";
+		model.addAttribute("target", "contract");
+		return "customer/form/contract";
 	}
 
-	@GetMapping("/form/handoverForm")
-	public String handoverForm(Model model) {
-		log.info("handoverForm");
+	@GetMapping("/form/handover")
+	public String handover(Model model) {
+		log.info("handover");
 
-		model.addAttribute("target", "handoverForm");
-		return "customer/form/handoverForm";
+		model.addAttribute("target", "handover");
+		return "customer/form/handover";
 	}
 
-	@GetMapping("/form/terminateForm")
-	public String terminateForm(Model model) {
-		log.info("terminateForm");
+	@GetMapping("/form/terminate")
+	public String terminate(Model model) {
+		log.info("terminate");
 
-		model.addAttribute("target", "terminateForm");
-		return "customer/form/terminateForm";
+		model.addAttribute("target", "terminate");
+		return "customer/form/terminate";
 	}
 
 	@GetMapping("/notice/list")
@@ -127,10 +127,9 @@ public class CustomerController {
 		return "redirect:/customer/notice/list";
 	}
 
-	@GetMapping("/notice/get")
-	public void noticeDetail(@RequestParam("seq") Long seq, @ModelAttribute("criteria") Criteria criteria,
-			Model model) {
-		log.info("get");
+	@GetMapping("/notice/page")
+	public void noticePage(@RequestParam("seq") Long seq, @ModelAttribute("criteria") Criteria criteria, Model model) {
+		log.info("page");
 
 		noticeService.read(seq, criteria, model);
 	}

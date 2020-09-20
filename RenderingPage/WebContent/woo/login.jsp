@@ -36,7 +36,7 @@
 		<table class="table">
 			<tr class="list-group list-group-horizontal text-center">
 				<td class="col-sm-4">
-					<a class="text-secondary" href="./signUp.jsp">회원 가입</a>
+					<a class="text-secondary" href="./register.jsp">회원 가입</a>
 				</td>
 				<td class="col-sm-4">
 					<a class="text-secondary" href="./idSearch.jsp">아이디 찾기</a>

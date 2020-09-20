@@ -54,16 +54,16 @@ public class UserController {
 		log.info("agreement");
 	}
 
-	@GetMapping("/signUp")
-	public void signUp() {
-		log.info("signUpPage");
+	@GetMapping("/register")
+	public void register() {
+		log.info("registerPage");
 	}
 
-	@PostMapping("/signUp")
-	public String signUp(UserDTO dto, RedirectAttributes redirectAttributes) {
+	@PostMapping("/register")
+	public String register(UserDTO dto, RedirectAttributes redirectAttributes) {
 		log.info(dto);
 
-		userService.signUp(dto);
+		userService.register(dto);
 
 		return "redirect:/user/login";
 	}
@@ -97,6 +97,12 @@ public class UserController {
 			e.printStackTrace();
 			return -1;
 		}
+	}
+
+	@GetMapping("/myPage")
+	public void myPage() {
+		log.info("myPage");
+
 	}
 
 }
