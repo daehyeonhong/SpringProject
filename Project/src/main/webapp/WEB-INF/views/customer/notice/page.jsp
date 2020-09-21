@@ -23,6 +23,15 @@
 							<span class="word-break m-5">${notice.content}</span>
 						</td>
 					</tr>
+					<tr>
+						<td colspan="2">
+							<span>${notice.count}</span>
+						</td>
+						<td>
+							<span class="text-primary">좋아요: ${notice.good}</span>
+							<span class="text-danger">싫어요: ${notice.bad}</span>
+						</td>
+					</tr>
 				</tbody>
 			</table>
 			

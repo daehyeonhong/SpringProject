@@ -21,22 +21,22 @@
     <button type="button" class="btn btn-outline-secondary">3개월</button>
     <button type="button" class="btn btn-outline-secondary">6개월</button>
   </div>
-			<table class="col-sm-5"><br><br>
-				<tr>
-					<td colspan="3">
-						<input type="date" class="form-control"  > 
-						</td>
-						<td>
-					    	-
-						</td>
-                         <td>   
-						<input type="date" class="form-control"  >
-						</td>
-						<td>
-						<button type="button"  class="btn btn-danger col-sm-5">조회하기</button>
-						</td>
-				</tr>
-				</table>
+				<table class="col-sm-10">
+            <tr>
+               <td colspan="4">
+                  <input type="date" class="form-control"> 
+                  </td>
+                  <td>
+                      -
+                  </td>
+                   <td>   
+                  <input type="date" class="form-control">
+                  </td>
+                  <td>
+                  <button type="button"  class="btn btn-danger col-sm-12">조회하기</button>
+                  </td>
+            </tr>
+            </table>
 				<hr/><br><br><br><hr/>
 				  <div class="text-right">
 					<button type="button"  class="btn btn-secondary  col-sm-3">정비매장찾기</button>

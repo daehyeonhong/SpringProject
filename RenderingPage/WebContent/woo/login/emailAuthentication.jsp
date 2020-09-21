@@ -27,8 +27,8 @@
 </head>
 <body>
 	<div class="container col-sm-3" align="center">
-		<h3 class="display-4">이메일 인증</h3>
-		<p align="center">회원가입 시 사용하신 이메일 정보를 입력해주세요.</p>
+		<h1 class="display-5">이메일 인증</h1>
+		<p align="center">회원가입 시 사용하신 이메일 정보를 <br>입력해주세요.</p>
 		<form action="#" class="was-validated">
 			<div class="form-group">
 				<input type="text" class="form-control" id="email" placeholder="이메일 입력"

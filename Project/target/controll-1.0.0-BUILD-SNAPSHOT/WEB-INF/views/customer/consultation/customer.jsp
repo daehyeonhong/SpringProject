@@ -8,7 +8,7 @@
 		</div>
 
 		<!-- Nav tabs -->
-		<%@ include file="consultationNav.jsp"%>
+		<%@ include file="serviceNav.jsp"%>
 
 		<!-- Tab panes -->
 		<div class="container">

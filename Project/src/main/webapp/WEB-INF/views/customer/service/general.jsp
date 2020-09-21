@@ -8,16 +8,21 @@
 		</div>
 
 		<!-- Nav tabs -->
-		<%@ include file="consultationNav.jsp"%>
+		<%@ include file="serviceNav.jsp"%>
 
 		<!-- Tab panes -->
 		<div class="container">
 			<br />
-			<form action="#">
+			<form action="/customer/service/general" method="post">
 				<table class="col-sm-12">
 					<tr>
 						<td><input type="text" class="form-control" name="name" placeholder="이름 입력" /></td>
-						<td><input type="text" class="form-control" name="phone" placeholder="휴대폰번호 (-없이) 입력" /></td>
+						<td>
+							<select class="form-control" name="privacy">
+								<option value="0">비공개</option>
+								<option value="1">공개</option>
+							</select>
+						</td>
 					</tr>
 					<tr>
 						<td><input type="text" class="form-control" name="email" placeholder="이메일 입력" /></td>

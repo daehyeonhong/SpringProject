@@ -28,22 +28,18 @@
 			</table>
 			<table class="table table-bordered">
 				<tr>
-					<th>다이렉트 견적정보가 없습니다.<br> <small>나에게 꼭 맞는 장기렌터카
-							견적! 지금 견적정보를 다이렉트로 받아보세요.</small>
-						<button type="button" class="btn btn-secondary  btn-sm">다이렉트
-							견적 바로가기</button></th>
-				</tr>
-			</table>
-			<table class="table table-bordered">
-				<tr>
 					<th>쿠폰내역<br> <small>보유 쿠폰과 사용 쿠폰내역을 확인해보세요.</small><br>
-						<button type="button" class="btn btn-outline-secondary  btn-sm">자세히
+						<button type="button" class="btn btn-outline-secondary btn-sm">자세히
 							보기</button></th>
-					<th>상담내역<br> <small>요청하신 상담내역을 확인해보세요.</small><br>
-						<button type="button" class="btn btn-outline-secondary  btn-sm">자세히
-							보기</button></th>
+					<th>
+						<p>상담내역</p>
+						<p>
+							<small>요청하신 상담내역을 확인해보세요.</small>
+						</p>
+						<button type="button" class="btn btn-outline-secondary btn-sm" onclick="location.href='/user/myPage/general'">자세히 보기</button>
+					</th>
 					<th>이벤트 당첨자 발표<br> <small>참여하신 이벤트 당첨결과를 확인해보세요.</small><br>
-						<button type="button" class="btn btn-outline-secondary  btn-sm">자세히
+						<button type="button" class="btn btn-outline-secondary btn-sm">자세히
 							보기</button></th>
 
 				</tr>

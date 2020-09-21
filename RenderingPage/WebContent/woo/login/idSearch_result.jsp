@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="container col-sm-3" align="center">
-	<h3 class="display-4">아이디 찾기 완료</h3>
+	<h2>아이디 찾기 완료</h2>
 		<p align="center">회원님이 입력하신 정보와 일치하는 아이디입니다.</p>
 		<p align="center">개인정보보호를 위해 개인정보의 일부는 ***로 표시하였습니다.</p>
 		<div class="divInfo">

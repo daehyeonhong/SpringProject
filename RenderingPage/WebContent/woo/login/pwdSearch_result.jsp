@@ -11,14 +11,14 @@
 </head>
 <body>
 	<div class="container col-sm-3" align="center">
-		<h2>신규 비밀번호 등록</h2>
+	<h2>신규 비밀번호 등록</h2>
 		<p align="center">본인확인이 완료되었습니다.</p>
 		<p align="center">신규 비밀번호를 등록 후 사용해주세요.</p>
 		<br>
 
 		<form action="./login.jsp">
 			<div class="form-group">
-				<input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 입력(띄어쓰기 없이 영문,숫자 포함 10~20자 이내)">
+				<input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 입력(띄어쓰기 없이 영문,숫자 포함)">
 			</div>
 			<div class="form-group">
 				<input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" placeholder="비밀번호 재입력">

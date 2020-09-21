@@ -13,7 +13,8 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.Criteria;
 import shop.carrental.domain.NoticeDTO;
-import shop.carrental.service.NoticeService;
+import shop.carrental.domain.CustomerInquiryDTO;
+import shop.carrental.service.CustomerService;
 
 @Controller
 @Log4j
@@ -21,7 +22,7 @@ import shop.carrental.service.NoticeService;
 @RequestMapping("/customer/*")
 public class CustomerController {
 
-	private NoticeService noticeService;
+	private CustomerService customerService;
 
 	@GetMapping("/")
 	public void basic() {
@@ -39,28 +40,36 @@ public class CustomerController {
 		log.info("faq");
 	}
 
-	@GetMapping("/consultation/customer")
-	public String customer(Model model) {
-		log.info("customer");
+	@GetMapping("/service/general")
+	public String general(Model model) {
+		log.info("general");
 
-		model.addAttribute("target", "customer");
-		return "customer/consultation/customer";
+		model.addAttribute("target", "general");
+		return "customer/service/general";
 	}
 
-	@GetMapping("/consultation/info")
+	@PostMapping("/service/general")
+	public String registerGeneral(CustomerInquiryDTO dto, RedirectAttributes redirectAttributes) {
+		log.info("general");
+
+		customerService.registerGeneralInquiry(dto, redirectAttributes);
+		return "redirect:/customer/service/general";
+	}
+
+	@GetMapping("/service/info")
 	public String info(Model model) {
 		log.info("info");
 
 		model.addAttribute("target", "info");
-		return "customer/consultation/info";
+		return "customer/service/info";
 	}
 
-	@GetMapping("/consultation/rent")
+	@GetMapping("/service/rent")
 	public String rent(Model model) {
 		log.info("rent");
 
 		model.addAttribute("target", "rent");
-		return "customer/consultation/rent";
+		return "customer/service/rent";
 	}
 
 	@GetMapping("/form/application")
@@ -99,7 +108,7 @@ public class CustomerController {
 	public void noticeList(Criteria criteria, Model model) {
 		log.info("noticeList" + criteria);
 
-		noticeService.list(criteria, model);
+		customerService.listNotice(criteria, model);
 	}
 
 	@GetMapping("/notice/register")
@@ -111,7 +120,7 @@ public class CustomerController {
 	public String registerNotice(NoticeDTO dto, RedirectAttributes redirectAttributes) {
 		log.info("registerNotice" + dto);
 
-		noticeService.register(dto, redirectAttributes);
+		customerService.registerNotice(dto, redirectAttributes);
 		return "redirect:/customer/notice/list";
 	}
 
@@ -119,7 +128,7 @@ public class CustomerController {
 	public void noticePage(@RequestParam("seq") Long seq, @ModelAttribute("criteria") Criteria criteria, Model model) {
 		log.info("page");
 
-		noticeService.read(seq, criteria, model);
+		customerService.readNotice(seq, criteria, model);
 	}
 
 }

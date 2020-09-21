@@ -11,7 +11,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 <body>
-	<div class="container col-sm-5" align="center">
+	<div class="container col-sm-4" align="center">
 		<h1 class="display-6">개인정보수정</h1>
 		<form action="#" class="form-group">
 		<table class="col-sm-10">
@@ -34,19 +34,19 @@
 			<tr>
 				<td>
 					<br>
-					<span class="form-control">01010101010</span>
+					<span class="form-control">01011112222</span>
 				</td>
 				<td>
 					<br>
 					<input type="button" class="form-control btn btn-secondary" value="휴대폰 인증" />
-					<input type="hidden" name="phone" value="01010101010" />
+					<input type="hidden" name="phone" value="01011112222" />
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<br>
 					<div class="input-group input-group-prepend">
-						<input name="mail1" id="mail1" maxlength="50" class="form-control col-sm-6" placeholder="Your Email" required="required"/>
+						<input name="mail1" id="mail1" maxlength="50" class="form-control col-sm-5" placeholder="Email" required="required"/>
 						<span class="form-control col-sm-1">@</span>
 						<select class="form-control col-sm-6" name="mail2" id="mail2" required>
 							<option value="naver.com">naver.com</option>
@@ -103,7 +103,7 @@
 				<td colspan="2">
 					<div class="overflow-auto">
 						<ul>
-							<li>고객님께서는 동의를 거부할 권리가 있으나, 미 동의 시 상품/서비스 안내에 제한을 받을 수 있습니다. </li>
+							<li>고객님께서는 동의를 거부할 권리가 있으나, <br>미 동의 시 상품/서비스 안내에 제한을 받을 수 있습니다. </li>
 						</ul>
 					</div>
 				</td>
@@ -166,28 +166,35 @@
 				<td colspan="2">
 					<ul>
 						<li>
-							고객님께서는 동의를 거부할 권리가 있으나, 미 동의 시 상품/서비스 안내에 제한을 받을 수 있습니다.
+						고객님께서는 동의를 거부할 권리가 있으나, <br>미 동의 시 상품/서비스 안내에 제한을 받을 수 있습니다.
 						</li>
 					</ul>
 				</td>
 			</tr>
 			<tr>
 				<td>
-				<!-- 취소시 my렌터카로 넘어감 -->
-				 <button type="button" class="btn btn-secondary btn-block"><!-- <a href="./login.jsp"> -->취소</a></button>
+				 <button type="button" class="btn btn-secondary btn-block" onclick="button1_click();"> 취소</button>
 				</td>
 				<td>
-				<!--  my렌터카로 넘어감 -->
-				<button type="button" class="btn btn-danger btn-block" onclick="button1_click();"><!-- <a href="./login.jsp"> -->수정완료</a></button>
-			 <script>
-                   function button1_click() {
-	                alert("수정되었습니다.");
-                 }
-           </script>
-				</td>
+				<button type="button" class="btn btn-danger btn-block" onclick="button2_click();"> 수정완료</button>
+		     	</td>
+			
 			</tr>
 		</table>
 		</form>
 	</div>
+	 <script>
+                   function button1_click() {
+	                alert("취소되었습니다.");
+	                location.href = '../myRentalcar/myRentalcar.jsp'; 
+                 }
+           </script>
+            <script>
+                   function button2_click() {
+	                alert("수정되었습니다.");
+	                location.href = '../myRentalcar/myRentalcar.jsp'; 
+                 }
+      </script>
+				
 </body>
 </html>

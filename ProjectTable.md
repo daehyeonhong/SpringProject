@@ -77,3 +77,29 @@
 |      트림      |     trim     |        |        |    NOT NULL    | VARCHAR2    |        |        |
 |     제조사     | manufacturer |        |        |    NOT NULL    | VARCHAR2    |        |        |
 |      연식      |     year     |        |        |    NOT NULL    | DATE        |        |        |
+
+## service_customer_inquiry
+
+|   논리 명    |    물리 명    | 기본키 | 외래키 | NULL 허용 여부 | 데이터 타입 | 디폴트  | 속성     |
+| :----------: | :-----------: | :----: | :----: | :------------: | ----------- | ------- | -------- |
+| 글 등록 번호 |      seq      |   PK   |        |    NOT NULL    | NUMBER      |         | UNIQUE   |
+| 회원 아이디  |      id       |        |   FK   |    NOT NULL    | VARCHAR2    |         | users.id |
+|    이메일    |     email     |        |        |    NOT NULL    | VARCHAR2    |         |          |
+|     제목     |     title     |        |        |    NOT NULL    | VARCHAR2    |         |          |
+|     내용     |    content    |        |        |    NOT NULL    | VARCHAR2    |         |          |
+|  공개 여부   |    private    |        |        |    NOT NULL    | NUMBER      | 0       |          |
+|  답변 번호   |    answer     |        |   FK   |    NOT NULL    | NUMBER      |         |          |
+|    등록일    | register_date |        |        |    NOT NULL    | DATE        | SYSDATE |          |
+|    수정일    |  update_date  |        |        |    NOT NULL    | DATE        | SYSDATE |          |
+
+## service_customer_answer
+
+|     논리 명      |    물리 명    | 기본키 | 외래키 | NULL 허용 여부 | 데이터 타입 | 디폴트  | 속성                         |
+| :--------------: | :-----------: | :----: | :----: | :------------: | ----------- | ------- | ---------------------------- |
+|  답글 등록 번호  |      seq      |   PK   |        |    NOT NULL    | NUMBER      |         | UNIQUE                       |
+| 문의글 등록 번호 |      seq      |        |   FK   |    NOT NULL    | NUMBER      |         | service_customer_inquery.seq |
+|       제목       |     title     |        |        |    NOT NULL    | VARCHAR2    |         |                              |
+|      작성자      |    writer     |        |   FK   |    NOT NULL    | VARCHAR2    |         | admin.id                     |
+|       내용       |    content    |        |        |    NOT NULL    | VARCHAR2    |         |                              |
+|      등록일      | register_date |        |        |    NOT NULL    | DATE        | SYSDATE |                              |
+|      수정일      |  update_date  |        |        |    NOT NULL    | DATE        | SYSDATE |                              |

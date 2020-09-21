@@ -23,6 +23,10 @@
 		<typeAlias alias="noticeDTO" type="shop.carrental.domain.NoticeDTO" />
 		<typeAlias alias="userVO" type="shop.carrental.domain.UserVO"/>
 		<typeAlias alias="userDTO" type="shop.carrental.domain.UserDTO"/>
+		<typeAlias alias="customerInquiryDTO" type="shop.carrental.domain.CustomerInquiryDTO"/>
+		<typeAlias alias="customerInquiryVO" type="shop.carrental.domain.CustomerInquiryVO"/>
+		<typeAlias alias="customerAnswerDTO" type="shop.carrental.domain.CustomerAnswerDTO"/>
+		<typeAlias alias="customerAnswerVO" type="shop.carrental.domain.CustomerAnswerVO"/>
 	</typeAliases>
 
 </configuration>

@@ -18,6 +18,8 @@
 						<th>번호</th>
 						<th>구분</th>
 						<th>제목</th>
+						<th>조회수</th>
+						<th>좋아요::싫어요</th>
 						<th>등록일</th>
 					</tr>
 				</thead>
@@ -29,6 +31,8 @@
 							<td><span>${seq}</span></td>
 							<td><span>${notice.category}</span></td>
 							<td class="text-left"><a class="move" href="${seq}">${notice.title}</a></td>
+							<td><span>${notice.count}</span></td>
+							<td><span>${notice.good}::${notice.bad}</span></td>
 							<td><span>${register_date}</span></td>
 						</tr>
 					</c:forEach>

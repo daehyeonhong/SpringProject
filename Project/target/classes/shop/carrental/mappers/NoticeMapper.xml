@@ -82,4 +82,12 @@
 			]]>
 	</insert>
 
+	<update id="addCount">
+		<![CDATA[
+			UPDATE notice
+				SET count=count+1
+			WHERE seq=#{seq}
+		]]>
+	</update>
+
 </mapper>

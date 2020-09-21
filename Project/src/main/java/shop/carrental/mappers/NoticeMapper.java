@@ -15,4 +15,6 @@ public interface NoticeMapper {
 
 	public void register(NoticeDTO dto);
 
+	public void addCount(Long seq);
+
 }

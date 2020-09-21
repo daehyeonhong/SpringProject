@@ -8,7 +8,7 @@
 		</div>
 
 		<!-- Nav tabs -->
-		<%@ include file="consultationNav.jsp"%>
+		<%@ include file="serviceNav.jsp"%>
 
 		<div class="container">
 			<table class="table table-bordered">

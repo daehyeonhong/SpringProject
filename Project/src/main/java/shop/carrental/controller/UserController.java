@@ -103,7 +103,18 @@ public class UserController {
 	@GetMapping("/myPage")
 	public void myPage() {
 		log.info("myPage");
+	}
 
+	@GetMapping("/myPage/general")
+	public void general(Model model) {
+		log.info("general");
+		model.addAttribute("target", "general");
+	}
+
+	@GetMapping("/myPage/rental")
+	public void rental(Model model) {
+		log.info("rental");
+		model.addAttribute("target", "rental");
 	}
 
 }

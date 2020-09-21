@@ -16,43 +16,48 @@
   <h2>쿠폰내역</h2>
   <hr color = "black">
   <div class="btn-group">
-    <h7>조회기간</h7>&nbsp;&nbsp;&nbsp;
+    <span>조회기간</span>
     <button type="button" class="btn btn-outline-secondary">1개월</button>
     <button type="button" class="btn btn-outline-secondary">3개월</button>
     <button type="button" class="btn btn-outline-secondary">6개월</button>
   </div>
-			<table class="col-sm-5"><br><br>
-				<tr>
-					<td colspan="3">
-						<input type="date" class="form-control"  > 
-						</td>
-						<td>
-					    	-
-						</td>
-                         <td>   
-						<input type="date" class="form-control"  >
-						</td>
-						<td>
-						<button type="button"  class="btn btn-danger col-sm-5">조회하기</button>
-						</td>
-				</tr>
-			</table>
-				<h7>사용여부</h7>&nbsp;&nbsp;&nbsp;
-						<div class="input-group-prepend">
-						<select class="form-control col-sm-3">
+			<table class="col-sm-6">
+            <tr>
+               <td colspan="3">
+                  <input type="date" class="form-control"> 
+                  </td>
+                  <td>
+                      -
+                  </td>
+                   <td colspan="2">   
+                  <input type="date" class="form-control">
+                  </td>
+            </tr>
+                         <tr>
+                         
+            	<td colspan="3">
+            	<span>사용여부</span>
+            	<div class="form-group">
+						<select class="form-control">
 							<option value="전체">전체</option>
 							<option value="미사용">미사용</option>
 							<option value="사용">사용</option>
 						</select>
-					</div><br>
-				<h7>쿠폰명</h7>&nbsp;&nbsp;&nbsp;
-				 <div class="form-group col-sm-8">
-				      <input type="text" class="form-control" placeholder="쿠폰명을 입력해주세요.">
+					</div>
+            	</td>
+            	<td colspan="3">
+            	<span>쿠폰명</span>
+            	<div class="form-group" >
+				    <input type="text" class="form-control" placeholder="쿠폰명을 입력해주세요.">
 				    </div>
-					
+            	</td>
+            </tr>
+            </table>
+				
+	                  <button type="button" class="btn btn-danger col-sm-5">조회하기</button>
 			  <hr color = "black">
 			  
-			  <table style="border:1px solid #D5D5D5; font-size: 16px;">
+			  <table style="border:1px solid #D5D5D5; font-size: 14px;">
 			      <tr>
 			        <th>
 			          <ul> 

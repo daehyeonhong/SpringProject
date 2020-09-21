@@ -27,7 +27,7 @@
 		<div class="container">
 			<div class="container">
 				<div class="row">
-					<a class="btn h4 btn-outline-info col-sm-2" href="${pageContext.request.contextPath}/customer/consultation/customer">고객상담</a>
+					<a class="btn h4 btn-outline-info col-sm-2" href="${pageContext.request.contextPath}/customer/service/customer">고객상담</a>
 					<div class="col-sm-10" align="right">
 						<form class="form col-sm-8" action="#" method="post">
 							<div class="input-group row">

@@ -10,7 +10,7 @@
 		</div>
 
 		<!-- Nav tabs -->
-		<%@ include file="consultationNav.jsp"%>
+		<%@ include file="serviceNav.jsp"%>
 
 		<div class="container">
 			<span>중고차장기/개인장기/법인장기 상담신청 시 등록하신 유선 또는 이메일로만 답변을 받으실 수 있으며, 홈페이지에서는 답변 확인 불가능합니다.</span>

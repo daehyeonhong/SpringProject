@@ -22,13 +22,13 @@
 		<div class="col-sm-12">
 		<table class="table">
 			<tr class="list-group list-group-horizontal text-center">
-				<td>
+				<td class="col-sm-4">
 					<a class="text-secondary text-decoration-none" href="/user/agreement">회원 가입</a>
 				</td>
-				<td>
+				<td class="col-sm-4">
 					<a class="text-secondary text-decoration-none" href="idSearch.jsp">아이디 찾기</a>
 				</td>
-				<td>
+				<td class="">
 					<a class="text-secondary text-decoration-none" href="pwdSearch.jsp">비밀번호 찾기</a>
 				</td>
 			</tr>
@@ -36,7 +36,6 @@
 		</div>
 	</div>
 </article>
-
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script>
 	$(function () {
