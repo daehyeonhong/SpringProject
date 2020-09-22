@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.carrental.mappers.FaqMapper">
+
+	<resultMap type="faqVO" id="list">
+		<id property="seq" column="seq" />
+		<result property="type" column="type" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="register_date" column="register_date" />
+		<result property="update_date" column="update_date" />
+	</resultMap>
+
+	<!-- 공통 0, 다이렉트 1, 장기 2, 단기 3, 전기차 4 -->
+	<select id="list" parameterType="int" resultMap="list">
+		<![CDATA[
+			SELECT*FROM faq WHERE type=#{type}
+		]]>
+	</select>
+
+</mapper>

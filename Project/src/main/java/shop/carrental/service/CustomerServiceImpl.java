@@ -9,9 +9,11 @@ import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.Criteria;
 import shop.carrental.domain.NoticeDTO;
 import shop.carrental.domain.PageVO;
+import shop.carrental.domain.RentalInquiryDTO;
 import shop.carrental.domain.CustomerInquiryDTO;
 import shop.carrental.mappers.NoticeMapper;
-import shop.carrental.mappers.GeneralInquiryMapper;
+import shop.carrental.mappers.FaqMapper;
+import shop.carrental.mappers.GeneralMapper;
 
 @Log4j
 @Service
@@ -19,7 +21,8 @@ import shop.carrental.mappers.GeneralInquiryMapper;
 public class CustomerServiceImpl implements CustomerService {
 
 	private NoticeMapper noticeMapper;
-	private GeneralInquiryMapper serviceGeneralInquiryMapper;
+	private GeneralMapper generalInquiryMapper;
+	private FaqMapper faqMapper;
 
 	/* NoticeMapper */
 	@Transactional
@@ -63,8 +66,23 @@ public class CustomerServiceImpl implements CustomerService {
 	public void registerGeneralInquiry(CustomerInquiryDTO dto, RedirectAttributes redirectAttributes) {
 		log.info("registerGeneralInquiry" + dto);
 
-		serviceGeneralInquiryMapper.register(dto);
+		generalInquiryMapper.registerCustomerInquiry(dto);
 		redirectAttributes.addFlashAttribute("target", "general");
+	}
+
+	@Override
+	public void registerRentalInquiry(RentalInquiryDTO dto, RedirectAttributes redirectAttributes) {
+		log.info("registerRentalInquiry" + dto);
+
+		generalInquiryMapper.registerRentalInquiry(dto);
+		redirectAttributes.addFlashAttribute("target", "rental");
+	}
+
+	@Override
+	public void listFaq(int type, Model model) {
+		log.info("listFaq" + type);
+
+		model.addAttribute("faqList", faqMapper.list(type));
 	}
 
 }

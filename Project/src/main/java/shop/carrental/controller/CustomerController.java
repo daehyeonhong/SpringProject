@@ -13,6 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.Criteria;
 import shop.carrental.domain.NoticeDTO;
+import shop.carrental.domain.RentalInquiryDTO;
 import shop.carrental.domain.CustomerInquiryDTO;
 import shop.carrental.service.CustomerService;
 
@@ -36,8 +37,10 @@ public class CustomerController {
 	}
 
 	@GetMapping("/faq")
-	public void faq() {
+	public void faq(@ModelAttribute("type") int type, Model model) {
 		log.info("faq");
+
+		customerService.listFaq(type, model);
 	}
 
 	@GetMapping("/service/general")
@@ -56,20 +59,28 @@ public class CustomerController {
 		return "redirect:/customer/service/general";
 	}
 
+	@GetMapping("/service/rental")
+	public String rental(Model model) {
+		log.info("rental");
+
+		model.addAttribute("target", "rental");
+		return "customer/service/rental";
+	}
+
+	@PostMapping("/service/rental")
+	public String registerRent(RentalInquiryDTO dto, RedirectAttributes redirectAttributes) {
+		log.info("rental");
+
+		customerService.registerRentalInquiry(dto, redirectAttributes);
+		return "redirect:/customer/service/rental";
+	}
+
 	@GetMapping("/service/info")
 	public String info(Model model) {
 		log.info("info");
 
 		model.addAttribute("target", "info");
 		return "customer/service/info";
-	}
-
-	@GetMapping("/service/rent")
-	public String rent(Model model) {
-		log.info("rent");
-
-		model.addAttribute("target", "rent");
-		return "customer/service/rent";
 	}
 
 	@GetMapping("/form/application")

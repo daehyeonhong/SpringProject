@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="shop.carrental.mappers.GeneralInquiryMapper">
+<mapper namespace="shop.carrental.mappers.GeneralMapper">
 
-	<insert id="register">
+	<insert id="registerCustomerInquiry">
 		<![CDATA[
 			INSERT INTO customer_inquiry
 				(seq,email,title,content,privacy)
 			VALUES
 				(seq_customer_inquiry.NEXTVAL,#{email},#{title},#{content},#{privacy})
+		]]>
+	</insert>
+
+	<insert id="registerRentalInquiry">
+		<![CDATA[
+				INSERT INTO rental_inquiry
+					(seq,type,title,content,users_id)
+				VALUES
+					(seq_rental_inquiry.NEXTVAL,#{type},#{title},#{content},#{users_id})
 		]]>
 	</insert>
 
