@@ -76,7 +76,8 @@
 |      연료      |     fuel     |        |        |    NOT NULL    | VARCHAR2    |        |        |
 |      트림      |     trim     |        |        |    NOT NULL    | VARCHAR2    |        |        |
 |     제조사     | manufacturer |        |        |    NOT NULL    | VARCHAR2    |        |        |
-|      연식      |     year     |        |        |    NOT NULL    | DATE        |        |        |
+|     이미지     |    image     |        |        |      NULL      | VARCHAR2    |        |        |
+|      연식      |     year     |        |        |    NOT NULL    | VARCHAR2    |        |        |
 
 ## service_customer_inquiry
 
