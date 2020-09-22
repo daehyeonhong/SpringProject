@@ -21,6 +21,9 @@
 |    면허    |    license    |        |        |    NOT NULL    | VARCHAR2    |                          | UNIQUE |
 |   가입일   | register_date |        |        |    NOT NULL    | DATE        | SYSDATE                  |        |
 | 정보변경일 |  update_date  |        |        |    NOT NULL    | DATE        | SYSDATE                  |        |
+|   적립금   |               |        |        |      NULL      | NUMBER      | 0                        |        |
+
+면허 종류
 
 ## notice
 
@@ -38,24 +41,23 @@
 
 ## short_car
 
-|    논리 명     |    물리 명     | 기본키 | 외래키 | NULL 허용 여부 | 데이터 타입 | 디폴트  | 속성             |
-| :------------: | :------------: | :----: | :----: | :------------: | ----------- | ------- | ---------------- |
-|   차량 코드    |      code      |   PK   |        |    NOT NULL    | NUMBER      |         | UNIQUE           |
-| 차량 등록 번호 |      seq       |        |   FK   |    NOT NULL    | NUMBER      |         |                  |
-|   차량 번호    | license_plate  |        |        |    NOT NULL    | VARCHAR2    |         | UNIQUE           |
-|    블랙박스    |    dash_cam    |        |        |    NOT NULL    | NUMBER      | 0       |                  |
-|  후방 카메라   | backup_camera  |        |        |    NOT NULL    | NUMBER      | 0       |                  |
-|   후방 센서    | parking_sensor |        |        |    NOT NULL    | NUMBER      | 0       |                  |
-|   내비게이션   |   navigation   |        |        |    NOT NULL    | NUMBER      | 0       |                  |
-|     선루프     |    sunroof     |        |        |    NOT NULL    | NUMBER      | 0       |                  |
-|    블루투스    |   bluetooth    |        |        |    NOT NULL    | NUMBER      | 0       |                  |
-|      AUX       |      aux       |        |        |    NOT NULL    | NUMBER      | 0       |                  |
-|    스마트키    |   smart_key    |        |        |    NOT NULL    | NUMBER      | 0       |                  |
-| 평일 예약 가격 |  nomal_price   |        |        |    NOT NULL    | NUMBER      | 0       |                  |
-| 주말 예약 가격 | weekend_price  |        |        |    NOT NULL    | NUMBER      | 0       |                  |
-|      지점      |     branch     |        |   FK   |    NOT NULL    | NUMBER      | 0       | table_branch.seq |
-|  차량 등록일   | register_date  |        |        |    NOT NULL    | DATE        | SYSDATE |                  |
-|  차량 삭제일   |  update_date   |        |        |    NOT NULL    | DATE        | SYSDATE |                  |
+|    논리 명     |    물리 명     | 기본키 | 외래키 | NULL 허용 여부 | 데이터 타입 | 디폴트  | 속성       |
+| :------------: | :------------: | :----: | :----: | :------------: | ----------- | ------- | ---------- |
+|   차량 코드    |      code      |   PK   |        |    NOT NULL    | NUMBER      |         | UNIQUE     |
+|   차량 번호    | license_plate  |        |        |    NOT NULL    | VARCHAR2    |         | UNIQUE     |
+|    블랙박스    |    dash_cam    |        |        |    NOT NULL    | NUMBER      | 0       |            |
+|  후방 카메라   | backup_camera  |        |        |    NOT NULL    | NUMBER      | 0       |            |
+|   후방 센서    | parking_sensor |        |        |    NOT NULL    | NUMBER      | 0       |            |
+|   내비게이션   |   navigation   |        |        |    NOT NULL    | NUMBER      | 0       |            |
+|     선루프     |    sunroof     |        |        |    NOT NULL    | NUMBER      | 0       |            |
+|    블루투스    |   bluetooth    |        |        |    NOT NULL    | NUMBER      | 0       |            |
+|      AUX       |      aux       |        |        |    NOT NULL    | NUMBER      | 0       |            |
+|    스마트키    |   smart_key    |        |        |    NOT NULL    | NUMBER      | 0       |            |
+| 평일 예약 가격 |  nomal_price   |        |        |    NOT NULL    | NUMBER      | 0       |            |
+| 주말 예약 가격 | weekend_price  |        |        |    NOT NULL    | NUMBER      | 0       |            |
+|      지점      |     branch     |        |   FK   |    NOT NULL    | NUMBER      | 0       | branch.seq |
+|  차량 등록일   | register_date  |        |        |    NOT NULL    | DATE        | SYSDATE |            |
+|  차량 변경일   |  update_date   |        |        |    NOT NULL    | DATE        | SYSDATE |            |
 
 ## long_car
 
@@ -79,7 +81,7 @@
 |     이미지     |    image     |        |        |      NULL      | VARCHAR2    |        |        |
 |      연식      |     year     |        |        |    NOT NULL    | VARCHAR2    |        |        |
 
-## service_customer_inquiry
+## customer_inquiry
 
 |   논리 명    |    물리 명    | 기본키 | 외래키 | NULL 허용 여부 | 데이터 타입 | 디폴트  | 속성     |
 | :----------: | :-----------: | :----: | :----: | :------------: | ----------- | ------- | -------- |
@@ -93,14 +95,53 @@
 |    등록일    | register_date |        |        |    NOT NULL    | DATE        | SYSDATE |          |
 |    수정일    |  update_date  |        |        |    NOT NULL    | DATE        | SYSDATE |          |
 
-## service_customer_answer
+## customer_answer
 
-|     논리 명      |    물리 명    | 기본키 | 외래키 | NULL 허용 여부 | 데이터 타입 | 디폴트  | 속성                         |
-| :--------------: | :-----------: | :----: | :----: | :------------: | ----------- | ------- | ---------------------------- |
-|  답글 등록 번호  |      seq      |   PK   |        |    NOT NULL    | NUMBER      |         | UNIQUE                       |
-| 문의글 등록 번호 |      seq      |        |   FK   |    NOT NULL    | NUMBER      |         | service_customer_inquery.seq |
-|       제목       |     title     |        |        |    NOT NULL    | VARCHAR2    |         |                              |
-|      작성자      |    writer     |        |   FK   |    NOT NULL    | VARCHAR2    |         | admin.id                     |
-|       내용       |    content    |        |        |    NOT NULL    | VARCHAR2    |         |                              |
-|      등록일      | register_date |        |        |    NOT NULL    | DATE        | SYSDATE |                              |
-|      수정일      |  update_date  |        |        |    NOT NULL    | DATE        | SYSDATE |                              |
+|     논리 명      |    물리 명    | 기본키 | 외래키 | NULL 허용 여부 | 데이터 타입 | 디폴트  | 속성                 |
+| :--------------: | :-----------: | :----: | :----: | :------------: | ----------- | ------- | -------------------- |
+|  답글 등록 번호  |      seq      |   PK   |        |    NOT NULL    | NUMBER      |         | UNIQUE               |
+| 문의글 등록 번호 |      seq      |        |   FK   |    NOT NULL    | NUMBER      |         | customer_inquery.seq |
+|       제목       |     title     |        |        |    NOT NULL    | VARCHAR2    |         |                      |
+|      작성자      |    writer     |        |   FK   |    NOT NULL    | VARCHAR2    |         | admin.id             |
+|       내용       |    content    |        |        |    NOT NULL    | VARCHAR2    |         |                      |
+|      등록일      | register_date |        |        |    NOT NULL    | DATE        | SYSDATE |                      |
+|      수정일      |  update_date  |        |        |    NOT NULL    | DATE        | SYSDATE |                      |
+
+## short_term
+
+|  논리 명  |  물리 명   | 기본키 | 외래키 | NULL 허용 여부 | 데이터 타입 | 디폴트 | 속성   |
+| :-------: | :--------: | :----: | :----: | :------------: | ----------- | ------ | ------ |
+| 예약 번호 |    seq     |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|  사용자   |     id     |        |        |    NOT NULL    | VARCHAR2    |        |        |
+|  대여일   | start_date |        |        |    NOT NULL    | DATE        |        |        |
+|  반납일   |  end_date  |        |        |    NOT NULL    | DATE        |        |        |
+|   지점    |   branch   |        |        |    NOT NULL    | NUMBER      |        |        |
+|   차량    |    seq     |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|  총 금액  |    seq     |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|  적립금   |    seq     |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|   쿠폰    |    seq     |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+| 결제 금액 |    seq     |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|   보험    |    seq     |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+
+## 보험
+
+|     논리 명      | 물리 명 | 기본키 | 외래키 | NULL 허용 여부 | 데이터 타입 | 디폴트 | 속성   |
+| :--------------: | :-----: | :----: | :----: | :------------: | ----------- | ------ | ------ |
+|  슈퍼 자차 요금  |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+| 슈퍼 자차 부담금 |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|  plus 자차 요금  |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+| plus 자차 부담금 |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|  일반 자차 요금  |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+| 일반 자차 부담금 |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+
+## 지점
+
+|     논리 명      | 물리 명 | 기본키 | 외래키 | NULL 허용 여부 | 데이터 타입 | 디폴트 | 속성   |
+| :--------------: | :-----: | :----: | :----: | :------------: | ----------- | ------ | ------ |
+|    지점 번호     |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|     지점 명      |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|      연락처      |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|    지점 위치     |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|    수리 여부     |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+| 전기차 보유 여부 |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|    내륙 제주     |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
