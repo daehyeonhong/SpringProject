@@ -109,39 +109,40 @@
 
 ## short_term
 
-|  논리 명  |  물리 명   | 기본키 | 외래키 | NULL 허용 여부 | 데이터 타입 | 디폴트 | 속성   |
-| :-------: | :--------: | :----: | :----: | :------------: | ----------- | ------ | ------ |
-| 예약 번호 |    seq     |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
-|  사용자   |     id     |        |        |    NOT NULL    | VARCHAR2    |        |        |
-|  대여일   | start_date |        |        |    NOT NULL    | DATE        |        |        |
-|  반납일   |  end_date  |        |        |    NOT NULL    | DATE        |        |        |
-|   지점    |   branch   |        |        |    NOT NULL    | NUMBER      |        |        |
-|   차량    |    seq     |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
-|  총 금액  |    seq     |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
-|  적립금   |    seq     |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
-|   쿠폰    |    seq     |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
-| 결제 금액 |    seq     |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
-|   보험    |    seq     |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|  논리 명  |    물리 명     | 기본키 | 외래키 | NULL 허용 여부 | 데이터 타입 | 디폴트 | 속성   |
+| :-------: | :------------: | :----: | :----: | :------------: | ----------- | ------ | ------ |
+| 예약 번호 |      seq       |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|  사용자   |       id       |        |        |    NOT NULL    | VARCHAR2    |        |        |
+|  대여일   |   start_date   |        |        |    NOT NULL    | DATE        |        |        |
+|  반납일   |    end_date    |        |        |    NOT NULL    | DATE        |        |        |
+|   지점    |     branch     |        |        |    NOT NULL    | NUMBER      |        |        |
+| 차량 코드 |      code      |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|  총 금액  |  total_amount  |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|  적립금   |    reserve     |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|   쿠폰    |     coupon     |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+| 결제 금액 | payment_amount |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|   보험    |   insurance    |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
 
-## 보험
+## 보험 ==> insurance
 
-|     논리 명      | 물리 명 | 기본키 | 외래키 | NULL 허용 여부 | 데이터 타입 | 디폴트 | 속성   |
-| :--------------: | :-----: | :----: | :----: | :------------: | ----------- | ------ | ------ |
-|  슈퍼 자차 요금  |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
-| 슈퍼 자차 부담금 |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
-|  plus 자차 요금  |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
-| plus 자차 부담금 |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
-|  일반 자차 요금  |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
-| 일반 자차 부담금 |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|   논리 명   |  물리 명   | 기본키 | 외래키 | NULL 허용 여부 | 데이터 타입 | 디폴트 | 속성   |
+| :---------: | :--------: | :----: | :----: | :------------: | ----------- | ------ | ------ |
+|  보험 번호  |    seq     |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|   보험명    |    name    |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|  보험비용   |    fare    |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+| 보험 부담금 | deductible |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
 
 ## 지점
 
-|     논리 명      | 물리 명 | 기본키 | 외래키 | NULL 허용 여부 | 데이터 타입 | 디폴트 | 속성   |
-| :--------------: | :-----: | :----: | :----: | :------------: | ----------- | ------ | ------ |
-|    지점 번호     |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
-|     지점 명      |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
-|      연락처      |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
-|    지점 위치     |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
-|    수리 여부     |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
-| 전기차 보유 여부 |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
-|    내륙 제주     |   seq   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|     논리 명      |   물리 명   | 기본키 | 외래키 | NULL 허용 여부 | 데이터 타입 | 디폴트 | 속성   |
+| :--------------: | :---------: | :----: | :----: | :------------: | ----------- | ------ | ------ |
+|    지점 번호     |     seq     |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|     지점 명      |    name     |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|      연락처      |    phone    |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|    지점 위치     |   address   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|    수리 여부     | maintenance |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+| 전기차 보유 여부 |  electric   |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+|    내륙 제주     |    type     |   PK   |        |    NOT NULL    | NUMBER      |        | UNIQUE |
+
+지점 지도 링크 추가
+지점
