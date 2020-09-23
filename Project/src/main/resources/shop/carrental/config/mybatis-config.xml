@@ -29,6 +29,12 @@
 		<typeAlias alias="customerAnswerVO" type="shop.carrental.domain.CustomerAnswerVO"/>
 		<typeAlias alias="faqVO" type="shop.carrental.domain.FaqVO"/>
 		<typeAlias alias="rentalTypeVO" type="shop.carrental.domain.RentalTypeVO"/>
+		<typeAlias alias="carDTO" type="shop.carrental.domain.CarDTO"/>
+		<typeAlias alias="manufacturerDTO" type="shop.carrental.domain.ManufacturerDTO"/>
+		<typeAlias alias="branchDTO" type="shop.carrental.domain.BranchDTO"/>
+		<typeAlias alias="shortCarDTO" type="shop.carrental.domain.ShortCarDTO"/>
+		<typeAlias alias="segmentDTO" type="shop.carrental.domain.SegmentDTO"/>
+		<typeAlias alias="carDTO" type="shop.carrental.domain.CarDTO"/>
 	</typeAliases>
 
 </configuration>

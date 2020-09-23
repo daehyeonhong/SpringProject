@@ -11,7 +11,7 @@ import shop.carrental.service.RentalTermService;
 @Log4j
 @AllArgsConstructor
 @RequestMapping("/rental/*")
-public class RentalTermController {
+public class RentalController {
 
 	private RentalTermService rentalTermService;
 

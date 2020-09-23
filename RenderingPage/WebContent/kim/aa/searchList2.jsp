@@ -1,25 +1,81 @@
+<%@page import="java.net.URLEncoder"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<article>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+<title>중고차 장기 검색</title>
+</head>
+<body>
+	<script>
+		function goDate1() {
+			let form = document.userinput;
+			document.getElementById("sellist2").value = null;
+			form.submit();
+
+		}
+	</script>
+
+	<script>
+		function goDate2() {
+			let form = document.userinput;
+			document.getElementById("sellist3").value = null;
+			form.submit();
+
+		}
+	</script>
+
+
+
+	<script>
+		function optest() {
+			if ((($('#sellist1').val() != '제조사 선택'))
+					&& (($('#sellist2').val() == '차량 유형 선택'))
+					&& ($("input:checkbox[name=example1]:checked").length != 0)) {
+				alert('차량 유형을 먼저 선택하세요');
+				$("input:checkbox[name=example1]").prop("checked", false);
+			}
+
+		}
+	</script>
+
+
+
 	<div class="jumbotron">
 		<h2>중고차 장기 렌트</h2>
 	</div>
 
+
+
 	<div class="container">
+
 		<div class="container" style="border: solid 2px;">
+
 			<form method="post" action="#" name="userinput">
 				<div class="row">
 					<span class="col-sm-1">&nbsp;</span>
 					<div class="col-sm-3">
-						<select class="form-control" name="manufacturer">
-							<c:forEach var="manufacturer" items="${manufacturerList}">
-								<option value="${manufacturer}">${manufacturer}</option>
-							</c:forEach>
+						<select class="form-control" id="sellist1" name="sellist1"
+							onchange="goDate1()">
+							<option>제조사 선택</option>
 						</select>
 					</div>
 
+
 					<div class="col-sm-3">
+
 						<select class="form-control" id="sellist2" name="sellist2"
 							onchange="goDate2()">
 							<option>차량 유형 선택</option>
@@ -27,6 +83,7 @@
 					</div>
 
 					<div class="col-sm-3">
+
 						<select class="form-control" id="sellist3" name="sellist3">
 							<option disabled>차량 선택</option>
 						</select>
@@ -34,7 +91,13 @@
 
 					<input id="tess" type="submit" class="btn btn-primary col-sm-1"
 						value="검색" onclick="optest()">
+
+
 				</div>
+
+
+				<br> <br>
+
 
 				<div class="row">
 					<span class="col-sm-1"> &nbsp;&nbsp;&nbsp;</span> <span
@@ -67,7 +130,19 @@
 								type="checkbox" value="하이브리드" name="example1"><strong>&nbsp;하이브리드&nbsp;</strong>
 						</div>
 					</div>
+
+
+
+					<input id="tess1" type="submit" value="검색"
+						class="btn btn-info col-sm-1" onclick="optest()">
 				</div>
+
+
+
+
+
+				<br>
+
 
 				<div class="row">
 					<span class="col-sm-1">&nbsp;&nbsp;&nbsp;</span> <span
@@ -110,10 +185,16 @@
 								type="checkbox" value="제주" name="example2"><strong>&nbsp;제주&nbsp;</strong>
 						</div>
 					</div>
+					<input id="tess2" type="submit" value="검색"
+						class="btn btn-info col-sm-1" onclick="optest()">
 				</div>
 			</form>
+
+
 		</div>
 	</div>
+
+
 
 	<div class="container">
 		<br>
@@ -127,8 +208,8 @@
 				<div class="row">
 					<img class="card-img-top col-sm-7"
 						src="../resources/images/${row.carname}.jpg" alt="Card image"
-						width="150" height="150"> <span class="col-sm-5"><strong>
-							[]</strong></span>
+						width="150" height="150"> <span class="col-sm-5"><br>
+						<br> <br> <strong> []</strong></span>
 				</div>
 				<div class="card-body">
 					<div class="row">
@@ -159,4 +240,5 @@
 			</div>
 		</div>
 	</div>
-</article>
+</body>
+</html>

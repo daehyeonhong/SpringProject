@@ -7,12 +7,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class CarDTO {
+public class InsuranceDTO {
 
 	private Long seq;
-
-	private String model, trim, description;
-
-	int year, image_seq, price, segment_seq, fuel_seq, manufacturer_seq;
-
+	private String name;
+	private int fare, deductible;
 }

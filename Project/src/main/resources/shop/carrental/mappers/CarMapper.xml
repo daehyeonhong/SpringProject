@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.carrental.mappers.CarMapper">
+
+	<resultMap type="manufacturerDTO" id="manufacturerList">
+		<id property="seq" column="seq" />
+		<result property="name" column="name" />
+		<result property="english_name" column="english_name" />
+	</resultMap>
+
+	<resultMap type="segmentDTO" id="segmentList">
+		<id property="seq" column="seq" />
+		<result property="name" column="name" />
+		<result property="description" column="description" />
+	</resultMap>
+
+	<resultMap type="carDTO" id="carList">
+		<id property="seq" column="seq" />
+		<result property="model" column="model" />
+		<result property="trim" column="trim" />
+		<result property="description" column="description" />
+		<result property="year" column="year" />
+		<result property="image_seq" column="image_seq" />
+		<result property="price" column="price" />
+		<result property="segment_seq" column="segment_seq" />
+		<result property="fuel_seq" column="fuel_seq" />
+		<result property="manufacturer_seq" column="manufacturer_seq" />
+	</resultMap>
+
+	<select id="listManufacturer" resultMap="manufacturerList">
+		<![CDATA[
+			SELECT*FROM MANUFACTURER WHERE seq=#{manufacturer_seq}
+		]]>
+	</select>
+
+	<select id="listSegment" resultMap="segmentList">
+		<![CDATA[
+			SELECT*FROM SEGMENT WHERE seq=#{segment_seq}
+		]]>
+	</select>
+
+	<select id="listCar" resultMap="carList">
+		<![CDATA[
+			SELECT c.seq,c.model,c.trim,c.description,c.year,c.image_seq,c.price,c.segment_seq,c.fuel_seq,c.manufacturer_seq FROM car c,segment s, manufacturer m
+			from c.segment_seq=s.seq and c.manufacturer=m.seq where m.seq=#{manufacturer_seq} and s.seq=#{segment_seq}
+		]]>
+	</select>
+
+</mapper>
