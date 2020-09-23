@@ -21,6 +21,8 @@ public interface CustomerService {
 
 	public void registerRentalInquiry(RentalInquiryDTO dto, RedirectAttributes redirectAttributes);
 
-	public void listFaq(int type, Model model);
+	public void listFaq(String type, Model model);
+
+	public void getRentalType(Model model);
 
 }

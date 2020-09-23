@@ -11,8 +11,7 @@
 		<result property="update_date" column="update_date" />
 	</resultMap>
 
-	<!-- 공통 0, 다이렉트 1, 장기 2, 단기 3, 전기차 4 -->
-	<select id="list" parameterType="int" resultMap="list">
+	<select id="list" parameterType="string" resultMap="list">
 		<![CDATA[
 			SELECT*FROM faq WHERE type=#{type}
 		]]>

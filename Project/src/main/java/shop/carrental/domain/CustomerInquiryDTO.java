@@ -11,9 +11,8 @@ import lombok.ToString;
 @ToString
 public class CustomerInquiryDTO {
 
-	private Long seq;
-	private String email, title, content;
-	private int privacy;
+	private Long seq, answer_seq;
+	private String email, title, content, user_id;
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private Date register_date, update_date;
 

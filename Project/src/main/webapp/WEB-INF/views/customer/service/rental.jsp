@@ -27,9 +27,10 @@
 							</tr>
 							<tr>
 								<td colspan="1">
-									<select class="form-control">
-										<option value="0">장기</option>
-										<option value="1">단기</option>
+									<select name="type" class="form-control">
+										<c:forEach var="type" items="${typeList}">
+											<option value="${type.seq}">${type.name}</option>
+										</c:forEach>
 									</select>
 								</td>
 								<td colspan="1"><input type="text" class="form-control" name="email" placeholder="이메일 입력" /></td>

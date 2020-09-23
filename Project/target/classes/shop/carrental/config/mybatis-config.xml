@@ -28,6 +28,7 @@
 		<typeAlias alias="customerAnswerDTO" type="shop.carrental.domain.CustomerAnswerDTO"/>
 		<typeAlias alias="customerAnswerVO" type="shop.carrental.domain.CustomerAnswerVO"/>
 		<typeAlias alias="faqVO" type="shop.carrental.domain.FaqVO"/>
+		<typeAlias alias="rentalTypeVO" type="shop.carrental.domain.RentalTypeVO"/>
 	</typeAliases>
 
 </configuration>

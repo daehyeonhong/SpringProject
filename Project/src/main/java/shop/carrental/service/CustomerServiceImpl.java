@@ -1,5 +1,7 @@
 package shop.carrental.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import shop.carrental.domain.Criteria;
 import shop.carrental.domain.NoticeDTO;
 import shop.carrental.domain.PageVO;
 import shop.carrental.domain.RentalInquiryDTO;
+import shop.carrental.domain.RentalTypeVO;
 import shop.carrental.domain.CustomerInquiryDTO;
 import shop.carrental.mappers.NoticeMapper;
 import shop.carrental.mappers.FaqMapper;
@@ -79,10 +82,17 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public void listFaq(int type, Model model) {
+	public void listFaq(String type, Model model) {
 		log.info("listFaq" + type);
 
 		model.addAttribute("faqList", faqMapper.list(type));
+	}
+
+	@Override
+	public void getRentalType(Model model) {
+		model.addAttribute("target", "rental");
+		List<RentalTypeVO> typeList = generalInquiryMapper.listRentalType();
+		model.addAttribute("typeList", typeList);
 	}
 
 }

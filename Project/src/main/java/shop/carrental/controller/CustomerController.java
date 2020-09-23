@@ -37,7 +37,7 @@ public class CustomerController {
 	}
 
 	@GetMapping("/faq")
-	public void faq(@ModelAttribute("type") int type, Model model) {
+	public void faq(@ModelAttribute("type") String type, Model model) {
 		log.info("faq");
 
 		customerService.listFaq(type, model);
@@ -63,7 +63,7 @@ public class CustomerController {
 	public String rental(Model model) {
 		log.info("rental");
 
-		model.addAttribute("target", "rental");
+		customerService.getRentalType(model);
 		return "customer/service/rental";
 	}
 
