@@ -24,25 +24,6 @@ public class CarController {
 
 	private CarService carService;
 
-	@GetMapping(value = "/manufacturer/{manufacturer_seq}", produces = { MediaType.APPLICATION_ATOM_XML_VALUE,
-			MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public ResponseEntity<List<ManufacturerDTO>> listManufacturer(
-			@PathVariable("manufacturer_seq") int manufacturer_seq) {
-		log.info("GetManuFacturerList");
-		log.info("manufacturer_seq::==> " + manufacturer_seq);
-
-		return new ResponseEntity<List<ManufacturerDTO>>(carService.listManufacturer(manufacturer_seq), HttpStatus.OK);
-	}
-
-	@GetMapping(value = "/segment/{segment_seq}", produces = { MediaType.APPLICATION_ATOM_XML_VALUE,
-			MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public ResponseEntity<List<SegmentDTO>> listSegment(@PathVariable("segment_seq") int segment_seq) {
-		log.info("GetSegmentList");
-		log.info("segment_seq::==> " + segment_seq);
-
-		return new ResponseEntity<List<SegmentDTO>>(carService.listSegment(segment_seq), HttpStatus.OK);
-	}
-
 	@GetMapping(value = "/carList/{manufacturer_seq}/{segment_seq}", produces = { MediaType.APPLICATION_ATOM_XML_VALUE,
 			MediaType.APPLICATION_JSON_UTF8_VALUE })
 	public ResponseEntity<List<CarDTO>> listCar(@PathVariable("manufacturer_seq") int manufacturer_seq,

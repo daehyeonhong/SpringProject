@@ -18,16 +18,16 @@ public class CarServiceImpl implements CarService {
 	private CarMapper carMapper;
 
 	@Override
-	public List<ManufacturerDTO> listManufacturer(int manufacturer_seq) {
-		log.info("ListManufacturer...::" + manufacturer_seq);
+	public List<ManufacturerDTO> listManufacturer() {
+		log.info("ListManufacturer...::");
 
-		return carMapper.listManufacturer(manufacturer_seq);
+		return carMapper.listManufacturer();
 	}
 
 	@Override
-	public List<SegmentDTO> listSegment(int segment_seq) {
-		log.info("ListSegment...::" + segment_seq);
-		return carMapper.listSegment(segment_seq);
+	public List<SegmentDTO> listSegment() {
+		log.info("ListSegment...::");
+		return carMapper.listSegment();
 	}
 
 	@Override

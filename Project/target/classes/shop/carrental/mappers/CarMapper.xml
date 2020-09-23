@@ -17,11 +17,9 @@
 	<resultMap type="carDTO" id="carList">
 		<id property="seq" column="seq" />
 		<result property="model" column="model" />
-		<result property="trim" column="trim" />
 		<result property="description" column="description" />
 		<result property="year" column="year" />
 		<result property="image_seq" column="image_seq" />
-		<result property="price" column="price" />
 		<result property="segment_seq" column="segment_seq" />
 		<result property="fuel_seq" column="fuel_seq" />
 		<result property="manufacturer_seq" column="manufacturer_seq" />
@@ -29,20 +27,34 @@
 
 	<select id="listManufacturer" resultMap="manufacturerList">
 		<![CDATA[
-			SELECT*FROM MANUFACTURER WHERE seq=#{manufacturer_seq}
+			SELECT*FROM MANUFACTURER
 		]]>
 	</select>
 
 	<select id="listSegment" resultMap="segmentList">
 		<![CDATA[
-			SELECT*FROM SEGMENT WHERE seq=#{segment_seq}
+			SELECT*FROM SEGMENT
 		]]>
 	</select>
 
 	<select id="listCar" resultMap="carList">
 		<![CDATA[
-			SELECT c.seq,c.model,c.trim,c.description,c.year,c.image_seq,c.price,c.segment_seq,c.fuel_seq,c.manufacturer_seq FROM car c,segment s, manufacturer m
-			from c.segment_seq=s.seq and c.manufacturer=m.seq where m.seq=#{manufacturer_seq} and s.seq=#{segment_seq}
+			SELECT C.SEQ,C.MODEL,C.DESCRIPTION,C.YEAR,C.IMAGE_SEQ IMAGE,S.NAME SEGMENT,F.NAME FUEL,M.NAME MANUFACTURER
+				FROM
+					CAR C,
+					SEGMENT S,
+					MANUFACTURER M,
+					FUEL F
+				WHERE
+						C.SEGMENT_SEQ=S.SEQ
+					AND
+						C.MANUFACTURER_SEQ=M.SEQ
+					AND
+						C.FUEL_SEQ=F.SEQ
+					AND
+						M.SEQ=#{manufacturer_seq}
+					AND
+						S.SEQ=#{segment_seq}
 		]]>
 	</select>
 

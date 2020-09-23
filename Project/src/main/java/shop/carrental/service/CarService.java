@@ -8,9 +8,9 @@ import shop.carrental.domain.SegmentDTO;
 
 public interface CarService {
 
-	public List<ManufacturerDTO> listManufacturer(int manufacturer_seq);
+	public List<ManufacturerDTO> listManufacturer();
 
-	public List<SegmentDTO> listSegment(int segment_seq);
+	public List<SegmentDTO> listSegment();
 
 	public List<CarDTO> listCar(int manufacturer_seq, int segment_seq);
 

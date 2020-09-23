@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script type="text/javascript" src="/resources/js/car.js"></script>
+<script type="text/javascript">
+	$().ready(function() {
+		carService.listCar({
+			manufacturer_seq : 5,
+			segment_seq : 1
+		});
+	});
+</script>
 <article>
 	<div class="jumbotron">
 		<h2>중고차 장기 렌트</h2>
@@ -8,110 +17,23 @@
 
 	<div class="container">
 		<div class="container" style="border: solid 2px;">
-			<form method="post" action="#" name="userinput">
-				<div class="row">
-					<span class="col-sm-1">&nbsp;</span>
-					<div class="col-sm-3">
-						<select class="form-control" name="manufacturer">
-							<c:forEach var="manufacturer" items="${manufacturerList}">
-								<option value="${manufacturer}">${manufacturer}</option>
-							</c:forEach>
-						</select>
-					</div>
-
-					<div class="col-sm-3">
-						<select class="form-control" id="sellist2" name="sellist2"
-							onchange="goDate2()">
-							<option>차량 유형 선택</option>
-						</select>
-					</div>
-
-					<div class="col-sm-3">
-						<select class="form-control" id="sellist3" name="sellist3">
-							<option disabled>차량 선택</option>
-						</select>
-					</div>
-
-					<input id="tess" type="submit" class="btn btn-primary col-sm-1"
-						value="검색" onclick="optest()">
+			<div class="row">
+				<div>
+					<select class="form-control keyword" name="manufacturer">
+						<c:forEach var="manufacturer" items="${manufacturerList}">
+							<option value="${manufacturer.seq}">${manufacturer.name}</option>
+						</c:forEach>
+					</select>
 				</div>
 
-				<div class="row">
-					<span class="col-sm-1"> &nbsp;&nbsp;&nbsp;</span> <span
-						class="col-sm-1"><strong>연료 :</strong></span>
-
-					<div class="col-sm-8">
-						<span class="col-sm-1">&nbsp;&nbsp;&nbsp;</span>
-						<div class="form-check-inline">
-							<input <c:if test="${ff=='전체' or ff1=='전체'}">checked</c:if>
-								type="checkbox" value="전체" name="example1"><strong>&nbsp;전체&nbsp;</strong>
-						</div>
-						<div class="form-check-inline">
-							<input <c:if test="${ff=='휘발유' or ff1=='휘발유'}">checked</c:if>
-								type="checkbox" value="휘발유" name="example1"><strong>&nbsp;휘발유&nbsp;</strong>
-						</div>
-						<div class="form-check-inline">
-							<input <c:if test="${ff=='경유' or ff1=='경유'}">checked</c:if>
-								type="checkbox" value="경유" name="example1"><strong>&nbsp;경유&nbsp;</strong>
-						</div>
-						<div class="form-check-inline">
-							<input <c:if test="${ff=='LPG' or ff1=='LPG'}">checked</c:if>
-								type="checkbox" value="LPG" name="example1"><strong>&nbsp;LPG&nbsp;</strong>
-						</div>
-						<div class="form-check-inline">
-							<input <c:if test="${ff=='전기' or ff1=='전기'}">checked</c:if>
-								type="checkbox" value="전기" name="example1"><strong>&nbsp;전기&nbsp;</strong>
-						</div>
-						<div class="form-check-inline">
-							<input <c:if test="${ff=='하이브리드' or ff1=='하이브리드'}">checked</c:if>
-								type="checkbox" value="하이브리드" name="example1"><strong>&nbsp;하이브리드&nbsp;</strong>
-						</div>
-					</div>
+				<div>
+					<select class="form-control keyword" name="segment">
+						<c:forEach var="segment" items="${segmentList}">
+							<option value="${segment.seq}">${segment.description}</option>
+						</c:forEach>
+					</select>
 				</div>
-
-				<div class="row">
-					<span class="col-sm-1">&nbsp;&nbsp;&nbsp;</span> <span
-						class="col-sm-1"><strong>지점 :</strong></span>
-
-					<div class="col-sm-8">
-						<span class="col-sm-1">&nbsp;&nbsp;&nbsp;</span>
-						<div class="form-check-inline">
-							<input <c:if test="${dd=='전체' or dd1=='전체'}">checked</c:if>
-								type="checkbox" value="전체" name="example2"><strong>&nbsp;전체&nbsp;</strong>
-						</div>
-
-						<div class="form-check-inline">
-							<input <c:if test="${dd=='서울' or dd1=='서울'}">checked</c:if>
-								type="checkbox" value="서울" name="example2"><strong>&nbsp;서울&nbsp;</strong>
-						</div>
-
-						<div class="form-check-inline">
-							<input <c:if test="${dd=='경기' or dd1=='경기'}">checked</c:if>
-								type="checkbox" value="경기" name="example2"><strong>&nbsp;경기&nbsp;</strong>
-						</div>
-
-						<div class="form-check-inline">
-							<input <c:if test="${dd=='충청' or dd1=='충청'}">checked</c:if>
-								type="checkbox" value="충청" name="example2"><strong>&nbsp;충청&nbsp;</strong>
-						</div>
-
-						<div class="form-check-inline">
-							<input <c:if test="${dd=='강원' or dd1=='강원'}">checked</c:if>
-								type="checkbox" value="강원" name="example2"><strong>&nbsp;강원&nbsp;</strong>
-						</div>
-
-						<div class="form-check-inline">
-							<input <c:if test="${dd=='경상' or dd1=='경상'}">checked</c:if>
-								type="checkbox" value="경상" name="example2"><strong>&nbsp;경상&nbsp;</strong>
-						</div>
-
-						<div class="form-check-inline">
-							<input <c:if test="${dd=='제주' or dd1=='제주'}">checked</c:if>
-								type="checkbox" value="제주" name="example2"><strong>&nbsp;제주&nbsp;</strong>
-						</div>
-					</div>
-				</div>
-			</form>
+			</div>
 		</div>
 	</div>
 

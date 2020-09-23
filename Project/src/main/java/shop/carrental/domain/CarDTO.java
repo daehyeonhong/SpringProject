@@ -11,8 +11,8 @@ public class CarDTO {
 
 	private Long seq;
 
-	private String model, trim, description;
+	private String model, description;
 
-	int year, image_seq, price, segment_seq, fuel_seq, manufacturer_seq;
+	int year, image_seq, segment_seq, fuel_seq, manufacturer_seq;
 
 }
