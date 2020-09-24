@@ -2,37 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shop.carrental.mappers.GeneralMapper">
 
-	<resultMap type="inquiryDTO" id="inquiryList">
-		<id property="inquiry_seq" column="inquiry_seq" />
-		<result property="inquiry_type" column="inquiry_type" />
-		<result property="inquiry_title" column="inquiry_title" />
-		<result property="inquiry_content" column="inquiry_content" />
-		<result property="inquiry_reg_date" column="inquiry_reg_date" />
-		<result property="inquiry_update" column="inquiry_update" />
-	</resultMap>
-
-	<insert id="registerCustomerInquiry">
+	<insert id="registerInquiry">
 		<![CDATA[
-			INSERT INTO customer_inquiry
-				(seq,email,title,content,privacy)
+			INSERT INTO INQUIRY
+				(INQUIRY_SEQ,INQUIRY_TYPE,INQUIRY_TITLE,INQUIRY_CONTENT,USERS_ID)
 			VALUES
-				(seq_customer_inquiry.NEXTVAL,#{email},#{title},#{content},#{privacy})
+				(seq_inquiry.NEXTVAL,#{inquiry_type},#{inquiry_title},#{inquiry_content},#{users_id})
 		]]>
 	</insert>
-
-	<insert id="registerRentalInquiry">
-		<![CDATA[
-				INSERT INTO rental_inquiry
-					(seq,type,title,content,users_id)
-				VALUES
-					(seq_rental_inquiry.NEXTVAL,#{type},#{title},#{content},#{users_id})
-		]]>
-	</insert>
-
-	<select id="listRentalType" resultMap="inquiryList">
-		<![CDATA[
-			SELECT*FROM RENTAL_TYPE
-		]]>
-	</select>
 
 </mapper>

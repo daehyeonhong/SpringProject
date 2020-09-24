@@ -43,50 +43,50 @@
 				FROM
 					(
 						SELECT /*+INDEX_DESC(notice pk_notice)*/
-							ROWNUM rn,seq,category,title,writer,content,count,good,bad,register_date,update_date
+							ROWNUM rn,notice_seq,notice_type,notice_title,notice_writer,notice_content,notice_count,notice_good,notice_bad,notice_reg_date,notice_update
 							FROM notice
 						WHERE
 			]]>
 		<include refid="criteria" />
 		<![CDATA[
-						ROWNUM<=#{pageNumber}*#{AMOUNT}
+						ROWNUM<=#{pageNumber}*#{amount}
 					)
-				WHERE rn>(#{pageNumber}-1)*#{AMOUNT}
+				WHERE rn>(#{pageNumber}-1)*#{amount}
 		]]>
 	</select>
 
 
 	<select id="read" parameterType="long" resultMap="noticeMap">
 		<![CDATA[
-			SELECT*FROM notice WHERE seq=#{seq}
+			SELECT*FROM NOTICE WHERE NOTICE_SEQ=#{notice_seq}
 		]]>
 	</select>
 
 	<select id="total" resultType="int">
 		<![CDATA[
 			SELECT COUNT(*)
-				FROM notice
+				FROM NOTICE
 			WHERE
 		]]>
 		<include refid="criteria" />
 		<![CDATA[
-			seq>0
+			NOTICE_SEQ>0
 		]]>
 	</select>
 
 	<insert id="register">
 			<![CDATA[
-				INSERT INTO notice(seq,category,title,writer,content)
+				INSERT INTO NOTICE(NOTICE_SEQ,NOTICE_TYPE,NOTICE_TITLE,NOTICE_WRITER,NOTICE_CONTENT)
 					VALUES
-				(seq_notice.NEXTVAL,#{category},#{title},#{writer},#{content})
+				(SEQ_NOTICE.EXTVAL,#{notice_type},#{notice_title},#{notice_writer},#{notice_content})
 			]]>
 	</insert>
 
 	<update id="addCount">
 		<![CDATA[
-			UPDATE notice
-				SET count=count+1
-			WHERE seq=#{seq}
+			UPDATE NOTICE
+				SET NOTICE_COUNT=NOTICE_COUNT+1
+			WHERE NOTICE_SEQ=#{notice_seq}
 		]]>
 	</update>
 

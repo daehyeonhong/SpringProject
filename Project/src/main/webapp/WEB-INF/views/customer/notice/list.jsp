@@ -25,15 +25,15 @@
 				</thead>
 				<tbody>
 					<c:forEach var="notice" items="${noticeList}">
-						<c:set var="seq" value="${notice.seq}" />
-						<fmt:formatDate var="register_date" value="${notice.register_date}" pattern="yyyy-MM-dd" />
+						<c:set var="seq" value="${notice.notice_seq}" />
+						<fmt:formatDate var="reg_date" value="${notice.notice_reg_date}" pattern="yyyy/MM/dd" />
 						<tr>
 							<td><span>${seq}</span></td>
-							<td><span>${notice.category}</span></td>
-							<td class="text-left"><a class="move" href="${seq}">${notice.title}</a></td>
-							<td><span>${notice.count}</span></td>
-							<td><span>${notice.good}::${notice.bad}</span></td>
-							<td><span>${register_date}</span></td>
+							<td><span>${notice.notice_type}</span></td>
+							<td class="text-left"><a class="move" href="${seq}">${notice.notice_title}</a></td>
+							<td><span>${notice.notice_count}</span></td>
+							<td><span>${notice.notice_good}::${notice.notice_bad}</span></td>
+							<td><span>${reg_date}</span></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -97,7 +97,7 @@
 
 		$('.move').on('click', function (event) {
 			event.preventDefault();
-			actionForm.append('<input type="hidden" name="seq" value="' + $(this).attr('href') + '">');
+			actionForm.append('<input type="hidden" name="notice_seq" value="' + $(this).attr('href') + '">');
 			actionForm.attr('action', '/customer/notice/page');
 			actionForm.submit();
 		});

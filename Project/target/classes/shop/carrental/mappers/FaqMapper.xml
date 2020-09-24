@@ -13,7 +13,7 @@
 
 	<select id="list" parameterType="string" resultMap="list">
 		<![CDATA[
-			SELECT*FROM faq WHERE type=#{type}
+			SELECT*FROM FAQ WHERE FAQ_TYPE=#{faq_type}
 		]]>
 	</select>
 

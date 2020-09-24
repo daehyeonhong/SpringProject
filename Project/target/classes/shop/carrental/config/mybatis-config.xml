@@ -22,7 +22,6 @@
 		<typeAlias alias="usersDTO" type="shop.carrental.domain.UsersDTO"/>
 		<typeAlias alias="inquiryDTO" type="shop.carrental.domain.InquiryDTO"/>
 		<typeAlias alias="answerDTO" type="shop.carrental.domain.AnswerDTO"/>
-		<typeAlias alias="inquiryTypeDTO" type="shop.carrental.domain.InquiryTypeDTO"/>
 		<typeAlias alias="faqDTO" type="shop.carrental.domain.FaqDTO"/>
 		<typeAlias alias="carDTO" type="shop.carrental.domain.CarDTO"/>
 		<typeAlias alias="mfgcoDTO" type="shop.carrental.domain.MfgcoDTO"/>

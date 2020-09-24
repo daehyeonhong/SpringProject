@@ -16,10 +16,10 @@
 			<span>중고차장기/개인장기/법인장기 상담신청 시 등록하신 유선 또는 이메일로만 답변을 받으실 수 있으며, 홈페이지에서는 답변 확인 불가능합니다.</span>
 			<div>
 				<div id="usedCar" class="container tab-pane active">
-					<form action="/customer/service/rental" method="post">
+					<form action="/customer/service/inquiry" method="post">
 						<table class="col-sm-12">
 							<tr>
-								<td colspan="2"><input type="text" class="form-control" name="title" placeholder="제목" /></td>
+								<td colspan="2"><input type="text" class="form-control" name="inquiry_title" placeholder="제목" /></td>
 								<td colspan="1">
 									<span class="form-control">고객ID님</span>
 									<input type="hidden" name="users_id" value="1" />
@@ -27,10 +27,9 @@
 							</tr>
 							<tr>
 								<td colspan="1">
-									<select name="type" class="form-control">
-										<c:forEach var="type" items="${typeList}">
-											<option value="${type.seq}">${type.name}</option>
-										</c:forEach>
+									<select name="inquiry_type" class="form-control">
+										<option value="1">장기</option>
+										<option value="2">단기</option>
 									</select>
 								</td>
 								<td colspan="1"><input type="text" class="form-control" name="email" placeholder="이메일 입력" /></td>
@@ -43,7 +42,7 @@
 							</tr>
 							<tr>
 								<td colspan="3">
-									<textarea class="form-control" rows="5" name="content" placeholder="문의 내용 입력" required="required"></textarea>
+									<textarea class="form-control" rows="5" name="inquiry_content" placeholder="문의 내용 입력" required="required"></textarea>
 								</td>
 							</tr>
 							<tr>

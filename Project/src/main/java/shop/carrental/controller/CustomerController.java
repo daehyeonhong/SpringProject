@@ -43,35 +43,24 @@ public class CustomerController {
 	}
 
 	@GetMapping("/service/general")
-	public String general(Model model) {
+	public void general(Model model) {
 		log.info("general");
 
 		model.addAttribute("target", "general");
-		return "customer/service/general";
-	}
-
-	@PostMapping("/service/general")
-	public String registerGeneral(InquiryDTO dto, RedirectAttributes redirectAttributes) {
-		log.info("general");
-
-		customerService.registerGeneralInquiry(dto, redirectAttributes);
-		return "redirect:/customer/service/general";
 	}
 
 	@GetMapping("/service/rental")
-	public String rental(Model model) {
+	public void rental(Model model) {
 		log.info("rental");
-
-		customerService.getRentalType(model);
-		return "customer/service/rental";
+		model.addAttribute("target", "rental");
 	}
 
-	@PostMapping("/service/rental")
-	public String registerRent(InquiryDTO dto, RedirectAttributes redirectAttributes) {
-		log.info("rental");
+	@PostMapping("/service/inquiry")
+	public String registerInquiry(InquiryDTO dto, RedirectAttributes redirectAttributes) {
+		log.info("general");
 
-		customerService.registerRentalInquiry(dto, redirectAttributes);
-		return "redirect:/customer/service/rental";
+		customerService.registerInquiry(dto, redirectAttributes);
+		return "redirect:/customer/service/general";
 	}
 
 	@GetMapping("/service/info")
@@ -135,7 +124,7 @@ public class CustomerController {
 	}
 
 	@GetMapping("/notice/page")
-	public void noticePage(@RequestParam("seq") Long seq, @ModelAttribute("criteria") Criteria criteria, Model model) {
+	public void noticePage(@RequestParam("notice_seq") Long seq, @ModelAttribute("criteria") Criteria criteria, Model model) {
 		log.info("page");
 
 		customerService.readNotice(seq, criteria, model);

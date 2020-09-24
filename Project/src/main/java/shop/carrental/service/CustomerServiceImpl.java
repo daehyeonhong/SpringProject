@@ -1,6 +1,5 @@
 package shop.carrental.service;
 
-import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -11,7 +10,6 @@ import shop.carrental.domain.Criteria;
 import shop.carrental.domain.NoticeDTO;
 import shop.carrental.domain.PageVO;
 import shop.carrental.domain.InquiryDTO;
-import shop.carrental.domain.InquiryTypeDTO;
 import shop.carrental.mappers.NoticeMapper;
 import shop.carrental.mappers.FaqMapper;
 import shop.carrental.mappers.GeneralMapper;
@@ -62,21 +60,12 @@ public class CustomerServiceImpl implements CustomerService {
 		redirectAttributes.addFlashAttribute("result", dto.getNotice_seq());
 	}
 
-	/* GeneralInquiry */
 	@Override
-	public void registerGeneralInquiry(InquiryDTO dto, RedirectAttributes redirectAttributes) {
+	public void registerInquiry(InquiryDTO dto, RedirectAttributes redirectAttributes) {
 		log.info("registerGeneralInquiry" + dto);
 
-		generalInquiryMapper.registerCustomerInquiry(dto);
+		generalInquiryMapper.registerInquiry(dto);
 		redirectAttributes.addFlashAttribute("target", "general");
-	}
-
-	@Override
-	public void registerRentalInquiry(InquiryDTO dto, RedirectAttributes redirectAttributes) {
-		log.info("registerRentalInquiry" + dto);
-
-		generalInquiryMapper.registerRentalInquiry(dto);
-		redirectAttributes.addFlashAttribute("target", "rental");
 	}
 
 	@Override
@@ -84,13 +73,6 @@ public class CustomerServiceImpl implements CustomerService {
 		log.info("listFaq" + type);
 
 		model.addAttribute("faqList", faqMapper.list(type));
-	}
-
-	@Override
-	public void getRentalType(Model model) {
-		model.addAttribute("target", "rental");
-		List<InquiryTypeDTO> typeList = generalInquiryMapper.listRentalType();
-		model.addAttribute("typeList", typeList);
 	}
 
 }

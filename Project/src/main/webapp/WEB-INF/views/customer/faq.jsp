@@ -50,13 +50,13 @@
 							<div class="card-header" id="heading${i.index}">
 								<h2 class="mb-0">
 									<button class="btn btn-link card-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${i.index}" aria-expanded="true" aria-controls="collapse${i.index}">
-										<span>${faqList.title}</span>
+										<span>${faqList.faq_title}</span>
 									</button>
 								</h2>
 							</div>
 
 							<div id="collapse${i.index}" class="collapse" aria-labelledby="heading${i.index}" data-parent="#accordiona">
-								<div class="card-body"><span>${faqList.content}</span></div>
+								<div class="card-body"><span>${faqList.faq_content}</span></div>
 							</div>
 						</div>
 				</c:forEach>

@@ -16,12 +16,8 @@ public interface CustomerService {
 
 	public void registerNotice(NoticeDTO dto, RedirectAttributes redirectAttributes);
 
-	public void registerGeneralInquiry(InquiryDTO dto, RedirectAttributes redirectAttributes);
-
-	public void registerRentalInquiry(InquiryDTO dto, RedirectAttributes redirectAttributes);
+	public void registerInquiry(InquiryDTO dto, RedirectAttributes redirectAttributes);
 
 	public void listFaq(String type, Model model);
-
-	public void getRentalType(Model model);
 
 }
