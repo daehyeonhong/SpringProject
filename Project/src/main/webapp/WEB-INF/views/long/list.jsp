@@ -1,12 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<script type="text/javascript" src="/resources/js/car.js"></script>
-<script type="text/javascript">
+<script>
 	$().ready(function() {
-		carService.listCar({
-			manufacturer_seq : 5,
-			segment_seq : 1
+		$('#target').click(function() {
+			$.getJSON('/car/carList/1/5.json', function(data) {
+				let html = '';
+				$.each(data, function(carList, car) {
+					html += '<div class="car">';
+					html += '<h3 class="seq">' + car.seq + '</h3>';
+					html += '<div class="model">' + car.model + '</div>';
+					html += '<div class="year">' + car.year + '</div>';
+					html += '</div>';
+				});
+				console.log(html);
+				$('#test').html(html);
+			});
+			return false;
 		});
 	});
 </script>
@@ -14,12 +24,14 @@
 	<div class="jumbotron">
 		<h2>중고차 장기 렌트</h2>
 	</div>
-
+	<button id="target">d</button>
+	<div id="test"></div>
 	<div class="container">
 		<div class="container" style="border: solid 2px;">
 			<div class="row">
 				<div>
 					<select class="form-control keyword" name="manufacturer">
+						<option value="012345678">전체</option>
 						<c:forEach var="manufacturer" items="${manufacturerList}">
 							<option value="${manufacturer.seq}">${manufacturer.name}</option>
 						</c:forEach>
@@ -28,6 +40,7 @@
 
 				<div>
 					<select class="form-control keyword" name="segment">
+						<option value="ABCDEFLS">전체</option>
 						<c:forEach var="segment" items="${segmentList}">
 							<option value="${segment.seq}">${segment.description}</option>
 						</c:forEach>

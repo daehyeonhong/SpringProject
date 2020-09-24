@@ -19,6 +19,6 @@ let carService = (function () {
     });
   }
 
-  return { listCar: listCar }
+  return { listCar: listCar };
 
 })();
