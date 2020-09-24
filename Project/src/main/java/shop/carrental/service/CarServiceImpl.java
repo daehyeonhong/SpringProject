@@ -4,7 +4,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
-import shop.carrental.domain.CarDTO;
+import shop.carrental.domain.CarVO;
 import shop.carrental.domain.MfgcoDTO;
 import shop.carrental.domain.SegmentDTO;
 import shop.carrental.mappers.CarMapper;
@@ -30,7 +30,7 @@ public class CarServiceImpl implements CarService {
 	}
 
 	@Override
-	public List<CarDTO> listCar(int mfgco_seq, int segment_seq) {
+	public List<CarVO> listCar(Long mfgco_seq, Long segment_seq) {
 		log.info("ListCar...::" + mfgco_seq + "::" + segment_seq);
 		return carMapper.listCar(mfgco_seq, segment_seq);
 	}
