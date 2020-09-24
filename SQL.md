@@ -77,3 +77,7 @@
 3. MODIFY COLUMN DATATYPE
 
 - ALTER TABLE 테이블명 MODIFY (컬럼명 테이터타입(데이터길이));
+
+5. SHOW CONSTRAINTS
+
+- SELECT uc.constraint_name, uc.table_name, ucc.column_name, uc. constraint_type, uc.r_constraint_name FROM user_constraints uc, user_cons_columns ucc WHERE uc.constraint_name = ucc.constraint_name;

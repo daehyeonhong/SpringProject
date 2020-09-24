@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 public class ShortCarDTO {
 
-	private Long seq, car_seq, branch_seq;
+	private Long seq, trim_seq, branch_seq;
 
 	private String license_plate;
 

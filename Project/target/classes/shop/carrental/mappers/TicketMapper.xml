@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="shop.carrental.mappers.TicketMapper">
+
+	<!-- sql문 모듈 -->
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach collection="typeArr" item="type">
+				<trim prefix="OR">
+					<choose>
+						<when test="type=='T'.toString()">
+							title like '%'||#{keyword}||'%'
+						</when>
+						<when test="type=='C'.toString()">
+							content like '%'||#{keyword}||'%'
+						</when>
+						<when test="type=='W'.toString()">
+							userId like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
+	<select id="getTicketList"
+		resultType="shop.carrental.domain.TicketVO">
+		<![CDATA[
+			select * from tickets where tno>0
+		]]>
+	</select>
+
+	<select id="getTicketPage"
+		resultType="shop.carrental.domain.TicketVO">
+		<![CDATA[
+			select * from tickets where tno=#{tno}
+		]]>
+	</select>
+
+	<select id="getTicketListWithPaging"
+		resultType="shop.carrental.domain.TicketVO">
+		<![CDATA[
+       	select *
+        from
+      	(
+  		select /*+index_desc(tickets pk_tickets) */ 
+  		rownum rn,tno,category,title,userId,regdate,updateDate,status,content,uploadfile,replycnt 
+  		from tickets 
+  		where 
+  		]]>
+		<include refid="criteria"></include>
+  		<![CDATA[
+  	 	rownum<=#{pageNum}*#{amount}
+  		)
+  		where rn > (#{pageNum}-1)*#{amount}
+  		]]>
+	</select>
+
+	<select id="getTotalCount" resultType="int">
+		<![CDATA[
+		select count(*) from tickets where 
+		]]>
+		<include refid="criteria"></include>
+		<![CDATA[
+		tno>0
+		]]>
+	</select>
+
+	<!-- 댓글 갯수 수정 -->
+	<update id="updateReplyCnt">
+		update tbl_board set replycnt = replycnt + #{amount}
+		where tno = #{tno}
+	</update>
+
+</mapper>
