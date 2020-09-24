@@ -20,7 +20,7 @@ public class PageVO {
 		this.total = total;
 		this.endPage = (int) Math.ceil(criteria.getPageNumber() / 10.0) * FINAL;
 		this.startPage = this.endPage - 9;
-		this.realEnd = (int) (Math.ceil((this.total * 1.0) / criteria.getAMOUNT()));
+		this.realEnd = (int) (Math.ceil((this.total * 1.0) / criteria.getAmount()));
 		this.endPage = (this.realEnd <= this.endPage) ? this.endPage = this.realEnd : this.endPage;
 		this.previous = this.startPage > 1;
 		this.next = this.endPage < this.realEnd;
