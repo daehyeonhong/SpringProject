@@ -1,8 +1,12 @@
 package shop.carrental.domain;
 
-import lombok.Data;
+import lombok.ToString;
+import lombok.Setter;
+import lombok.Getter;
 
-@Data
+@Getter
+@Setter
+@ToString
 public class AdminVO {
 
 	private String firstName;

@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
-import shop.carrental.domain.UserDTO;
-import shop.carrental.domain.UserVO;
+import shop.carrental.domain.UsersDTO;
 import shop.carrental.service.UserService;
 import shop.carrental.util.VerifyReCAPTCHA;
 
@@ -35,11 +34,11 @@ public class UserController {
 	}
 
 	@PostMapping("/login")
-	public String login(UserVO vo, HttpServletRequest request, HttpSession session,
+	public String login(UsersDTO dto, HttpServletRequest request, HttpSession session,
 			RedirectAttributes redirectAttributes) {
 		log.info("login 시도");
 
-		return userService.login(vo, request, session, redirectAttributes) ? "redirect:/" : "redirect:/user/login";
+		return userService.login(dto, request, session, redirectAttributes) ? "redirect:/" : "redirect:/user/login";
 	}
 
 	@GetMapping("/logout")
@@ -61,7 +60,7 @@ public class UserController {
 	}
 
 	@PostMapping("/register")
-	public String register(UserDTO dto, RedirectAttributes redirectAttributes) {
+	public String register(UsersDTO dto, RedirectAttributes redirectAttributes) {
 		log.info(dto);
 
 		userService.register(dto);
@@ -77,10 +76,10 @@ public class UserController {
 	}
 
 	@PostMapping("/confirm")
-	public String confirm(UserVO vo, HttpSession session, RedirectAttributes redirectAttributes, Model model) {
+	public String confirm(UsersDTO dto, HttpSession session, RedirectAttributes redirectAttributes, Model model) {
 		log.info("passwordCheck 시도");
 
-		return userService.confirm(vo, redirectAttributes, model) ? "/user/update" : "redirect:/user/update";
+		return userService.confirm(dto, redirectAttributes, model) ? "/user/update" : "redirect:/user/update";
 	}
 
 	@ResponseBody

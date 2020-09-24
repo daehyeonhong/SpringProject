@@ -1,14 +1,13 @@
 package shop.carrental.mappers;
 
-import shop.carrental.domain.UserDTO;
-import shop.carrental.domain.UserVO;
+import shop.carrental.domain.UsersDTO;
 
 public interface UserMapper {
 
-	public boolean register(UserDTO dto);
+	public boolean register(UsersDTO dto);
 
-	public UserVO information(UserVO vo);
+	public UsersDTO information(UsersDTO dto);
 
-	public String check(UserVO vo);
+	public String check(UsersDTO dto);
 
 }

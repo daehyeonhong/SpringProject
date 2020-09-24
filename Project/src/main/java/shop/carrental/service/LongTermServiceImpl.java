@@ -1,10 +1,7 @@
 package shop.carrental.service;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.mappers.CarMapper;
@@ -22,7 +19,7 @@ public class LongTermServiceImpl implements LongTermService {
 	public void list(Model model) {
 		log.info("list");
 
-		model.addAttribute("manufacturerList", carMapper.listManufacturer());
+		model.addAttribute("mfgcoList", carMapper.listMfgco());
 		model.addAttribute("segmentList", carMapper.listSegment());
 	}
 

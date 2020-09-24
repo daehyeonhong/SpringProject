@@ -1,7 +1,6 @@
 package shop.carrental.service;
 
 import java.util.List;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -11,9 +10,8 @@ import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.Criteria;
 import shop.carrental.domain.NoticeDTO;
 import shop.carrental.domain.PageVO;
-import shop.carrental.domain.RentalInquiryDTO;
-import shop.carrental.domain.RentalTypeVO;
-import shop.carrental.domain.CustomerInquiryDTO;
+import shop.carrental.domain.InquiryDTO;
+import shop.carrental.domain.InquiryTypeDTO;
 import shop.carrental.mappers.NoticeMapper;
 import shop.carrental.mappers.FaqMapper;
 import shop.carrental.mappers.GeneralMapper;
@@ -61,12 +59,12 @@ public class CustomerServiceImpl implements CustomerService {
 		log.info("registerNotice" + dto);
 
 		noticeMapper.register(dto);
-		redirectAttributes.addFlashAttribute("result", dto.getSeq());
+		redirectAttributes.addFlashAttribute("result", dto.getNotice_seq());
 	}
 
 	/* GeneralInquiry */
 	@Override
-	public void registerGeneralInquiry(CustomerInquiryDTO dto, RedirectAttributes redirectAttributes) {
+	public void registerGeneralInquiry(InquiryDTO dto, RedirectAttributes redirectAttributes) {
 		log.info("registerGeneralInquiry" + dto);
 
 		generalInquiryMapper.registerCustomerInquiry(dto);
@@ -74,7 +72,7 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public void registerRentalInquiry(RentalInquiryDTO dto, RedirectAttributes redirectAttributes) {
+	public void registerRentalInquiry(InquiryDTO dto, RedirectAttributes redirectAttributes) {
 		log.info("registerRentalInquiry" + dto);
 
 		generalInquiryMapper.registerRentalInquiry(dto);
@@ -91,7 +89,7 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public void getRentalType(Model model) {
 		model.addAttribute("target", "rental");
-		List<RentalTypeVO> typeList = generalInquiryMapper.listRentalType();
+		List<InquiryTypeDTO> typeList = generalInquiryMapper.listRentalType();
 		model.addAttribute("typeList", typeList);
 	}
 

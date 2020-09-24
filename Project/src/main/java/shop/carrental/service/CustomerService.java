@@ -4,8 +4,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import shop.carrental.domain.Criteria;
 import shop.carrental.domain.NoticeDTO;
-import shop.carrental.domain.RentalInquiryDTO;
-import shop.carrental.domain.CustomerInquiryDTO;
+import shop.carrental.domain.InquiryDTO;
 
 public interface CustomerService {
 
@@ -17,9 +16,9 @@ public interface CustomerService {
 
 	public void registerNotice(NoticeDTO dto, RedirectAttributes redirectAttributes);
 
-	public void registerGeneralInquiry(CustomerInquiryDTO dto, RedirectAttributes redirectAttributes);
+	public void registerGeneralInquiry(InquiryDTO dto, RedirectAttributes redirectAttributes);
 
-	public void registerRentalInquiry(RentalInquiryDTO dto, RedirectAttributes redirectAttributes);
+	public void registerRentalInquiry(InquiryDTO dto, RedirectAttributes redirectAttributes);
 
 	public void listFaq(String type, Model model);
 

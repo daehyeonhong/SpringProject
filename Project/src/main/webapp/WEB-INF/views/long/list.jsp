@@ -30,10 +30,10 @@
 		<div class="container" style="border: solid 2px;">
 			<div class="row">
 				<div>
-					<select class="form-control keyword" name="manufacturer">
+					<select class="form-control keyword" name="mfgco">
 						<option value="012345678">전체</option>
-						<c:forEach var="manufacturer" items="${manufacturerList}">
-							<option value="${manufacturer.seq}">${manufacturer.name}</option>
+						<c:forEach var="mfgco" items="${mfgcoList}">
+							<option value="${mfgco.seq}">${mfgco.name}</option>
 						</c:forEach>
 					</select>
 				</div>

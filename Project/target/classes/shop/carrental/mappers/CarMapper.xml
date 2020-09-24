@@ -2,32 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shop.carrental.mappers.CarMapper">
 
-	<resultMap type="manufacturerDTO" id="manufacturerList">
-		<id property="seq" column="seq" />
-		<result property="name" column="name" />
-		<result property="english_name" column="english_name" />
+	<resultMap type="mfgcoDTO" id="mfgcoList">
+		<id property="mfgco_seq" column="mfgco_seq" />
+		<result property="mfgco_name" column="mfgco_name" />
+		<result property="mfgco_eng_name" column="mfgco_eng_name" />
 	</resultMap>
 
 	<resultMap type="segmentDTO" id="segmentList">
-		<id property="seq" column="seq" />
-		<result property="name" column="name" />
-		<result property="description" column="description" />
+		<id property="segment_seq" column="segment_seq" />
+		<result property="segment_name" column="segment_name" />
+		<result property="segment_desc" column="segment_desc" />
 	</resultMap>
 
-	<resultMap type="carDTO" id="carList">
-		<id property="seq" column="seq" />
-		<result property="model" column="model" />
-		<result property="description" column="description" />
-		<result property="year" column="year" />
-		<result property="image_seq" column="image_seq" />
-		<result property="segment_seq" column="segment_seq" />
-		<result property="fuel_seq" column="fuel_seq" />
-		<result property="manufacturer_seq" column="manufacturer_seq" />
+	<resultMap type="shop.carrental.domain.CarVO" id="carList">
+		<id property="car_seq" column="car_seq" />
+		<result property="car_model" column="car_model" />
+		<result property="segment_name" column="segment_name" />
+		<result property="fuel_name" column="fuel_name" />
+		<result property="mfgco_name" column="mfgco_name" />
+		<result property="car_desc" column="car_desc" />
+		<result property="trim_name" column="trim_name" />
+		<result property="car_year" column="car_year" />
+		<result property="trim_price" column="trim_price" />
 	</resultMap>
 
-	<select id="listManufacturer" resultMap="manufacturerList">
+	<select id="listMfgco" resultMap="mfgcoList">
 		<![CDATA[
-			SELECT*FROM MANUFACTURER
+			SELECT*FROM MFGCO
 		]]>
 	</select>
 
@@ -39,22 +40,34 @@
 
 	<select id="listCar" resultMap="carList">
 		<![CDATA[
-			SELECT C.SEQ,C.MODEL,C.DESCRIPTION,C.YEAR,C.IMAGE_SEQ IMAGE,S.NAME SEGMENT,F.NAME FUEL,M.NAME MANUFACTURER
-				FROM
-					CAR C,
-					SEGMENT S,
-					MANUFACTURER M,
-					FUEL F
-				WHERE
-						C.SEGMENT_SEQ=S.SEQ
-					AND
-						C.MANUFACTURER_SEQ=M.SEQ
-					AND
-						C.FUEL_SEQ=F.SEQ
-					AND
-						M.SEQ=#{manufacturer_seq}
-					AND
-						S.SEQ=#{segment_seq}
+			SELECT
+				C.CAR_SEQ,
+				C.CAR_MODEL,
+				S.SEGMENT_NAME,
+				F.FUEL_NAME,
+				M.MFGCO_NAME,
+				C.CAR_YEAR,
+				C.CAR_DESC,
+				T.TRIM_NAME,
+				T.TRIM_PRICE
+			FROM
+				CAR C,
+				SEGMENT S,
+				MFGCO M,
+				FUEL F,
+				TRIM T
+			WHERE
+				C.SEGMENT_SEQ=S.SEGMENT_SEQ
+			AND
+				C.MFGCO_SEQ=M.MFGCO_SEQ
+			AND
+				C.FUEL_SEQ=F.FUEL_SEQ
+			AND
+				C.CAR_SEQ=T.CAR_SEQ
+			AND
+				C.MFGCO_SEQ=#{mfgco_seq}
+			AND
+				C.SEGMENT_SEQ=#{segment_seq}
 		]]>
 	</select>
 

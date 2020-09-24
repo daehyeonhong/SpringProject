@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shop.carrental.mappers.FaqMapper">
 
-	<resultMap type="faqVO" id="list">
-		<id property="seq" column="seq" />
-		<result property="type" column="type" />
-		<result property="title" column="title" />
-		<result property="content" column="content" />
-		<result property="register_date" column="register_date" />
-		<result property="update_date" column="update_date" />
+	<resultMap type="faqDTO" id="list">
+		<id property="faq_seq" column="faq_seq" />
+		<result property="faq_type" column="faq_type" />
+		<result property="faq_title" column="faq_title" />
+		<result property="faq_content" column="faq_content" />
+		<result property="faq_reg_date" column="faq_reg_date" />
+		<result property="faq_update" column="faq_update" />
 	</resultMap>
 
 	<select id="list" parameterType="string" resultMap="list">

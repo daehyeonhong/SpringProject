@@ -1,17 +1,15 @@
 package shop.carrental.mappers;
 
 import java.util.List;
-
-import shop.carrental.domain.CustomerInquiryDTO;
-import shop.carrental.domain.RentalInquiryDTO;
-import shop.carrental.domain.RentalTypeVO;
+import shop.carrental.domain.InquiryDTO;
+import shop.carrental.domain.InquiryTypeDTO;
 
 public interface GeneralMapper {
 
-	public void registerCustomerInquiry(CustomerInquiryDTO dto);
+	public void registerCustomerInquiry(InquiryDTO dto);
 
-	public void registerRentalInquiry(RentalInquiryDTO dto);
+	public void registerRentalInquiry(InquiryDTO dto);
 
-	public List<RentalTypeVO> listRentalType();
+	public List<InquiryTypeDTO> listRentalType();
 
 }

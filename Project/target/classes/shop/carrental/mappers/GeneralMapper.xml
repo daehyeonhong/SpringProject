@@ -2,9 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shop.carrental.mappers.GeneralMapper">
 
-	<resultMap type="rentalTypeVO" id="rentalList">
-		<id property="seq" column="seq" />
-		<result property="name" column="name" />
+	<resultMap type="inquiryDTO" id="inquiryList">
+		<id property="inquiry_seq" column="inquiry_seq" />
+		<result property="inquiry_type" column="inquiry_type" />
+		<result property="inquiry_title" column="inquiry_title" />
+		<result property="inquiry_content" column="inquiry_content" />
+		<result property="inquiry_reg_date" column="inquiry_reg_date" />
+		<result property="inquiry_update" column="inquiry_update" />
 	</resultMap>
 
 	<insert id="registerCustomerInquiry">
@@ -25,7 +29,7 @@
 		]]>
 	</insert>
 
-	<select id="listRentalType" resultMap="rentalList">
+	<select id="listRentalType" resultMap="inquiryList">
 		<![CDATA[
 			SELECT*FROM RENTAL_TYPE
 		]]>

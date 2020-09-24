@@ -4,19 +4,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import shop.carrental.domain.UserDTO;
-import shop.carrental.domain.UserVO;
+import shop.carrental.domain.UsersDTO;
 
 public interface UserService {
 
-	public void register(UserDTO dto);
+	public void register(UsersDTO dto);
 
-	public UserVO information(UserVO vo);
+	public UsersDTO information(UsersDTO vo);
 
-	public boolean login(UserVO vo, HttpServletRequest request, HttpSession session,
+	public boolean login(UsersDTO vo, HttpServletRequest request, HttpSession session,
 			RedirectAttributes redirectAttributes);
 
-	public boolean confirm(UserVO vo, RedirectAttributes redirectAttributes, Model model);
+	public boolean confirm(UsersDTO vo, RedirectAttributes redirectAttributes, Model model);
 
 	public void logout(HttpSession session);
 

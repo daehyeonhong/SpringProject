@@ -13,8 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.Criteria;
 import shop.carrental.domain.NoticeDTO;
-import shop.carrental.domain.RentalInquiryDTO;
-import shop.carrental.domain.CustomerInquiryDTO;
+import shop.carrental.domain.InquiryDTO;
 import shop.carrental.service.CustomerService;
 
 @Controller
@@ -52,7 +51,7 @@ public class CustomerController {
 	}
 
 	@PostMapping("/service/general")
-	public String registerGeneral(CustomerInquiryDTO dto, RedirectAttributes redirectAttributes) {
+	public String registerGeneral(InquiryDTO dto, RedirectAttributes redirectAttributes) {
 		log.info("general");
 
 		customerService.registerGeneralInquiry(dto, redirectAttributes);
@@ -68,7 +67,7 @@ public class CustomerController {
 	}
 
 	@PostMapping("/service/rental")
-	public String registerRent(RentalInquiryDTO dto, RedirectAttributes redirectAttributes) {
+	public String registerRent(InquiryDTO dto, RedirectAttributes redirectAttributes) {
 		log.info("rental");
 
 		customerService.registerRentalInquiry(dto, redirectAttributes);

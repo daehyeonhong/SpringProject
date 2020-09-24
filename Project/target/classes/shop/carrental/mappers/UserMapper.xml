@@ -2,14 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shop.carrental.mappers.UserMapper">
 
-	<resultMap type="userVO" id="informationMap">
-		<id property="seq" column="seq" />
-		<result property="id" column="id" />
-		<result property="name" column="name" />
-		<result property="nickname" column="nickname" />
-		<result property="phone" column="phone" />
-		<result property="email" column="email" />
+	<resultMap type="usersDTO" id="informationMap">
+		<id property="users_seq" column="users_seq" />
+		<result property="users_id" column="users_id" />
+		<result property="password" column="password" />
+		<result property="users_name" column="users_name" />
+		<result property="users_nickname" column="users_nickname" />
+		<result property="users_email" column="users_email" />
+		<result property="users_phone" column="users_phone" />
+		<result property="license" column="license" />
 		<result property="birth_date" column="birth_date" />
+		<result property="users_reg_date" column="users_reg_date" />
+		<result property="users_update" column="users_update" />
 	</resultMap>
 
 	<select id="check" resultType="String">

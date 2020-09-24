@@ -9,10 +9,10 @@ import lombok.ToString;
 @ToString
 public class CarVO {
 
-	private Long seq;
+	private Long car_seq;
 
-	private String model, description;
+	private String car_model, segment_name, fuel_name, mfgco_name, car_desc, trim_name;
 
-	int year, image_seq, segment_seq, fuel_seq, manufacturer_seq;
+	private int car_year, trim_price;
 
 }

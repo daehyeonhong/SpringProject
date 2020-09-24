@@ -7,8 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
-import shop.carrental.domain.UserDTO;
-import shop.carrental.domain.UserVO;
+import shop.carrental.domain.UsersDTO;
 import shop.carrental.mappers.UserMapper;
 
 @Log4j
@@ -19,15 +18,15 @@ public class UserServiceImpl implements UserService {
 	private UserMapper userMapper;
 
 	@Override
-	public boolean login(UserVO vo, HttpServletRequest request, HttpSession session,
+	public boolean login(UsersDTO dto, HttpServletRequest request, HttpSession session,
 			RedirectAttributes redirectAttributes) {
 		log.info("login");
-		String name = userMapper.check(vo);
+		String name = userMapper.check(dto);
 
 		boolean result = name != null;
 
 		if (result) {
-			session.setAttribute("userId", vo.getId());
+			session.setAttribute("userId", dto.getUsers_id());
 			session.setAttribute("userName", name);
 		}
 
@@ -36,23 +35,23 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void register(UserDTO dto) {
+	public void register(UsersDTO dto) {
 		log.info("register");
 
 		userMapper.register(dto);
 	}
 
 	@Override
-	public UserVO information(UserVO vo) {
-		return userMapper.information(vo);
+	public UsersDTO information(UsersDTO dto) {
+		return userMapper.information(dto);
 	}
 
 	@Override
-	public boolean confirm(UserVO vo, RedirectAttributes redirectAttributes, Model model) {
+	public boolean confirm(UsersDTO dto, RedirectAttributes redirectAttributes, Model model) {
 		log.info("confirm");
-		boolean result = userMapper.check(vo) != null;
+		boolean result = userMapper.check(dto) != null;
 		if (result) {
-			model.addAttribute("user", userMapper.information(vo));
+			model.addAttribute("user", userMapper.information(dto));
 		}
 		redirectAttributes.addFlashAttribute("result", result ? "success" : "failure");
 		return result;
