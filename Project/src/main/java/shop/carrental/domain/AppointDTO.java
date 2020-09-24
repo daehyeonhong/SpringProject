@@ -1,7 +1,9 @@
 package shop.carrental.domain;
 
 import java.util.Date;
+
 import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -9,12 +11,13 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class NoticeVO {
+public class AppointDTO {
 
-	private Long seq;
-	private int count, good, bad;
-	private String title, writer, content, category;
+	private Long appoint_seq, trim_seq, branch_seq;
+
+	private String users_id;
+
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private Date register_date, update_date;
+	private Date appoint_reg_date, appoint_update, appoint_date;
 
 }

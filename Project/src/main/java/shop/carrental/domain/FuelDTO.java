@@ -8,6 +8,9 @@ import lombok.ToString;
 @Setter
 @ToString
 public class FuelDTO {
-	private Long seq;
-	private String name,english_name;
+
+	private Long fuel_seq;
+
+	private String fuel_name, fuel_eng_name;
+
 }

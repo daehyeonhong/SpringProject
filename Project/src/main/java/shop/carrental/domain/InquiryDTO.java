@@ -11,12 +11,15 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class AppointmentDTO {
+public class InquiryDTO {
 
-	private Long seq;
-	private String users_id;
-	private int car_seq, branch_seq;
+	private Long inquiry_seq;
+
+	private int inquiry_type;
+
+	private String inquiry_title, inquiry_content;
 
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private Date register_date, update_date, appointment_date;
+	private Date inquiry_reg_date, inquiry_update;
+
 }

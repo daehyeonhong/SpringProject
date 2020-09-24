@@ -11,11 +11,14 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class FaqVO {
+public class AnswerDTO {
 
-	private Long seq;
-	private String title, content, type;
+	/* 문의 답변 */
+	private Long answer_seq;
+
+	private String answer_title, answer_writer, answer_content;
+
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private Date register_date, update_date;
+	private Date answer_reg_date, answer_update;
 
 }

@@ -8,6 +8,9 @@ import lombok.ToString;
 @Setter
 @ToString
 public class SegmentDTO {
-	private Long seq;
-	private String name,description;
+
+	private Long segment_seq;
+
+	private String segment_name, segment_desc;
+
 }

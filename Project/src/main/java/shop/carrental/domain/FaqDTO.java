@@ -4,16 +4,13 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
-@Getter
-@Setter
-@ToString
 public class FaqDTO {
-	private Long seq;
-	private String type,title,content;
+
+	private Long faq_seq;
+
+	private String faq_type, faq_title, faq_content;
+
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private Date register_date,update_date;
+	private Date faq_reg_date, faq_update;
+
 }

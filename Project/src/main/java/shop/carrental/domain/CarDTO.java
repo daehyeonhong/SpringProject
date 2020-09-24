@@ -1,18 +1,16 @@
 package shop.carrental.domain;
 
-import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.Getter;
 
 @Getter
 @Setter
 @ToString
 public class CarDTO {
 
-	private Long seq;
+	private Long car_seq, segment_seq, fuel_seq, mfgco_seq, car_year, img_seq;
 
-	private String model, description;
-
-	int year, image_seq, segment_seq, fuel_seq, manufacturer_seq;
+	private String car_model, car_desc;
 
 }

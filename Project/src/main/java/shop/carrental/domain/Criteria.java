@@ -9,16 +9,16 @@ import lombok.ToString;
 @ToString
 public class Criteria {
 
-	private int pageNumber;
-	private final int AMOUNT = 10;
+	private int pageNumber, amount;
 	private String searchBy, keyword;
 
 	public Criteria() {
-		this(1);
+		this(1, 10);
 	}
 
-	public Criteria(int pageNumber) {
+	public Criteria(int pageNumber, int amount) {
 		this.pageNumber = pageNumber;
+		this.amount = amount;
 	}
 
 	public String[] getSearchByArray() {
