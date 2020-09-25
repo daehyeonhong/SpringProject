@@ -7,11 +7,13 @@
 		<table class="col-sm-10">
 			<tr>
 				<td colspan="2">
+					<span class="form-control">이름</span>
 					<span class="form-control">${user.name}</span>
 				</td>
 			</tr>
 			<tr>
 				<td>
+					<span class="form-control">${user.id}</span>
 					<span class="form-control">${user.id}</span>
 				</td>
 				<td>

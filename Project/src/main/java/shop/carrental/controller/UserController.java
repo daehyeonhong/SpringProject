@@ -29,8 +29,10 @@ public class UserController {
 	}
 
 	@GetMapping("/login")
-	public void login() {
+	public String login(HttpSession session) {
 		log.info("loginPage");
+
+		return session.getAttribute("users_id") == null ? "/user/login" : "redirect:/";
 	}
 
 	@PostMapping("/login")
@@ -100,8 +102,9 @@ public class UserController {
 	}
 
 	@GetMapping("/myPage")
-	public void myPage() {
+	public String myPage(HttpSession session) {
 		log.info("myPage");
+		return session.getAttribute("users_id") == null ? "/user/login" : "redirect:/user/myPage/general";
 	}
 
 	@GetMapping("/myPage/general")

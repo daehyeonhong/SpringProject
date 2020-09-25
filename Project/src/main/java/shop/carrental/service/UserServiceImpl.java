@@ -26,8 +26,8 @@ public class UserServiceImpl implements UserService {
 		boolean result = name != null;
 
 		if (result) {
-			session.setAttribute("userId", dto.getUsers_id());
-			session.setAttribute("userName", name);
+			session.setAttribute("users_id", dto.getUsers_id());
+			session.setAttribute("users_name", name);
 		}
 
 		redirectAttributes.addFlashAttribute("result", result ? "success" : "failure");
@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
 		log.info("confirm");
 		boolean result = userMapper.check(dto) != null;
 		if (result) {
-			model.addAttribute("user", userMapper.information(dto));
+			model.addAttribute("users", userMapper.information(dto));
 		}
 		redirectAttributes.addFlashAttribute("result", result ? "success" : "failure");
 		return result;
