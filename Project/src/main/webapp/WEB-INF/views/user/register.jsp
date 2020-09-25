@@ -6,11 +6,13 @@
 			<table class="col-sm-10">
 				<tr>
 					<td>
-						<input type="text" class="form-control" id="id" name="id" placeholder="아이디 입력 (띄어쓰기 없이 영문 소문자, 숫자 포함 4 ~ 20자 이내)" required="required" autofocus="autofocus" />
+					    <span class="form-control">아이디</span>
+						<input type="text" class="form-control" id="users_id" name="users_id" placeholder="아이디 입력 (띄어쓰기 없이 영문 소문자, 숫자 포함 4 ~ 20자 이내)" required="required" autofocus="autofocus" />
 					</td>
 				</tr>
 				<tr>
 					<td>
+						<span class="form-control">비밀번호</span>
 						<input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 입력 (띄어쓰기 없이 영문, 숫자 포함 10 ~ 20자 이내)" required="required" />
 					</td>
 				</tr>
@@ -21,30 +23,42 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="text" class="form-control" id="nickname" name="nickname" placeholder="닉네임" required="required" />
-					</td>
-				</tr>
-				<tr>
-					<td>
 						<!--기능구현할때  전에 입력한 이름,전화번호 같이 넘어와야함 -->
-						<input type="text" class="form-control" id="name" name="name" required="required" />
+						<span class="form-control">이름</span>
+						<input type="text" class="form-control" id="users_name" name="users_name" required="required" />
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input type="text" class="form-control" id="phone" name="phone" required="required" />
+					    <span class="form-control">닉네임</span>
+						<input type="text" class="form-control" id="users_nickname" name="users_nickname" placeholder="닉네임" required="required" />
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input type="text" class="form-control" id="email" name="email" required="required" />
-					</td>
-				</tr>
-				<tr>
-					<td>
+					    <span class="form-control">생일</span>
 						<input type="text" class="form-control" id="birth_date" name="birth_date" placeholder="yyyy/MM/dd" required="required" />
 					</td>
 				</tr>
+				<tr>
+					<td>
+					    <span class="form-control">핸드폰</span>
+						<input type="text" class="form-control" id="users_phone" name="users_phone" required="required" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+					    <span class="form-control">이메일</span>
+						<input type="text" class="form-control" id="users_email" name="users_email" required="required" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+					    <span class="form-control">운전 면허증</span>
+						<input type="text" class="form-control" id="license" name="license" required="required" />
+					</td>
+				</tr>
+				
 			</table>
 			<input type="submit" class="btn btn-danger col-sm-6" value="가입완료" />
 		</form>

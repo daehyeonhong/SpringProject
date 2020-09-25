@@ -106,8 +106,9 @@ public class AdminController {
 		model.addAttribute("ticketPage", ticketService.getTicketPage(tno));
 	}
 
-	public void getCustomerList(@RequestParam("criteria") Criteria criteria) {
-
+	@GetMapping("/inquiry")
+	public void inquiry(Long inquiry_seq, Model model) {
+		adminService.readInquiry(inquiry_seq, model);
 	}
 
 }

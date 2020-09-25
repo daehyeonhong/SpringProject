@@ -13,7 +13,7 @@ public interface CarMapper {
 
 	public List<SegmentDTO> listSegment();
 
-	public List<CarVO> listCar(@Param("mfgco_seq") Long mfgco_seq, @Param("segment_seq") Long segment_seq);
+	public List<CarVO> listCar(@Param("mfgco_seq") Long mfgco_seq, @Param("segment_name") String segment_name);
 
 	public int registerShortCar(ShortCarDTO dto);
 

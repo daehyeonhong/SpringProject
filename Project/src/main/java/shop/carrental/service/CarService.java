@@ -11,6 +11,6 @@ public interface CarService {
 
 	public List<SegmentDTO> listSegment();
 
-	public List<CarVO> listCar(Long mfgco_seq, Long segment_seq);
+	public List<CarVO> listCar(Long mfgco_seq, String segment_name);
 
 }

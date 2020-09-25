@@ -64,11 +64,27 @@
 				C.FUEL_SEQ=F.FUEL_SEQ
 			AND
 				C.CAR_SEQ=T.CAR_SEQ
-			AND
-				C.MFGCO_SEQ=#{mfgco_seq}
-			AND
-				C.SEGMENT_SEQ=#{segment_seq}
 		]]>
+		<choose>
+			<when test="mfgco_seq==9">
+				<if test="segment_name=='Z'.toString()">
+				</if>
+				<if test="segment_name!='Z'.toString()">
+					AND S.SEGMENT_NAME=#{segment_name}
+				</if>
+			</when>
+			<when test="segment_name=='Z'.toString()">
+				<if test="mfgco_seq==9"></if>
+				<if test="mfgco_seq!=9">
+					AND M.MFGCO_SEQ=#{mfgco_seq}
+				</if>
+			</when>
+			<otherwise>
+				AND M.MFGCO_SEQ=#{mfgco_seq}
+				AND
+				S.SEGMENT_NAME=#{segment_name}
+			</otherwise>
+		</choose>
 	</select>
 
 	<insert id="registerShortCar">

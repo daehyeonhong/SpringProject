@@ -29,10 +29,9 @@ public class UserController {
 	}
 
 	@GetMapping("/login")
-	public String login(HttpSession session) {
+	public void login(HttpSession session) {
 		log.info("loginPage");
 
-		return session.getAttribute("users_id") == null ? "/user/login" : "redirect:/";
 	}
 
 	@PostMapping("/login")

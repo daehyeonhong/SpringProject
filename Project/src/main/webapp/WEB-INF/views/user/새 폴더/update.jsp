@@ -7,17 +7,14 @@
 		<table class="col-sm-10">
 			<tr>
 				<td colspan="2">
-			    	<span class="form-control">아이디</span>
-					<span class="form-control">${users_id}</span>
-				</td>
-				<td>
-					<button class="form-control btn btn-secondary" onclick="">아이디 변경</button>
+					<span class="form-control">이름</span>
+					<span class="form-control">${user.name}</span>
 				</td>
 			</tr>
 			<tr>
 				<td>
-			    	<span class="form-control">비밀번호</span>
-					<span class="form-control">${password}</span>
+					<span class="form-control">${user.id}</span>
+					<span class="form-control">${user.id}</span>
 				</td>
 				<td>
 					<button class="form-control btn btn-secondary" onclick="">비밀번호 변경</button>
@@ -25,30 +22,15 @@
 			</tr>
 			<tr>
 				<td>
-				    <span class="form-control">이름</span>
-					<span class="form-control">${users_name}</span>
-				</td>
-				
-			</tr>
-			<tr>
-				<td>
-				    <span class="form-control">닉네임</span>
-					<span class="form-control">${users_nickname}</span>
-				</td>
-				<td>
-					<button class="form-control btn btn-secondary" onclick="">닉네임 변경</button>
-				</td>
-			</tr>
-			<tr>
-				<td>
-				    <span class="form-control">생일</span>
 					<span class="form-control">${birth_date}</span>
 				</td>
+				<td>
+					<button class="form-control btn btn-secondary" onclick="">생일 변경</button>
+				</td>
 			</tr>
 			<tr>
 				<td>
-				    <span class="form-control">핸드폰</span>
-					<span class="form-control">${users_phone}</span>
+					<span class="form-control">${user.phone}</span>
 				</td>
 				<td>
 					<button class="form-control btn btn-secondary" onclick="">휴대폰 인증</button>
@@ -57,29 +39,13 @@
 			<tr>
 				<td>
 					<div class="input-group">
-	   				    <span class="form-control">이메일</span>
-						<span class="form-control">${users_email}</span>
+						<span class="form-control">${user.email}</span>
 					</div>
 				</td>
 				<td>
 					<button class="form-control btn btn-info" onclick="">이메일 인증</button>
 				</td>
 			</tr>
-			
-			<tr>
-				<td>
-					<div class="input-group">
-	   				    <span class="form-control">운전면허증</span>
-						<span class="form-control">${license}</span>
-					</div>
-				</td>
-				<td>
-					<button class="form-control btn btn-info" onclick="">면허증 변경</button>
-				</td>
-			</tr>
-			
-			
-			
 			<tr>
 				<td colspan="2">
 					<table class="table">
