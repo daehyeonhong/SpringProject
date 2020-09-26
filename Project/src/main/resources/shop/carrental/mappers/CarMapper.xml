@@ -14,8 +14,9 @@
 		<result property="segment_desc" column="segment_desc" />
 	</resultMap>
 
-	<resultMap type="shop.carrental.domain.CarVO" id="carList">
-		<id property="car_seq" column="car_seq" />
+	<resultMap type="carVO" id="car">
+		<id property="trim_seq" column="trim_seq" />
+		<result property="car_seq" column="car_seq" />
 		<result property="car_model" column="car_model" />
 		<result property="segment_name" column="segment_name" />
 		<result property="fuel_name" column="fuel_name" />
@@ -25,6 +26,36 @@
 		<result property="car_year" column="car_year" />
 		<result property="trim_price" column="trim_price" />
 	</resultMap>
+
+	<sql id="carVO">
+		<![CDATA[
+					SELECT
+						T.TRIM_SEQ,
+						C.CAR_SEQ,
+						C.CAR_MODEL,
+						S.SEGMENT_NAME,
+						F.FUEL_NAME,
+						M.MFGCO_NAME,
+						C.CAR_YEAR,
+						C.CAR_DESC,
+						T.TRIM_NAME,
+						T.TRIM_PRICE
+					FROM
+						CAR C,
+						SEGMENT S,
+						MFGCO M,
+						FUEL F,
+						TRIM T
+					WHERE
+						C.SEGMENT_SEQ=S.SEGMENT_SEQ
+					AND
+						C.MFGCO_SEQ=M.MFGCO_SEQ
+					AND
+						C.FUEL_SEQ=F.FUEL_SEQ
+					AND
+						C.CAR_SEQ=T.CAR_SEQ
+				]]>
+	</sql>
 
 	<select id="listMfgco" resultMap="mfgcoList">
 		<![CDATA[
@@ -38,42 +69,17 @@
 		]]>
 	</select>
 
-	<select id="listCar" resultMap="carList">
-		<![CDATA[
-			SELECT
-				C.CAR_SEQ,
-				C.CAR_MODEL,
-				S.SEGMENT_NAME,
-				F.FUEL_NAME,
-				M.MFGCO_NAME,
-				C.CAR_YEAR,
-				C.CAR_DESC,
-				T.TRIM_NAME,
-				T.TRIM_PRICE
-			FROM
-				CAR C,
-				SEGMENT S,
-				MFGCO M,
-				FUEL F,
-				TRIM T
-			WHERE
-				C.SEGMENT_SEQ=S.SEGMENT_SEQ
-			AND
-				C.MFGCO_SEQ=M.MFGCO_SEQ
-			AND
-				C.FUEL_SEQ=F.FUEL_SEQ
-			AND
-				C.CAR_SEQ=T.CAR_SEQ
-		]]>
+	<select id="listCar" resultMap="car">
+		<include refid="carVO" />
 		<choose>
-			<when test="mfgco_seq==9">
-				<if test="segment_name=='Z'.toString()">
+			<when test="mfgco_seq==99999">
+				<if test="segment_seq==99999">
 				</if>
-				<if test="segment_name!='Z'.toString()">
-					AND S.SEGMENT_NAME=#{segment_name}
+				<if test="segment_seq!=99999">
+					AND S.SEGMENT_SEQ=#{segment_seq}
 				</if>
 			</when>
-			<when test="segment_name=='Z'.toString()">
+			<when test="segment_seq==99999">
 				<if test="mfgco_seq==9"></if>
 				<if test="mfgco_seq!=9">
 					AND M.MFGCO_SEQ=#{mfgco_seq}
@@ -82,9 +88,15 @@
 			<otherwise>
 				AND M.MFGCO_SEQ=#{mfgco_seq}
 				AND
-				S.SEGMENT_NAME=#{segment_name}
+				S.SEGMENT_SEQ=#{segment_seq}
 			</otherwise>
 		</choose>
+		ORDER BY C.CAR_SEQ
+	</select>
+
+	<select id="detailTrim" resultMap="car">
+		<include refid="carVO" />
+		AND TRIM_SEQ=#{trim_seq}
 	</select>
 
 	<insert id="registerShortCar">

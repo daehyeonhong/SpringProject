@@ -23,8 +23,10 @@ public class LongTermController {
 	}
 
 	@GetMapping("/detail")
-	public void detail() {
+	public void detail(Long trim_seq, Model model) {
 		log.info("detail");
+
+		longTermService.detail(trim_seq, model);
 	}
 
 	@GetMapping("/guide")

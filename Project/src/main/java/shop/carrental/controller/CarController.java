@@ -23,13 +23,13 @@ public class CarController {
 
 	private CarService carService;
 
-	@GetMapping(value = "/carList/{mfgco_seq}/{segment_name}", produces = { MediaType.APPLICATION_ATOM_XML_VALUE,
+	@GetMapping(value = "/carList/{mfgco_seq}/{segment_seq}", produces = { MediaType.APPLICATION_ATOM_XML_VALUE,
 			MediaType.APPLICATION_JSON_UTF8_VALUE })
 	public ResponseEntity<List<CarVO>> carList(@PathVariable("mfgco_seq") Long mfgco_seq,
-			@PathVariable("segment_name") String segment_name) {
-		log.info("listCar ==>" + mfgco_seq + "::" + segment_name + "<==");
+			@PathVariable("segment_seq") Long segment_seq) {
+		log.info("listCar ==>" + mfgco_seq + "::" + segment_seq + "<==");
 
-		return new ResponseEntity<List<CarVO>>(carService.listCar(mfgco_seq, segment_name), HttpStatus.OK);
+		return new ResponseEntity<List<CarVO>>(carService.listCar(mfgco_seq, segment_seq), HttpStatus.OK);
 	}
 
 }

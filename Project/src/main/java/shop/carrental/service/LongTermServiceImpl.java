@@ -23,4 +23,10 @@ public class LongTermServiceImpl implements LongTermService {
 		model.addAttribute("segmentList", carMapper.listSegment());
 	}
 
+	@Override
+	public void detail(Long trim_seq, Model model) {
+		model.addAttribute("car", carMapper.detailTrim(trim_seq));
+		model.addAttribute("branchList", rentalMapper.listBranch());
+	}
+
 }

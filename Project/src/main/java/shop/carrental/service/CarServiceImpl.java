@@ -30,9 +30,9 @@ public class CarServiceImpl implements CarService {
 	}
 
 	@Override
-	public List<CarVO> listCar(Long mfgco_seq, String segment_name) {
-		log.info("ListCar...::" + mfgco_seq + "::" + segment_name);
-		return carMapper.listCar(mfgco_seq, segment_name);
+	public List<CarVO> listCar(Long mfgco_seq, Long segment_seq) {
+		log.info("ListCar...::" + mfgco_seq + "::" + segment_seq);
+		return carMapper.listCar(mfgco_seq, segment_seq);
 	}
 
 }

@@ -7,34 +7,8 @@
 	<nav class="navbar navbar-expand-sm justify-content-center"
 		style="height: 90px">
 		<ul class="navbar-nav">
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" href="#" id="navbarDropdown1"
-				role="button" data-toggle="dropdown" aria-haspopup="true"
-				aria-expanded="false">신차 장기</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-					<a class="dropdown-item" href="#">무엇으로</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">채우징</a>
-				</div></li>
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
-				role="button" data-toggle="dropdown" aria-haspopup="true"
-				aria-expanded="false">중고 장기</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-					<a class="dropdown-item" href="#">??</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">!!</a>
-				</div></li>
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" href="#" id="navbarDropdown3"
-				role="button" data-toggle="dropdown" aria-haspopup="true"
-				aria-expanded="false">단기</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-					<a class="dropdown-item" href="#">고민</a> <a class="dropdown-item"
-						href="#">입니당~</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">!!</a>
-				</div></li>
+			<li class="nav-item"><a class="nav-link" href="/long/list">장기 렌터카</a></li>
+			<li class="nav-item"><a class="nav-link" href="/short/list">단기 렌터카</a></li>
 			<li class="nav-item${users_id == null ? '' : ' dropdown'}"><c:choose>
 					<c:when test="${users_id == null}">
 						<a class="nav-link" href="/user/login">로그인</a>
@@ -51,8 +25,7 @@
 					</c:otherwise>
 				</c:choose></li>
 			<li class="nav-item"><a class="nav-link" href="/user/myPage">MY렌터카</a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="/customer/notice/list">고객센터</a></li>
+			<li class="nav-item"><a class="nav-link" href="/customer/notice/list">고객센터</a></li>
 		</ul>
 	</nav>
 </div>
