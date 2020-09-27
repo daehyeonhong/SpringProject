@@ -38,112 +38,114 @@
 									<option value="${branch.branch_seq}">${branch.branch_name}</option>
 								</c:forEach>
 							</select>
-						</div> <span id="branchInfo"></span>
+						</div>
+						<span id="branchInfo"></span>
 					</td>
 				</tr>
 			</table>
-			<div class="row">
-				<div class="row col-sm-4">
-					<select class="form-control keyword" id="mfgco_seq"
-						name="mfgco_seq">
-						<option value="99999">전체</option>
-						<c:forEach var="mfgco" items="${mfgcoList}">
-							<option value="${mfgco.mfgco_seq}">${mfgco.mfgco_name}</option>
-						</c:forEach>
-					</select>
-				</div>
-
-				<div class="row col-sm-4">
-					<select class="form-control keyword" id="segment_seq"
-						name="segment_seq">
-						<option value="99999">전체</option>
-						<c:forEach var="segment" items="${segmentList}">
-							<option value="${segment.segment_seq}">${segment.segment_desc}</option>
-						</c:forEach>
-					</select>
-				</div>
-			</div>
-			<div id="list"></div>
+			<button class="btn btn-outline-info" id="Btnsc">목록보기</button>
+			<div id="list" align="center"></div>
 		</div>
 	</div>
 </article>
 <script type="text/javascript">
-	$().ready(
-			function() {
-				list({
-					'mfgco_seq' : '99999',
-					'segment_seq' : '99999',
-					'start_date' : '2020-10-01',
-					'end_date' : '2020-10-03',
-					'branch_seq' : '2'
-				});
-				targetBranch({
-					'branch_seq' : '1'
-				});
-				$('#segment_seq').on('change', function() {
-					list({
-						'mfgco_seq' : $('#mfgco_seq').val(),
-						'segment_seq' : $(this).val()
-					});
-				});
-				$('#mfgco_seq').on('change', function() {
-					list({
-						'mfgco_seq' : $(this).val(),
-						'segment_seq' : $('#segment_seq').val()
-					});
-				});
-				$('#branch_seq').on('change', function() {
-					targetBranch({
-						'branch_seq' : $(this).val()
-					})
-				})
-				function list(parameter, callback) {
-					let mfgco_seq = parameter.mfgco_seq;
-					let segment_seq = parameter.segment_seq;
-					let start_date = parameter.start_date;
-					let end_date = parameter.end_date;
-					let branch_seq = parameter.branch_seq;
-
-					$.getJSON('/car/shortCarList/' + start_date + '/' + end_date
-							+ '/' + branch_seq + '/' + mfgco_seq + '/'
-							+ segment_seq + '.json', function(data) {
-						let html = '';
-						$.each(data, function(carList, car) {
-							html += '<a href="/long/detail?trim_seq='
-									+ car.trim_seq + '"';
-							html += '<div class="col-sm-6">';
-							html += '<h3 name="car_seq">' + car.trim_name
-									+ '</h3>';
-							html += '<div name="car_model">' + car.car_model
-									+ '</div>';
-							html += '<div name="car_year">' + car.car_year
-									+ '</div>';
-							html += '</div></a>';
+	$()
+			.ready(
+					function() {
+						list({
+							'mfgco_seq' : '99999',
+							'segment_seq' : '99999',
+							'start_date' : '2020-10-01',
+							'end_date' : '2020-10-03',
+							'branch_seq' : '2'
 						});
-						console.log(html);
-						$('#list').html(html);
+						targetBranch({
+							'branch_seq' : '1'
+						});
+						$('#branch_seq').on('change', function() {
+							targetBranch({
+								'branch_seq' : $(this).val()
+							})
+						})
+						function list(parameter, callback) {
+							let mfgco_seq = parameter.mfgco_seq;
+							let segment_seq = parameter.segment_seq;
+							let start_date = parameter.start_date;
+							let end_date = parameter.end_date;
+							let branch_seq = parameter.branch_seq;
+							$.getJSON("/car/shortCarList/"
+									+ start_date+ "/"
+									+ end_date + "/"
+									+ branch_seq + "/"
+									+ mfgco_seq + "/"
+									+ segment_seq + ".json",
+										function(data) {
+											let html = "";
+												$.each(data, function(carList, car) {
+													html += '<div class="card" onclick="location.href=location.href=\'/short/detail?sc_seq='
+															+ car.sc_seq
+															+ '\'">';
+													html += '<img src="https://www.motorgraph.com/news/photo/202003/25398_80184_4550.jpg" class="card-img-top" alt="[' + car.license_plate + ']사진" />';
+													html += '<div class="card-body">';
+													html += "<table>";
+													html += "<tr>";
+													html += "<td>";
+													html += "<span>[" + /* car.car_year */'2020' + "]년</span>";
+													html += "<span>" + /* car.mfgco_name */'현대' + "</span>";
+													html += "<span>" + /* car.car_model */'아반떼' + "</span>";
+													html += "</td>";
+													html += "</tr>";
+													html += "<tr>";
+													html += "<td><span>" + /* car.trim_name */'N Sports' + "</span></td>";
+													html += "</tr>";
+													html += "<tr>";
+													html += "<td>";
+													html += "<span>" + car.dash_cam + "</span>";
+													html += "<span>" + car.back_camera + "</span>";
+													html += "<span>" + car.navigation + "</span>";
+													html += "<span>" + car.sunroof + "</span>";
+													html += "<span>" + car.bluetooth + "</span>";
+													html += "<span>" + car.aux + "</span>";
+													html += "<span>" + car.smart_key + "</span>";
+													html += "<span>" + car.nomal_price + "</span>";
+													html += "<span>" + car.weekend_price + "</span>";
+													html += "<span>" + car.branch_seq + "</span>";
+													html += "</td>";
+													html += "</tr>";
+													html += "</table>";
+													html += "</div>";
+													html += "</div>";
+												});
+											console.log(html);
+											$("#list").html(html);
+										});
+						}
+						function targetBranch(parameter, callback) {
+							let branch_seq = parameter.branch_seq;
+							let targetBranch = $('#branchInfo');
+							$
+									.getJSON(
+											'/car/branch/' + branch_seq
+													+ '.json',
+											function(branch) {
+												let html = '';
+												html += '<div class="col-sm-6">';
+												html += '<h3 name="car_seq">'
+														+ branch.branch_seq
+														+ '</h3>';
+												html += '<div name="car_model">'
+														+ branch.branch_name
+														+ '</div>';
+												html += '<div name="car_year">'
+														+ branch.branch_phone
+														+ '</div>';
+												html += '</div>';
+												console.log(html);
+												targetBranch.html(html);
+											});
+						}
+						return false;
 					});
-				}
-				function targetBranch(parameter, callback) {
-					let branch_seq = parameter.branch_seq;
-					let targetBranch = $('#branchInfo');
-					$.getJSON('/car/branch/' + branch_seq + '.json', function(
-							branch) {
-						let html = '';
-						html += '<div class="col-sm-6">';
-						html += '<h3 name="car_seq">' + branch.branch_seq
-								+ '</h3>';
-						html += '<div name="car_model">' + branch.branch_name
-								+ '</div>';
-						html += '<div name="car_year">' + branch.branch_phone
-								+ '</div>';
-						html += '</div>';
-						console.log(html);
-						targetBranch.html(html);
-					});
-				}
-				return false;
-			});
 	$(function() {
 		$('#startDate').datetimepicker({
 			inline : true,

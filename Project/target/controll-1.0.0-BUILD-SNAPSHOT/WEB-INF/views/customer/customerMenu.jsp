@@ -13,10 +13,10 @@
 					<a class="nav-link h5" href="${route}/notice/list">공지사항</a>
 				</td>
 				<td class="nav-item">
-					<a class="nav-link h5" href="${route}/service/rent?category=usedCar">고객상담</a>
+					<a class="nav-link h5" href="${route}/service/rental">고객상담</a>
 				</td>
 				<td class="nav-item">
-					<a class="nav-link h5" href="${route}/faq?keyword=all">자주찾는질문</a>
+					<a class="nav-link h5" href="${route}/faq?type=장기">자주찾는질문</a>
 				</td>
 				<td class="nav-item">
 					<a class="nav-link h5" href="${route}/branch">지점안내</a>

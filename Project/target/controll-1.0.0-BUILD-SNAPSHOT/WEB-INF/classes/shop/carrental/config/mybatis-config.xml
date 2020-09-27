@@ -18,11 +18,19 @@
 	</settings>
 
 	<typeAliases>
-		<typeAlias alias="boardDTO" type="shop.carrental.domain.BoardDTO" />
-		<typeAlias alias="noticeVO" type="shop.carrental.domain.NoticeVO" />
 		<typeAlias alias="noticeDTO" type="shop.carrental.domain.NoticeDTO" />
-		<typeAlias alias="userVO" type="shop.carrental.domain.UserVO"/>
-		<typeAlias alias="userDTO" type="shop.carrental.domain.UserDTO"/>
+		<typeAlias alias="usersDTO" type="shop.carrental.domain.UsersDTO"/>
+		<typeAlias alias="inquiryDTO" type="shop.carrental.domain.InquiryDTO"/>
+		<typeAlias alias="answerDTO" type="shop.carrental.domain.AnswerDTO"/>
+		<typeAlias alias="faqDTO" type="shop.carrental.domain.FaqDTO"/>
+		<typeAlias alias="carDTO" type="shop.carrental.domain.CarDTO"/>
+		<typeAlias alias="mfgcoDTO" type="shop.carrental.domain.MfgcoDTO"/>
+		<typeAlias alias="branchDTO" type="shop.carrental.domain.BranchDTO"/>
+		<typeAlias alias="shortCarDTO" type="shop.carrental.domain.ShortCarDTO"/>
+		<typeAlias alias="segmentDTO" type="shop.carrental.domain.SegmentDTO"/>
+		<typeAlias alias="carDTO" type="shop.carrental.domain.CarDTO"/>
+		<typeAlias alias="carVO" type="shop.carrental.domain.CarVO"/>
+		<typeAlias alias="appointDTO" type="shop.carrental.domain.AppointDTO"/>
 	</typeAliases>
 
 </configuration>

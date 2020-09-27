@@ -37,7 +37,7 @@
 				<tr>
 					<td>
 					    <span class="form-control">생일</span>
-						<input type="text" class="form-control" id="birth_date" name="birth_date" placeholder="yyyy/MM/dd" required="required" />
+						<input type="text" class="form-control" id="birth_date" name="birth_date" placeholder="yyyy-MM-dd" required="required" />
 					</td>
 				</tr>
 				<tr>

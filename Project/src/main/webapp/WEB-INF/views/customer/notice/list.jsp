@@ -26,7 +26,7 @@
 				<tbody>
 					<c:forEach var="notice" items="${noticeList}">
 						<c:set var="seq" value="${notice.notice_seq}" />
-						<fmt:formatDate var="reg_date" value="${notice.notice_reg_date}" pattern="yyyy/MM/dd" />
+						<fmt:formatDate var="reg_date" value="${notice.notice_reg_date}" pattern="yyyy-MM-dd" />
 						<tr>
 							<td><span>${seq}</span></td>
 							<td><span>${notice.notice_type}</span></td>

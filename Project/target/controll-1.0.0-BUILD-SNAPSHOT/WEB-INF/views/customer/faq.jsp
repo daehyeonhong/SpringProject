@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="keyword" value="${param.keyword}"/>
+<c:set var="type" value="${param.type}"/>
 <article>
 	<%@ include file="customerMenu.jsp"%>
 	<div class="container col-sm-6">
@@ -13,12 +13,10 @@
 		<div class="container">
 			<div class="container">
 				<div class="row">
-						<a class="btn btn-${keyword != 'all' ? 'outline-' : ''}dark col-sm-2" href="?keyword=all">전체</a>
-						<a class="btn btn-${keyword != 'direct' ? 'outline-' : ''}dark col-sm-2" href="?keyword=direct">다이렉트</a>
-						<a class="btn btn-${keyword != 'newLongterm' ? 'outline-' : ''}dark col-sm-2" href="?keyword=newLongterm">신차장기</a>
-						<a class="btn btn-${keyword != 'shortterm' ? 'outline-' : ''}dark col-sm-2" href="?keyword=shortterm">단기</a>
-						<a class="btn btn-${keyword != 'usedLongterm' ? 'outline-' : ''}dark col-sm-2" href="?keyword=usedLongterm">중고차장기</a>
-						<a class="btn btn-${keyword != 'electric' ? 'outline-' : ''}dark col-sm-2" href="?keyword=electric">전기차</a>
+						<%-- <a class="btn btn-${type != 'all' ? 'outline-' : ''}dark col-sm-2" href="?type=all">전체</a> --%>
+						<a class="btn btn-${type != '장기' ? 'outline-' : ''}dark col-sm-2" href="?type=장기">장기</a>
+						<a class="btn btn-${type != '단기' ? 'outline-' : ''}dark col-sm-2" href="?type=단기">단기</a>
+						<a class="btn btn-${type != '전기차' ? 'outline-' : ''}dark col-sm-2" href="?type=전기차">전기차</a>
 				</div>
 			</div>
 			<hr>
@@ -27,11 +25,11 @@
 		<div class="container">
 			<div class="container">
 				<div class="row">
-					<a class="btn h4 btn-outline-info col-sm-2" href="${pageContext.request.contextPath}/customer/service/customer">고객상담</a>
+					<a class="btn h4 btn-outline-info col-sm-2" href="${pageContext.request.contextPath}/customer/service/general">고객상담</a>
 					<div class="col-sm-10" align="right">
 						<form class="form col-sm-8" action="#" method="post">
 							<div class="input-group row">
-								<input type="text" class="form-control" name="keyword" placeholder="검색어를 입력해주세요" />
+								<input type="text" class="form-control" name="type" placeholder="검색어를 입력해주세요" />
 								<div class="input-group-append">
 									<button class="btn btn-secondary" type="submit">검색하기</button>
 								</div>
@@ -47,18 +45,18 @@
 		<!-- Content List -->
 		<div align="center">
 			<div class="accordion col-sm-11" id="accordiona">
-				<c:forEach var="i" begin="0" end="14">
+				<c:forEach var="faqList" items="${faqList}" varStatus="i">
 						<div class="card">
-							<div class="card-header" id="heading${i}">
+							<div class="card-header" id="heading${i.index}">
 								<h2 class="mb-0">
-									<button class="btn btn-link card-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${i}" aria-expanded="true" aria-controls="collapse${i}">
-										<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit,${i}</span>
+									<button class="btn btn-link card-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${i.index}" aria-expanded="true" aria-controls="collapse${i.index}">
+										<span>${faqList.faq_title}</span>
 									</button>
 								</h2>
 							</div>
 
-							<div id="collapse${i}" class="collapse" aria-labelledby="heading${i}" data-parent="#accordiona">
-								<div class="card-body"><span>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra massa massa ultricies mi quis hendrerit dolor magna eget.${i}</span></div>
+							<div id="collapse${i.index}" class="collapse" aria-labelledby="heading${i.index}" data-parent="#accordiona">
+								<div class="card-body"><span>${faqList.faq_content}</span></div>
 							</div>
 						</div>
 				</c:forEach>

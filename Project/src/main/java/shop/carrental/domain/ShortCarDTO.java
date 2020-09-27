@@ -19,7 +19,7 @@ public class ShortCarDTO {
 
 	private String license_plate;
 
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date sc_reg_date, sc_update;
 
 }

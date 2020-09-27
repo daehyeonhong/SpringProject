@@ -15,7 +15,7 @@ public class ReserveDTO {
 
 	private String users_id;
 
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date start_date, end_date;
 
 	private int total_ammount, coupon, payment_amount;

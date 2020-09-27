@@ -13,11 +13,13 @@
 		<!-- Tab panes -->
 		<div class="container">
 			<br />
-			<form action="#">
+			<form action="/customer/service/inquiry" method="post">
+			<input type="hidden" name="inquiry_type" value="3">
+			<input type="hidden" name="users_id" value="1">
 				<table class="col-sm-12">
 					<tr>
 						<td><input type="text" class="form-control" name="name" placeholder="이름 입력" /></td>
-						<td><input type="text" class="form-control" name="phone" placeholder="휴대폰번호 (-없이) 입력" /></td>
+						<td><span class="form-control">ID</span></td>
 					</tr>
 					<tr>
 						<td><input type="text" class="form-control" name="email" placeholder="이메일 입력" /></td>
@@ -30,12 +32,12 @@
 					</tr>
 					<tr>
 						<td colspan="2">
-							<input type="text" class="form-control" name="title" placeholder="제목을 입력하해주세요." />
+							<input type="text" class="form-control" name="inquiry_title" placeholder="제목을 입력하해주세요." />
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2">
-							<textarea class="form-control" rows="5" name="content" placeholder="내용 입력 (10자 이상 등록해주세요)"></textarea>
+							<textarea class="form-control" rows="5" name="inquiry_content" placeholder="내용 입력 (10자 이상 등록해주세요)"></textarea>
 						</td>
 					</tr>
 					<tr>

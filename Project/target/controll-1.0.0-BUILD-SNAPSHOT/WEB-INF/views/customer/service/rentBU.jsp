@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <article>
-	<c:set var="category" value="${param.category}"/>
+	<c:set var="term" value="${param.term}"/>
 	<%@ include file="../customerMenu.jsp"%>
 	<div class="container col-sm-6">
 		<div class="container row">
@@ -20,10 +20,10 @@
 					<span class="nav-link border">상담유형</span>
 				</li>
 				<li class="nav-item">
-					<a class="btn btn<c:if test="${category != 'usedCar'}">-outline</c:if>-info nav-link" href="?category=usedCar">중고차 장기렌터카</a>
+					<a class="btn btn<c:if test="${term != 'long'}">-outline</c:if>-info nav-link" href="?term=long">장기 렌터카</a>
 				</li>
 				<li class="nav-item">
-					<a class="btn btn<c:if test="${category != 'personal'}">-outline</c:if>-info nav-link" href="?category=personal">개인 장기렌터카</a>
+					<a class="btn btn<c:if test="${term != 'short'}">-outline</c:if>-info nav-link" href="?term=short">단기 렌터카</a>
 				</li>
 			</ul>
 

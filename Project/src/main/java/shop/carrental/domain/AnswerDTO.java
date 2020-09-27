@@ -18,7 +18,7 @@ public class AnswerDTO {
 
 	private String answer_title, answer_writer, answer_content;
 
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date answer_reg_date, answer_update;
 
 }

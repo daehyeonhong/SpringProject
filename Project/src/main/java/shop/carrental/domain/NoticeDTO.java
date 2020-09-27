@@ -18,7 +18,7 @@ public class NoticeDTO {
 
 	private int notice_count, notice_good, notice_bad;
 
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date notice_reg_date, notice_update;
 
 }

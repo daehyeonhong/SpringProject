@@ -19,7 +19,7 @@ public class InquiryDTO {
 
 	private String inquiry_title, inquiry_content, users_id;
 
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date inquiry_reg_date, inquiry_update;
 
 }

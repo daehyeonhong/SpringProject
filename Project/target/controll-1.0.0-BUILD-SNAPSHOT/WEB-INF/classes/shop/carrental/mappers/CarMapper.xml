@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.carrental.mappers.CarMapper">
+
+	<resultMap type="mfgcoDTO" id="mfgco">
+		<id property="mfgco_seq" column="mfgco_seq" />
+		<result property="mfgco_name" column="mfgco_name" />
+		<result property="mfgco_eng_name" column="mfgco_eng_name" />
+	</resultMap>
+
+	<resultMap type="segmentDTO" id="segment">
+		<id property="segment_seq" column="segment_seq" />
+		<result property="segment_name" column="segment_name" />
+		<result property="segment_desc" column="segment_desc" />
+	</resultMap>
+
+	<resultMap type="carVO" id="car">
+		<id property="trim_seq" column="trim_seq" />
+		<result property="car_seq" column="car_seq" />
+		<result property="car_model" column="car_model" />
+		<result property="segment_name" column="segment_name" />
+		<result property="fuel_name" column="fuel_name" />
+		<result property="mfgco_name" column="mfgco_name" />
+		<result property="car_desc" column="car_desc" />
+		<result property="trim_name" column="trim_name" />
+		<result property="car_year" column="car_year" />
+		<result property="trim_price" column="trim_price" />
+	</resultMap>
+
+	<resultMap type="shortCarDTO" id="shortCar">
+		<id property="sc_seq" column="sc_seq" />
+		<result property="trim_seq" column="trim_seq" />
+		<result property="branch_seq" column="branch_seq" />
+		<result property="dash_cam" column="dash_cam" />
+		<result property="back_camera" column="back_camera" />
+		<result property="navigation" column="navigation" />
+		<result property="sunroof" column="sunroof" />
+		<result property="bluetooth" column="bluetooth" />
+		<result property="aux" column="aux" />
+		<result property="smart_key" column="smart_key" />
+		<result property="nomal_price" column="nomal_price" />
+		<result property="weekend_price" column="weekend_price" />
+		<result property="license_plate" column="license_plate" />
+		<result property="sc_reg_date" column="sc_reg_date" />
+		<result property="sc_update" column="sc_update" />
+	</resultMap>
+
+	<sql id="carVO">
+		<![CDATA[
+					SELECT
+						T.TRIM_SEQ,
+						C.CAR_SEQ,
+						C.CAR_MODEL,
+						S.SEGMENT_NAME,
+						F.FUEL_NAME,
+						M.MFGCO_NAME,
+						C.CAR_YEAR,
+						C.CAR_DESC,
+						T.TRIM_NAME,
+						T.TRIM_PRICE
+					FROM
+						CAR C,
+						SEGMENT S,
+						MFGCO M,
+						FUEL F,
+						TRIM T
+					WHERE
+						C.SEGMENT_SEQ=S.SEGMENT_SEQ
+					AND
+						C.MFGCO_SEQ=M.MFGCO_SEQ
+					AND
+						C.FUEL_SEQ=F.FUEL_SEQ
+					AND
+						C.CAR_SEQ=T.CAR_SEQ
+				]]>
+	</sql>
+
+	<select id="listMfgco" resultMap="mfgco">
+		<![CDATA[
+			SELECT*FROM MFGCO
+		]]>
+	</select>
+
+	<select id="listSegment" resultMap="segment">
+		<![CDATA[
+			SELECT*FROM SEGMENT
+		]]>
+	</select>
+
+	<select id="listCar" resultMap="car">
+		<include refid="carVO" />
+		<choose>
+			<when test="mfgco_seq==99999">
+				<if test="segment_seq==99999">
+				</if>
+				<if test="segment_seq!=99999">
+					AND S.SEGMENT_SEQ=#{segment_seq}
+				</if>
+			</when>
+			<when test="segment_seq==99999">
+				<if test="mfgco_seq==9"></if>
+				<if test="mfgco_seq!=9">
+					AND M.MFGCO_SEQ=#{mfgco_seq}
+				</if>
+			</when>
+			<otherwise>
+				AND M.MFGCO_SEQ=#{mfgco_seq}
+				AND
+				S.SEGMENT_SEQ=#{segment_seq}
+			</otherwise>
+		</choose>
+		ORDER BY C.CAR_SEQ
+	</select>
+
+	<select id="detailTrim" resultMap="car">
+		<include refid="carVO" />
+		AND TRIM_SEQ=#{trim_seq}
+	</select>
+
+	<insert id="registerShortCar">
+		<![CDATA[
+			INSERT INTO SHORT_CAR(
+			SC_SEQ,LICENSE_PLATE,DASH_CAM,BACK_CAMERA,
+			NAVIGATION,SUNROOF,BLUETOOTH,AUX,SMART_KEY,
+			NOMAL_PRICE,WEEKEND_PRICE,TRIM_SEQ,BRANCH_SEQ
+			) VALUES (
+			SEQ_SHORT_CAR.NEXTVAL,#{license_plate},#{dash_cam},#{back_camera},#{navigation},#{sunroof},
+			#{bluetooth},#{aux},#{smart_key},#{nomal_price},#{weekend_price},#{trim_seq},#{branch_seq}
+			)
+		]]>
+	</insert>
+
+	<select id="listShortCar" resultMap="shortCar">
+		<![CDATA[
+			SELECT S.*
+				FROM SHORT_CAR S
+			LEFT JOIN 
+			(
+				SELECT R.*
+					FROM RESERVE R
+						WHERE R.END_DATE >= '2020/10/07'
+						AND R.START_DATE <= '2020/10/7'
+			)
+			R ON S.SC_SEQ = R.SHORT_CAR_SEQ
+			WHERE R.SHORT_CAR_SEQ IS NULL
+			AND S.BRANCH_SEQ=2
+		]]>
+	</select>
+
+</mapper>

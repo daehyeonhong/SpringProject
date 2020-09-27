@@ -1,0 +1,73 @@
+# language settings
+message.all.settings.language.en=영어
+message.all.settings.language.ko=한글
+
+# header-sidebar.jsp
+message.admin.header-sidebar.title=TTCAR ADMIN
+message.admin.header-sidebar.dashboard=대시보드
+message.admin.header-sidebar.interface=인터페이스
+message.admin.header-sidebar.addons=애드온
+message.admin.header-sidebar.charts=차트
+message.admin.header-sidebar.tickets=티켓
+
+# header-topbar.jsp
+message.admin.header-topbar.search=검색
+message.admin.header-topbar.profile=내 정보
+message.admin.header-topbar.logout=로그아웃
+
+# index.jsp
+message.admin.index.dashboard=대시보드
+message.admin.index.earnings-monthly=수익 (월)
+message.admin.index.earnings-annual=수익 (년)
+message.admin.index.tasks=작업현황
+message.admin.index.pending-requests=보류중인 작업
+
+message.admin.index.earnings-overview=수익 그래프
+message.admin.index.earnings=수익
+message.admin.index.january=1월
+message.admin.index.february=2월
+message.admin.index.march=3월
+message.admin.index.april=4월
+message.admin.index.may=5월
+message.admin.index.june=6월
+message.admin.index.july=7월
+message.admin.index.august=8월
+message.admin.index.september=9월
+message.admin.index.october=10월
+message.admin.index.november=11월
+message.admin.index.december=12월
+
+message.admin.index.revenue-sources=수익 근원
+message.admin.index.longterm-rent=장기 랜트
+message.admin.index.shortterm-rent=단기 랜트
+
+
+
+
+
+
+
+# login.jsp
+message.user.login.title=로그인
+message.user.login.id=아이디
+message.user.login.password=비밀번호
+message.user.login.passwordConfirm=비밀번호 확인
+message.user.login.name=이름
+message.user.login.role=권한
+message.user.login.loginBtn=로그인
+message.user.login.registBtn=회원가입
+message.user.login.updateBtn=회원정보 수정
+message.user.login.deleteBtn=회원탈퇴
+
+# getBoardList.jsp
+message.board.list.mainTitle=게시글 목록
+message.board.list.welcomeMsg=님! 게시판에 오신걸 환영합니다.
+message.board.list.search.condition.title=제목
+message.board.list.search.condition.content=내용
+message.board.list.search.condition.btn=검색
+message.board.list.table.head.seq=번호
+message.board.list.table.head.title=제목
+message.board.list.table.head.writer=작성자
+message.board.list.table.head.regDate=등록일
+message.board.list.table.head.cnt=조회수
+message.board.list.link.insertBoard=새글 등록
