@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="shop.carrental.mappers.CarMapper">
 
-	<resultMap type="mfgcoDTO" id="mfgcoList">
+	<resultMap type="mfgcoDTO" id="mfgco">
 		<id property="mfgco_seq" column="mfgco_seq" />
 		<result property="mfgco_name" column="mfgco_name" />
 		<result property="mfgco_eng_name" column="mfgco_eng_name" />
 	</resultMap>
 
-	<resultMap type="segmentDTO" id="segmentList">
+	<resultMap type="segmentDTO" id="segment">
 		<id property="segment_seq" column="segment_seq" />
 		<result property="segment_name" column="segment_name" />
 		<result property="segment_desc" column="segment_desc" />
@@ -25,6 +25,24 @@
 		<result property="trim_name" column="trim_name" />
 		<result property="car_year" column="car_year" />
 		<result property="trim_price" column="trim_price" />
+	</resultMap>
+
+	<resultMap type="shortCarDTO" id="shortCar">
+		<id property="sc_seq" column="sc_seq" />
+		<result property="trim_seq" column="trim_seq" />
+		<result property="branch_seq" column="branch_seq" />
+		<result property="dash_cam" column="dash_cam" />
+		<result property="back_camera" column="back_camera" />
+		<result property="navigation" column="navigation" />
+		<result property="sunroof" column="sunroof" />
+		<result property="bluetooth" column="bluetooth" />
+		<result property="aux" column="aux" />
+		<result property="smart_key" column="smart_key" />
+		<result property="nomal_price" column="nomal_price" />
+		<result property="weekend_price" column="weekend_price" />
+		<result property="license_plate" column="license_plate" />
+		<result property="sc_reg_date" column="sc_reg_date" />
+		<result property="sc_update" column="sc_update" />
 	</resultMap>
 
 	<sql id="carVO">
@@ -57,13 +75,13 @@
 				]]>
 	</sql>
 
-	<select id="listMfgco" resultMap="mfgcoList">
+	<select id="listMfgco" resultMap="mfgco">
 		<![CDATA[
 			SELECT*FROM MFGCO
 		]]>
 	</select>
 
-	<select id="listSegment" resultMap="segmentList">
+	<select id="listSegment" resultMap="segment">
 		<![CDATA[
 			SELECT*FROM SEGMENT
 		]]>
@@ -111,5 +129,22 @@
 			)
 		]]>
 	</insert>
+
+	<select id="listShortCar" resultMap="shortCar">
+		<![CDATA[
+			SELECT S.*
+				FROM SHORT_CAR S
+			LEFT JOIN 
+			(
+				SELECT R.*
+					FROM RESERVE R
+						WHERE R.END_DATE >= '2020/10/07'
+						AND R.START_DATE <= '2020/10/7'
+			)
+			R ON S.SC_SEQ = R.SHORT_CAR_SEQ
+			WHERE R.SHORT_CAR_SEQ IS NULL
+			AND S.BRANCH_SEQ=2
+		]]>
+	</select>
 
 </mapper>

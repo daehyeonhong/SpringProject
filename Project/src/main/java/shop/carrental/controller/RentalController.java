@@ -11,7 +11,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.AppointDTO;
-import shop.carrental.service.RentalTermService;
+import shop.carrental.service.RentalService;
 
 @Controller
 @Log4j
@@ -19,7 +19,7 @@ import shop.carrental.service.RentalTermService;
 @RequestMapping("/rental/*")
 public class RentalController {
 
-	private RentalTermService rentalTermService;
+	private RentalService rentalTermService;
 
 	@GetMapping("/")
 	public String basic() {

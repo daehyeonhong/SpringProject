@@ -1,5 +1,6 @@
 package shop.carrental.mappers;
 
+import java.util.Date;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import shop.carrental.domain.CarVO;
@@ -18,5 +19,9 @@ public interface CarMapper {
 	public int registerShortCar(ShortCarDTO dto);
 
 	public Object detailTrim(Long trim_seq);
+
+	public List<ShortCarDTO> listShortCar(@Param("start_date") Date start_date, @Param("end_date") Date end_date,
+			@Param("branch_seq") Long branch_seq, @Param("mfgco_seq") Long mfgco_seq,
+			@Param("segment_seq") Long segment_seq);
 
 }
