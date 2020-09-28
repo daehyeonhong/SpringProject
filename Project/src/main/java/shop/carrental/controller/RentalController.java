@@ -2,15 +2,17 @@ package shop.carrental.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
+import oracle.net.aso.d;
 import shop.carrental.domain.AppointDTO;
+import shop.carrental.domain.AppointVO;
 import shop.carrental.service.RentalService;
 
 @Controller
@@ -43,8 +45,34 @@ public class RentalController {
 	public String appoint(AppointDTO dto, HttpServletRequest request, RedirectAttributes redirectAttributes) {
 		log.info("appoint");
 
-		return rentalTermService.registerAppoint(dto, redirectAttributes) ? "redirect:/rental/result"
-				: "redirect:" + request.getHeader("Referer");
+		// Long appoint_seq =rentalTermService.getLongnextseq();
+
+		// dto.setAppoint_seq(appoint_seq);
+
+		log.info(dto);
+		Long resultAppoint = rentalTermService.registerAppoint(dto, redirectAttributes);
+		Long appoint_seq = dto.getAppoint_seq();
+
+		// Long resultAppoint = dto.getAppoint_seq();
+		log.info("resultAppoint:--------------------------> " + resultAppoint);
+		log.info("resultAppoint:--------------------------> " + appoint_seq);
+
+		redirectAttributes.addAttribute("appoint_seq", appoint_seq);
+
+		/*
+		 * return rentalTermService.registerAppoint(dto, redirectAttributes) ?
+		 * "redirect:/rental/result" : "redirect:" + request.getHeader("Referer");
+		 */
+		return resultAppoint > 0 ? "redirect:/rental/result" : "redirect:" + request.getHeader("Referer");
+	}
+
+	@GetMapping("/result")
+	public void confirm(AppointDTO dto, Model model, RedirectAttributes redirectAttributes) {
+		log.info(dto);
+		log.info(redirectAttributes.getFlashAttributes().toString());
+		AppointDTO dto2 = rentalTermService.getAppointInfo(dto);
+		model.addAttribute("AppointInfo", dto2);
+
 	}
 
 }

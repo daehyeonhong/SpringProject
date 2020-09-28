@@ -2,7 +2,58 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <fmt:formatNumber pattern="#,### 원" var="price" value="${car.trim_price}"/>
-<article>
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+<link rel="stylesheet"
+	href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
+<style>
+.accordion {
+  background-color: white;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: orange;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+div.f{
+border: 1px solid red;}
+</style>
+<body>
+
+<div class="container">
+
 	<div class="jumbotron">
 		<h2>장기 렌트</h2>
 	</div>
@@ -61,44 +112,80 @@
 			<h4>장기 렌트 예약</h4>
 			<hr style="border: solid 1px black" />
 		<form action="/rental/appoint" method="post">
-			<table class="col-sm-12">
-				<tr>
-					<td colspan="1">
+			<button type="button" class="accordion">
+			<span class="col-sm-3"><strong>방문 일</strong></span></button>
+			<div class="panel bg-light "><span class="col-sm-3"><br>지점 방문일: </span>
+			<input type="hidden" id="appoint_date" name="appoint_date">
+				<br><br>
+				</div>
+				
+			<button type="button" class="accordion"><span class="col-sm-3"><strong>지점 선택</strong></span> <span class="col-sm-3" id="result2" ></span></button> 
+			<div class="panel bg-light">
+					<span class="col-sm-4"><br>방문할 지점 선택: </span>	
 						<select name="branch_seq" class="form-control">
 							<c:forEach var="branch" items="${branchList}">
 								<option value="${branch.branch_seq}">${branch.branch_name}</option>
 							</c:forEach>
-						</select>
-					</td>
-					<td colspan="1">
-						<span class="form-control">예약일</span>
-						<input type="hidden" name="appoint_date" value="2020/10/05">
-					</td>
-					<td colspan="1">
+						</select>	<br><br></div>
+				
 						<span class="form-control">${users_name}</span>
-						<input type="hidden" name="users_id" value="${users_id}" />
-					</td>
-				</tr>
-				<tr>
-					<td colspan="3">
+						<input type="hidden" name="users_id" value="1<%-- ${users_id} --%>" />
+				
+				
 						<span class="form-control">
 							${car.car_year}년형&emsp;${car.mfgco_name}&emsp;${car.car_model}&emsp;${car.trim_name}
 						</span>
 						<input type="hidden" name="trim_seq" value="${car.trim_seq}" />
-					</td>
-				</tr>
-			</table>
-			<button type="submit">상담 예약</button>
+			<button class=" btn btn-warning" type="submit">상담 예약</button>
 		</form>
 		</div>
+		
+		
+		
+<div class="f">
+<ul>
+<li>차량 이미지는 고객님의 이해를 돕기 위한 이미지로 실제 차량과 다를 수 있습니다.</li>
+<li>현재 재고 기준의 견적으로 바로 구매하시지 않는 경우 재고 소진으로 구매가 불가할 수 있습니다.</li>
+<li>상담신청 및 다이렉트 계약을 클릭하시면 <span class="cl-point2">MY렌터카 &gt; 장기CAR &gt; 견적정보</span>에서 견적비교를 하실 수 있습니다.</li>
+<li>지역 이동이 필요할 경우 탁송료가 발생할 수 있습니다.</li>
+<li>약정 주행거리 초과 위약금: 1600CC미만(60원/km) , 2000CC미만(80원/km) , 2000CC이상(100원/km) , 수입차(200원/km)</li>
+</ul>
+
+</div>
 	</div>
-	
-	<%-- ${car.car_seq} ${car.mfgco_name}
-	<input name="seq" value='${AppointInfo.fuel_seq}'><br>
-<input name="seq" value='${AppointInfo.manufacturer_seq}'><br>
-<input name="seq" value='${AppointInfo.year}'><br>
-<input name="seq" value='${AppointInfo.description}'><br>
-<input name="seq" value='${AppointInfo.image_seq}'><br>
-<input name="seq" value='${AppointInfo.price}'><br>
-<input type="submit" value="등록"> --%>
-</article>
+	</div>
+	<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+$(function() {
+	$('#appoint_date').datetimepicker({
+		inline : true,
+		sideBySide : true,
+		format : 'L',
+		useCurrent : false
+	});
+	$('#endDate').datetimepicker('minDate', new Date());
+	$('#startDate').datetimepicker('minDate', new Date());
+	$("#startDate").on("change.datetimepicker", function(event) {
+		$('#endDate').datetimepicker('minDate', event.date);
+	});
+	$("#endDate").on("change.datetimepicker", function(event) {
+		$('#startDate').datetimepicker('maxDate', event.date);
+	});
+});
+</script>
+
+	</body>
+

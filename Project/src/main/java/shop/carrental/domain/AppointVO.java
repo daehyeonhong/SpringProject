@@ -11,7 +11,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class AppointDTO {
+public class AppointVO {
 
 	private Long appoint_seq, trim_seq, branch_seq;
 
