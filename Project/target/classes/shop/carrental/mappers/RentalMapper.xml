@@ -13,15 +13,30 @@
 		<result property="branch_type" column="branch_type" />
 	</resultMap>
 
-	<resultMap type="appointDTO" id="appoint">
-		<id property="appoint_seq" column="appoint_seq" />
-		<result property="trim_seq" column="trim_seq" />
-		<result property="branch_seq" column="branch_seq" />
-		<result property="users_id" column="users_id" />
-		<result property="appoint_reg_date" column="appoint_reg_date" />
-		<result property="appoint_update" column="appoint_update" />
-		<result property="appoint_date" column="appoint_date" />
-	</resultMap>
+	 <resultMap type="appointDTO" id="appoint">
+	<id property="appoint_seq" column="appoint_seq" />
+<result property="trim_seq" column="trim_seq" />
+<result property="branch_seq" column="branch_seq" />
+<result property="users_id" column="users_id" />
+<result property="appoint_reg_date" column="appoint_reg_date" />
+<result property="appoint_update" column="appoint_update" />
+<result property="appoint_date" column="appoint_date" />
+	</resultMap> 
+
+<resultMap type="shop.carrental.domain.AppointVO" id="appointresult">
+
+<result property="appoint_seq" column="appoint_seq" />
+<result property="trim_seq" column="trim_seq" />
+<result property="branch_seq" column="branch_seq" />
+<result property="users_id" column="users_id" />
+<result property="appoint_reg_date" column="appoint_reg_date" />
+<result property="appoint_update" column="appoint_update" />
+<result property="appoint_date" column="appoint_date" />
+
+
+</resultMap>
+
+
 
 	<sql id="select">
 		<![CDATA[
@@ -37,8 +52,15 @@
 	</select>
 
 	<insert id="registerAppoint">
+	
+     <selectKey keyProperty="appoint_seq" order="BEFORE" resultType="long">
+      select SEQ_APPOINT.NEXTVAL from dual
+     </selectKey>
+  
+  
 		<![CDATA[
 			INSERT INTO APPOINT(
+			
 				APPOINT_SEQ,
 				TRIM_SEQ,
 				BRANCH_SEQ,
@@ -46,7 +68,8 @@
 				APPOINT_DATE
 				)
 			VALUES(
-				SEQ_APPOINT.NEXTVAL,
+			
+				#{appoint_seq},
 				#{trim_seq},
 				#{branch_seq},
 				#{users_id},
@@ -55,14 +78,26 @@
 		]]>
 	</insert>
 
-	<select id="getAppoint" resultMap="appoint">
+	<select id="getAppointInfo" resultMap="appoint">
 		<include refid="select" />
-		APPOINT WHERE APPOINT_SEQ=#{appoint_seq}
+		APPOINT WHERE appoint_seq=#{appoint_seq}
 	</select>
 
 	<select id="getBranch" resultMap="branch">
 		<include refid="select" />
 		BRANCH WHERE BRANCH_SEQ=#{branch_seq}
 	</select>
+	
+	
+	<select id="getNextSeq" resultType="long">
+	select SEQ_APPOINT.NEXTVAL from dual
+	</select>
+
+<!-- 	
+		<select id="getAppointInfo" resultMap="appointresult">
+		<include refid="select" />
+		appoint WHERE appoint_seq=#{appoint_seq}
+	</select>
+	 -->
 
 </mapper>

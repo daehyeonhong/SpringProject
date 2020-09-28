@@ -1,18 +1,20 @@
 package shop.carrental.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
-
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
-import oracle.net.aso.d;
 import shop.carrental.domain.AppointDTO;
-import shop.carrental.domain.AppointVO;
 import shop.carrental.service.RentalService;
 
 @Controller
@@ -20,6 +22,12 @@ import shop.carrental.service.RentalService;
 @AllArgsConstructor
 @RequestMapping("/rental/*")
 public class RentalController {
+
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
+	}
 
 	private RentalService rentalTermService;
 

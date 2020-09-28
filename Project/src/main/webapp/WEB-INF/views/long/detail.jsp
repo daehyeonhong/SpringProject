@@ -112,21 +112,14 @@ border: 1px solid red;}
 			<h4>장기 렌트 예약</h4>
 			<hr style="border: solid 1px black" />
 		<form action="/rental/appoint" method="post">
-			<button type="button" class="accordion">
-			<span class="col-sm-3"><strong>방문 일</strong></span></button>
-			<div class="panel bg-light "><span class="col-sm-3"><br>지점 방문일: </span>
 			<input type="hidden" id="appoint_date" name="appoint_date">
 				<br><br>
-				</div>
 				
-			<button type="button" class="accordion"><span class="col-sm-3"><strong>지점 선택</strong></span> <span class="col-sm-3" id="result2" ></span></button> 
-			<div class="panel bg-light">
-					<span class="col-sm-4"><br>방문할 지점 선택: </span>	
 						<select name="branch_seq" class="form-control">
 							<c:forEach var="branch" items="${branchList}">
 								<option value="${branch.branch_seq}">${branch.branch_name}</option>
 							</c:forEach>
-						</select>	<br><br></div>
+						</select>
 				
 						<span class="form-control">${users_name}</span>
 						<input type="hidden" name="users_id" value="1<%-- ${users_id} --%>" />
@@ -176,14 +169,7 @@ $(function() {
 		format : 'L',
 		useCurrent : false
 	});
-	$('#endDate').datetimepicker('minDate', new Date());
-	$('#startDate').datetimepicker('minDate', new Date());
-	$("#startDate").on("change.datetimepicker", function(event) {
-		$('#endDate').datetimepicker('minDate', event.date);
-	});
-	$("#endDate").on("change.datetimepicker", function(event) {
-		$('#startDate').datetimepicker('maxDate', event.date);
-	});
+	$('#appoint_date').datetimepicker('minDate', new Date());
 });
 </script>
 
