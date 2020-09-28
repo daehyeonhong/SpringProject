@@ -9,6 +9,7 @@ import shop.carrental.domain.CarVO;
 import shop.carrental.domain.MfgcoDTO;
 import shop.carrental.domain.SegmentDTO;
 import shop.carrental.domain.ShortCarDTO;
+import shop.carrental.domain.ShortCarVO;
 import shop.carrental.mappers.CarMapper;
 
 @Log4j
@@ -42,6 +43,12 @@ public class CarServiceImpl implements CarService {
 		log.info("ListCar::" + start_date + "::" + end_date + "::" + branch_seq);
 
 		return carMapper.listShortCar(start_date, end_date, branch_seq);
+	}
+
+	@Override
+	public ShortCarVO getDetailCar(Long sc_seq) {
+
+		return carMapper.getCarInfo(sc_seq);
 	}
 
 }

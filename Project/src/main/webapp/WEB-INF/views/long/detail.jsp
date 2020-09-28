@@ -112,7 +112,7 @@ border: 1px solid red;}
 			<h4>장기 렌트 예약</h4>
 			<hr style="border: solid 1px black" />
 		<form action="/rental/appoint" method="post">
-			<input type="hidden" id="appoint_date" name="appoint_date">
+			<input type="text" id="appoint_date" name="appoint_date">
 				<br><br>
 				
 						<select name="branch_seq" class="form-control">

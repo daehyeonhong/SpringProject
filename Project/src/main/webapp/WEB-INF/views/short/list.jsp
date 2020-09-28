@@ -10,14 +10,6 @@
 <link rel="stylesheet"
 	href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
 <article>
-	<div class="container col-sm-8">
-		<!-- 단기렌트 제목틀-->
-		<div class="jumbotron bg-white">
-			<div class="container col-sm-6">
-				<h1>단기렌터카 예약/확인</h1>
-			</div>
-		</div>
-		<div class="container">
 			<table class="table">
 				<tr class="row">
 					<td class="col-sm-3">
@@ -45,8 +37,9 @@
 			</table>
 			<button class="btn btn-outline-info" id="btnSc">목록보기</button>
 			<div id="list" align="center"></div>
-		</div>
-	</div>
+			
+			
+
 </article>
 <script type="text/javascript">
 	$()

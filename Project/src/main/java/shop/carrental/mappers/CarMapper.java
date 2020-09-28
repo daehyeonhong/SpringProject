@@ -7,6 +7,7 @@ import shop.carrental.domain.CarVO;
 import shop.carrental.domain.MfgcoDTO;
 import shop.carrental.domain.SegmentDTO;
 import shop.carrental.domain.ShortCarDTO;
+import shop.carrental.domain.ShortCarVO;
 
 public interface CarMapper {
 
@@ -22,5 +23,7 @@ public interface CarMapper {
 
 	public List<ShortCarDTO> listShortCar(@Param("start_date") Date start_date, @Param("end_date") Date end_date,
 			@Param("branch_seq") Long branch_seq);
+
+	public ShortCarVO getCarInfo(Long sc_seq);
 
 }

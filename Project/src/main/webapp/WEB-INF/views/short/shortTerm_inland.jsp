@@ -7,7 +7,10 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
-
+<style>
+	strong{color: orange;}
+	hr{background-color:black;}
+</style>
  <script>
     $(function () {
     	
@@ -32,18 +35,22 @@
         });
     });
 </script>
+
 <script type="text/javascript">
+
 			function insurance(){
 			 	var insuranceFrame = window.open("z_shortTerm_Insurance.jsp","", "left=600, top=300, width=600, height=600,toolbar=no, scrollbars=no, status=no, resizable=no");
-			}
-		/* 	function list_photo(){
+			}/* 
+		function list_photo(){
 				reserveForm.submit();
 			} */
-			function addop(add){
-				let addoption = document.getElementById(add).value;
-				document.getElementById("addoptionh").innerHTML=addoption;
-				alert(addoption);
-			}
+		function addop(add){
+			let addoption = document.getElementById(add).value;
+			document.getElementById("addoptionh").innerHTML=addoption;
+			alert(addoption);
+		}
+			
+			
 </script>
 
 <script>
@@ -71,10 +78,7 @@ function reset(){
 	}
 }
 </script>
-<style>
-	strong{color: orange;}
-	hr{background-color:black;}
-</style>
+
 <!-- 단기렌트 제목틀-->
 <div class="jumbotron bg-white">
   <div class="container col-sm-6">
@@ -93,21 +97,24 @@ function reset(){
     <li class="col nav-item">
       <a class="nav-link text-center" href="shortTerm_inland.jsp">내륙예약</a>
     </li>
+   <!-- <!--  <li class="nav-item">
+      <a class="nav-link" href="shortTerm_history.jsp">예약확인</a>
+    </li> --> 
   </ul>
 </nav>
 <br>
 <br>
-  
-  <form class="col-sm-12" name="reserveForm" action="./product.jsp">
+
+<form class="col-sm-12" name="reserveForm" action="./product.jsp">
   <div class="comment row col-sm-10"><h3>기간ㆍ지점ㆍ차량 선택&nbsp;<span style="font-size: 12px;"><strong>기간ㆍ지점ㆍ차량</strong>은 순서와 관계없이 <strong>선택 예약이 가능</strong>합니다.</span></h3></div>
+  <!--  comment row글씨 아래로 -->
   
   <hr>
-  <%@ include file="list.jsp" %>
+    <%@ include file="list.jsp" %>
   <!-- 기간지점선택테이블 -->
   <table style="width: 100%">
-  
-  <!-- rest추가 -->
-  <tr>
+    <!-- rest추가 -->
+ <tr>
   	<td colspan="3">
   	  <br>
   <br>
@@ -130,5 +137,7 @@ function reset(){
 <br>
 </form>
 </div>
-<%-- <%@ include file="z_shortTerm_show_brachLocation.jsp" %> --%>
-<%-- <%@ include file="./z_shortTerm_navbar.jsp" %> --%>
+<br>
+<br>
+<br>
+
