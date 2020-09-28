@@ -69,12 +69,25 @@
 							html += '<a href="/long/detail?trim_seq='
 									+ car.trim_seq + '"';
 							html += '<div class="col-sm-6">';
-							html += '<h3 name="car_seq">' + car.trim_name
-									+ '</h3>';
-							html += '<div name="car_model">' + car.car_model
-									+ '</div>';
-							html += '<div name="car_year">' + car.car_year
-									+ '</div>';
+							html += '<div class="row">'; html += '</div>'
+							html += '<div class="card-body">';
+							html +='<div class="row">';
+							html +='<div class="col-sm-6">';
+						    html +=' <button type="button" class="btn btn-outline-dark " disabled>소비자가</button>';
+							html += '<strong name="car_seq">' + car.trim_price
+							html += '</strong></div>';
+							html += '<div class="col-sm-6">';
+							html +='<button type="button" class="btn btn-outline-dark " disabled>모델명</button>';
+							html += '<strong name="car_model">' + car.trim_name
+									+ '</strong>'+'</div>'+'</div>';
+							html += '<hr style="border:1px solid"></hr>';
+							html +='<div class="row"><ul class="col-sm-6">';
+							html += '<li>차량 연식<span name="car_year">' + car.car_year+ '</li>';
+							html += '<li>차량 가격<span name="car_trim">' + car.fuel_name+ '</li></ul>';
+							html += '<ul class="col-sm-6">';
+							html += '<li>차량 연식<span name="car_year">' + car.car_model+ '</li>';
+							html += '<li>차량 가격<span name="car_trim">' + car.segment_name+ '</li></ul></div>';
+							
 							html += '</div></a>';
 						});
 						console.log(html);
