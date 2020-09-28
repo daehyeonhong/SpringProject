@@ -15,7 +15,6 @@ public interface CarService {
 
 	public List<CarVO> listCar(Long mfgco_seq, Long segment_seq);
 
-	public List<ShortCarDTO> listShortCar(Date start_date, Date end_date, Long branch_seq, Long mfgco_seq,
-			Long segment_seq);
+	public List<ShortCarDTO> listShortCar(Date start_date, Date end_date, Long branch_seq);
 
 }

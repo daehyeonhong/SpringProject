@@ -45,16 +45,14 @@ public class CarController {
 		return new ResponseEntity<List<CarVO>>(carService.listCar(mfgco_seq, segment_seq), HttpStatus.OK);
 	}
 
-	@GetMapping(value = "/shortCarList/{start_date}/{end_date}/{branch_seq}/{mfgco_seq}/{segment_seq}", produces = {
+	@GetMapping(value = "/shortCarList/{start_date}/{end_date}/{branch_seq}", produces = {
 			MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE })
 	public ResponseEntity<List<ShortCarDTO>> shortCarList(@PathVariable("start_date") Date start_date,
-			@PathVariable("end_date") Date end_date, @PathVariable("branch_seq") Long branch_seq,
-			@PathVariable("mfgco_seq") Long mfgco_seq, @PathVariable("segment_seq") Long segment_seq) {
-		log.info("shortCarList ==> " + start_date + "::" + end_date + "::" + branch_seq + "::" + mfgco_seq + "::"
-				+ segment_seq + " <==");
+			@PathVariable("end_date") Date end_date, @PathVariable("branch_seq") Long branch_seq) {
+		log.info("shortCarList ==> " + start_date + "::" + end_date + "::" + branch_seq + " <==");
 
-		return new ResponseEntity<List<ShortCarDTO>>(
-				carService.listShortCar(start_date, end_date, branch_seq, mfgco_seq, segment_seq), HttpStatus.OK);
+		return new ResponseEntity<List<ShortCarDTO>>(carService.listShortCar(start_date, end_date, branch_seq),
+				HttpStatus.OK);
 	}
 
 	@GetMapping(value = "/branch/{branch_seq}", produces = { MediaType.APPLICATION_ATOM_XML_VALUE,

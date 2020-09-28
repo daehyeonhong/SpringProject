@@ -38,12 +38,10 @@ public class CarServiceImpl implements CarService {
 	}
 
 	@Override
-	public List<ShortCarDTO> listShortCar(Date start_date, Date end_date, Long branch_seq, Long mfgco_seq,
-			Long segment_seq) {
-		log.info(
-				"ListCar::" + start_date + "::" + end_date + "::" + branch_seq + "::" + mfgco_seq + "::" + segment_seq);
+	public List<ShortCarDTO> listShortCar(Date start_date, Date end_date, Long branch_seq) {
+		log.info("ListCar::" + start_date + "::" + end_date + "::" + branch_seq);
 
-		return carMapper.listShortCar(start_date, end_date, branch_seq, mfgco_seq, segment_seq);
+		return carMapper.listShortCar(start_date, end_date, branch_seq);
 	}
 
 }
