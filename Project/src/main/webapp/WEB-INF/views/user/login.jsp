@@ -29,7 +29,7 @@
 						class="text-secondary text-decoration-none" href="/user/agreement">회원
 							가입</a></td>
 					<td class="col-sm-4"><a
-						class="text-secondary text-decoration-none" href="idSearch.jsp">아이디
+						class="text-secondary text-decoration-none" href="/user/idSearch">아이디
 							찾기</a></td>
 					<td class=""><a class="text-secondary text-decoration-none"
 						href="pwdSearch.jsp">비밀번호 찾기</a></td>

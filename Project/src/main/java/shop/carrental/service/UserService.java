@@ -19,4 +19,6 @@ public interface UserService {
 
 	public void logout(HttpSession session);
 
+	public String getId(String users_email, RedirectAttributes redirectAttributes);
+
 }

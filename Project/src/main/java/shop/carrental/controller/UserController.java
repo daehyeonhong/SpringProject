@@ -118,4 +118,41 @@ public class UserController {
 		model.addAttribute("target", "rental");
 	}
 
+	@GetMapping("/idSearch")
+	public void idSearch(HttpSession session) {
+		log.info("idSearch");
+	}
+
+	@GetMapping("/emailAuthentication")
+	public void emailAuthentication(HttpSession session) {
+		log.info("emailPage");
+	}
+
+	@PostMapping("/emailAuthentication")
+	public String idSearch(String users_email, RedirectAttributes redirectAttributes) {
+		log.info("email 시도");
+
+		String users_id = userService.getId(users_email, redirectAttributes);
+		log.info(users_id);
+		return users_id != null ? "/user/idSearch_result" : "redirect:/user/emailAuthentication";
+	}
+
+	@GetMapping("/idSearch_result")
+	public String idSearch_result(HttpSession session) {
+		log.info("idSearch_result");
+		return "/user/idSearch_result";
+	}
+
+	@GetMapping("/pwdSearch")
+	public String pwdSearch(HttpSession session) {
+		log.info("pwdSearch");
+		return "/user/pwdSearch";
+	}
+
+	@GetMapping("/pwdSearch_result")
+	public String pwdSearch_result(HttpSession session) {
+		log.info("pwdSearch_result");
+		return "/user/pwdSearch_result";
+	}
+
 }

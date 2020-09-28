@@ -10,4 +10,6 @@ public interface UserMapper {
 
 	public String check(UsersDTO dto);
 
+	public UsersDTO getUsers(String users_email);
+
 }

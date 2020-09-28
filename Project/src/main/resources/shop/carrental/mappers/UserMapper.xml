@@ -37,4 +37,10 @@
 		]]>
 	</select>
 
+	<select id="getUsers" resultMap="informationMap">
+		<![CDATA[
+			SELECT*FROM users WHERE users_email=#{users_email}
+		]]>
+	</select>
+
 </mapper>

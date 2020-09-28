@@ -62,4 +62,12 @@ public class UserServiceImpl implements UserService {
 		session.invalidate();
 	}
 
+	@Override
+	public String getId(String users_email, RedirectAttributes redirectAttributes) {
+
+		UsersDTO dto = userMapper.getUsers(users_email);
+		redirectAttributes.addFlashAttribute("users", dto);
+		return dto.getUsers_id();
+	}
+
 }
