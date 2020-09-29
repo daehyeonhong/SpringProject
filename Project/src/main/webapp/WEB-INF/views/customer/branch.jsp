@@ -7,18 +7,6 @@
 			<span class="h2 col-sm-10">지점안내</span> <span class="col-sm-2">breadcrumb</span>
 		</div>
 	
-		<div align="center">
-			<div class="row container">
-				<button type="button" class="btn btn-${type == 'short' ? 'secondary' : 'outline-dark'} col-sm-6" onclick="location.href='?type=short'">
-					단기렌터카 지점 안내
-				</button>
-				<button type="button" class="btn btn-${type == 'long' ? 'secondary' : 'outline-dark'} col-sm-6" onclick="location.href='?type=long'">
-					장기렌터카 지점 안내
-				</button>
-			</div>
-			<hr />
-		</div>
-	
 		<div align="right">
 				<form class="form col-sm-6" action="#" method="post">
 					<div class="input-group">

@@ -88,7 +88,7 @@
 													html += '<div class="card" onclick="location.href=location.href=\'/short/detail?sc_seq='
 															+ car.sc_seq
 															+ '\'">';
-													html += '<img src="' + car.front + '" class="card-img-top" alt="[' + car.license_plate + ']사진" />';
+													html += '<img src="/resources/images/' + car.img_seq + '.jpg" class="card-img-top" alt="[' + car.license_plate + ']사진" />';
 													html += '<div class="card-body">';
 													html += "<table>";
 													html += "<tr>";

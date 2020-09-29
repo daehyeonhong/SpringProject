@@ -21,7 +21,7 @@ public interface CarMapper {
 
 	public Object detailTrim(Long trim_seq);
 
-	public List<ShortCarDTO> listShortCar(@Param("start_date") Date start_date, @Param("end_date") Date end_date,
+	public List<ShortCarVO> listShortCar(@Param("start_date") Date start_date, @Param("end_date") Date end_date,
 			@Param("branch_seq") Long branch_seq);
 
 	public ShortCarVO getCarInfo(Long sc_seq);

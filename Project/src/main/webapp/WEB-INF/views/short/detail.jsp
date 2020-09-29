@@ -70,7 +70,7 @@ li a:hover {
 
 			<div class="row" style="border: 1px solid #eeeeee">
 				<div class="col-md-5" style="border-spacing: 5px;">
-					<img src="${car.front}" style="width: 100%;">
+					<img src="/resources/images/${car.img_seq}.jpg" style="width: 100%;">
 				</div>
 				<div class="col-md-7">
 					<p>${car.mfgco_name}자동차${car.car_model}</p>

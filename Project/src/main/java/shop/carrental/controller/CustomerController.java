@@ -30,9 +30,8 @@ public class CustomerController {
 	}
 
 	@GetMapping("/branch")
-	public void branch(@Param("type") String type, Model model) {
+	public void branch() {
 		log.info("branch");
-		model.addAttribute("type", type == null ? "short" : type);
 	}
 
 	@GetMapping("/faq")

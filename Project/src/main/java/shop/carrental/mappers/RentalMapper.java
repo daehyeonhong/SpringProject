@@ -2,7 +2,7 @@ package shop.carrental.mappers;
 
 import java.util.List;
 import shop.carrental.domain.AppointDTO;
-
+import shop.carrental.domain.AppointVO;
 import shop.carrental.domain.BranchDTO;
 
 public interface RentalMapper {
@@ -15,7 +15,7 @@ public interface RentalMapper {
 
 	public BranchDTO getBranch(Long branch_seq);
 
-	public AppointDTO getAppointInfo(AppointDTO dto);
+	public AppointVO getAppointInfo(AppointDTO dto);
 
 	public Long getNextSeq();
 

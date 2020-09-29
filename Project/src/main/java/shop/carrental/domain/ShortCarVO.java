@@ -13,7 +13,7 @@ import lombok.ToString;
 @ToString
 public class ShortCarVO {
 
-	private Long sc_seq, trim_seq, branch_seq;
+	private Long sc_seq, trim_seq, branch_seq, img_seq;
 
 	private int dash_cam, back_camera, navigation, sunroof, bluetooth, aux, smart_key, nomal_price, weekend_price,
 			car_year;

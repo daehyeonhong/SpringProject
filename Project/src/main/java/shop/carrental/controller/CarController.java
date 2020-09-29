@@ -18,6 +18,7 @@ import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.BranchDTO;
 import shop.carrental.domain.CarVO;
 import shop.carrental.domain.ShortCarDTO;
+import shop.carrental.domain.ShortCarVO;
 import shop.carrental.service.CarService;
 import shop.carrental.service.RentalService;
 
@@ -47,11 +48,11 @@ public class CarController {
 
 	@GetMapping(value = "/shortCarList/{start_date}/{end_date}/{branch_seq}", produces = {
 			MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public ResponseEntity<List<ShortCarDTO>> shortCarList(@PathVariable("start_date") Date start_date,
+	public ResponseEntity<List<ShortCarVO>> shortCarList(@PathVariable("start_date") Date start_date,
 			@PathVariable("end_date") Date end_date, @PathVariable("branch_seq") Long branch_seq) {
 		log.info("shortCarList ==> " + start_date + "::" + end_date + "::" + branch_seq + " <==");
 
-		return new ResponseEntity<List<ShortCarDTO>>(carService.listShortCar(start_date, end_date, branch_seq),
+		return new ResponseEntity<List<ShortCarVO>>(carService.listShortCar(start_date, end_date, branch_seq),
 				HttpStatus.OK);
 	}
 

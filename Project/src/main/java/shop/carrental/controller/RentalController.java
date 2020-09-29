@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.AppointDTO;
+import shop.carrental.domain.AppointVO;
 import shop.carrental.service.RentalService;
 
 @Controller
@@ -78,9 +79,8 @@ public class RentalController {
 	public void confirm(AppointDTO dto, Model model, RedirectAttributes redirectAttributes) {
 		log.info(dto);
 		log.info(redirectAttributes.getFlashAttributes().toString());
-		AppointDTO dto2 = rentalTermService.getAppointInfo(dto);
-		model.addAttribute("AppointInfo", dto2);
-
+		AppointVO appoint = rentalTermService.getAppointInfo(dto);
+		model.addAttribute("appointInfo", appoint);
 	}
 
 }

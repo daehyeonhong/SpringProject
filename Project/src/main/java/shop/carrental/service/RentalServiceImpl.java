@@ -6,7 +6,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.AppointDTO;
-
+import shop.carrental.domain.AppointVO;
 import shop.carrental.domain.BranchDTO;
 import shop.carrental.mappers.RentalMapper;
 
@@ -31,11 +31,10 @@ public class RentalServiceImpl implements RentalService {
 		return rentalMapper.getBranch(branch_seq);
 	}
 
-
 	@Override
-	public AppointDTO getAppointInfo(AppointDTO dto) {
-		
-		return  rentalMapper.getAppointInfo(dto);
+	public AppointVO getAppointInfo(AppointDTO dto) {
+
+		return rentalMapper.getAppointInfo(dto);
 	}
 
 	@Override
@@ -49,7 +48,5 @@ public class RentalServiceImpl implements RentalService {
 		// TODO Auto-generated method stub
 		return rentalMapper.getNextSeq();
 	}
-
-
 
 }

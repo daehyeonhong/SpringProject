@@ -25,6 +25,7 @@
 		<result property="trim_name" column="trim_name" />
 		<result property="car_year" column="car_year" />
 		<result property="trim_price" column="trim_price" />
+		<result property="img_seq" column="img_seq" />
 	</resultMap>
 
 	<resultMap type="shortCarVO" id="shortCar">
@@ -49,6 +50,7 @@
 		<result property="fuel_name" column="fuel_name" />
 		<result property="car_model" column="car_model" />
 		<result property="car_year" column="car_year" />
+		<result property="img_seq" column="img_seq" />
 		<result property="car_desc" column="car_desc" />
 	</resultMap>
 
@@ -63,6 +65,7 @@
 						M.MFGCO_NAME,
 						C.CAR_YEAR,
 						C.CAR_DESC,
+						C.IMG_SEQ,
 						T.TRIM_NAME,
 						T.TRIM_PRICE
 					FROM
@@ -140,7 +143,7 @@
 	<select id="listShortCar" resultMap="shortCar">
 		<![CDATA[
 			SELECT
-					I.FRONT,S.*,M.MFGCO_NAME,C.CAR_MODEL,C.CAR_YEAR,T.TRIM_NAME
+					I.FRONT,S.*,M.MFGCO_NAME,C.CAR_MODEL,C.CAR_YEAR,T.TRIM_NAME,C.IMG_SEQ
 				FROM
 					CAR_IMG I,
 					CAR C,
@@ -162,7 +165,7 @@
 	<select id="getCarInfo" parameterType="long"
 		resultMap="shortCar">
 		SELECT
-		I.FRONT,S.*,F.FUEL_NAME,M.MFGCO_NAME,T.TRIM_NAME,C.CAR_MODEL,T.TRIM_SEQ,B.BRANCH_SEQ,C.CAR_DESC
+		I.FRONT,S.*,F.FUEL_NAME,M.MFGCO_NAME,T.TRIM_NAME,C.CAR_MODEL,T.TRIM_SEQ,B.BRANCH_SEQ,C.CAR_DESC,C.IMG_SEQ
 		FROM SHORT_CAR S,CAR_IMG I, CAR C,MFGCO M,TRIM T,FUEL F,BRANCH B
 		WHERE
 		S.TRIM_SEQ=T.TRIM_SEQ AND T.CAR_SEQ=C.CAR_SEQ AND
