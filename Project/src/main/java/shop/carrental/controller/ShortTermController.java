@@ -41,6 +41,7 @@ public class ShortTermController {
 	public void shortTerm(ReserveVO vo, Model model) {
 
 		log.info("shortTerm");
+		model.addAttribute("branchList", shortTermService.listBranch());
 		model.addAttribute("result", shortTermService.getReservationInfo(vo));
 	}
 
@@ -72,20 +73,20 @@ public class ShortTermController {
 
 	/* detail */
 	@GetMapping("/detail")
-	public void shortTerm_detailGet(Long sc_seq, Model model) {
-		ShortCarVO shortCar = carService.getDetailCar(sc_seq);
-		model.addAttribute("ReservationInfo", shortCar);
+	public void shortTerm_detailGet(ShortCarVO vo, Model model) {
+		model.addAttribute("car", carService.getDetailCar(vo.getSc_seq()));
+		model.addAttribute("insuranceList", shortTermService.listInsurance());
 		log.info("detail");
 	}
 
-	/*
-	 * @PostMapping("/detail") public String shortTerm_detailPost(Long sc_seq,
-	 * RedirectAttributes rttr) {
-	 * 
-	 * log.info("detail: " + sc_seq); carService.getDetailCar(sc_seq);
-	 * rttr.addAttribute("result", sc_seq.getTrim_seq()); return
-	 * "redirect:/short/shortTerm_payment2"; }
-	 */
+	@PostMapping("/detail")
+	public String shortTerm_detailPost(ShortCarVO vo, RedirectAttributes rttr) {
+
+		log.info("detail: " + vo);
+		carService.getDetailCar(vo.getSc_seq());
+		rttr.addAttribute("result", vo.getTrim_seq());
+		return "redirect:/short/shortTerm_payment2";
+	}
 
 	/* shortTerm_payment2 */
 	@GetMapping("/shortTerm_payment2")
@@ -120,5 +121,30 @@ public class ShortTermController {
 		rttr.addAttribute("seq", dto.getReserve_seq());
 		return "redirect:/short/shortTerm_payment_completed";
 	}
+
+	/*
+	 * @GetMapping("/carInfo") public ResponseEntity<CarVO>
+	 * getCarInfo(@RequestParam("segment_seq") int seq){
+	 * log.info("segment_seq:"+seq);
+	 * log.info("carInfo::::::::::"+shortTermService.getCarInfo(1));
+	 * if(shortTermService.getCarInfo(seq)!=null) return new
+	 * ResponseEntity<CarVO>(shortTermService.getCarInfo(1),HttpStatus.OK); else
+	 * return new ResponseEntity<CarVO>(new
+	 * CarVO(),HttpStatus.INTERNAL_SERVER_ERROR);
+	 * 
+	 * }
+	 */
+	/*
+	 * @PostMapping("/shortTerm_payment2") public String shortTerm_payment2post(vo)
+	 * { log.info(); }
+	 */
+
+	/*
+	 * @PostMapping("/register") public ResponseEntity<ReservationDTO>
+	 * register(@RequestBody ReservationDTO dto){ log.info(dto); return new
+	 * ResponseEntity<ReservationDTO>(dto, HttpStatus.OK);
+	 * 
+	 * }
+	 */
 
 }

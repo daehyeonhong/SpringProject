@@ -18,7 +18,7 @@ public class ShortCarVO {
 	private int dash_cam, back_camera, navigation, sunroof, bluetooth, aux, smart_key, nomal_price, weekend_price,
 			car_year;
 
-	private String license_plate, front, mfgco_name, car_model, trim_name, fuel_name;
+	private String license_plate, front, mfgco_name, car_model, trim_name, fuel_name, car_desc;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date sc_reg_date, sc_update;

@@ -32,6 +32,7 @@
 		<typeAlias alias="carVO" type="shop.carrental.domain.CarVO"/>
 		<typeAlias alias="appointDTO" type="shop.carrental.domain.AppointDTO"/>
 		<typeAlias alias="shortCarVO" type="shop.carrental.domain.ShortCarVO"/>
+		<typeAlias alias="insuranceDTO" type="shop.carrental.domain.InsuranceDTO"/>
 	</typeAliases>
 
 </configuration>

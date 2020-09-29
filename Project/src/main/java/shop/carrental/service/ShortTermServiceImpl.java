@@ -8,9 +8,12 @@ import org.springframework.ui.Model;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
+import shop.carrental.domain.BranchDTO;
 import shop.carrental.domain.CarVO;
+import shop.carrental.domain.InsuranceDTO;
 import shop.carrental.domain.ReserveDTO;
 import shop.carrental.domain.ReserveVO;
+import shop.carrental.domain.ShortCarVO;
 import shop.carrental.mappers.CarMapper;
 import shop.carrental.mappers.RentalMapper;
 import shop.carrental.mappers.ReserveMapper;
@@ -19,13 +22,14 @@ import shop.carrental.mappers.ReserveMapper;
 @Service
 @AllArgsConstructor
 public class ShortTermServiceImpl implements ShortTermService {
+
 	private CarMapper carMapper;
 	private RentalMapper rentalMapper;
 	private ReserveMapper reserveMapper;
 
 	@Transactional
 	@Override
-	public CarVO getCarInfo(Long sc_seq) {
+	public ShortCarVO getCarInfo(Long sc_seq) {
 		return carMapper.getCarInfo(sc_seq);
 	}
 
@@ -50,7 +54,6 @@ public class ShortTermServiceImpl implements ShortTermService {
 		return null;
 	}
 
-	@Transactional
 	@Override
 	public void list(Model model) {
 		log.info("list");
@@ -70,6 +73,16 @@ public class ShortTermServiceImpl implements ShortTermService {
 	public void shortTerm_j(ReserveVO vo) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public List<BranchDTO> listBranch() {
+		return rentalMapper.listBranch();
+	}
+
+	@Override
+	public List<InsuranceDTO> listInsurance() {
+		return reserveMapper.listInsurance();
 	}
 
 }

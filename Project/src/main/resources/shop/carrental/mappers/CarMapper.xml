@@ -49,6 +49,7 @@
 		<result property="fuel_name" column="fuel_name" />
 		<result property="car_model" column="car_model" />
 		<result property="car_year" column="car_year" />
+		<result property="car_desc" column="car_desc" />
 	</resultMap>
 
 	<sql id="carVO">
@@ -161,7 +162,7 @@
 	<select id="getCarInfo" parameterType="long"
 		resultMap="shortCar">
 		SELECT
-		I.FRONT,S.*,F.FUEL_NAME,M.MFGCO_NAME,T.TRIM_NAME,C.CAR_MODEL,T.TRIM_SEQ,B.BRANCH_SEQ
+		I.FRONT,S.*,F.FUEL_NAME,M.MFGCO_NAME,T.TRIM_NAME,C.CAR_MODEL,T.TRIM_SEQ,B.BRANCH_SEQ,C.CAR_DESC
 		FROM SHORT_CAR S,CAR_IMG I, CAR C,MFGCO M,TRIM T,FUEL F,BRANCH B
 		WHERE
 		S.TRIM_SEQ=T.TRIM_SEQ AND T.CAR_SEQ=C.CAR_SEQ AND
