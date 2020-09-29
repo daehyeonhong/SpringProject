@@ -34,9 +34,10 @@
 		<result property="appoint_date" column="appoint_date" />
 		<result property="branch_name" column="branch_name" />
 		<result property="branch_phone" column="branch_phone" />
+		<result property="car_year" column="car_year" />
+		<result property="car_model" column="car_model" />
+		<result property="trim_name" column="trim_name" />
 	</resultMap>
-
-
 
 	<sql id="select">
 		<![CDATA[
@@ -57,8 +58,6 @@
 			resultType="long">
 			select SEQ_APPOINT.NEXTVAL from dual
 		</selectKey>
-  
-  
 		<![CDATA[
 			INSERT INTO APPOINT(
 			
@@ -80,9 +79,13 @@
 	</insert>
 
 	<select id="getAppointInfo" resultMap="appointResult">
-		SELECT A.*,B.* FROM
-		APPOINT A,BRANCH B
+		SELECT
+		A.*,B.*,C.CAR_MODEL,C.CAR_YEAR,T.TRIM_NAME FROM
+		APPOINT A,BRANCH B,CAR
+		C,TRIM T
 		WHERE A.BRANCH_SEQ=B.BRANCH_SEQ AND
+		A.TRIM_SEQ=T.TRIM_SEQ AND
+		C.CAR_SEQ=T.CAR_SEQ AND
 		A.APPOINT_SEQ=#{appoint_seq}
 	</select>
 
@@ -99,5 +102,11 @@
 
 	<!-- <select id="getAppointInfo" resultMap="appointresult"> <include refid="select" 
 		/> appoint WHERE appoint_seq=#{appoint_seq} </select> -->
+
+	<insert id="registerReserve">
+		INSERT INTO RESERVE
+		(RESERVE_SEQ,USERS_ID,START_DATE,END_DATE,BRANCH_SEQ,SHORT_CAR_SEQ,TOTAL_AMOUNT,COUPON,PAYMENT_AMOUNT,INSURANCE_SEQ,RESERVE_REG_DATE,RESERVE_UPDATE)
+		VALUES(SEQ_RESERVE.NEXTVAL,#{users_id},#{start_date},#{end_date},#{branch_seq},#{short_car_seq},#{total_amount},#{coupon},#{payment_amount},#{insurance_seq},#{reserve_reg_date},#{reserve_update})
+	</insert>
 
 </mapper>

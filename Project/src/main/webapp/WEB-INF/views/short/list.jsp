@@ -38,8 +38,6 @@
 			<button class="btn btn-outline-info" id="btnSc">목록보기</button>
 			<div id="list" align="center"></div>
 			
-			
-
 </article>
 <script type="text/javascript">
 	$()
@@ -84,10 +82,11 @@
 									+ segment_seq */ + ".json",
 										function(data) {
 											let html = "";
+													let start_date = $('#startDate').val();
+													let end_date = $('#endDate').val();
 												$.each(data, function(carList, car) {
-													html += '<div class="card" onclick="location.href=location.href=\'/short/detail?sc_seq='
-															+ car.sc_seq
-															+ '\'">';
+													html += '<a href="/short/detail?sc_seq=' + car.sc_seq +'&start_date=' +start_date + '&end_date=' + end_date+ '"';
+													html += '<div class="card">';
 													html += '<img src="/resources/images/' + car.img_seq + '.jpg" class="card-img-top" alt="[' + car.license_plate + ']사진" />';
 													html += '<div class="card-body">';
 													html += "<table>";
@@ -118,6 +117,7 @@
 													html += "</table>";
 													html += "</div>";
 													html += "</div>";
+													html += '</a>'
 												});
 											console.log(html);
 											$("#list").html(html);

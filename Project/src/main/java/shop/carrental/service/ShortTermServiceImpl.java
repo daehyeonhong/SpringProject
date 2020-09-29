@@ -35,6 +35,7 @@ public class ShortTermServiceImpl implements ShortTermService {
 
 	@Override
 	public void registerReservation(ReserveDTO dto) {
+		rentalMapper.registerReserve(dto);
 	}
 
 	@Override

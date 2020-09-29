@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop.carrental.mappers.ReserveMapper">
+	<!-- <select resultType="shop.carrental.domain.ReserveDTO" id="getReserveList">select 
+		* from reserve </select> -->
+	<select resultMap="reserveVOMap" id="getReservationInfo">select c.car_model from
+		reserve r,trim t,short_car s,car c where
+		r.short_car_seq=s.sc_seq and
+		s.trim_seq=t.trim_seq and
+		t.car_seq=c.car_seq and r.reserve_seq=2
+	</select>
+	<!-- <select resultType="shop.carrental.domain.CarVO" id="getCarInfo">select* 
+		from car where car_seq=#{seq} </select> -->
+
+	<select id="listInsurance" resultMap="insurance">
+		SELECT*FROM INSURANCE
+	</select>
+
+	<resultMap type="insuranceDTO" id="insurance">
+		<id property="insurance_seq" column="insurance_seq" />
+		<result property="insurance_name" column="insurance_name" />
+		<result property="fare" column="fare" />
+		<result property="deductible" column="deductible" />
+	</resultMap>
+
+	<resultMap type="shop.carrental.domain.ReserveVO"
+		id="reserveVOMap">
+		<id property="reserve_seq" column="reserve_seq" />
+		<result property="users_id" column="users_id" />
+		<result property="insurance_name" column="insurance_name" />
+		<result property="branch_name" column="branch_name" />
+		<result property="trim_name" column="trim_name" />
+		<result property="car_model" column="car_model" />
+		<result property="total_amount" column="total_amount" />
+		<result property="coupon" column="coupon" />
+	</resultMap>
+</mapper>

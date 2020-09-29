@@ -10,14 +10,6 @@
 <link rel="stylesheet"
 	href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
 <article>
-	<div class="container col-sm-8">
-		<!-- 단기렌트 제목틀-->
-		<div class="jumbotron bg-white">
-			<div class="container col-sm-6">
-				<h1>단기렌터카 예약/확인</h1>
-			</div>
-		</div>
-		<div class="container">
 			<table class="table">
 				<tr class="row">
 					<td class="col-sm-3">
@@ -43,21 +35,18 @@
 					</td>
 				</tr>
 			</table>
-			<button class="btn btn-outline-info" id="Btnsc">목록보기</button>
+			<button class="btn btn-outline-info" id="btnSc">목록보기</button>
 			<div id="list" align="center"></div>
-		</div>
-	</div>
+			
 </article>
 <script type="text/javascript">
 	$()
 			.ready(
 					function() {
 						list({
-							'mfgco_seq' : '99999',
-							'segment_seq' : '99999',
-							'start_date' : '2020-10-01',
-							'end_date' : '2020-10-03',
-							'branch_seq' : '2'
+							'start_date' : moment(new Date()).format('YYYY-MM-DD'),
+							'end_date' : moment(new Date()).format('YYYY-MM-DD'),
+							'branch_seq' : 99999
 						});
 						targetBranch({
 							'branch_seq' : '1'
@@ -67,40 +56,53 @@
 								'branch_seq' : $(this).val()
 							})
 						})
+						$('#btnSc').on('click' ,function() {
+							let _startDate = $('#startDate').val();
+							let _endDate = $('#endDate').val();
+							let branch_seq = $('#branch_seq').val();
+							let startDate = moment(new Date(_startDate)).format('YYYY-MM-DD');
+							let endDate = moment(new Date(_endDate)).format('YYYY-MM-DD');
+								list({
+									'start_date' : startDate,
+									'end_date' : endDate,
+									'branch_seq' : branch_seq
+								});
+							});
 						function list(parameter, callback) {
-							let mfgco_seq = parameter.mfgco_seq;
-							let segment_seq = parameter.segment_seq;
+							/* let mfgco_seq = parameter.mfgco_seq;
+							let segment_seq = parameter.segment_seq; */
 							let start_date = parameter.start_date;
 							let end_date = parameter.end_date;
 							let branch_seq = parameter.branch_seq;
 							$.getJSON("/car/shortCarList/"
 									+ start_date+ "/"
 									+ end_date + "/"
-									+ branch_seq + "/"
-									+ mfgco_seq + "/"
-									+ segment_seq + ".json",
+									+ branch_seq
+									/* + mfgco_seq + "/"
+									+ segment_seq */ + ".json",
 										function(data) {
 											let html = "";
+													let start_date = $('#startDate').val();
+													let end_date = $('#endDate').val();
 												$.each(data, function(carList, car) {
-													html += '<div class="card" onclick="location.href=location.href=\'/short/detail?sc_seq='
-															+ car.sc_seq
-															+ '\'">';
-													html += '<img src="https://www.motorgraph.com/news/photo/202003/25398_80184_4550.jpg" class="card-img-top" alt="[' + car.license_plate + ']사진" />';
+													html += '<a href="/short/detail?sc_seq=' + car.sc_seq +'&start_date=' +start_date + '&end_date=' + end_date+ '"';
+													html += '<div class="card">';
+													html += '<img src="/resources/images/' + car.img_seq + '.jpg" class="card-img-top" alt="[' + car.license_plate + ']사진" />';
 													html += '<div class="card-body">';
 													html += "<table>";
 													html += "<tr>";
 													html += "<td>";
-													html += "<span>[" + /* car.car_year */'2020' + "]년</span>";
-													html += "<span>" + /* car.mfgco_name */'현대' + "</span>";
-													html += "<span>" + /* car.car_model */'아반떼' + "</span>";
+													html += "<span>[" + car.car_year + "]년</span>";
+													html += "<span>" + car.mfgco_name + "</span>";
+													html += "<span>" + car.car_model + "</span>";
 													html += "</td>";
 													html += "</tr>";
 													html += "<tr>";
-													html += "<td><span>" + /* car.trim_name */'N Sports' + "</span></td>";
+													html += "<td><span>" + car.trim_name + "</span></td>";
 													html += "</tr>";
 													html += "<tr>";
 													html += "<td>";
-													html += "<span>" + car.dash_cam + "</span>";
+												/* 	html += "<span>" + car.dash_cam + "</span>";
 													html += "<span>" + car.back_camera + "</span>";
 													html += "<span>" + car.navigation + "</span>";
 													html += "<span>" + car.sunroof + "</span>";
@@ -109,12 +111,13 @@
 													html += "<span>" + car.smart_key + "</span>";
 													html += "<span>" + car.nomal_price + "</span>";
 													html += "<span>" + car.weekend_price + "</span>";
-													html += "<span>" + car.branch_seq + "</span>";
+													html += "<span>" + car.branch_seq + "</span>"; */
 													html += "</td>";
 													html += "</tr>";
 													html += "</table>";
 													html += "</div>";
 													html += "</div>";
+													html += '</a>'
 												});
 											console.log(html);
 											$("#list").html(html);

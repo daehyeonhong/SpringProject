@@ -1,28 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%-- <%request.setCharacterEncoding("utf-8");
-	String date7777h=request.getParameter("date7777h");
-	String date8888h=request.getParameter("date8888h");
-	String branch_inland7=request.getParameter("branch_inland7");
-	String branch_inland8=request.getParameter("branch_inland8");
-	String addoptionh=request.getParameter("addoptionh");
-	
-%>  --%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>예약 정보</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-</head>
-<body>
-
 <!-- 단기렌트 제목틀-->
+<script>
+	function calc(){
+		reserveForm3.submit();
+	}
+</script>
 <div class="jumbotron bg-white">
   <div class="container col-sm-6">
   <h1>예약정보</h1>
@@ -30,6 +18,7 @@
   </div>
 </div>
 
+<form name="reserveForm3" action="shortTerm_payment_completed">
 <div class="container col-sm-6">
 <div class="container">
 <div class="container bg-light">
@@ -84,7 +73,7 @@
   <div class="container" align="center">
   <div class="row" align="center">
   	<button class="col btn border btn-light">메인페이지로 가기</button>&nbsp;<!-- 메인페이지로 -->
-  	<button class="col btn border bg-warning" onclick="location.href='shortTerm_payment_completed.jsp'">결제하기</button>
+  	<button class="col btn border bg-warning" onclick="calc()">결제하기</button>
   </div>
   </div>
   <br>
@@ -93,17 +82,16 @@
   </div><!-- table container -->
   
   <div>
-  <form>
+<!--   <form>
      <input name="seq" data-seq="1">1<br>
      <inout name="users_id" data-user_id='hong'>hong<br>
      <inout name="branch_seq" data-branch_seq="77">77<br>
      <input type="button" value="전송" onclick="register()">
-  </form>
+  </form> -->
   
   
   </div>
   </div>
-  
  <script>
 function register(){
 	var seq=$('input[name=seq]').val();
@@ -123,5 +111,4 @@ function register(){
 <br>
 <br>
 <br>
-</body>
-</html>
+</form>

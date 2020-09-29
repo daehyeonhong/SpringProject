@@ -8,6 +8,8 @@ import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.AppointDTO;
 import shop.carrental.domain.AppointVO;
 import shop.carrental.domain.BranchDTO;
+import shop.carrental.domain.ReserveDTO;
+import shop.carrental.domain.ReserveVO;
 import shop.carrental.mappers.RentalMapper;
 
 @Log4j
@@ -48,5 +50,16 @@ public class RentalServiceImpl implements RentalService {
 		// TODO Auto-generated method stub
 		return rentalMapper.getNextSeq();
 	}
+
+	@Override
+	public void registerReserve(ReserveDTO dto) {
+		// TODO Auto-generated method stub
+
+	}
+
+	/*
+	 * @Override public void registerReserve(ReserveVO vo) {
+	 * rentalMapper.registerReserve(dto); }
+	 */
 
 }

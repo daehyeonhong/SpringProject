@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<fmt:formatDate var="register_date" value="${notice.notice_reg_date}" pattern="yyyy-MM-dd"/>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<fmt:formatDate var="register_date" value="${notice.notice_reg_date}" pattern="yyyy/MM/dd"/>
 <article>
 	<%@ include file="../customerMenu.jsp"%>
 	<div class="container col-sm-6">
@@ -28,13 +29,13 @@
 							<span>${notice.notice_count}</span>
 						</td>
 						<td>
-							<span class="text-primary">좋아요: ${notice.notice_good}</span>
-							<span class="text-danger">싫어요: ${notice.notice_bad}</span>
+							<span class="text-primary"><i class='far fa-thumbs-up' style='font-size:15px' id='notice_good'>좋아요</i>&nbsp;</span>
+							<span>&nbsp;&nbsp;&nbsp;</span>
+							<span class="text-danger"><i class='far fa-thumbs-down' style='font-size:15px' id='notice_bad'>싫어요</i>&nbsp;</span>
 						</td>
 					</tr>
 				</tbody>
 			</table>
-			
 			<!-- <button data-operation="modify" class="btn btn-info">수정</button> -->
 			<button data-operation="list" class="btn btn-outline-secondary">글목록</button>
 			
@@ -56,10 +57,31 @@
 		$("button[data-operation='modify']").on("click",function(event){
 			operationForm.attr("action","/customer/noticeModify").submit();
 			});
-
 		$("button[data-operation='list']").on("click",function(event){
 			operationForm.find("#notice_seq").remove();
 			operationForm.attr("action","/customer/notice/list").submit();
 			});
+
+		$("#notice_good,#notice_bad").mouseover(function(){
+			$(this).css("cursor","pointer");
 		});
+		$("#notice_good").click(function(){
+			if($(this).attr('class')=="far fa-thumbs-up"){
+				$(this).attr("class","fas fa-thumbs-up");
+				$("#notice_bad").attr("class","far fa-thumbs-down");
+					${notice.notice_good}+1;
+					alert(notice.notice_good);
+			}else{
+				$(this).attr("class","far fa-thumbs-up");
+			}
+			});
+		$("#notice_bad").click(function(){
+			if($(this).attr('class')=="far fa-thumbs-down"){
+				$(this).attr("class","fas fa-thumbs-down");
+				$("#notice_good").attr("class","far fa-thumbs-up");
+			}else{
+				$(this).attr("class","far fa-thumbs-down");
+			}
+		});	
+	});
 </script>

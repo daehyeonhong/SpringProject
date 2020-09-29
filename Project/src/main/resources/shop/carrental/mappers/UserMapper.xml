@@ -33,7 +33,7 @@
 
 	<select id="information" resultMap="informationMap">
 		<![CDATA[
-			SELECT users_id,users_name,users_nickname,users_phone,users_email,birth_date FROM users WHERE users_id=#{users_id}
+			SELECT*FROM users WHERE users_id=#{users_id}
 		]]>
 	</select>
 
