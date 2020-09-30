@@ -8,7 +8,6 @@ import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.CarVO;
 import shop.carrental.domain.MfgcoDTO;
 import shop.carrental.domain.SegmentDTO;
-import shop.carrental.domain.ShortCarDTO;
 import shop.carrental.domain.ShortCarVO;
 import shop.carrental.mappers.CarMapper;
 
@@ -29,12 +28,14 @@ public class CarServiceImpl implements CarService {
 	@Override
 	public List<SegmentDTO> listSegment() {
 		log.info("ListSegment::");
+
 		return carMapper.listSegment();
 	}
 
 	@Override
 	public List<CarVO> listCar(Long mfgco_seq, Long segment_seq) {
 		log.info("ListCar::" + mfgco_seq + "::" + segment_seq);
+
 		return carMapper.listCar(mfgco_seq, segment_seq);
 	}
 
