@@ -1,6 +1,5 @@
 package shop.carrental.service;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -12,8 +11,7 @@ public interface UserService {
 
 	public UsersDTO information(UsersDTO vo);
 
-	public boolean login(UsersDTO vo, HttpServletRequest request, HttpSession session,
-			RedirectAttributes redirectAttributes);
+	public String login(UsersDTO vo);
 
 	public boolean confirm(UsersDTO vo, RedirectAttributes redirectAttributes, Model model);
 

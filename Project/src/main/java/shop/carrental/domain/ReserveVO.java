@@ -15,7 +15,7 @@ public class ReserveVO {
 
 	private String users_id, insurance_name, branch_name, trim_name, car_model;
 
-	private int total_amount, coupon;
+	private int total_amount, coupon, period;
 
 	private Date start_date, end_date, reserve_reg_date, reserve_update;
 
