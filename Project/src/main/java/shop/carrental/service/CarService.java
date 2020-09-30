@@ -5,7 +5,6 @@ import java.util.List;
 import shop.carrental.domain.CarVO;
 import shop.carrental.domain.MfgcoDTO;
 import shop.carrental.domain.SegmentDTO;
-import shop.carrental.domain.ShortCarDTO;
 import shop.carrental.domain.ShortCarVO;
 
 public interface CarService {

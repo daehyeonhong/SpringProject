@@ -1,19 +1,6 @@
-<%@page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
-<link rel="stylesheet"
-	href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
 <style>
 strong {
 	color: orange;
@@ -25,7 +12,6 @@ hr {
 </style>
 <script>
 	$(function() {
-
 		let date = new Date();
 		$('#datetimepicker7').datetimepicker({
 			format : 'L'
@@ -42,11 +28,9 @@ hr {
 		});
 		$("#datetimepicker8").on("change.datetimepicker", function(e) {
 			$('#datetimepicker7').datetimepicker('maxDate', e.date);
-
 		});
 	});
 </script>
-
 <script type="text/javascript">
 	function insurance() {
 		var insuranceFrame = window
@@ -55,29 +39,24 @@ hr {
 						"",
 						"left=600, top=300, width=600, height=600,toolbar=no, scrollbars=no, status=no, resizable=no");
 	}/* 
-			function list_photo(){
-					reserveForm.submit();
-				} */
+					function list_photo(){
+							reserveForm.submit();
+						} */
 	function addop(add) {
 		let addoption = document.getElementById(add).value;
 		document.getElementById("addoptionh").innerHTML = addoption;
 		alert(addoption);
 	}
-</script>
-
-<script>
 	$(document).ready(function() {
 		$("#driver_qualification, #insurance").mouseover(function() {
 			$(this).css("cursor", "pointer");
 		});
 
 	});
-</script>
-<script>
 	function reset() {
 		var result = confirm("정말 취소하시겠습니까?");
 		if (result) {
-			/* $("#reservationForm").ready(function(){
+			/* $("#reserveForm").ready(function(){
 				$("#reset").click(function(){
 					$(body).each( function () {
 			            this.reset();
@@ -90,14 +69,12 @@ hr {
 		}
 	}
 </script>
-
 <!-- 단기렌트 제목틀-->
 <div class="jumbotron bg-white">
 	<div class="container col-sm-6">
 		<h1>단기렌터카 예약/확인</h1>
 	</div>
 </div>
-
 
 <div class="container col-sm-6">
 	<!-- 메뉴바 -->
@@ -114,8 +91,6 @@ hr {
     </li> -->
 		</ul>
 	</nav>
-	<br> <br>
-
 	<div class="comment row col-sm-10">
 		<h3>
 			기간ㆍ지점ㆍ차량 선택&nbsp;<span style="font-size: 12px;"><strong>기간ㆍ지점ㆍ차량</strong>은
@@ -123,7 +98,6 @@ hr {
 		</h3>
 	</div>
 	<!--  comment row글씨 아래로 -->
-
 	<hr>
 	<%@ include file="list.jsp"%>
 	<!-- 기간지점선택테이블 -->
@@ -142,12 +116,8 @@ hr {
 						</ul>
 						<br>
 					</fieldset>
-				</div></td>
+				</div>
+			</td>
 		</tr>
 	</table>
-	<br> <br>
 </div>
-<br>
-<br>
-<br>
-

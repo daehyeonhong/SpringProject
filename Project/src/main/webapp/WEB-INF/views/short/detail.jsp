@@ -2,8 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<fmt:formatNumber pattern="#,### 원" var="price"
-	value="${car.nomal_price}" />
+<fmt:formatNumber pattern="#,### 원" var="price" value="${car.nomal_price}" />
 <fmt:formatDate var="regDate" value="${car.sc_reg_date}" />
 <style>
 th {

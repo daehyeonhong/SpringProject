@@ -58,7 +58,7 @@
 function reset(){
 	var result = confirm("정말 취소하시겠습니까?");
 	if(result){
-	/* $("#reservationForm").ready(function(){
+	/* $("#reserveForm").ready(function(){
 		$("#reset").click(function(){
 			$(body).each( function () {
 	            this.reset();

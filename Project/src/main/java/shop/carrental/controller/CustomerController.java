@@ -1,6 +1,5 @@
 package shop.carrental.controller;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -123,7 +122,8 @@ public class CustomerController {
 	}
 
 	@GetMapping("/notice/page")
-	public void noticePage(@RequestParam("notice_seq") Long seq, @ModelAttribute("criteria") Criteria criteria, Model model) {
+	public void noticePage(@RequestParam("notice_seq") Long seq, @ModelAttribute("criteria") Criteria criteria,
+			Model model) {
 		log.info("page");
 
 		customerService.readNotice(seq, criteria, model);

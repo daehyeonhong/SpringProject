@@ -17,7 +17,6 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.BranchDTO;
 import shop.carrental.domain.CarVO;
-import shop.carrental.domain.ShortCarDTO;
 import shop.carrental.domain.ShortCarVO;
 import shop.carrental.service.CarService;
 import shop.carrental.service.RentalService;

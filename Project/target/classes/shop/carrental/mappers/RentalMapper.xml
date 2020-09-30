@@ -11,6 +11,7 @@
 		<result property="maintenance" column="maintenance" />
 		<result property="electric" column="electric" />
 		<result property="branch_type" column="branch_type" />
+		<result property="gps2" column="gps2" />
 	</resultMap>
 
 	<resultMap type="appointDTO" id="appoint">
@@ -60,7 +61,6 @@
 		</selectKey>
 		<![CDATA[
 			INSERT INTO APPOINT(
-			
 				APPOINT_SEQ,
 				TRIM_SEQ,
 				BRANCH_SEQ,
@@ -68,7 +68,6 @@
 				APPOINT_DATE
 				)
 			VALUES(
-			
 				#{appoint_seq},
 				#{trim_seq},
 				#{branch_seq},

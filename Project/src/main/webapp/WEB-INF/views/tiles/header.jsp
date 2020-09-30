@@ -7,8 +7,8 @@
 	<nav class="navbar navbar-expand-sm justify-content-center"
 		style="height: 90px">
 		<ul class="navbar-nav">
-			<li class="nav-item"><a class="nav-link" href="/long/list">장기 렌터카</a></li>
-			<li class="nav-item"><a class="nav-link" href="/short/shortTerm_inland">단기 렌터카</a></li>
+			<li class="nav-item"><a class="nav-link" href="/long/">장기 렌터카</a></li>
+			<li class="nav-item"><a class="nav-link" href="/short/">단기 렌터카</a></li>
 			<li class="nav-item${users_id == null ? '' : ' dropdown'}"><c:choose>
 					<c:when test="${users_id == null}">
 						<a class="nav-link" href="/user/login">로그인</a>

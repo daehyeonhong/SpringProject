@@ -1,5 +1,6 @@
 package shop.carrental.service;
 
+import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -9,7 +10,6 @@ import shop.carrental.domain.AppointDTO;
 import shop.carrental.domain.AppointVO;
 import shop.carrental.domain.BranchDTO;
 import shop.carrental.domain.ReserveDTO;
-import shop.carrental.domain.ReserveVO;
 import shop.carrental.mappers.RentalMapper;
 
 @Log4j
@@ -57,9 +57,9 @@ public class RentalServiceImpl implements RentalService {
 
 	}
 
-	/*
-	 * @Override public void registerReserve(ReserveVO vo) {
-	 * rentalMapper.registerReserve(dto); }
-	 */
+	@Override
+	public List<BranchDTO> listBranch() {
+		return rentalMapper.listBranch();
+	}
 
 }

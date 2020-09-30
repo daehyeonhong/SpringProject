@@ -17,6 +17,6 @@ public class ReserveVO {
 
 	private int total_amount, coupon;
 
-	private Date start_date, end_date, reserve_reg_date,reserve_update;
+	private Date start_date, end_date, reserve_reg_date, reserve_update;
 
 }

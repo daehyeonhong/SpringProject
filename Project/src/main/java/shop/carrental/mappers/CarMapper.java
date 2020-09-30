@@ -19,7 +19,7 @@ public interface CarMapper {
 
 	public int registerShortCar(ShortCarDTO dto);
 
-	public Object detailTrim(Long trim_seq);
+	public CarVO detailTrim(Long trim_seq);
 
 	public List<ShortCarVO> listShortCar(@Param("start_date") Date start_date, @Param("end_date") Date end_date,
 			@Param("branch_seq") Long branch_seq);
