@@ -3,7 +3,7 @@
 <form method="post" action="/payment/kakaoPay">
 	<input name="users_id" value="1" />
 	<input name="period" value="1" />
-	<input name="short_car_seq" value="1" />
+	<input name="sc_seq" value="1" />
 	<input name="total_amount" value="1" />
 	<button>카카오페이로 결제하기</button>
 </form>

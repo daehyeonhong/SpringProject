@@ -82,8 +82,8 @@
 									+ segment_seq */ + ".json",
 										function(data) {
 											let html = "";
-													let start_date = $('#startDate').val();
-													let end_date = $('#endDate').val();
+													let start_date = moment($('#startDate').val()).format('YYYY-MM-DD');
+													let end_date = moment($('#endDate').val()).format('YYYY-MM-DD');
 													$.each(data, function(carList, car) {
 													html += '<div class="row">'; 
 													html += '<div class="col-sm-6">';

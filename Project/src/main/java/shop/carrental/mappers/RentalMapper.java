@@ -4,7 +4,9 @@ import java.util.List;
 import shop.carrental.domain.AppointDTO;
 import shop.carrental.domain.AppointVO;
 import shop.carrental.domain.BranchDTO;
+import shop.carrental.domain.InsuranceDTO;
 import shop.carrental.domain.ReserveDTO;
+import shop.carrental.domain.ReserveVO;
 
 public interface RentalMapper {
 
@@ -21,5 +23,13 @@ public interface RentalMapper {
 	public Long getNextSeq();
 
 	public void registerReserve(ReserveDTO dto);
+
+	public int getPeriod(ReserveVO vo);
+
+	public List<InsuranceDTO> listInsurance();
+
+	public Long getNextReserveSeq();
+
+	public ReserveVO getReserve(Long reserve_seq);
 
 }

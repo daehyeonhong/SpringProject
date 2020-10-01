@@ -5,7 +5,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import shop.carrental.domain.AppointDTO;
 import shop.carrental.domain.AppointVO;
 import shop.carrental.domain.BranchDTO;
+import shop.carrental.domain.InsuranceDTO;
 import shop.carrental.domain.ReserveDTO;
+import shop.carrental.domain.ReserveVO;
 
 public interface RentalService {
 
@@ -19,8 +21,14 @@ public interface RentalService {
 
 	public Long getLongnextseq();
 
-	public void registerReserve(ReserveDTO dto);
-
 	public List<BranchDTO> listBranch();
+
+	public int getPeriod(ReserveVO vo);
+
+	public List<InsuranceDTO> listInsurance();
+
+	public Long getReserveNextSeq();
+
+	public ReserveVO registerReserve(ReserveDTO dto);
 
 }

@@ -5,7 +5,7 @@
 		* from reserve </select> -->
 	<select resultMap="reserveVOMap" id="getReserveInfo">select c.car_model from
 		reserve r,trim t,short_car s,car c where
-		r.short_car_seq=s.sc_seq and
+		r.sc_seq=s.sc_seq and
 		s.trim_seq=t.trim_seq and
 		t.car_seq=c.car_seq and r.reserve_seq=2
 	</select>

@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 public class ReserveDTO {
 
-	private Long reserve_seq, branch_seq, short_car_seq, insurance_seq;
+	private Long reserve_seq, branch_seq, sc_seq, insurance_seq;
 
 	private String users_id;
 

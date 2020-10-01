@@ -9,7 +9,9 @@ import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.AppointDTO;
 import shop.carrental.domain.AppointVO;
 import shop.carrental.domain.BranchDTO;
+import shop.carrental.domain.InsuranceDTO;
 import shop.carrental.domain.ReserveDTO;
+import shop.carrental.domain.ReserveVO;
 import shop.carrental.mappers.RentalMapper;
 
 @Log4j
@@ -40,26 +42,43 @@ public class RentalServiceImpl implements RentalService {
 	}
 
 	@Override
-	public BranchDTO getAppoint(Long appoint_seq) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public Long getLongnextseq() {
-		// TODO Auto-generated method stub
 		return rentalMapper.getNextSeq();
-	}
-
-	@Override
-	public void registerReserve(ReserveDTO dto) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public List<BranchDTO> listBranch() {
 		return rentalMapper.listBranch();
+	}
+
+	@Override
+	public int getPeriod(ReserveVO vo) {
+		return rentalMapper.getPeriod(vo);
+	}
+
+	@Override
+	public List<InsuranceDTO> listInsurance() {
+		return rentalMapper.listInsurance();
+	}
+
+	@Override
+	public Long getReserveNextSeq() {
+		return rentalMapper.getNextReserveSeq();
+	}
+
+	@Override
+	public BranchDTO getAppoint(Long appoint_seq) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Transactional
+	@Override
+	public ReserveVO registerReserve(ReserveDTO dto) {
+		Long reserve_seq = rentalMapper.getNextReserveSeq();
+		dto.setReserve_seq(reserve_seq);
+		rentalMapper.registerReserve(dto);
+		return rentalMapper.getReserve(reserve_seq);
 	}
 
 }

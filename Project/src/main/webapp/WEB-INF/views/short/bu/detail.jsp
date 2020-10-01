@@ -148,7 +148,7 @@ li a:hover {
 							name="users_id" value="1" /></td>
 					</tr>
 				</table>
-						<input name="short_car_seq" value="${car.sc_seq}" />
+						<input name="sc_seq" value="${car.sc_seq}" />
 						<input name="branch_seq" value="${car.branch_seq}" />
 						<input name="start_date" value="${param.start_date}" />
 						<input name="end_date" value="${param.end_date}" />

@@ -63,7 +63,7 @@
       </tr>
       <tr>
         <th id="th_title">대여차량</th>
-        <td>${reserve.short_car_seq}</td>
+        <td>${reserve.sc_seq}</td>
       </tr>
       <tr>
         <th id="th_title">계약자명</th>
