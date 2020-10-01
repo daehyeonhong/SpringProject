@@ -2,9 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-<fmt:formatNumber pattern="#,### 원" var="price"
-	value="${car.nomal_price}" />
+<fmt:formatNumber pattern="#,### 원" var="price" value="${car.nomal_price}" />
 <fmt:formatDate var="regDate" value="${car.sc_reg_date}" />
 <style>
 th {
@@ -40,28 +38,28 @@ li a:hover {
 	color: #aaaaaa;
 	text-decoration: none;
 }
-</style> <script>
+</style>
+<script>
 	function reser(){
 		reserveForm2.submit();
 /* 		location.href='./shortTerm_payment2'; */
 	}
 </script>
-<br>
-<br>
 <div class="container col-sm-6">
+	<hr style="border: 1px solid red;">
 	<div class="container">
 		<div class="row">
 			<table style="width: 100%">
 				<tr>
-					<td align="left"><h1>TT단기렌터카 다이렉트</h1></td>
-					<td align="right"> 단기렌터카 > TT단기렌터카 다이렉트</td>
+					<td align="left"><h2>SK장기렌터카 다이렉트</h2></td>
+					<td align="right">? > 장기렌터카 > SK장기렌터카 다이렉트</td>
 				</tr>
 			</table>
 		</div>
 		<!-- title -->
 
-		<div class="row" style="padding-top: 50px;">
-			<table style="width: 100%; padding-top: 50px;">
+		<div class="row" style="padding-top: 30px;">
+			<table style="width: 100%">
 				<tr>
 					<td align="left"><h3>다이렉트 견적조회</h3></td>
 					<td align="right"><input type="button" value="목록" onclick="#"></td>
@@ -70,7 +68,7 @@ li a:hover {
 		</div>
 		<!-- title2 -->
 
-		<div class="row" style="border: 1px solid #eeeeee;padding-top: 20px; padding-bottom: 20px;">
+		<div class="row" style="border: 1px solid #eeeeee">
 			<div class="col-md-5" style="border-spacing: 5px;">
 				<img src="/resources/images/${car.img_seq}.jpg" style="width: 100%;">
 			</div>
@@ -101,16 +99,18 @@ li a:hover {
 			</div>
 		</div>
 		<!-- product pic -->
-			<ul class="row b-0 p-0" style="border: 1px solid #eeeeee;">
-				<li class="col"><a class="text-center" href="#">차량선호도</a></li>
-				<li class="col"><a class="text-center" href="#">상품 문의</a></li>
+
+		<div style="border: 1px solid #eeeeee">
+			<ul>
+				<li class="col-md-6"><a href="#">차량선호도</a></li>
+				<li class="col-md-6"><a href="#">상품 문의</a></li>
 			</ul>
+		</div>
 	</div>
-	<br>
-	<div style="padding-top: 30px;padding-bottom: 30px;">
+	<div style="padding-top: 30px;">
 		<h4>차량 정보</h4>
 		<div>
-			<form action="/short/detail" method="post" name="reserveForm2">
+			<form action="/short/shortTerm_payment2" method="post">
 				<table class="table" id="table">
 					<tr style="border-top-color: #aaaaaa;">
 						<th>제조사</th>
@@ -138,13 +138,13 @@ li a:hover {
 					</tr>
 					<tr>
 						<th>보험</th>
-						<td><select class="form-control btn-sm" name="insurance_seq">
+						<td><select class="form-control" name="insurance_seq">
 								<c:forEach var="insurance" items="${insuranceList}">
 									<option value="${insurance.insurance_seq}">${insurance.insurance_name}</option>
 								</c:forEach>
 						</select></td>
 						<th>예약</th>
-						<td><input class="btn btn-outline-warning" type="submit" name="reser()" value="예약" /> <input type="hidden"
+						<td><input type="submit" value="예약" /> <input type="hidden"
 							name="users_id" value="1" /></td>
 					</tr>
 				</table>
@@ -156,13 +156,14 @@ li a:hover {
 		</div>
 	</div>
 	<!-- product details -->
-	<div class="row container" style="padding-top: 10px;">
+
+	<div class="row" style="padding-top: 30px;">
 		<h4>옵션 정보</h4>
 	</div>
 	<hr>
-	<div class="row container" style="padding-top: 5px; padding-bottom: 5px;">
-		<table class=" text-center" style="width: 100%">
-			<tr class="row">
+	<div class="row" style="padding-top: 10px;">
+		<table style="width: 100%">
+			<tr>
 				<!-- <td><img src="resources/images/icon_sun_off.png"></td>
 					<td><img src="resources/images/icon_navi_off.png"></td>
 					<td><img src="resources/images/icon_smart_off.png"></td>
@@ -170,24 +171,21 @@ li a:hover {
 					<td><img src="resources/images/icon_wind_off.png"></td>
 					<td><img src="resources/images/icon_camera_off.png"></td>
 					<td><img src="resources/images/icon_wave_off.png"></td>
-					 -->
-				<td class="col"><i class='fas fa-video' style='font-size:35px; color:silver;'></i><p></p><p>블랙박스</p></td><!-- <span>블랙박스 ${car.dash_cam == 1 ? '있음' : '없음'}</span> -->
-				<td class="col"><i class='fas fa-camera' style='font-size:35px; color:silver;'></i><p></p><p>후방 카메라</p></td><!-- <span>후방 카메라 ${car.back_camera == 1 ? '있음' : '없음'}</span> -->
-				<td class="col"><i class='fas fa-map-marked-alt' style='font-size:35px; color:silver;'></i><p></p><p>네비게이션</p></td><!-- <span>내비게이션 ${car.navigation == 1 ? '있음' : '없음'}</span> -->
-				<td class="col"><i class='fab fa-bluetooth-b' style='font-size:35px; color:silver;'></i><p></p><p>블루투스</p></td><!-- <span>블루투스 ${car.bluetooth == 1 ? '있음' : '없음'}</span> -->
-				<td class="col"><i class='fas fa-code-branch' style='font-size:35px; color:silver;'></i><p></p><p>AUX</p></td><!-- <span>AUX ${car.aux == 1 ? '있음' : '없음'}</span> -->
-				<td class="col"><i class='fas fa-power-off' style='font-size:35px; color:silver;'></i><p></p><p>스마트키</p></td>
-				<%-- <td class="col"><span>스마트키 ${car.smart_key == 1 ? '있음' : '없음'}</span></td>
-			</tr> --%>
+					<td><img src="resources/images/icon_seat_off.png"></td> -->
+				<td><span>블랙박스 ${car.dash_cam == 1 ? '있음' : '없음'}</span></td>
+				<td><span>후방 카메라 ${car.back_camera == 1 ? '있음' : '없음'}</span></td>
+				<td><span>내비게이션 ${car.navigation == 1 ? '있음' : '없음'}</span></td>
+				<td><span>블루투스 ${car.bluetooth == 1 ? '있음' : '없음'}</span></td>
+				<td><span>AUX ${car.aux == 1 ? '있음' : '없음'}</span></td>
+				<td><span>스마트키 ${car.smart_key == 1 ? '있음' : '없음'}</span></td>
+			</tr>
 		</table>
 	</div>
 	<!-- product option pic -->
 	<hr>
-	<br>
-	<br>
 	<!-- 추가 예약정보 -->
 	<div class="comment row col-sm-7">
-		<h3>차량손해면책제도</h3>
+		<h3>차량손해면책제도 선택</h3>
 		&nbsp;&nbsp;
 		<svg id="insurance" onclick="insurance()" class="float-right"
 			style="color: orange;" width="1em" height="2em" viewBox="0 0 16 16"
@@ -200,33 +198,34 @@ li a:hover {
 </svg>
 	</div>
 	<hr>
-	<div class="card col-sm-12 b-0 p-0">
+	<div class="col-sm-12">
+		<table style="width: 100%">
+			<tr class="row">
+				<td colspan="3" height="20px;"></td>
+			</tr>
+			<tr class="border row">
+				<td colspan="3">
 					<div class="form-group">
-						<h5>내륙 지점</h5>
-						<ul>
-						<li>・단, 대여 차량 계약 시 선택한 차량손해면책제도 가입 종류에 따라 고객 부담금(면책금)이 차등 적용됩니다.</li>
-						<li>・수입차의 경우 일반자차만 선택 가능합니다.</li>
-						<li>・공항지점 수입차의 면책금은 별도 규정이 적용됩니다.(PLUS자차 30만원, 일반자차 50만원)</li>
-						</ul>
 						<br>
-					</div>
-					<div class="form-group">
-						<h5>제주 지점</h5>
 						<ul>
-						<li>・제주지점의 경우, 스마트폰 거치대를 무료로 대여해드립니다. (수량한정)</li>
-						<li>・부가서비스 (카시트/유모차) 예약 및 문의는 TT렌터카 제주지점&nbsp;064-111-1111 또는 홈페이지  www.TTrent.com 로 문의바랍니다.</li>
-						<li>(* 지정 업체인 ‘제주아이’ 외 타 업체 이용 시 분실 우려가 있어, SK렌터카 제주지점을 통한
-									인수/반납 및 사전 장착 서비스 이용이 불가합니다.)
-						</li>
+							<li>제주지점에서는 스마트폰 거치대를 무료로 대여해드립니다. (수량한정)</li>
+							<li>부가서비스 (카시트/유모차) 예약 및 문의는 TT렌터카 제주지점&nbsp;064-111-1111 또는
+								홈페이지 www.TTrent.com 로 문의바랍니다.
+								<p>(* 지정 업체인 ‘제주아이’ 외 타 업체 이용 시 분실 우려가 있어, SK렌터카 제주지점을 통한
+									인수/반납 및 사전 장착 서비스 이용이 불가합니다.)</p>
+							</li>
 						</ul>
 					</div>
+				</td>
+			</tr>
+		</table>
 	</div>
 	<br> <br>
 
-	<!-- <div class="comment row col-sm-6">
+	<div class="comment row col-sm-6">
 		<h3>계약자 정보입력 (제1운전자)</h3>
 	</div>
-	<hr> -->
+	<hr>
 	<!-- <div class="col-sm-12">
 				<p class="row">
 					여객자동차운수사업법 제34조 2항 개정에 따른 대여자동차 운전자의 자격 확인 <b>&nbsp;<svg
@@ -284,14 +283,14 @@ li a:hover {
 						placeholder="운전면허 발급일 (20170101) 입력">
 				</div>
 				<br>
-			</div>
+			</div> -->
 	<ul class="row">
 		<li>면허번호 입력 예) (구)면허번호 : 서울-01-123456-00 (신)면허번호 :
 			11-01-123456-00</li>
 		<li><p style="color: orange;">면허정보 입력 시 아래 ‘대여자격 확인 동의’를 꼭
 				확인하세요!</p></li>
 	</ul>
-	<br> <br> -->
+	<br> <br>
 
 	<div class="comment row col-sm-6">
 		<h3>이용약관</h3>
@@ -302,17 +301,17 @@ li a:hover {
 			개인정보를 최우선으로 생각하여 안전하게 보유·관리하고 있습니다.</p>
 		<h5>개인정보 제공 활용 동의</h5>
 
-		<%@include file="agreement.jsp"%>
+		<%@include file="z_agreement_collpase.jsp"%>
 
 	</div>
-	<ul class="row container">
+	<ul class="row">
 		<li>고객님께서는 동의를 거부할 권리가 있으나, 미 동의시 렌터카 서비스 이용이 불가능합니다.</li>
 	</ul>
 </div>
 <br>
 <br>
-
-<!-- <input type="hidden" id="date7777h" value="" name="date7777h"/>
+<!-- 
+<input type="hidden" id="date7777h" value="" name="date7777h"/>
 <input type="hidden" id="date8888h" value="" name="date8888h"/> -->
 <%-- 		<input type="hidden" id="addoptionh" value="" name="addoptionh" /> <input
 			type="hidden" id="addselech" value="" name="addselech" />

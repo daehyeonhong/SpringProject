@@ -36,17 +36,6 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean confirm(UsersDTO dto, RedirectAttributes redirectAttributes, Model model) {
-		log.info("confirm");
-		boolean result = userMapper.check(dto) != null;
-		if (result) {
-			model.addAttribute("users", userMapper.information(dto));
-		}
-		redirectAttributes.addFlashAttribute("result", result ? "success" : "failure");
-		return result;
-	}
-
-	@Override
 	public void logout(HttpSession session) {
 		session.invalidate();
 	}

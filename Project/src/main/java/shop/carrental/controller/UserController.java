@@ -81,24 +81,18 @@ public class UserController {
 	}
 
 	@GetMapping("/update")
-	public String update(HttpSession session) {
+	public String update(HttpSession session, Model model) {
 		log.info("update");
 
-		return session.getAttribute("users_id") != null ? "/user/confirm" : "redirect:/user/login";
-	}
+		UsersDTO dto = new UsersDTO();
 
-	@PostMapping("/confirm")
-	public String confirm(UsersDTO dto, HttpSession session, RedirectAttributes redirectAttributes, Model model) {
-		log.info("passwordCheck 시도");
-		String loginState = session.getAttribute("users_id").toString();
+		dto.setUsers_id(session.getAttribute("users_id").toString());
 
-		if (loginState != null) {
-			userService.confirm(dto, redirectAttributes, model);
-		}
-		redirectAttributes.addFlashAttribute("", "");
-		model.addAttribute("", "");
+		UsersDTO user = userService.information(dto);
 
-		return userService.confirm(dto) ? "/user/update" : "redirect:/user/update";
+		model.addAttribute("users", user);
+
+		return session.getAttribute("users_id") != null ? "/user/update" : "redirect:/user/login";
 	}
 
 	@GetMapping("/myPage")
