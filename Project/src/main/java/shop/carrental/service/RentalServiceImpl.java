@@ -12,6 +12,8 @@ import shop.carrental.domain.BranchDTO;
 import shop.carrental.domain.InsuranceDTO;
 import shop.carrental.domain.ReserveDTO;
 import shop.carrental.domain.ReserveVO;
+import shop.carrental.domain.ShortCarVO;
+import shop.carrental.mappers.CarMapper;
 import shop.carrental.mappers.RentalMapper;
 
 @Log4j
@@ -20,6 +22,7 @@ import shop.carrental.mappers.RentalMapper;
 public class RentalServiceImpl implements RentalService {
 
 	private RentalMapper rentalMapper;
+	private CarMapper carMapper;
 
 	@Transactional
 	@Override
@@ -79,6 +82,16 @@ public class RentalServiceImpl implements RentalService {
 		dto.setReserve_seq(reserve_seq);
 		rentalMapper.registerReserve(dto);
 		return rentalMapper.getReserve(reserve_seq);
+	}
+
+	@Override
+	public ReserveVO reserveAmount(Long sc_seq, Long insurance_seq, int period) {
+		ShortCarVO car = carMapper.getCarInfo(sc_seq);
+		InsuranceDTO insurance = rentalMapper.getInsurance(insurance_seq);
+		ReserveVO reserve = new ReserveVO();
+		reserve.setSc_seq(sc_seq);
+		reserve.setTotal_amount(car.getNomal_price() + car.getNomal_price() / 30);
+		return reserve;
 	}
 
 }

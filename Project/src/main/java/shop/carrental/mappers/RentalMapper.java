@@ -32,4 +32,6 @@ public interface RentalMapper {
 
 	public ReserveVO getReserve(Long reserve_seq);
 
+	public InsuranceDTO getInsurance(Long insurance_seq);
+
 }

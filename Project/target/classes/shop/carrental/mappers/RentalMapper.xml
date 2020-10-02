@@ -157,4 +157,10 @@
 		]]>
 	</select>
 
+	<select id="getInsurance" resultMap="insurance">
+		<![CDATA[
+			SELECT*FROM INSURANCE WHERE INSURANCE_SEQ=#{insurance_seq}
+		]]>
+	</select>
+
 </mapper>
