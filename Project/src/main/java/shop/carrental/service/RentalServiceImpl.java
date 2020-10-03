@@ -90,7 +90,7 @@ public class RentalServiceImpl implements RentalService {
 		InsuranceDTO insurance = rentalMapper.getInsurance(insurance_seq);
 		ReserveVO reserve = new ReserveVO();
 		reserve.setSc_seq(sc_seq);
-		reserve.setTotal_amount(car.getNomal_price() + car.getNomal_price() / 30);
+		reserve.setTotal_amount(car.getNomal_price() + car.getNomal_price() * insurance.getFare() / 100);
 		return reserve;
 	}
 

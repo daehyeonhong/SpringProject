@@ -58,7 +58,7 @@
 					</tr>
 					<tr>
 						<td style="border-bottom: 1px solid silver;">
-							<span class="float-right"> </span>
+							<span class="float-right"></span>
 						</td>
 					</tr>
 					<tr style="color: red;">

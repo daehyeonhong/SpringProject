@@ -20,10 +20,6 @@
 				<td><input type="text" name="navigation" /></td>
 			</tr>
 			<tr>
-				<td><span>썬루프</span></td>
-				<td><input type="text" name="sunroof" /></td>
-			</tr>
-			<tr>
 				<td><span>블루투스</span></td>
 				<td><input type="text" name="bluetooth" /></td>
 			</tr>

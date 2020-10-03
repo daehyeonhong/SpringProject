@@ -105,7 +105,6 @@
 												/* 	html += "<span>" + car.dash_cam + "</span>";
 													html += "<span>" + car.back_camera + "</span>";
 													html += "<span>" + car.navigation + "</span>";
-													html += "<span>" + car.sunroof + "</span>";
 													html += "<span>" + car.bluetooth + "</span>";
 													html += "<span>" + car.aux + "</span>";
 													html += "<span>" + car.smart_key + "</span>";

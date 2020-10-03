@@ -102,7 +102,7 @@ div.f {
 			<br> <br>
 			<h4>장기 렌트 예약</h4>
 			<hr style="border: solid 1px black" />
-			<form action="/rental/appoint" method="post">
+			<form action="/rental/appoint" id="appointForm" method="post">
 				<button type="button" class="accordion">
 					<span class="col-sm-3">
 						<strong>방문 일</strong>
@@ -128,17 +128,12 @@ div.f {
 						</c:forEach>
 					</select>
 				</div>
-				<%-- 
-						<span class="form-control">
-						<strong>사용자 아아디:</strong>${users_name}</span> --%>
-				<input type="hidden" name="users_id" value="1<%-- ${users_id} --%>" />
-
-
+				<input type="hidden" name="users_id" value="${users_id}" />
 				<span class="form-control"> <strong>차량 정보:
 						&nbsp;&nbsp;&nbsp;</strong>
 					${car.car_year}년형&emsp;${car.mfgco_name}&emsp;${car.car_model}&emsp;${car.trim_name}
 				</span> <input type="hidden" name="trim_seq" value="${car.trim_seq}" />
-				<button class=" btn btn-warning" type="submit">상담 예약</button>
+				<button class=" btn btn-warning" type="button" onclick="appointConfirm()">상담 예약</button>
 			</form>
 		</div>
 
@@ -183,4 +178,19 @@ div.f {
 		});
 		$('#appoint_date').datetimepicker('minDate', new Date());
 	});
+</script>
+<script type="text/javascript">
+	function appointConfirm(){
+	let users_id = '${users_id}'.trim();
+	if (users_id.length==0 || users_id==null){
+		alert('로그인 후 다시 시도하세요');
+		} else {
+			let yesNo = confirm('상담 예약을 진행하시겠습니까?');
+		if (yesNo){
+				$('#appointForm').submit();
+			} else {
+				alert('요청이 취소되었습니다.');
+			}
+		}
+	}
 </script>

@@ -35,7 +35,6 @@
 		<result property="dash_cam" column="dash_cam" />
 		<result property="back_camera" column="back_camera" />
 		<result property="navigation" column="navigation" />
-		<result property="sunroof" column="sunroof" />
 		<result property="bluetooth" column="bluetooth" />
 		<result property="aux" column="aux" />
 		<result property="smart_key" column="smart_key" />
@@ -131,10 +130,10 @@
 		<![CDATA[
 			INSERT INTO SHORT_CAR(
 			SC_SEQ,LICENSE_PLATE,DASH_CAM,BACK_CAMERA,
-			NAVIGATION,SUNROOF,BLUETOOTH,AUX,SMART_KEY,
+			NAVIGATION,BLUETOOTH,AUX,SMART_KEY,
 			NOMAL_PRICE,WEEKEND_PRICE,TRIM_SEQ,BRANCH_SEQ
 			) VALUES (
-			SEQ_SHORT_CAR.NEXTVAL,#{license_plate},#{dash_cam},#{back_camera},#{navigation},#{sunroof},
+			SEQ_SHORT_CAR.NEXTVAL,#{license_plate},#{dash_cam},#{back_camera},#{navigation},
 			#{bluetooth},#{aux},#{smart_key},#{nomal_price},#{weekend_price},#{trim_seq},#{branch_seq}
 			)
 		]]>
