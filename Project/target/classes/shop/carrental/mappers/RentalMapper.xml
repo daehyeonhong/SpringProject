@@ -78,7 +78,6 @@
 	</select>
 
 	<insert id="registerAppoint">
-
 		<selectKey keyProperty="appoint_seq" order="BEFORE"
 			resultType="long">
 			select SEQ_APPOINT.NEXTVAL from dual
@@ -160,6 +159,14 @@
 	<select id="getInsurance" resultMap="insurance">
 		<![CDATA[
 			SELECT*FROM INSURANCE WHERE INSURANCE_SEQ=#{insurance_seq}
+		]]>
+	</select>
+
+	<select id="checkSchedule" resultType="int">
+		<![CDATA[
+			SELECT count(*) FROM SHORT_CAR S LEFT JOIN ( SELECT R.* 
+			FROM RESERVE R WHERE R.END_DATE >=#{start_date} AND R.START_DATE <= #{end_date}
+			) R ON S.SC_SEQ = R.SC_SEQ WHERE R.SC_SEQ IS NULL and S.SC_SEQ=#{sc_seq}
 		]]>
 	</select>
 

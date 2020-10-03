@@ -23,4 +23,6 @@ public interface UserService {
 
 	public int total(Criteria criteria);
 
+	public String getEmail(String users_id);
+
 }

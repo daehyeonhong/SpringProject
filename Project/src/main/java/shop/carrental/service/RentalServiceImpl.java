@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
+import shop.carrental.domain.AmountVO;
 import shop.carrental.domain.AppointDTO;
 import shop.carrental.domain.AppointVO;
 import shop.carrental.domain.BranchDTO;
@@ -71,17 +72,20 @@ public class RentalServiceImpl implements RentalService {
 
 	@Override
 	public BranchDTO getAppoint(Long appoint_seq) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Transactional
 	@Override
 	public ReserveVO registerReserve(ReserveDTO dto) {
-		Long reserve_seq = rentalMapper.getNextReserveSeq();
-		dto.setReserve_seq(reserve_seq);
-		rentalMapper.registerReserve(dto);
-		return rentalMapper.getReserve(reserve_seq);
+		int schedule = rentalMapper.checkSchedule(dto);
+		if (schedule == 1) {
+			Long reserve_seq = rentalMapper.getNextReserveSeq();
+			dto.setReserve_seq(reserve_seq);
+			rentalMapper.registerReserve(dto);
+			return rentalMapper.getReserve(reserve_seq);
+		}
+		return null;
 	}
 
 	@Override
@@ -90,7 +94,7 @@ public class RentalServiceImpl implements RentalService {
 		InsuranceDTO insurance = rentalMapper.getInsurance(insurance_seq);
 		ReserveVO reserve = new ReserveVO();
 		reserve.setSc_seq(sc_seq);
-		reserve.setTotal_amount(car.getNomal_price() + car.getNomal_price() * insurance.getFare() / 100);
+		reserve.setAmount(new AmountVO(car.getNomal_price(), insurance.getFare(), period));
 		return reserve;
 	}
 

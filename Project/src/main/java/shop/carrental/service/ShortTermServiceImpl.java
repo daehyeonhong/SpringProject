@@ -19,7 +19,7 @@ public class ShortTermServiceImpl implements ShortTermService {
 
 	private CarMapper carMapper;
 	private RentalMapper rentalMapper;
-	private ReserveMapper reserveMapper;
+	/* private ReserveMapper reserveMapper; */
 
 	@Transactional
 	@Override
@@ -32,10 +32,10 @@ public class ShortTermServiceImpl implements ShortTermService {
 		rentalMapper.registerReserve(dto);
 	}
 
-	@Override
-	public ReserveVO getReserveInfo(ReserveVO vo) {
-		return reserveMapper.getReserveInfo(vo);
-	}
+	/*
+	 * @Override public ReserveVO getReserveInfo(ReserveVO vo) { return
+	 * reserveMapper.getReserveInfo(vo); }
+	 */
 
 	@Override
 	public void list(Model model) {

@@ -34,4 +34,6 @@ public interface RentalMapper {
 
 	public InsuranceDTO getInsurance(Long insurance_seq);
 
+	public int checkSchedule(ReserveDTO dto);
+
 }

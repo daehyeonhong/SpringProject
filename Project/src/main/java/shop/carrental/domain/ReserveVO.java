@@ -15,9 +15,11 @@ public class ReserveVO {
 
 	private String users_id, insurance_name, branch_name, trim_name, car_model, mfgco_name;
 
-	private int total_amount, coupon, period;
+	private int nomal_price, fare, total_amount, coupon, period;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date start_date, end_date, reserve_reg_date, reserve_update;
+
+	AmountVO amount = new AmountVO(nomal_price, fare, period);
 
 }

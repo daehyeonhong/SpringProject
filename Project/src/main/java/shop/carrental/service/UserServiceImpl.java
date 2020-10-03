@@ -68,4 +68,11 @@ public class UserServiceImpl implements UserService {
 		return generalMapper.total(criteria);
 	}
 
+	@Override
+	public String getEmail(String users_id) {
+		log.info("getEmail" + users_id);
+
+		return userMapper.getEmail(users_id);
+	}
+
 }

@@ -322,7 +322,7 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
 					html += '<form action="/short/detail" id="reserveForm" method="post">';
 					html += '<input type="text" name="users_id" value="${users_id}" />';
 					html += '<input type="text" name="sc_seq" value="' + reserve.sc_seq + '" />';
-					html += '<input type="text" name="total_amount" value="' + reserve.total_amount + '" />';
+					html += '<input type="text" name="total_amount" value="' + reserve.amount.total_amount + '" />';
 					html += '<input type="text" name="period" value="' + "${period}" + '" />';
 					html += '<input type="text" name="branch_seq" value="${car.branch_seq}" />';
 					html += '<input type="text" name="start_date" value="${param.start_date}" />';

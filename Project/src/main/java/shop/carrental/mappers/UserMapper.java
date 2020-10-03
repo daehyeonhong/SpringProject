@@ -12,4 +12,6 @@ public interface UserMapper {
 
 	public UsersDTO getUsers(String users_email);
 
+	public String getEmail(String users_id);
+
 }

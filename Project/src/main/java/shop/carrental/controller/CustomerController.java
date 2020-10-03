@@ -1,5 +1,7 @@
 package shop.carrental.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,7 @@ import shop.carrental.domain.Criteria;
 import shop.carrental.domain.NoticeDTO;
 import shop.carrental.domain.InquiryDTO;
 import shop.carrental.service.CustomerService;
+import shop.carrental.service.UserService;
 
 @Controller
 @Log4j
@@ -22,6 +25,7 @@ import shop.carrental.service.CustomerService;
 public class CustomerController {
 
 	private CustomerService customerService;
+	private UserService userService;
 
 	@GetMapping("/")
 	public void basic() {
@@ -41,9 +45,13 @@ public class CustomerController {
 	}
 
 	@GetMapping("/service/general")
-	public void general(Model model) {
+	public void general(Model model, HttpSession session) {
 		log.info("general");
-
+		String users_id = session.getAttribute("users_id").toString().trim();
+		if (users_id.length() != 0) {
+			String users_email = userService.getEmail(users_id);
+			model.addAttribute("users_email", users_email);
+		}
 		model.addAttribute("target", "general");
 	}
 

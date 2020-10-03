@@ -43,4 +43,10 @@
 		]]>
 	</select>
 
+	<select id="getEmail" resultType="string">
+		<![CDATA[
+			SELECT USERS_EMAIL FROM USERS WHERE USERS_ID=#{users_id} 
+		]]>
+	</select>
+
 </mapper>
