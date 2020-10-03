@@ -17,10 +17,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.BranchDTO;
 import shop.carrental.domain.CarVO;
-<<<<<<< HEAD
-=======
 import shop.carrental.domain.ReserveVO;
->>>>>>> 03c054dfd7dbb22ff1e1ed9814645956749d72e0
 import shop.carrental.domain.ShortCarVO;
 import shop.carrental.service.CarService;
 import shop.carrental.service.RentalService;
