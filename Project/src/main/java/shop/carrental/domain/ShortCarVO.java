@@ -15,8 +15,7 @@ public class ShortCarVO {
 
 	private Long sc_seq, trim_seq, branch_seq, img_seq;
 
-	private int dash_cam, back_camera, navigation, sunroof, bluetooth, aux, smart_key, nomal_price, weekend_price,
-			car_year;
+	private int dash_cam, back_camera, navigation, bluetooth, aux, smart_key, nomal_price, weekend_price, car_year;
 
 	private String license_plate, front, mfgco_name, car_model, trim_name, fuel_name, car_desc;
 

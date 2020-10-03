@@ -14,8 +14,8 @@
 		<div class="container">
 			<br />
 			<form action="/customer/service/inquiry" method="post">
-			<input type="hidden" name="inquiry_type" value="3">
-			<input type="hidden" name="users_id" value="1">
+			<input type="hidden" name="inquiry_type" value="3" />
+			<input type="hidden" name="users_id" />
 				<table class="col-sm-12">
 					<tr>
 						<td><input type="text" class="form-control" name="name" placeholder="이름 입력" /></td>

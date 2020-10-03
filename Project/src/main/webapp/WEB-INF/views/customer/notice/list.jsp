@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <article>
 	<%@ include file="../customerMenu.jsp"%>
 	<div class="container col-sm-6">
@@ -27,7 +26,7 @@
 				<tbody>
 					<c:forEach var="notice" items="${noticeList}">
 						<c:set var="seq" value="${notice.notice_seq}" />
-						<fmt:formatDate var="reg_date" value="${notice.notice_reg_date}" pattern="yyyy/MM/dd" />
+						<fmt:formatDate var="reg_date" value="${notice.notice_reg_date}" pattern="yyyy-MM-dd" />
 						<tr>
 							<td><span>${seq}</span></td>
 							<td><span>${notice.notice_type}</span></td>

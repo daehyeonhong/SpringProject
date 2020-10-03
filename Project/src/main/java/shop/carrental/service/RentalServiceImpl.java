@@ -1,5 +1,6 @@
 package shop.carrental.service;
 
+import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -8,8 +9,11 @@ import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.AppointDTO;
 import shop.carrental.domain.AppointVO;
 import shop.carrental.domain.BranchDTO;
+import shop.carrental.domain.InsuranceDTO;
 import shop.carrental.domain.ReserveDTO;
 import shop.carrental.domain.ReserveVO;
+import shop.carrental.domain.ShortCarVO;
+import shop.carrental.mappers.CarMapper;
 import shop.carrental.mappers.RentalMapper;
 
 @Log4j
@@ -18,6 +22,7 @@ import shop.carrental.mappers.RentalMapper;
 public class RentalServiceImpl implements RentalService {
 
 	private RentalMapper rentalMapper;
+	private CarMapper carMapper;
 
 	@Transactional
 	@Override
@@ -40,26 +45,53 @@ public class RentalServiceImpl implements RentalService {
 	}
 
 	@Override
+	public Long getLongnextseq() {
+		return rentalMapper.getNextSeq();
+	}
+
+	@Override
+	public List<BranchDTO> listBranch() {
+		return rentalMapper.listBranch();
+	}
+
+	@Override
+	public int getPeriod(ReserveVO vo) {
+		return rentalMapper.getPeriod(vo);
+	}
+
+	@Override
+	public List<InsuranceDTO> listInsurance() {
+		return rentalMapper.listInsurance();
+	}
+
+	@Override
+	public Long getReserveNextSeq() {
+		return rentalMapper.getNextReserveSeq();
+	}
+
+	@Override
 	public BranchDTO getAppoint(Long appoint_seq) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Transactional
 	@Override
-	public Long getLongnextseq() {
-		// TODO Auto-generated method stub
-		return rentalMapper.getNextSeq();
+	public ReserveVO registerReserve(ReserveDTO dto) {
+		Long reserve_seq = rentalMapper.getNextReserveSeq();
+		dto.setReserve_seq(reserve_seq);
+		rentalMapper.registerReserve(dto);
+		return rentalMapper.getReserve(reserve_seq);
 	}
 
 	@Override
-	public void registerReserve(ReserveDTO dto) {
-		// TODO Auto-generated method stub
-
+	public ReserveVO reserveAmount(Long sc_seq, Long insurance_seq, int period) {
+		ShortCarVO car = carMapper.getCarInfo(sc_seq);
+		InsuranceDTO insurance = rentalMapper.getInsurance(insurance_seq);
+		ReserveVO reserve = new ReserveVO();
+		reserve.setSc_seq(sc_seq);
+		reserve.setTotal_amount(car.getNomal_price() + car.getNomal_price() * insurance.getFare() / 100);
+		return reserve;
 	}
-
-	/*
-	 * @Override public void registerReserve(ReserveVO vo) {
-	 * rentalMapper.registerReserve(dto); }
-	 */
 
 }

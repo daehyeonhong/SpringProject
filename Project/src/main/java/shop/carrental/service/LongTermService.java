@@ -1,11 +1,11 @@
 package shop.carrental.service;
 
-import org.springframework.ui.Model;
+import shop.carrental.domain.CarVO;
 
 public interface LongTermService {
 
-	public void list(Model model);
+	public void list();
 
-	public void detail(Long trim_seq, Model model);
+	public CarVO detail(Long trim_seq);
 
 }

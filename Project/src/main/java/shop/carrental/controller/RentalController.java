@@ -35,13 +35,13 @@ public class RentalController {
 	@GetMapping("/")
 	public String basic() {
 		log.info("rental");
-		return "/rental/reservation";
+		return "/rental/reserve";
 	}
 
 	/* ShortTerm */
-	@GetMapping("/reservation")
-	public void reservation() {
-		log.info("reservation");
+	@GetMapping("/reserve")
+	public void reserve() {
+		log.info("reserve");
 	}
 
 	/* LongTerm */

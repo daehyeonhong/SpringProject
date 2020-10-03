@@ -15,7 +15,7 @@ public class ShortCarDTO {
 
 	private Long sc_seq, trim_seq, branch_seq;
 
-	private int dash_cam, back_camera, navigation, sunroof, bluetooth, aux, smart_key, nomal_price, weekend_price;
+	private int dash_cam, back_camera, navigation, bluetooth, aux, smart_key, nomal_price, weekend_price;
 
 	private String license_plate;
 

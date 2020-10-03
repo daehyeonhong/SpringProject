@@ -19,7 +19,7 @@ public class AppointVO {
 
 	private String users_id, branch_name, branch_phone, car_model, trim_name, branch_address, gps, gps2;
 
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date appoint_reg_date, appoint_update, appoint_date;
 
 }

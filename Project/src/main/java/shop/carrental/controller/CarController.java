@@ -17,6 +17,10 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.BranchDTO;
 import shop.carrental.domain.CarVO;
+<<<<<<< HEAD
+=======
+import shop.carrental.domain.ReserveVO;
+>>>>>>> 03c054dfd7dbb22ff1e1ed9814645956749d72e0
 import shop.carrental.domain.ShortCarVO;
 import shop.carrental.service.CarService;
 import shop.carrental.service.RentalService;
@@ -32,7 +36,7 @@ public class CarController {
 
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-DD");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
 	}
 
@@ -61,6 +65,14 @@ public class CarController {
 		log.info("branch ==> " + branch_seq + " <==");
 
 		return new ResponseEntity<BranchDTO>(rentalService.getBranch(branch_seq), HttpStatus.OK);
+	}
+
+	@GetMapping(value = "/reserveAmount/{sc_seq}/{insurance_seq}/{period}", produces = {
+			MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE })
+	public ResponseEntity<ReserveVO> reserveAmount(@PathVariable("sc_seq") Long sc_seq,
+			@PathVariable("insurance_seq") Long insurance_seq, @PathVariable("period") int period) {
+
+		return new ResponseEntity<ReserveVO>(rentalService.reserveAmount(sc_seq, insurance_seq, period), HttpStatus.OK);
 	}
 
 }
