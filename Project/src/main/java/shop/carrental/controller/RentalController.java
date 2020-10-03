@@ -63,15 +63,11 @@ public class RentalController {
 		Long appoint_seq = dto.getAppoint_seq();
 
 		// Long resultAppoint = dto.getAppoint_seq();
-		log.info("resultAppoint:--------------------------> " + resultAppoint);
-		log.info("resultAppoint:--------------------------> " + appoint_seq);
+		log.info("resultAppoint: " + resultAppoint);
+		log.info("resultAppoint: " + appoint_seq);
 
 		redirectAttributes.addAttribute("appoint_seq", appoint_seq);
 
-		/*
-		 * return rentalTermService.registerAppoint(dto, redirectAttributes) ?
-		 * "redirect:/rental/result" : "redirect:" + request.getHeader("Referer");
-		 */
 		return resultAppoint > 0 ? "redirect:/rental/result" : "redirect:" + request.getHeader("Referer");
 	}
 

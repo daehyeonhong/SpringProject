@@ -14,9 +14,9 @@
 			<div class="container">
 				<div class="row">
 						<%-- <a class="btn btn-${type != 'all' ? 'outline-' : ''}dark col-sm-2" href="?type=all">전체</a> --%>
-						<a class="btn btn-${type != '장기' ? 'outline-' : ''}dark col-sm-2" href="?type=장기">장기</a>
-						<a class="btn btn-${type != '단기' ? 'outline-' : ''}dark col-sm-2" href="?type=단기">단기</a>
-						<a class="btn btn-${type != '전기차' ? 'outline-' : ''}dark col-sm-2" href="?type=전기차">전기차</a>
+						<a class="btn btn-${type != '1' ? 'outline-' : ''}dark col-sm-2" href="?type=1">장기</a>
+						<a class="btn btn-${type != '2' ? 'outline-' : ''}dark col-sm-2" href="?type=2">단기</a>
+						<a class="btn btn-${type != '3' ? 'outline-' : ''}dark col-sm-2" href="?type=3">전기차</a>
 				</div>
 			</div>
 			<hr>

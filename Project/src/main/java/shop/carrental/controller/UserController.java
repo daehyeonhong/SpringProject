@@ -2,6 +2,8 @@ package shop.carrental.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
+import shop.carrental.domain.Criteria;
+import shop.carrental.domain.PageVO;
 import shop.carrental.domain.UsersDTO;
 import shop.carrental.service.UserService;
 import shop.carrental.util.VerifyReCAPTCHA;
@@ -102,9 +106,14 @@ public class UserController {
 	}
 
 	@GetMapping("/myPage/general")
-	public void general(Model model) {
+	public void general(Criteria criteria, Model model, HttpSession session, @Param("inquiry_type") int inquiry_type) {
 		log.info("general");
-		model.addAttribute("target", "general");
+		String users_id = session.getAttribute("users_id").toString();
+		criteria.setSearchBy(Integer.toString(inquiry_type));
+		criteria.setUsers_id(users_id);
+		int total = userService.total(criteria);
+		model.addAttribute("pageMaker", new PageVO(criteria, total));
+		model.addAttribute("generalList", userService.listInquiry(criteria));
 	}
 
 	@GetMapping("/myPage/rental")

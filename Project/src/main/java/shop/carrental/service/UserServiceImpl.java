@@ -1,12 +1,17 @@
 package shop.carrental.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
+import shop.carrental.domain.Criteria;
+import shop.carrental.domain.InquiryDTO;
 import shop.carrental.domain.UsersDTO;
+import shop.carrental.mappers.GeneralMapper;
 import shop.carrental.mappers.UserMapper;
 
 @Log4j
@@ -15,6 +20,7 @@ import shop.carrental.mappers.UserMapper;
 public class UserServiceImpl implements UserService {
 
 	private UserMapper userMapper;
+	private GeneralMapper generalMapper;
 
 	@Override
 	public String login(UsersDTO dto) {
@@ -46,6 +52,20 @@ public class UserServiceImpl implements UserService {
 		UsersDTO dto = userMapper.getUsers(users_email);
 		redirectAttributes.addFlashAttribute("users", dto);
 		return dto.getUsers_id();
+	}
+
+	@Override
+	public List<InquiryDTO> listInquiry(Criteria criteria) {
+		log.info("listInquiry" + criteria);
+
+		return generalMapper.listInquiry(criteria);
+	}
+
+	@Override
+	public int total(Criteria criteria) {
+		log.info("countInquiry");
+
+		return generalMapper.total(criteria);
 	}
 
 }

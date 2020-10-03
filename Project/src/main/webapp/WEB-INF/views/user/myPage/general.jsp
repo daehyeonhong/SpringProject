@@ -1,44 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:set var="type" value="${param.inquiry_type}"/>
 <article>
 	<div class="container col-sm-6">
 		<h2>상담내역</h2>
 		<br>
 		<div class="btn-group col-sm-12" id="serviceNav">
-			<button type="button" class="btn btn-outline-secondary">일반상담</button>
-			<button type="button" class="btn btn-outline-secondary">렌터카상담</button>
+			<a type="button" href="/user/myPage/general?inquiry_type=1" class="btn btn-${type == 1 ? '' : 'outline-'}secondary">일반상담</a>
+			<a type="button" href="/user/myPage/general?inquiry_type=2" class="btn btn-${type != 1 ? '' : 'outline-'}secondary">렌터카상담</a>
 		</div>
 		<div class="text-right">
 			<a href="/customer/faq" class="btn btn-outline-dark">자주찾는질문</a>
 			<a href="/customer/service/rental" class="btn btn-outline-dark">고객 상담</a>
 		</div>
 		<hr color="black">
-		<%@ include file="noticeSearchNav.jsp"%>
-
 		<div class="container">
-			<table class="table text-center table-bordered">
-				<thead>
-					<tr>
-						<th>번호</th>
-						<th>구분</th>
-						<th>제목</th>
-						<th>등록일</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="notice" items="${noticeList}">
-						<c:set var="seq" value="${notice.notice_seq}" />
-						<fmt:formatDate var="reg_date" value="${notice.notice_reg_date}" pattern="yyyy-MM-dd" />
-						<tr>
-							<td><span>${seq}</span></td>
-							<td><span>${notice.notice_type}</span></td>
-							<td class="text-left"><a class="move" href="${seq}">${notice.notice_title}</a></td>
-							<td><span>${notice.notice_count}</span></td>
-							<td><span><i class='far fa-thumbs-up text-primary' style='font-size:15px'>&nbsp;${notice.notice_good}</i>&nbsp;&nbsp;&nbsp;&nbsp;<i class='far fa-thumbs-down text-danger' style='font-size:15px'>&nbsp;${notice.notice_bad}</i></span></td>
-							<td><span>${reg_date}</span></td>
-						</tr>	
-					</c:forEach>
-				</tbody>
-			</table>
+		<div class="accordion col-sm-11" id="accordiona">
+				<c:choose>
+					<c:when test="${fn:length(generalList)==0}">
+						문의 글이 없습니다
+					</c:when>
+					<c:otherwise>
+						<c:forEach var="general" items="${generalList}" varStatus="i">
+							<c:set var="seq" value="${general.inquiry_seq}" />
+							<fmt:formatDate var="reg_date" value="${general.inquiry_reg_date}" pattern="yyyy-MM-dd" />
+							<div>
+							<div class="card-header" id="heading${i.index}">
+								<h2 class="mb-0">
+									<button class="btn btn-link card-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse${i.index}" aria-expanded="true" aria-controls="collapse${i.index}">
+										문의 번호: <span>${seq}</span>문의글 제목: <span>${general.inquiry_title}</span> 등록일: <span>${reg_date}</span>
+									</button>
+								</h2>
+							</div>
+
+							<div id="collapse${i.index}" class="collapse" aria-labelledby="heading${i.index}" data-parent="#accordiona">
+								<div class="card-body"><span>${general.inquiry_content}</span></div>
+							</div>
+						</div>
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
+		</div>
 		</div>
 		<div align="center">
 			<nav aria-label="Page navigation">
@@ -71,12 +75,9 @@
 					</li>
 				</ul>
 			</nav>
-			<div>
-				<button id="registerBtn" type="button" class="btn btn-xs btn-primary">새 글 동록</button>
-			</div>
 		</div>
 
-		<form id="actionForm" action="/customer/notice/list" method="GET">
+		<form id="actionForm" action="/user/myPage/inquiry" method="GET">
 			<input type="hidden" name="pageNumber" value="${pageMaker.criteria.pageNumber}" />
 			<input type="hidden" name="searchBy" value="${pageMaker.criteria.searchBy}" />
 			<input type="hidden" name="keyword" value="${pageMaker.criteria.keyword}" />
@@ -98,8 +99,8 @@
 
 		$('.move').on('click', function (event) {
 			event.preventDefault();
-			actionForm.append('<input type="hidden" name="notice_seq" value="' + $(this).attr('href') + '">');
-			actionForm.attr('action', '/customer/notice/page');
+			actionForm.append('<input type="hidden" name="inquiry_seq" value="' + $(this).attr('href') + '">');
+			actionForm.attr('action', '/user/myPage/inquiry');
 			actionForm.submit();
 		});
 
@@ -113,14 +114,8 @@
 			e.preventDefault();
 			searchForm.submit();
 		});
-		
-
-		$('#registerBtn').on('click', function() {
-				self.location = '/customer/notice/register'
-			});
 	});
 </script>
-</article>
 <script type="text/javascript">
 function serviceNav(parameter, callback) {
 	let sc_seq = parameter.sc_seq;

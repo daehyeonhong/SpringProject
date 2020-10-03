@@ -24,7 +24,7 @@
 						</div>
 					</c:otherwise>
 				</c:choose></li>
-			<li class="nav-item"><a class="nav-link" href="/user/myPage">MY렌터카</a></li>
+			<li class="nav-item"><a class="nav-link" href="/user/myPage/general?inquiry_type=1">MY렌터카</a></li>
 			<li class="nav-item"><a class="nav-link" href="/customer/notice/list">고객센터</a></li>
 		</ul>
 	</nav>
