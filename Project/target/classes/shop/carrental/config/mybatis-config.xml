@@ -26,15 +26,9 @@
 		<typeAlias alias="carDTO" type="shop.carrental.domain.CarDTO"/>
 		<typeAlias alias="mfgcoDTO" type="shop.carrental.domain.MfgcoDTO"/>
 		<typeAlias alias="branchDTO" type="shop.carrental.domain.BranchDTO"/>
-		<typeAlias alias="segmentDTO" type="shop.carrental.domain.SegmentDTO"/>
 		<typeAlias alias="shortCarDTO" type="shop.carrental.domain.ShortCarDTO"/>
-		<typeAlias alias="shortCarVO" type="shop.carrental.domain.ShortCarVO"/>
+		<typeAlias alias="segmentDTO" type="shop.carrental.domain.SegmentDTO"/>
 		<typeAlias alias="carDTO" type="shop.carrental.domain.CarDTO"/>
-		<typeAlias alias="carVO" type="shop.carrental.domain.CarVO"/>
-		<typeAlias alias="appointDTO" type="shop.carrental.domain.AppointDTO"/>
-		<typeAlias alias="appointVO" type="shop.carrental.domain.AppointVO"/>
-		<typeAlias alias="insuranceDTO" type="shop.carrental.domain.InsuranceDTO"/>
-		<typeAlias alias="reserveVO" type="shop.carrental.domain.ReserveVO"/>
 	</typeAliases>
 
 </configuration>

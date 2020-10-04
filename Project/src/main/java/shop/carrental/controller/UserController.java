@@ -29,10 +29,8 @@ public class UserController {
 	}
 
 	@GetMapping("/login")
-	public String login(HttpSession session) {
+	public void login() {
 		log.info("loginPage");
-
-		return session.getAttribute("users_id") == null ? "/user/login" : "redirect:/";
 	}
 
 	@PostMapping("/login")
@@ -40,17 +38,7 @@ public class UserController {
 			RedirectAttributes redirectAttributes) {
 		log.info("login 시도");
 
-		String users_name = userService.login(dto);
-
-		boolean result = users_name != null;
-
-		if (result) {
-			session.setAttribute("users_id", dto.getUsers_id());
-			session.setAttribute("users_name", users_name);
-		}
-
-		redirectAttributes.addFlashAttribute("result", result ? "success" : "failure");
-		return result ? "redirect:/" : "redirect:/user/login";
+		return userService.login(dto, request, session, redirectAttributes) ? "redirect:/" : "redirect:/user/login";
 	}
 
 	@GetMapping("/logout")
@@ -81,24 +69,39 @@ public class UserController {
 	}
 
 	@GetMapping("/update")
-	public String update(HttpSession session, Model model) {
+	public String update() {
 		log.info("update");
 
-		UsersDTO dto = new UsersDTO();
+		return "/user/confirm";
+	}
 
-		dto.setUsers_id(session.getAttribute("users_id").toString());
+	@PostMapping("/confirm")
+	public String confirm(UsersDTO dto, HttpSession session, RedirectAttributes redirectAttributes, Model model) {
+		log.info("passwordCheck 시도");
 
-		UsersDTO user = userService.information(dto);
+		return userService.confirm(dto, redirectAttributes, model) ? "/user/update" : "redirect:/user/update";
+	}
 
-		model.addAttribute("users", user);
-
-		return session.getAttribute("users_id") != null ? "/user/update" : "redirect:/user/login";
+	@ResponseBody
+	@PostMapping("/VerifyReCAPTCHA")
+	public int verifyReCAPTCHA(HttpServletRequest request) {
+		VerifyReCAPTCHA.setSecretKey("6LcN1sIZAAAAAFtcJ6qVR_vmtTltorutmH-NGUvS");
+		String gReCAPTCHAResponse = request.getParameter("recaptcha");
+		try {
+			if (VerifyReCAPTCHA.verify(gReCAPTCHAResponse)) {
+				return 0;
+			} else {
+				return 1;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}
 	}
 
 	@GetMapping("/myPage")
-	public String myPage(HttpSession session) {
+	public void myPage() {
 		log.info("myPage");
-		return session.getAttribute("users_id") == null ? "/user/login" : "redirect:/user/myPage/general";
 	}
 
 	@GetMapping("/myPage/general")
@@ -111,56 +114,6 @@ public class UserController {
 	public void rental(Model model) {
 		log.info("rental");
 		model.addAttribute("target", "rental");
-	}
-
-	@GetMapping("/idSearch")
-	public void idSearch(HttpSession session) {
-		log.info("idSearch");
-	}
-
-	@GetMapping("/emailAuthentication")
-	public void emailAuthentication(HttpSession session) {
-		log.info("emailPage");
-	}
-
-	@PostMapping("/emailAuthentication")
-	public String idSearch(String users_email, RedirectAttributes redirectAttributes) {
-		log.info("email 시도");
-
-		String users_id = userService.getId(users_email, redirectAttributes);
-		log.info(users_id);
-		return users_id != null ? "/user/idSearch_result" : "redirect:/user/emailAuthentication";
-	}
-
-	@GetMapping("/idSearch_result")
-	public String idSearch_result(HttpSession session) {
-		log.info("idSearch_result");
-		return "/user/idSearch_result";
-	}
-
-	@GetMapping("/pwdSearch")
-	public String pwdSearch(HttpSession session) {
-		log.info("pwdSearch");
-		return "/user/pwdSearch";
-	}
-
-	@GetMapping("/pwdSearch_result")
-	public String pwdSearch_result(HttpSession session) {
-		log.info("pwdSearch_result");
-		return "/user/pwdSearch_result";
-	}
-
-	@ResponseBody
-	@PostMapping("/VerifyReCAPTCHA")
-	public int verifyReCAPTCHA(HttpServletRequest request) {
-		VerifyReCAPTCHA.setSecretKey("6LcN1sIZAAAAAFtcJ6qVR_vmtTltorutmH-NGUvS");
-		String gReCAPTCHAResponse = request.getParameter("recaptcha");
-		try {
-			return VerifyReCAPTCHA.verify(gReCAPTCHAResponse) ? 0 : 1;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return -1;
-		}
 	}
 
 }

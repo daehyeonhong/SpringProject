@@ -14,11 +14,11 @@ import lombok.ToString;
 public class AnswerDTO {
 
 	/* 문의 답변 */
-	private Long answer_seq;
+	private Long answer_seq,inquiry_seq;
 
 	private String answer_title, answer_writer, answer_content;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private Date answer_reg_date, answer_update;
 
 }

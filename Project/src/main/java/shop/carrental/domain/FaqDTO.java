@@ -15,7 +15,7 @@ public class FaqDTO {
 
 	private String faq_type, faq_title, faq_content;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private Date faq_reg_date, faq_update;
 
 }

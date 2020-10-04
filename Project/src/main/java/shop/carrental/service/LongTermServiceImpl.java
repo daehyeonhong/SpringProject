@@ -4,8 +4,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
-import shop.carrental.domain.CarVO;
-import shop.carrental.domain.TrimDTO;
 import shop.carrental.mappers.CarMapper;
 import shop.carrental.mappers.RentalMapper;
 
@@ -18,14 +16,11 @@ public class LongTermServiceImpl implements LongTermService {
 	private CarMapper carMapper;
 
 	@Override
-	public CarVO detail(Long trim_seq) {
-		return carMapper.detailTrim(trim_seq);
-	}
+	public void list(Model model) {
+		log.info("list");
 
-	@Override
-	public void list() {
-		// TODO Auto-generated method stub
-
+		model.addAttribute("mfgcoList", carMapper.listMfgco());
+		model.addAttribute("segmentList", carMapper.listSegment());
 	}
 
 }

@@ -5,8 +5,8 @@
 		${result == "failure" ? "<div class='alert alert-danger'><strong>Please Id & Password check!</strong></div>" : ""}
 		<form action="/user/confirm" method="post">
 			<div class="form-group">
-				<span class="form-control">${users_id}</span>
-				<input type="hidden" name="users_id" value="${users_id}" />
+				<span class="form-control">${userId}</span>
+				<input type="hidden" name="id" value="${userId}" />
 			</div>
 			<div class="form-group">
 				<input type="password" class="form-control" name="password" placeholder="비밀번호 입력" required="required" />

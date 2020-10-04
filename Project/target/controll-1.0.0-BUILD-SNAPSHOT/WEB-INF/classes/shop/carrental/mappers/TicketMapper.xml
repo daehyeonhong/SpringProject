@@ -7,18 +7,19 @@
 
 	<!-- sql문 모듈 -->
 	<sql id="criteria">
-		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
-			<foreach collection="typeArr" item="type">
+		<trim prefix="(" suffix=")AND" prefixOverrides="OR">
+			<foreach collection="searchByArray" item="searchBy">
 				<trim prefix="OR">
 					<choose>
-						<when test="type=='T'.toString()">
-							title like '%'||#{keyword}||'%'
+						<when test="searchBy=='T'.toString()">
+							<![CDATA[
+								UPPER(title) LIKE'%'||UPPER(#{keyword})||'%'
+							]]>
 						</when>
-						<when test="type=='C'.toString()">
-							content like '%'||#{keyword}||'%'
-						</when>
-						<when test="type=='W'.toString()">
-							userId like '%'||#{keyword}||'%'
+						<when test="searchBy=='C'.toString()">
+							<![CDATA[
+								UPPER(content) LIKE'%'||UPPER(#{keyword})||'%'
+							]]>
 						</when>
 					</choose>
 				</trim>
@@ -53,9 +54,9 @@
   		]]>
 		<include refid="criteria"></include>
   		<![CDATA[
-  	 	rownum<=#{pageNum}*#{amount}
+  	 	rownum<=#{pageNumber}*#{amount}
   		)
-  		where rn > (#{pageNum}-1)*#{amount}
+  		where rn > (#{pageNumber}-1)*#{amount}
   		]]>
 	</select>
 

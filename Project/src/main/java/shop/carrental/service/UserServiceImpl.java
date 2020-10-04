@@ -1,5 +1,6 @@
 package shop.carrental.service;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -17,10 +18,20 @@ public class UserServiceImpl implements UserService {
 	private UserMapper userMapper;
 
 	@Override
-	public String login(UsersDTO dto) {
+	public boolean login(UsersDTO dto, HttpServletRequest request, HttpSession session,
+			RedirectAttributes redirectAttributes) {
 		log.info("login");
+		String name = userMapper.check(dto);
 
-		return userMapper.check(dto);
+		boolean result = name != null;
+
+		if (result) {
+			session.setAttribute("userId", dto.getUsers_id());
+			session.setAttribute("userName", name);
+		}
+
+		redirectAttributes.addFlashAttribute("result", result ? "success" : "failure");
+		return result;
 	}
 
 	@Override
@@ -36,16 +47,19 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void logout(HttpSession session) {
-		session.invalidate();
+	public boolean confirm(UsersDTO dto, RedirectAttributes redirectAttributes, Model model) {
+		log.info("confirm");
+		boolean result = userMapper.check(dto) != null;
+		if (result) {
+			model.addAttribute("user", userMapper.information(dto));
+		}
+		redirectAttributes.addFlashAttribute("result", result ? "success" : "failure");
+		return result;
 	}
 
 	@Override
-	public String getId(String users_email, RedirectAttributes redirectAttributes) {
-
-		UsersDTO dto = userMapper.getUsers(users_email);
-		redirectAttributes.addFlashAttribute("users", dto);
-		return dto.getUsers_id();
+	public void logout(HttpSession session) {
+		session.invalidate();
 	}
 
 }

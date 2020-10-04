@@ -6,6 +6,4 @@ public interface GeneralMapper {
 
 	public void registerInquiry(InquiryDTO dto);
 
-	public InquiryDTO read(Long inquiry_seq);
-
 }

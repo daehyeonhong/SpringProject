@@ -11,13 +11,13 @@ import lombok.ToString;
 @ToString
 public class ReserveDTO {
 
-	private Long reserve_seq, branch_seq, sc_seq, insurance_seq;
+	private Long reserve_seq, branch_seq, short_car_seq, insurance_seq;
 
 	private String users_id;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date start_date, end_date, reserve_reg_date, reserve_update;
+	@DateTimeFormat(pattern = "yyyy/MM/dd")
+	private Date start_date, end_date;
 
-	private int total_amount, coupon, payment_amount, period;
+	private int total_ammount, coupon, payment_amount;
 
 }
