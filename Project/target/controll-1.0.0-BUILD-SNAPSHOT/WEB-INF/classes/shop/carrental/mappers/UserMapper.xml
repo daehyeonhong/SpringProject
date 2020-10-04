@@ -43,4 +43,17 @@
 		]]>
 	</select>
 
+	<select id="getEmail" resultType="string">
+		<![CDATA[
+			SELECT USERS_EMAIL FROM USERS WHERE USERS_ID=#{users_id}
+		]]>
+	</select>
+
+	<select id="checkNickname" parameterType="string"
+		resultType="int">
+		<![CDATA[
+			SELECT COUNT(*) FROM USERS WHERE USERS_NICKNAME=#{users_nickname}
+		]]>
+	</select>
+
 </mapper>

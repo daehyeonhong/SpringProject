@@ -25,4 +25,6 @@ public interface UserService {
 
 	public String getEmail(String users_id);
 
+	public Boolean checkNickname(String users_nickname);
+
 }

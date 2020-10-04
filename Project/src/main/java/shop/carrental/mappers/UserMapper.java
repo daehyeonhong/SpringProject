@@ -14,4 +14,6 @@ public interface UserMapper {
 
 	public String getEmail(String users_id);
 
+	public int checkNickname(String users_nickname);
+
 }

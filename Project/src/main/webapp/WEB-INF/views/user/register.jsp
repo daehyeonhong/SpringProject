@@ -44,6 +44,7 @@
 					<td>
 					    <b>닉네임</b>
 						<input type="text" class="form-control" id="users_nickname" name="users_nickname" placeholder="닉네임" required="required" />
+						<button id="nicknameBtn" type="button" onclick="nicknameChk()">닉네임 중복 확인</button>
 						<div class="chk_register" id="chk_nickname"></div>
 					</td>
 				</tr>
@@ -307,4 +308,12 @@ var nameV=/^[가-힣]{2,6}$/;
 var nickV=/^[가-힣]{2,6}$/;
 var licenseV=/^[0-9]{2,6}$/;
 var birthV=/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/;
+</script>
+<script type="text/javascript">
+function nicknameChk(){
+	let users_nickname = $('#users_nickname').val();
+	$.get('/user/checkNickname/' + users_nickname, function(result){
+		alert(result)
+	});
+}
 </script>

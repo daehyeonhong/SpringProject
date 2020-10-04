@@ -1,11 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<script>
+$(document).ready(function(){
+	$("#all, #req1, #req2, #selec1").mouseover(function(){
+		$(this).css("cursor","pointer");
+	});
+	$("#all").click(function(){
+		if($("#all").prop("checked")){
+			$("input[name=chk]").prop("checked",true);
+		}else{
+			$("input[name=chk]").prop("checked",false);
+		}
+	});
+});
+</script>
+<script>
+$(document).ready(function(){
+	$("#agreeCheck").click(function(){
+if($('#req1').is(":checked")==false | $('#req2').is(":checked")==false | $('#req3').is(':checked')==false){
+	alert("필수사항에 동의해 주세요.");
+	return false;
+}else{
+	location.href="/user/register" ;
+}
+});
+});
+
+</script>
 <article>
 	<div class="container col-sm-8" align="center">
 		<h1 class="display-6">약관동의 및 본인확인</h1>
 		<form>
 			<div class="text-right col-sm-8">
 				<label class="form-check-label text-warning">
-					<input type="checkbox" class="form-check-input" value="" />모든 약관확인 및 전체동의
+					<input type="checkbox" class="form-check-input" id="all" />모든 약관확인 및 전체동의
 				</label>
 			</div>
 			<table class="table table-bordered col-sm-8">
@@ -14,7 +41,7 @@
 						<th>
 							<div class="form-check-inline">
 								<label class="form-check-label">
-									<input type="checkbox" class="form-check-input" value="" />SK렌터카 이용 약관
+									<input type="checkbox" class="form-check-input" id="req1" name="chk" required="required" />SK렌터카 이용 약관
 									<span class="text-danger">(필수)</span>
 								</label>
 							</div>
@@ -231,7 +258,7 @@
 						<th>
 							<div class="form-check-inline">
 								<label class="form-check-label">
-									<input type="checkbox" class="form-check-input" value="" />개인정보 수집, 이용안내
+									<input type="checkbox" class="form-check-input" id="req2" name="chk" required="required"/>개인정보 수집, 이용안내
 									<span class="text-danger">(필수)</span>
 								</label>
 							</div>
@@ -274,14 +301,13 @@
 					</tr>
 				</tbody>
 			</table>
-			<p>고객님께서는 동의를 거부할 권리가 있으나, 미 동의 시 렌터카 서비스 이용이 불가능합니다.</p>
-			<table class="table col-sm-8">
+			<table class="table col-sm-8 border">
 				<thead>
 					<tr>
 						<th>
 							<div class="form-check-inline">
 								<label class="form-check-label">
-									<input type="checkbox" class="form-check-input" value="" />개인정보 수집, 이용안내(선택)
+									<input type="checkbox" class="form-check-input" id="req3" name="chk" required="required"/>개인정보 수집, 이용안내<span class="text-danger">(필수)</span>
 								</label>
 							</div>
 						</th>
@@ -322,22 +348,9 @@
 					</tr>
 				</tbody>
 			</table>
-			<table class="table table-bordered col-sm-8">
-				<tr>
-					<td>
-						<div class="form-check-inline">
-							<input type="checkbox" class="form-check-input" value="" />SK렌터카 이용 약관
-						</div>
-					</td>
-					<td>
-						<div class="form-check-inline">
-							<input type="checkbox" class="form-check-input" value="" />SK렌터카 이용 약관
-						</div>
-					</td>
-				</tr>
-			</table>
-			<div class="col-sm-6">
-				<button class="btn btn-primary btn-block" type="button" onclick="location.href='/user/register'">약관 동의 및 회원가입</button>
+			<br>
+			<div class="container col-sm-8">
+				<button class="row btn btn-primary btn-block" type="button" id="agreeCheck">약관 동의 및 회원가입</button><!--='location.href="/user/register"  -->
 			</div>
 		</form>
 	</div>

@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
 	$("#all, #req1, #req2, #selec1").mouseover(function(){
@@ -15,30 +14,16 @@ $(document).ready(function(){
 });
 </script>
 <script>
-/* function agreeCheck(){
- var agreeCheck = document.getElementsByName("chk[]");
-	for(var i=0 ; i<agreeCheck.length; i++){
-			if(agreeCheck[0].checked==true && agreeCheck[1].checked==true){
-				alert("0");
-				return location.href='/user/register';
-			}else
-				alert("0");
-				
-		} 
-} */
 $(document).ready(function(){
 	$("#agreeCheck").click(function(){
-if($('#req1').is(":checked")==false | $('#req2').is(":checked")==false){
+if($('#req1').is(":checked")==false | $('#req2').is(":checked")==false | $('#req3').is(':checked')==false){
 	alert("필수사항에 동의해 주세요.");
 	return false;
 }else{
 	location.href="/user/register" ;
-
 }
 });
 });
-
-	
 
 </script>
 <article>
@@ -47,7 +32,7 @@ if($('#req1').is(":checked")==false | $('#req2').is(":checked")==false){
 		<form>
 			<div class="text-right col-sm-8">
 				<label class="form-check-label text-warning">
-					<input type="checkbox" class="form-check-input" value="" id="all" />모든 약관확인 및 전체동의
+					<input type="checkbox" class="form-check-input" id="all" />모든 약관확인 및 전체동의
 				</label>
 			</div>
 			<table class="table table-bordered col-sm-8">
@@ -56,7 +41,7 @@ if($('#req1').is(":checked")==false | $('#req2').is(":checked")==false){
 						<th>
 							<div class="form-check-inline">
 								<label class="form-check-label">
-									<input type="checkbox" class="form-check-input" value="" id="req1" name="chk" required="required" />SK렌터카 이용 약관
+									<input type="checkbox" class="form-check-input" id="req1" name="chk" required="required" />SK렌터카 이용 약관
 									<span class="text-danger">(필수)</span>
 								</label>
 							</div>
@@ -273,7 +258,7 @@ if($('#req1').is(":checked")==false | $('#req2').is(":checked")==false){
 						<th>
 							<div class="form-check-inline">
 								<label class="form-check-label">
-									<input type="checkbox" class="form-check-input" value="" id="req2" name="chk" required="required"/>개인정보 수집, 이용안내
+									<input type="checkbox" class="form-check-input" id="req2" name="chk" required="required"/>개인정보 수집, 이용안내
 									<span class="text-danger">(필수)</span>
 								</label>
 							</div>
@@ -316,14 +301,13 @@ if($('#req1').is(":checked")==false | $('#req2').is(":checked")==false){
 					</tr>
 				</tbody>
 			</table>
-			<b class="col-sm-8" style="color:red;">*고객님께서는 동의를 거부할 권리가 있으나, 미 동의 시 렌터카 서비스 이용이 불가능합니다.</b>
 			<table class="table col-sm-8 border">
 				<thead>
 					<tr>
 						<th>
 							<div class="form-check-inline">
 								<label class="form-check-label">
-									<input type="checkbox" class="form-check-input" value="" id="selec1" name="chk"/>개인정보 수집, 이용안내(선택)
+									<input type="checkbox" class="form-check-input" id="req3" name="chk" required="required"/>개인정보 수집, 이용안내<span class="text-danger">(필수)</span>
 								</label>
 							</div>
 						</th>
@@ -364,20 +348,6 @@ if($('#req1').is(":checked")==false | $('#req2').is(":checked")==false){
 					</tr>
 				</tbody>
 			</table>
-			<!-- <table class="table table-bordered col-sm-8">
-				<tr>
-					<td>
-						<div class="form-check-inline">
-							<input type="checkbox" class="form-check-input" value="" />SK렌터카 이용 약관
-						</div>
-					</td>
-					<td>
-						<div class="form-check-inline">
-							<input type="checkbox" class="form-check-input" value="" />SK렌터카 이용 약관
-						</div>
-					</td>
-				</tr>
-			</table> -->
 			<br>
 			<div class="container col-sm-8">
 				<button class="row btn btn-primary btn-block" type="button" id="agreeCheck">약관 동의 및 회원가입</button><!--='location.href="/user/register"  -->

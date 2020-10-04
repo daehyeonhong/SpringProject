@@ -22,7 +22,7 @@
 								<td colspan="2"><input type="text" class="form-control" name="inquiry_title" placeholder="제목" /></td>
 								<td colspan="1">
 									<span class="form-control">고객ID님</span>
-									<input type="hidden" name="users_id" value="1" />
+									<input type="hidden" name="users_id" value="users_id" />
 								</td>
 							</tr>
 							<tr>

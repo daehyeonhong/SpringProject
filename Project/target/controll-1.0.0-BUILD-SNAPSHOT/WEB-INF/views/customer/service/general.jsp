@@ -14,34 +14,26 @@
 		<div class="container">
 			<br />
 			<form action="/customer/service/inquiry" method="post">
-			<input type="hidden" name="inquiry_type" value="3">
-			<input type="hidden" name="users_id" value="1">
+			<input type="hidden" name="inquiry_type" value="1" />
+			<input type="hidden" name="users_id" value="${users_id}" />
 				<table class="col-sm-12">
 					<tr>
-						<td><input type="text" class="form-control" name="name" placeholder="이름 입력" /></td>
-						<td><span class="form-control">ID</span></td>
+						<td><span class="form-control">${users_name}</span></td>
+						<td><span class="form-control">${users_id}</span></td>
+						<td><span class="form-control">${users_email}</span><td>
 					</tr>
 					<tr>
-						<td><input type="text" class="form-control" name="email" placeholder="이메일 입력" /></td>
-						<td>
-							<div class="input-group input-group-prepend">
-								<span class="form-control col-sm-1">@</span>
-								<input type="text" class="form-control" name="domain" placeholder="메일 주소 입력" />
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
+						<td colspan="3">
 							<input type="text" class="form-control" name="inquiry_title" placeholder="제목을 입력하해주세요." />
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2">
+						<td colspan="3">
 							<textarea class="form-control" rows="5" name="inquiry_content" placeholder="내용 입력 (10자 이상 등록해주세요)"></textarea>
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2">
+						<td colspan="3">
 								<ul class="list-group list-group-flush">
 									<li class="list-group-item">칭찬하기와 제안하기 및 관련 없는 내용 접수 시 별도의 답변을 드리지 않습니다.</li>
 									<li class="list-group-item">상담신청내역 및 답변은 MY렌터카 > 상담내역 또는 이메일을 통해 확인이 가능합니다.</li>

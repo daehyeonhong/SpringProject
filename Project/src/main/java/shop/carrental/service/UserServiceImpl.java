@@ -1,10 +1,8 @@
 package shop.carrental.service;
 
 import java.util.List;
-
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -73,6 +71,13 @@ public class UserServiceImpl implements UserService {
 		log.info("getEmail" + users_id);
 
 		return userMapper.getEmail(users_id);
+	}
+
+	@Override
+	public Boolean checkNickname(String users_nickname) {
+		log.info("checkNickname" + users_nickname);
+
+		return userMapper.checkNickname(users_nickname) == 0;
 	}
 
 }
