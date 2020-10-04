@@ -59,12 +59,13 @@ public class ShortTermController {
 	@PostMapping("/detail")
 	public String shortTerm_detailPost(ReserveDTO dto, RedirectAttributes rttr) {
 		ReserveVO reserveVO = rentalService.registerReserve(dto);
-		rttr.addFlashAttribute("reserve", reserveVO);
+		rttr.addAttribute("reserve_seq", reserveVO.getReserve_seq());
 		return "redirect:/short/reserve";
 	}
 
 	@GetMapping("/reserve")
-	public void reserve() {
+	public void reserve(Long reserve_seq, Model model) {
+		model.addAttribute("reserve", rentalService.getReserve(reserve_seq));
 	}
 
 }

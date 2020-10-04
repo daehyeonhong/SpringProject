@@ -6,11 +6,9 @@ import org.springframework.ui.Model;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.ReserveDTO;
-import shop.carrental.domain.ReserveVO;
 import shop.carrental.domain.ShortCarVO;
 import shop.carrental.mappers.CarMapper;
 import shop.carrental.mappers.RentalMapper;
-import shop.carrental.mappers.ReserveMapper;
 
 @Log4j
 @Service
@@ -31,11 +29,6 @@ public class ShortTermServiceImpl implements ShortTermService {
 	public void registerReserve(ReserveDTO dto) {
 		rentalMapper.registerReserve(dto);
 	}
-
-	/*
-	 * @Override public ReserveVO getReserveInfo(ReserveVO vo) { return
-	 * reserveMapper.getReserveInfo(vo); }
-	 */
 
 	@Override
 	public void list(Model model) {

@@ -98,4 +98,10 @@ public class RentalServiceImpl implements RentalService {
 		return reserve;
 	}
 
+	@Override
+	public ReserveVO getReserve(Long reserve_seq) {
+		log.info("getReserve");
+		return rentalMapper.getReserve(reserve_seq);
+	}
+
 }

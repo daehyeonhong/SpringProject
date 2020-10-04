@@ -33,4 +33,6 @@ public interface RentalService {
 
 	public ReserveVO reserveAmount(Long sc_seq, Long insurance_seq, int period);
 
+	public ReserveVO getReserve(Long reserve_seq);
+
 }
