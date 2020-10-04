@@ -6,9 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
-import shop.carrental.service.CarService;
 import shop.carrental.service.LongTermService;
-import shop.carrental.service.RentalService;
 
 @Controller
 @Log4j
@@ -17,8 +15,6 @@ import shop.carrental.service.RentalService;
 public class LongTermController {
 
 	private LongTermService longTermService;
-	private RentalService rentalService;
-	private CarService carService;
 
 	@GetMapping("/")
 	public String basic() {
@@ -27,11 +23,8 @@ public class LongTermController {
 	}
 
 	@GetMapping("/detail")
-	public void detail(Long trim_seq, Model model) {
+	public void detail() {
 		log.info("detail");
-
-		model.addAttribute("car", longTermService.detail(trim_seq));
-		model.addAttribute("branchList", rentalService.listBranch());
 	}
 
 	@GetMapping("/guide")
@@ -48,8 +41,12 @@ public class LongTermController {
 	public void list(Model model) {
 		log.info("list");
 
-		model.addAttribute("mfgcoList", carService.listMfgco());
-		model.addAttribute("segmentList", carService.listSegment());
+		longTermService.list(model);
+	}
+
+	@GetMapping("/result")
+	public void result() {
+		log.info("result");
 	}
 
 }

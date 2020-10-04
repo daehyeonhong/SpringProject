@@ -23,12 +23,12 @@
 					<choose>
 						<when test="searchBy=='T'.toString()">
 							<![CDATA[
-								UPPER(notice_title) LIKE'%'||UPPER(#{keyword})||'%'
+								UPPER(title) LIKE'%'||UPPER(#{keyword})||'%'
 							]]>
 						</when>
 						<when test="searchBy=='C'.toString()">
 							<![CDATA[
-								UPPER(notice_content) LIKE'%'||UPPER(#{keyword})||'%'
+								UPPER(content) LIKE'%'||UPPER(#{keyword})||'%'
 							]]>
 						</when>
 					</choose>

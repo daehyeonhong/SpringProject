@@ -15,11 +15,11 @@ public class InquiryDTO {
 
 	private Long inquiry_seq;
 
-	private int inquiry_type;
+	private int inquiry_type, status;
 
 	private String inquiry_title, inquiry_content, users_id;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private Date inquiry_reg_date, inquiry_update;
 
 }

@@ -1,7 +1,6 @@
 package shop.carrental.domain;
 
 import java.util.Date;
-import org.springframework.format.annotation.DateTimeFormat;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -15,7 +14,6 @@ public class UsersDTO {
 
 	private String users_id, password, users_name, users_nickname, users_email, users_phone, license;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birth_date, users_reg_date, users_update;
 
 }

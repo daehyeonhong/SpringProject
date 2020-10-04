@@ -17,7 +17,7 @@ public class AppointDTO {
 
 	private String users_id;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private Date appoint_reg_date, appoint_update, appoint_date;
 
 }

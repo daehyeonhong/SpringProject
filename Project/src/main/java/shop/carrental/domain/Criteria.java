@@ -10,7 +10,7 @@ import lombok.ToString;
 public class Criteria {
 
 	private int pageNumber, amount;
-	private String searchBy, keyword, users_id;
+	private String searchBy, keyword;
 
 	public Criteria() {
 		this(1, 10);

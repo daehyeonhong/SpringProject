@@ -3,8 +3,8 @@
 <mapper namespace="shop.carrental.mappers.UserMapper">
 
 	<resultMap type="usersDTO" id="informationMap">
-		<id property="users_id" column="users_id" />
-		<result property="users_seq" column="users_seq" />
+		<id property="users_seq" column="users_seq" />
+		<result property="users_id" column="users_id" />
 		<result property="password" column="password" />
 		<result property="users_name" column="users_name" />
 		<result property="users_nickname" column="users_nickname" />
@@ -18,34 +18,22 @@
 
 	<select id="check" resultType="String">
 		<![CDATA[
-			SELECT users_name FROM users WHERE users_id=#{users_id} AND password=#{password}
+			SELECT name FROM users WHERE id=#{id} AND password=#{password}
 		]]>
 	</select>
 
 	<insert id="register">
 		<![CDATA[
 			INSERT INTO users
-				(users_seq,users_id,password,users_name,users_nickname,birth_date,users_email,users_phone)
+				(seq,id,password,name,nickname,birth_date,email,phone)
 			VALUES
-				(seq_users.NEXTVAL,#{users_id},#{password},#{users_name},#{users_nickname},#{birth_date},#{users_email},#{users_phone})
+				(seq_users.NEXTVAL,#{id},#{password},#{name},#{nickname},#{birth_date},#{email},#{phone})
 		]]>
 	</insert>
 
 	<select id="information" resultMap="informationMap">
 		<![CDATA[
-			SELECT*FROM users WHERE users_id=#{users_id}
-		]]>
-	</select>
-
-	<select id="getUsers" resultMap="informationMap">
-		<![CDATA[
-			SELECT*FROM users WHERE users_email=#{users_email}
-		]]>
-	</select>
-
-	<select id="getEmail" resultType="string">
-		<![CDATA[
-			SELECT USERS_EMAIL FROM USERS WHERE USERS_ID=#{users_id} 
+			SELECT id,name,nickname,phone,email,birth_date FROM users WHERE id=#{id}
 		]]>
 	</select>
 

@@ -2,8 +2,6 @@ package shop.carrental.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,8 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
-import shop.carrental.domain.Criteria;
-import shop.carrental.domain.PageVO;
 import shop.carrental.domain.UsersDTO;
 import shop.carrental.service.UserService;
 import shop.carrental.util.VerifyReCAPTCHA;
@@ -33,10 +29,8 @@ public class UserController {
 	}
 
 	@GetMapping("/login")
-	public String login(HttpSession session) {
+	public void login() {
 		log.info("loginPage");
-
-		return session.getAttribute("users_id") == null ? "/user/login" : "redirect:/";
 	}
 
 	@PostMapping("/login")
@@ -44,17 +38,7 @@ public class UserController {
 			RedirectAttributes redirectAttributes) {
 		log.info("login 시도");
 
-		String users_name = userService.login(dto);
-
-		boolean result = users_name != null;
-
-		if (result) {
-			session.setAttribute("users_id", dto.getUsers_id());
-			session.setAttribute("users_name", users_name);
-		}
-
-		redirectAttributes.addFlashAttribute("result", result ? "success" : "failure");
-		return result ? "redirect:/" : "redirect:/user/login";
+		return userService.login(dto, request, session, redirectAttributes) ? "redirect:/" : "redirect:/user/login";
 	}
 
 	@GetMapping("/logout")
@@ -85,78 +69,17 @@ public class UserController {
 	}
 
 	@GetMapping("/update")
-	public String update(HttpSession session, Model model) {
+	public String update() {
 		log.info("update");
 
-		UsersDTO dto = new UsersDTO();
-
-		dto.setUsers_id(session.getAttribute("users_id").toString());
-
-		UsersDTO user = userService.information(dto);
-
-		model.addAttribute("users", user);
-
-		return session.getAttribute("users_id") != null ? "/user/update" : "redirect:/user/login";
+		return "/user/confirm";
 	}
 
-	@GetMapping("/myPage")
-	public String myPage(HttpSession session) {
-		log.info("myPage");
-		return session.getAttribute("users_id") == null ? "/user/login" : "redirect:/user/myPage/general";
-	}
+	@PostMapping("/confirm")
+	public String confirm(UsersDTO dto, HttpSession session, RedirectAttributes redirectAttributes, Model model) {
+		log.info("passwordCheck 시도");
 
-	@GetMapping("/myPage/general")
-	public void general(Criteria criteria, Model model, HttpSession session, @Param("inquiry_type") int inquiry_type) {
-		log.info("general");
-		String users_id = session.getAttribute("users_id").toString();
-		criteria.setSearchBy(Integer.toString(inquiry_type));
-		criteria.setUsers_id(users_id);
-		int total = userService.total(criteria);
-		model.addAttribute("pageMaker", new PageVO(criteria, total));
-		model.addAttribute("generalList", userService.listInquiry(criteria));
-	}
-
-	@GetMapping("/myPage/rental")
-	public void rental(Model model) {
-		log.info("rental");
-		model.addAttribute("target", "rental");
-	}
-
-	@GetMapping("/idSearch")
-	public void idSearch(HttpSession session) {
-		log.info("idSearch");
-	}
-
-	@GetMapping("/emailAuthentication")
-	public void emailAuthentication(HttpSession session) {
-		log.info("emailPage");
-	}
-
-	@PostMapping("/emailAuthentication")
-	public String idSearch(String users_email, RedirectAttributes redirectAttributes) {
-		log.info("email 시도");
-
-		String users_id = userService.getId(users_email, redirectAttributes);
-		log.info(users_id);
-		return users_id != null ? "/user/idSearch_result" : "redirect:/user/emailAuthentication";
-	}
-
-	@GetMapping("/idSearch_result")
-	public String idSearch_result(HttpSession session) {
-		log.info("idSearch_result");
-		return "/user/idSearch_result";
-	}
-
-	@GetMapping("/pwdSearch")
-	public String pwdSearch(HttpSession session) {
-		log.info("pwdSearch");
-		return "/user/pwdSearch";
-	}
-
-	@GetMapping("/pwdSearch_result")
-	public String pwdSearch_result(HttpSession session) {
-		log.info("pwdSearch_result");
-		return "/user/pwdSearch_result";
+		return userService.confirm(dto, redirectAttributes, model) ? "/user/update" : "redirect:/user/update";
 	}
 
 	@ResponseBody
@@ -165,11 +88,32 @@ public class UserController {
 		VerifyReCAPTCHA.setSecretKey("6LcN1sIZAAAAAFtcJ6qVR_vmtTltorutmH-NGUvS");
 		String gReCAPTCHAResponse = request.getParameter("recaptcha");
 		try {
-			return VerifyReCAPTCHA.verify(gReCAPTCHAResponse) ? 0 : 1;
+			if (VerifyReCAPTCHA.verify(gReCAPTCHAResponse)) {
+				return 0;
+			} else {
+				return 1;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			return -1;
 		}
+	}
+
+	@GetMapping("/myPage")
+	public void myPage() {
+		log.info("myPage");
+	}
+
+	@GetMapping("/myPage/general")
+	public void general(Model model) {
+		log.info("general");
+		model.addAttribute("target", "general");
+	}
+
+	@GetMapping("/myPage/rental")
+	public void rental(Model model) {
+		log.info("rental");
+		model.addAttribute("target", "rental");
 	}
 
 }

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <article>
 	<%@ include file="../customerMenu.jsp"%>
 	<div class="container col-sm-6">
@@ -20,22 +19,22 @@
 						<th>구분</th>
 						<th>제목</th>
 						<th>조회수</th>
-						<th>좋아요:싫어요</th>
+						<th>좋아요::싫어요</th>
 						<th>등록일</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach var="notice" items="${noticeList}">
 						<c:set var="seq" value="${notice.notice_seq}" />
-						<fmt:formatDate var="reg_date" value="${notice.notice_reg_date}" pattern="yyyy-MM-dd" />
+						<fmt:formatDate var="reg_date" value="${notice.notice_reg_date}" pattern="yyyy/MM/dd" />
 						<tr>
 							<td><span>${seq}</span></td>
 							<td><span>${notice.notice_type}</span></td>
 							<td class="text-left"><a class="move" href="${seq}">${notice.notice_title}</a></td>
 							<td><span>${notice.notice_count}</span></td>
-							<td><span><i class='far fa-thumbs-up text-primary' style='font-size:15px'>&nbsp;${notice.notice_good}</i>&nbsp;&nbsp;&nbsp;&nbsp;<i class='far fa-thumbs-down text-danger' style='font-size:15px'>&nbsp;${notice.notice_bad}</i></span></td>
+							<td><span>${notice.notice_good}::${notice.notice_bad}</span></td>
 							<td><span>${reg_date}</span></td>
-						</tr>	
+						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
@@ -113,10 +112,10 @@
 			e.preventDefault();
 			searchForm.submit();
 		});
-		
 
 		$('#registerBtn').on('click', function() {
 				self.location = '/customer/notice/register'
 			});
+
 	});
 </script>
