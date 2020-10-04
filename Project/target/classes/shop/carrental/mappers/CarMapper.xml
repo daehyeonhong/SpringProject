@@ -68,19 +68,11 @@
 						T.TRIM_NAME,
 						T.TRIM_PRICE
 					FROM
-						CAR C,
-						SEGMENT S,
-						MFGCO M,
-						FUEL F,
-						TRIM T
-					WHERE
-						C.SEGMENT_SEQ=S.SEGMENT_SEQ
-					AND
-						C.MFGCO_SEQ=M.MFGCO_SEQ
-					AND
-						C.FUEL_SEQ=F.FUEL_SEQ
-					AND
-						C.CAR_SEQ=T.CAR_SEQ
+						CAR C JOIN
+						SEGMENT S ON C.SEGMENT_SEQ=C.SEGMENT_SEQ
+						JOIN MFGCO M ON M.MFGCO_SEQ=C.MFGCO_SEQ
+						JOIN FUEL F ON F.FUEL_SEQ=C.FUEL_SEQ
+						JOIN TRIM T ON T.CAR_SEQ=C.CAR_SEQ
 				]]>
 	</sql>
 

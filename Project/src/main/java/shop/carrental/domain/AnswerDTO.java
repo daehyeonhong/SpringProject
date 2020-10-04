@@ -14,7 +14,7 @@ import lombok.ToString;
 public class AnswerDTO {
 
 	/* 문의 답변 */
-	private Long answer_seq;
+	private Long answer_seq, inquiry_seq;
 
 	private String answer_title, answer_writer, answer_content;
 

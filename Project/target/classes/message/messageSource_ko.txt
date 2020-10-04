@@ -2,18 +2,54 @@
 message.all.settings.language.en=영어
 message.all.settings.language.ko=한글
 
-# header-sidebar.jsp
-message.admin.header-sidebar.title=TTCAR ADMIN
-message.admin.header-sidebar.dashboard=대시보드
-message.admin.header-sidebar.interface=인터페이스
-message.admin.header-sidebar.addons=애드온
-message.admin.header-sidebar.charts=차트
-message.admin.header-sidebar.tickets=티켓
+# header.jsp
+message.admin.header.admin=관리자
+message.admin.header.registerSC=단기차량 추가
+message.admin.header.branchList=지점 리스트
+message.admin.header.registerBranch=지점 추가
 
-# header-topbar.jsp
-message.admin.header-topbar.search=검색
-message.admin.header-topbar.profile=내 정보
-message.admin.header-topbar.logout=로그아웃
+message.admin.header.ticketList=문의티켓
+
+message.admin.header.login=로그인
+message.admin.header.adminId=님
+message.admin.header.adminUpdate=개인정보 수정
+message.admin.header.logout=로그아웃
+
+# login.jsp
+message.admin.login.title=관리자 로그인
+message.admin.login.email=이메일 입력
+message.admin.login.password=비밀번호 입력
+message.admin.login.loginBtn=로그인
+message.admin.login.registBtn=회원가입
+
+# register.jsp
+message.admin.register.title=관리자 회원가입
+message.admin.register.firstName=이름
+message.admin.register.lastName=성
+message.admin.register.email=이메일 입력
+message.admin.register.password=비밀번호 입력
+message.admin.register.password2=비밀번호 확인
+message.admin.register.registBtn=회원가입
+message.admin.register.loginBtn=로그인
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # index.jsp
 message.admin.index.dashboard=대시보드
@@ -47,17 +83,7 @@ message.admin.index.shortterm-rent=단기 랜트
 
 
 
-# login.jsp
-message.user.login.title=로그인
-message.user.login.id=아이디
-message.user.login.password=비밀번호
-message.user.login.passwordConfirm=비밀번호 확인
-message.user.login.name=이름
-message.user.login.role=권한
-message.user.login.loginBtn=로그인
-message.user.login.registBtn=회원가입
-message.user.login.updateBtn=회원정보 수정
-message.user.login.deleteBtn=회원탈퇴
+
 
 # getBoardList.jsp
 message.board.list.mainTitle=게시글 목록

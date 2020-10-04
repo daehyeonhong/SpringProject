@@ -15,7 +15,7 @@ public class InquiryDTO {
 
 	private Long inquiry_seq;
 
-	private int inquiry_type;
+	private int inquiry_type, status;
 
 	private String inquiry_title, inquiry_content, users_id;
 

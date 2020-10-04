@@ -7,18 +7,19 @@
 
 	<!-- sql문 모듈 -->
 	<sql id="criteria">
-		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
-			<foreach collection="typeArr" item="type">
+		<trim prefix="(" suffix=")AND" prefixOverrides="OR">
+			<foreach collection="searchByArray" item="searchBy">
 				<trim prefix="OR">
 					<choose>
-						<when test="type=='T'.toString()">
-							title like '%'||#{keyword}||'%'
+						<when test="searchBy=='T'.toString()">
+							<![CDATA[
+								UPPER(inquiry_title) LIKE'%'||UPPER(#{keyword})||'%'
+							]]>
 						</when>
-						<when test="type=='C'.toString()">
-							content like '%'||#{keyword}||'%'
-						</when>
-						<when test="type=='W'.toString()">
-							userId like '%'||#{keyword}||'%'
+						<when test="searchBy=='C'.toString()">
+							<![CDATA[
+								UPPER(inquiry_content) LIKE'%'||UPPER(#{keyword})||'%'
+							]]>
 						</when>
 					</choose>
 				</trim>
@@ -26,53 +27,62 @@
 		</trim>
 	</sql>
 
-	<select id="getTicketList"
-		resultType="shop.carrental.domain.TicketVO">
+	<resultMap type="inquiryDTO" id="inquiryMap">
+		<id property="inquiry_seq" column="inquiry_seq" />
+		<result property="inquiry_type" column="inquiry_type" />
+		<result property="inquiry_title" column="inquiry_title" />
+		<result property="inquiry_content" column="inquiry_content" />
+		<result property="inquiry_reg_date" column="inquiry_reg_date" />
+		<result property="inquiry_update" column="inquiry_update" />
+		<result property="users_id" column="users_id" />
+		<result property="status" column="status" />
+	</resultMap>
+
+	<select id="getTicketPage" resultMap="inquiryMap">
 		<![CDATA[
-			select * from tickets where tno>0
+			select * from inquiry where inquiry_seq=#{inquiry_seq}
 		]]>
 	</select>
 
-	<select id="getTicketPage"
-		resultType="shop.carrental.domain.TicketVO">
-		<![CDATA[
-			select * from tickets where tno=#{tno}
-		]]>
-	</select>
-
-	<select id="getTicketListWithPaging"
-		resultType="shop.carrental.domain.TicketVO">
+	<select id="getTicketListWithPaging" resultMap="inquiryMap">
 		<![CDATA[
        	select *
         from
       	(
-  		select /*+index_desc(tickets pk_tickets) */ 
-  		rownum rn,tno,category,title,userId,regdate,updateDate,status,content,uploadfile,replycnt 
-  		from tickets 
+  		select /*+index_desc(inquiry pk_inquiry) */ 
+  		rownum rn,inquiry_seq,inquiry_type,inquiry_title,inquiry_content,inquiry_reg_date,inquiry_update,users_id,status 
+  		from inquiry 
   		where 
   		]]>
 		<include refid="criteria"></include>
   		<![CDATA[
-  	 	rownum<=#{pageNum}*#{amount}
+  	 	rownum<=#{pageNumber}*#{amount}
   		)
-  		where rn > (#{pageNum}-1)*#{amount}
+  		where rn > (#{pageNumber}-1)*#{amount}
   		]]>
 	</select>
 
 	<select id="getTotalCount" resultType="int">
 		<![CDATA[
-		select count(*) from tickets where 
+		select count(*) from inquiry where 
 		]]>
 		<include refid="criteria"></include>
 		<![CDATA[
-		tno>0
+		inquiry_seq>0
 		]]>
 	</select>
 
-	<!-- 댓글 갯수 수정 -->
-	<update id="updateReplyCnt">
-		update tbl_board set replycnt = replycnt + #{amount}
-		where tno = #{tno}
+	<insert id="replyTicket">
+		<![CDATA[
+		insert into answer(answer_seq,answer_title,answer_writer,answer_content,inquiry_seq) 
+		values(seq_answer.nextval,#{answer_title},#{answer_writer},#{answer_content},#{inquiry_seq})
+		]]>
+	</insert>
+
+	<update id="updateTicketStatus">
+		<![CDATA[
+		update inquiry set status=#{status} where inquiry_seq=#{inquiry_seq}
+		]]>
 	</update>
 
 </mapper>
