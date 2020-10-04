@@ -71,7 +71,7 @@
 		<table>
 			<tr class="row">
 				<td class="col-sm-3">
-					<button onclick="location.href='/long/'"   class="bg-light text-dark">
+					<button onclick="location.href='/long/list'"   class="bg-light text-dark">
 						<div>
 							<p class="h3">신차 다이렉트</p>
 							<p class="text-warning">───</p>
@@ -97,7 +97,7 @@
 				</td>
 				
 				<td class="col-sm-3">
-					<button class="bg-light text-dark" onclick="location.href='/short/'" >
+					<button class="bg-light text-dark" onclick="location.href='/short/listInland'" >
 						<div>
 							<p class="h3">내륙 단기</p>
 							<p class="text-warning">───</p>
@@ -110,7 +110,7 @@
 				</td>
 				
 				<td class="col-sm-3">
-					<button  class="bg-light text-dark">
+					<button class="bg-light text-dark" onclick="location.href='/customer/notice/list'" >
 						<div>
 							<p class="h3">게시판 보기</p>
 							<p class="text-warning">───</p>

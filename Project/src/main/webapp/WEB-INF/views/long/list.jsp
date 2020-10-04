@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<article>
-	<div class="jumbotron">
-		<h2>장기 렌트</h2>
-	</div>
-	
-	
-		<div class="container col-sm-8" style="border:solid 2px;">
+<%-- <fmt:formatNumber pattern="#,### 원" var="price" value="${car.trim_price}" />
+<fmt:formatNumber pattern="#,### 원" var="price" value="${Math.round(car.trim_price/12)}" /> --%>
+<style>
+	#ulStyle1,#ulStyle2{list-style:none;}
+</style>
+<article class="container col-sm-6">
+<div class="container border">
 		<br><br>
-			<div class="row">
-				<div class=" col-sm-6">
+			<div class="row col-sm-12">
+				<div class="col-sm-6">
 				<h4>제조사 선택</h4>
 					<select class="form-control keyword" id="mfgco_seq" name="mfgco_seq">
 						<option value="99999">전체</option>
@@ -34,10 +34,11 @@
 		</div>
 	
 
-	<div class="container col-sm-8">
+	
 		<br>
-		<h3>검색결과</h3>
-		<hr color="black" />
+		<div class="container">
+		<h3 class="row">검색결과</h3>
+		<hr class="row" color="black" />
 	<div class="row" id="list"></div>
 	</div>
 	
@@ -71,30 +72,33 @@
 						+ '.json', function(data) {
 					let html = '';
 					$.each(data, function(carList, car) {
-	
+	 
 						html += '<div class="card col-sm-6" onclick="location.href=location.href=\'/long/detail?trim_seq= '
 							+ car.trim_seq+ '\'">';
 						
-						html += '<div class="row"><img class="col-sm-6" src="../resources/images/'+car.img_seq+'.jpg">'; 
+						html += '<div class="row"><img class="col-sm-6 p-2" src="../resources/images/'+car.img_seq+'.jpg">'; 
 						html += '<span class="col-sm-6"><br><br><br><strong>'+car.trim_name+'</strong></span></div>'
 						html += '<div class="card-body">';
+						html += '<div class="row" style="height:30px;">';
+						html += '<div class="col-sm-6">';
 						html += '<div class="row">';
+					    html += '<div class="p-1" style="border:1px solid silver;color:silver; height:100%;">소비자가</div>&nbsp';
+						html += '<strong class="p-1" name="row car_seq" style="color:silver">'+ car.trim_price+'원';
+						html += '</strong></div></div>';
 						html += '<div class="col-sm-6">';
-					    html += ' <button type="button" class="btn btn-outline-dark " disabled>소비자가</button>&nbsp';
-						html += '<strong name="car_seq">' + car.trim_price+'원'
-						html += '</strong></div>';
-						html += '<div class="col-sm-6">';
-						html += '<button type="button" class="btn btn-outline-dark " disabled>월 렌탈료</button>&nbsp';
-						html += '<strong name="car_model">' + Math.round(car.trim_price/12)+'원' + '</strong>'+'</div>'+'</div>';
-						html += '<hr style="border:1px solid"></hr>';
-						html += '<div class="row"><ul class="col-sm-5">';
-						html += '<li>차량 연식 &nbsp&nbsp&nbsp<span name="car_year">' + car.car_year+ '</li>';
-						html += '<li>차량 연료&nbsp&nbsp&nbsp <span name="car_trim">' + car.fuel_name+ '</li></ul>';
-						html += '<ul class="col-sm-7">';
-						html += '<li>모델 명  &nbsp&nbsp&nbsp&nbsp<span name="car_year">' + car.car_model+ '</li>';
-						html += '<li>차량 등급&nbsp&nbsp&nbsp <span name="car_trim">' + car.segment_name+ '</li></ul></div>';
+						html += '<div class="row">';
+						html += '<div class="p-1"style="border:1px solid red; color:red; height:100%;">월 렌탈료</div>&nbsp';
+						html += '<h4 class="m-0" name="car_model" style="color:red;">' + Math.round(car.trim_price/12)+'원' + '</h4>'+'</div>'+'</div></div>';
+						html += '<hr class="row"/>';
+						html += '<div class="row"><ul class="col-sm-5" id="ulStyle1">';
+						html += '<li><b>차량 연식 &nbsp&nbsp&nbsp</b><span name="car_year">' + car.car_year+ '</li>';
+						html += '<li><b>차량 연료 &nbsp&nbsp&nbsp</b><span name="car_trim">' + car.fuel_name+ '</li></ul>';
+						html += '<ul class="col-sm-7" id="ulStyle2">';
+						html += '<li><b>모&nbsp 델 &nbsp명&nbsp&nbsp&nbsp</b><span name="car_year">' + car.car_model+ '</li>';
+						html += '<li><b>차량 등급&nbsp&nbsp&nbsp</b><span name="car_trim">' + car.segment_name+ '</li></ul></div>';
 						
 						html += '</div></div>';
+ 
 					});
 					console.log(html);
 					$('#list').html(html);
@@ -103,3 +107,48 @@
 			return false;
 		});
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

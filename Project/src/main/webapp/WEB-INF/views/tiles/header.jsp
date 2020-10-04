@@ -2,11 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<div
-	class="fixed-top bg-white border border-warning border-top-0 border-left-0 border-right-0">
-	<nav class="navbar navbar-expand-sm justify-content-center"
-		style="height: 90px">
-		<ul class="navbar-nav">
+<div class="fixed-top bg-white"><!-- border border-warning border-top-0 border-left-0 border-right-0 -->
+	<div class="container">
+	 <div class="row col-sm-12">
+			<a class="col-sm-4 nav-link" href="/"><b style="font-size: 30px;">TT 렌터카</b></a>
+	<nav class="navbar navbar-expand-sm justify-content-center" style="height: 90px">
+
+			<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link" href="/long/list">장기 렌터카</a></li>
 			<li class="nav-item"><a class="nav-link" href="/short/listInland">단기 렌터카</a></li>
 			<li class="nav-item${users_id == null ? '' : ' dropdown'}"><c:choose>
@@ -14,9 +16,7 @@
 						<a class="nav-link" href="/user/login">로그인</a>
 					</c:when>
 					<c:otherwise>
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4"
-							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> ${users_name}님 </a>
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> ${users_name}님 </a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown4">
 							<a class="dropdown-item" href="/user/logout">로그아웃</a>
 							<div class="dropdown-divider"></div>
@@ -28,6 +28,12 @@
 			<li class="nav-item"><a class="nav-link" href="/customer/notice/list">고객센터</a></li>
 		</ul>
 	</nav>
+	  </div>
+	  </div>
+	  
+	<div class="progress m-0 p-0" style="height:2px">
+     <div class="progress-bar" style="background: linear-gradient(to right, red, orange); width:100%;"></div>
+  </div> 
 </div>
 <div style="height: 90px"></div>
 <script>
@@ -54,3 +60,4 @@
 		}
 	});
 </script>
+<div class="top-body" style="height: 50px;"></div>

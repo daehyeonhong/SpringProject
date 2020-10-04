@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<div class="bottom-body" style="height: 100px;"></div>
 <footer class="border border-dark bg-dark" style="height: 230px;">
 	<div align="center" class="text-secondary">
 		<div class="m-3">

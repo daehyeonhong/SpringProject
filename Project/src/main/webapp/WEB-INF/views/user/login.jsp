@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <article>
-	<div class="container col-sm-3" align="center">
+	<div class="container col-sm-3 border" align="center">
+	<br>
 		<h2>로그인</h2>
+		<br>
 		${result == 'failure' ? "<div class='alert alert-danger'><strong>Please Id & Password check!</strong></div>" : ""}
 		<form id="loginForm" action="/user/login" method="post">
 			<div class="form-group">
@@ -10,9 +12,11 @@
 			<div class="form-group">
 				<input type="password" class="form-control" name="password" placeholder="비밀번호 입력" required="required" />
 			</div>
-			<div class="g-recaptcha" data-sitekey=6LcN1sIZAAAAAAYYJlsLB4oC9wV2UV3udl-RmQF5></div>
+			 <div class="g-recaptcha" data-sitekey=6LcN1sIZAAAAAAYYJlsLB4oC9wV2UV3udl-RmQF5></div>
+			<br> 
 			<button class="btn btn-danger btn-block" type="button" id="login">로그인</button>
 		</form>
+		<div class="row">
 		<div class="col-sm-12">
 			<table class="table">
 				<tr class="list-group list-group-horizontal text-center">
@@ -28,7 +32,7 @@
 				</tr>
 			</table>
 		</div>
-	</div>
+</div>	<br></div>
 </article>
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script>

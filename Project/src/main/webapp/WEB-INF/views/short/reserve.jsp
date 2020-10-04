@@ -53,32 +53,38 @@
 					<tr>
 						<th rowspan="2">결제금액안내</th>
 						<td style="border-bottom: 1px solid silver;">차량금액
-							<span class="float-right">value='${reserve.total_amount}'원</span>
+							<span class="float-right"> ${reserve.total_amount}원</span>
 						</td>
 					</tr>
 					<tr>
-						<td style="border-bottom: 1px solid silver;">
+						<td>
 							<span class="float-right"></span>
 						</td>
 					</tr>
 					<tr style="color: red;">
-						<th>최종결제 금액</th>
-							<td class="float-right">
-								<h3>
-									<span style="font-size: 15px;"> </span>
-								</h3>
+						<th rowspan="2">최종결제 금액</th>
+							<td>
+								<b class="float-right" style="font-size:20px;"> ${reserve.total_amount}원</b>
 							</td>
 					</tr>
 				</table>
 			</div>
-			<div class="container" align="center">
-				<div class="row" align="center">
+			<br>
+			<br>
+				<div class="container" align="center">
+				<div class="row col-sm-12">
+					<button class="col btn border btn-light">홈 화면으로 가기</button>
+					<div>&nbsp;&nbsp;</div>
 					<button class="col btn border btn-light">확인</button>
-					&nbsp;
-					<!-- 메인페이지로 -->
-				</div>
 			</div>
-			<br> <br>
+			</div>
+			<br>
+			<br>
 		</div>
 	</div>
+<!-- <div class="container">
+	<div class="row" align="center">
+	<input type="button" class="col-sm-6 btn btn-outline-info m-2 p-2" onclick="homehome()" value="메인페이지로 가기"/><input id='reserved' class='col-sm-6 btn btn-outline-warning m-2 p-2' type='button' onclick='reserved()' value='예약' />
+	</div>
+	</div> -->
 </div>

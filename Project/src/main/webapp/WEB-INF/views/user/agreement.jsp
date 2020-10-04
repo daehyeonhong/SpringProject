@@ -316,8 +316,8 @@ if($('#req1').is(":checked")==false | $('#req2').is(":checked")==false){
 					</tr>
 				</tbody>
 			</table>
-			<p>고객님께서는 동의를 거부할 권리가 있으나, 미 동의 시 렌터카 서비스 이용이 불가능합니다.</p>
-			<table class="table col-sm-8">
+			<b class="col-sm-8" style="color:red;">*고객님께서는 동의를 거부할 권리가 있으나, 미 동의 시 렌터카 서비스 이용이 불가능합니다.</b>
+			<table class="table col-sm-8 border">
 				<thead>
 					<tr>
 						<th>
@@ -378,8 +378,9 @@ if($('#req1').is(":checked")==false | $('#req2').is(":checked")==false){
 					</td>
 				</tr>
 			</table> -->
-			<div class="col-sm-6">
-				<button class="btn btn-primary btn-block" type="button" id="agreeCheck">약관 동의 및 회원가입</button><!--='location.href="/user/register"  -->
+			<br>
+			<div class="container col-sm-8">
+				<button class="row btn btn-primary btn-block" type="button" id="agreeCheck">약관 동의 및 회원가입</button><!--='location.href="/user/register"  -->
 			</div>
 		</form>
 	</div>

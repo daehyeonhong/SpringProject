@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<link rel="stylesheet"
+<!-- <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -13,7 +13,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 <link rel="stylesheet"
-	href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
+	href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" /> -->
 <style>
 strong {
 	color: orange;
@@ -91,51 +91,27 @@ hr {
 	}
 </script>
 
-<!-- 단기렌트 제목틀-->
-<div class="jumbotron bg-white">
-	<div class="container col-sm-6">
-		<h1>단기렌터카 예약/확인</h1>
-	</div>
-</div>
-
-
 <div class="container col-sm-6">
-	<!-- 메뉴바 -->
-	<nav class="navbar navbar-expand-sm bg-light navbar-light">
-		<!--  style="text-align: center;" -->
-		<!--  style="position:fixed;" -->
-		<ul class="container navbar-nav">
-			<li class="col nav-item active"><a class="nav-link text-center"
-				href="shortTerm_jeju.jsp">제주예약</a></li>
-			<li class="col nav-item"><a class="nav-link text-center"
-				href="shortTerm_inland.jsp">내륙예약</a></li>
-			<!-- <!--  <li class="nav-item">
-      <a class="nav-link" href="shortTerm_history.jsp">예약확인</a>
-    </li> -->
-		</ul>
-	</nav>
-	<br> <br>
-
-	<div class="comment row col-sm-10">
-		<h3>
-			기간ㆍ지점ㆍ차량 선택&nbsp;<span style="font-size: 12px;"><strong>기간ㆍ지점ㆍ차량</strong>은
+	<div class="row">
+		<h3 class="row col m-0 p-0">
+			기간ㆍ지점ㆍ차량 선택 <span style="font-size: 12px; margin-bottom: 0px; padding-bottom: 0px;"><strong>기간ㆍ지점ㆍ차량</strong>은
 				순서와 관계없이 <strong>선택 예약이 가능</strong>합니다.</span>
 		</h3>
+		<button class="col-sm-2 btn btn-outline-warning" id="btnSc" style="margin-bottom:0px;">목록보기</button>
 	</div>
 	<!--  comment row글씨 아래로 -->
-
-	<hr>
+<hr class="row">
 	<%@ include file="list.jsp"%>
 	<!-- 기간지점선택테이블 -->
-	<table style="width: 100%">
+	<table class="col-sm-12" style="width: 100%">
 		<!-- rest추가 -->
 		<tr>
 			<td colspan="3"><br> <br>
-				<div class="form-group" style="border: 1px solid orange;">
+				<div class="row form-group" style="border: 1px solid orange;">
 					<fieldset>
 						<br>
 						<ul>
-							<li>예약가능시간 : 제주지점(대여/반납 06:00 ~ 22:00)</li>
+							<li>예약가능시간 : 대여/반납 06:00 ~ 22:00</li>
 							<li>반려동물 동반 탑승은 불가합니다. (케이지 포함) <br> (* 다음 이용 고객에 알레르기
 								등 불편을 줄 수 있어, 동반 탑승 시 클리닝 비용(10만원 이상)이 추가 발생할 수 있습니다.)
 							</li>
@@ -145,9 +121,4 @@ hr {
 				</div></td>
 		</tr>
 	</table>
-	<br> <br>
 </div>
-<br>
-<br>
-<br>
-

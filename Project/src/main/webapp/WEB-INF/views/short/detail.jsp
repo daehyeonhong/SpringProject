@@ -46,8 +46,6 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
 		/* 		location.href='./shortTerm_payment2'; */
 	}
 </script>
-<br />
-<br />
 <div class="container col-sm-6">
 	<div class="container">
 		<div class="row">
@@ -71,8 +69,7 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 		<div
 			class="row"
-			style="border: 1px solid #eeeeee; padding-top: 20px; padding-bottom: 20px"
-		>
+			style="border: 1px solid #eeeeee; padding-top: 20px; padding-bottom: 20px">
 			<div class="col-md-5" style="border-spacing: 5px">
 				<img src="/resources/images/${car.img_seq}.jpg" style="width: 100%" />
 			</div>
@@ -145,7 +142,6 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
 					<td>${period}일</td>
 				</tr>
 			</table>
-			<div id="reserveAmount"></div>
 		</div>
 	</div>
 	<!-- product details -->
@@ -241,7 +237,7 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
 		</svg>
 	</div>
 	<hr />
-	<div class="card col-sm-12 b-0 p-0">
+	<div class="card col-sm-12 b-0 p-3">
 		<div class="form-group">
 			<h5>내륙 지점</h5>
 			<ul>
@@ -255,7 +251,7 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
 					일반자차 50만원)
 				</li>
 			</ul>
-			<br />
+			<br/>
 		</div>
 		<div class="form-group">
 			<h5>제주 지점</h5>
@@ -268,14 +264,11 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
 					제주지점&nbsp;064-111-1111 또는 홈페이지 www.TTrent.com 로
 					문의바랍니다.
 				</li>
-				<li>
-					(* 지정 업체인 ‘제주아이’ 외 타 업체 이용 시 분실 우려가 있어,
-					SK렌터카 제주지점을 통한 인수/반납 및 사전 장착 서비스 이용이
-					불가합니다.)
-				</li>
 			</ul>
 		</div>
 	</div>
+	<br>
+	<br>
 	<div class="comment row col-sm-6">
 		<h3>이용약관</h3>
 	</div>
@@ -294,7 +287,16 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
 			불가능합니다.
 		</li>
 	</ul>
+	
+	
+	<div id="reserveAmount"></div>
+	<div class="container row">
+	<div class="container" align="center">
+	<input type="button" class="col-sm-3 btn btn-outline-info m-2 p-2" onclick="resetR()" value="취소"/><input id='reserveBtn' class='col-sm-3 btn btn-outline-warning m-2 p-2' type='button' onclick='reserveConfirm()' value='예약' />
+	</div>
+	</div>
 </div>
+
 <script type="text/javascript">
 	$().ready(function () {
 		reserve({
@@ -320,17 +322,19 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
 					let html = "";
 					html += '<div class="col-sm-6">';
 					html += '<form action="/short/detail" id="reserveForm" method="post">';
-					html += '<input type="text" name="users_id" value="${users_id}" />';
-					html += '<input type="text" name="sc_seq" value="' + reserve.sc_seq + '" />';
-					html += '<input type="text" name="total_amount" value="' + reserve.amount.total_amount + '" />';
-					html += '<input type="text" name="period" value="' + "${period}" + '" />';
-					html += '<input type="text" name="branch_seq" value="${car.branch_seq}" />';
-					html += '<input type="text" name="start_date" value="${param.start_date}" />';
-					html += '<input type="text" name="end_date" value="${param.end_date}" />';
-					html += '<input type="text" name="end_date" value="${param.end_date}" />';
-					html += '<input type="text" name="insurance_seq" value="' + insurance_seq + '" />';
+					html += '<input type="hidden" name="users_id" value="${users_id}" />';
+					html += '<input type="hidden" name="sc_seq" value="' + reserve.sc_seq + '" />';
+					html += '<input type="hidden" name="total_amount" value="' + reserve.total_amount + '" />';
+					html += '<input type="hidden" name="period" value="' + "${period}" + '" />';
+					html += '<input type="hidden" name="branch_seq" value="${car.branch_seq}" />';
+					html += '<input type="hidden" name="start_date" value="${param.start_date}" />';
+					html += '<input type="hidden" name="end_date" value="${param.end_date}" />';
+					html += '<input type="hidden" name="end_date" value="${param.end_date}" />';
+					html += '<input type="hidden" name="insurance_seq" value="' + insurance_seq + '" />';
 					html += "</form>";
-					html += "<input id='reserveBtn' class='btn btn-outline-warning' type='button' onclick='reserveConfirm()' value='예약' /></div>";
+					/* html += '<div class="row">';
+					html += "<input id='reserveBtn' class='btn btn-outline-warning float-right' type='button' onclick='reserveConfirm()' value='예약' /></div>"; */
+					html += '</div>';
 					$("#reserveAmount").html(html);
 				}
 			);

@@ -38,25 +38,26 @@
 	overflow: hidden;
 	transition: max-height 0.2s ease-out;
 }
-
-div.f {
-	border: 1px solid red;
-}
 </style>
-<div class="container">
-
-	<div class="jumbotron">
-		<h2>장기 렌트</h2>
-	</div>
-	<div class="container col-sm-8">
-		<h4 style="border-bottom: 1px black solid; height: 50px;">다이렉트 견적조회</h4>
+	<div class="container col-sm-6">	
+	<div class="container">	
+	<div class="row">
+			<table style="width: 100%">
+				<tr>
+					<td align="left"><h1>TT장기렌터카 다이렉트</h1></td>
+					<td align="right">장기렌터카 > TT장기렌터카 다이렉트</td>
+				</tr>
+			</table>
+		</div>
+		<!-- <h4 class="row" style="height: 50px; border-bottom:1px solid silver">다이렉트 견적조회</h4> -->
+		<br>
 		<div class="row" style="border: 1px solid #eeeeee">
-			<div class="col-md-5" style="border-spacing: 5px;">
+			<div class="col-md-5 p-2">
 				<img src="../resources/images/${car.img_seq}.jpg"
 					style="width: 100%;">
 			</div>
-			<div class="col-md-1"></div>
-			<div class="col-md-6">
+			<!-- <div class="col-md-1"></div> -->
+			<div class="col-md-6 footer">
 				<br> <br>
 				<h3>${car.car_model}</h3>
 				<table class="table">
@@ -73,39 +74,39 @@ div.f {
 		</div>
 
 		<div>
-			<br> <br>
-			<h4>차량 정보</h4>
-			<hr style="border: solid 1px black" />
-			<div>
+			<br><br>
+			<h4 class="row">차량 정보</h4>
+			<hr  class="row" style="border: solid 1px black" />
+			<div class="row">
 				<table class="table" id="table">
 					<tr>
 						<th class="bg-light text-dark">제조사</th>
-						<td>${car.mfgco_name}</td>
+						<td>현대</td>
 						<th class="bg-light text-dark">차량등급</th>
-						<td>${car.segment_name}</td>
+						<td>E</td>
 					</tr>
 					<tr>
 						<th class="bg-light text-dark">연료</th>
-						<td>${car.fuel_name}</td>
+						<td>휘발유</td>
 						<th class="bg-light text-dark">차량 연식</th>
-						<td>${car.car_year}년</td>
+						<td>2020년</td>
 					</tr>
 					<tr>
 						<th class="bg-light text-dark">차량 설명</th>
-						<td colspan="3">${car.car_desc}</td>
+						<td colspan="3">완성도 높은 미드사이즈 럭셔리 세단, 제네시스 G80</td>
 					</tr>
 					<tr>
 				</table>
 			</div>
 		</div>
-		<div class="container">
+		<div>
 			<br> <br>
-			<h4>장기 렌트 예약</h4>
-			<hr style="border: solid 1px black" />
+			<div class="row"><h4 class="col-sm-10 m-0 p-0">장기 렌트 예약</h4><button class="btn btn-warning col-sm-2 m-0" type="button" onclick="appointConfirm()">상담 예약</button></div>
+			<hr class="row" style="border: solid 1px black" />
 			<form action="/rental/appoint" id="appointForm" method="post">
 				<button type="button" class="accordion">
 					<span class="col-sm-3">
-						<strong>방문 일</strong>
+						<strong>방문 &nbsp; 일</strong>
 					</span>
 				</button>
 				<div class="panel bg-light ">
@@ -127,20 +128,25 @@ div.f {
 							<option value="${branch.branch_seq}">${branch.branch_name}</option>
 						</c:forEach>
 					</select>
+						<br>
 				</div>
 				<input type="hidden" name="users_id" value="${users_id}" />
-				<span class="form-control"> <strong>차량 정보:
-						&nbsp;&nbsp;&nbsp;</strong>
+				<%-- <span class="form-control"> <strong>차량 정보:&nbsp;&nbsp;&nbsp;</strong>
 					${car.car_year}년형&emsp;${car.mfgco_name}&emsp;${car.car_model}&emsp;${car.trim_name}
-				</span> <input type="hidden" name="trim_seq" value="${car.trim_seq}" />
-				<button class=" btn btn-warning" type="button" onclick="appointConfirm()">상담 예약</button>
+				</span>--%> 
+				<input type="hidden" name="trim_seq" value="${car.trim_seq}" /> 
+				<input type="hidden" name="car_year" value="${car.car_year}" /> 
+				<input type="hidden" name="mfgco_name" value="${car.mfgco_name}" /> 
+				<input type="hidden" name="car_model" value="${car.car_model}" /> 
+				<input type="hidden" name="trim_name" value="${car.trim_name}" /> 
 			</form>
 		</div>
 
 
-
-		<div class="f">
-			<ul>
+		<br>
+		<div class="row" style="border:1px solid red;">
+				<br>
+			<ul class="m-2">
 				<li>차량 이미지는 고객님의 이해를 돕기 위한 이미지로 실제 차량과 다를 수 있습니다.</li>
 				<li>현재 재고 기준의 견적으로 바로 구매하시지 않는 경우 재고 소진으로 구매가 불가할 수 있습니다.</li>
 				<li>상담신청 및 다이렉트 계약을 클릭하시면 <span class="cl-point2">MY렌터카
@@ -150,10 +156,10 @@ div.f {
 				<li>약정 주행거리 초과 위약금: 1600CC미만(60원/km) , 2000CC미만(80원/km) ,
 					2000CC이상(100원/km) , 수입차(200원/km)</li>
 			</ul>
-
+				<br>
 		</div>
 	</div>
-</div>
+	</div>
 <script>
 	var acc = document.getElementsByClassName("accordion");
 	var i;
@@ -178,8 +184,6 @@ div.f {
 		});
 		$('#appoint_date').datetimepicker('minDate', new Date());
 	});
-</script>
-<script type="text/javascript">
 	function appointConfirm(){
 	let users_id = '${users_id}'.trim();
 	if (users_id.length==0 || users_id==null){
