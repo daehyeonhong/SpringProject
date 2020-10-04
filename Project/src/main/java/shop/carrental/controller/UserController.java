@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -73,9 +74,16 @@ public class UserController {
 		log.info("agreement");
 	}
 
+	@GetMapping(value = "/email")
+	public void email() {
+
+		log.info("email");
+	}
+
 	@GetMapping("/register")
-	public void register() {
+	public void register(@ModelAttribute("users") UsersDTO dto) {
 		log.info("registerPage");
+		log.info(dto);
 	}
 
 	@PostMapping("/register")
