@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:formatDate var="birth_date" value="${users.birth_date}"
 	pattern="yyyy년 MM월 dd일" />
@@ -121,6 +120,7 @@
 		// 닉네임 유효성 검사(1 = 중복 / 0 != 중복)
 		$("#users_nickname").blur(function() {
 			
+			var v = "${users.users_nickname}";
 			var user_nickname = $('#users_nickname').val();
 			var idJ = /^[a-z0-9]{4,12}$/;
 			$.ajax({
@@ -129,7 +129,7 @@
 				success : function(data) {
 					console.log("1 = 중복o / 0 = 중복x : "+ data);							
 					
-					if (data == 1) {
+					if (data == 1 && user_nickname != v) {
 							
 							$("#nickname_check").text("사용중인 닉네임입니다 :p");
 							$("#nickname_check").css("color", "red");
@@ -170,6 +170,7 @@
 		// 연락처 유효성 검사(1 = 중복 / 0 != 중복)
 		$("#users_phone").blur(function() {
 			
+			var v = "${users.users_phone}";
 			var user_phone = $('#users_phone').val();
 			var idJ = /^\d{3}-\d{3,4}-\d{4}$/;
 			$.ajax({
@@ -178,7 +179,7 @@
 				success : function(data) {
 					console.log("1 = 중복o / 0 = 중복x : "+ data);							
 					
-					if (data == 1) {
+					if (data == 1 && user_phone != v) {
 							
 							$("#phone_check").text("사용중인 번호입니다 :p");
 							$("#phone_check").css("color", "red");
@@ -220,6 +221,7 @@
 		// 이메일 유효성 검사(1 = 중복 / 0 != 중복)
 		$("#users_email").blur(function() {
 			
+			var v = "${users.users_email}";
 			var user_email = $('#users_email').val();
 			var idJ = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 
@@ -229,7 +231,7 @@
 				success : function(data) {
 					console.log("1 = 중복o / 0 = 중복x : "+ data);							
 					
-					if (data == 1) {
+					if (data == 1 && user_email != v) {
 							
 							$("#email_check").text("사용중인 이메일입니다 :p");
 							$("#email_check").css("color", "red");
@@ -271,6 +273,7 @@
 		// 면허 유효성 검사(1 = 중복 / 0 != 중복)
 		$("#license").blur(function() {
 			
+			var v = "${users.license}";
 			var user_license = $('#license').val();
 			var idJ = /^(?<!\d)(?!0000)\d{4}(?!\d)/;
 
@@ -280,7 +283,7 @@
 				success : function(data) {
 					console.log("1 = 중복o / 0 = 중복x : "+ data);							
 					
-					if (data == 1) {
+					if (data == 1 && user_license != v) {
 							
 							$("#license_check").text("사용중인 면허증입니다 :p");
 							$("#license_check").css("color", "red");
@@ -315,7 +318,3 @@
 	});
 		
 </script>
-
-
-
-

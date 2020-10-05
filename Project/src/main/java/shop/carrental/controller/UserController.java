@@ -207,7 +207,7 @@ public class UserController {
 	}
 
 	@GetMapping("/myPage/rental")
-	public void rental(Model model) {
+	public void rental(Criteria criteria, Model model) {
 		log.info("rental");
 		model.addAttribute("target", "rental");
 	}

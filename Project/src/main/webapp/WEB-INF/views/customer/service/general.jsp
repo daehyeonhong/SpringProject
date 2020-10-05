@@ -13,9 +13,9 @@
 		<!-- Tab panes -->
 		<div class="container">
 			<br />
-			<form action="/customer/service/inquiry" method="post">
+			<form action="/customer/service/inquiry" method="post" id="actionForm">
 			<input type="hidden" name="inquiry_type" value="1" />
-			<input type="hidden" name="users_id" value="${users_id}" />
+			<input type="hidden" name="users_id" id="users_id" value="${users_id}" />
 				<table class="col-sm-12">
 					<tr>
 						<td colspan="3">
@@ -40,9 +40,20 @@
 					</tr>
 				</table>
 				<div align="center">
-					<input type="submit" class="btn btn-warning" value="신청완료" />
+					<button class="btn btn-warning" type="button" id="confirmBtn">신청 완료</button>
 				</div>
 			</form>
 		</div>
 	</div>
 </article>
+<script type="text/javascript">
+	$('#confirmBtn').on('click',function(){
+			let actionForm = $('#actionForm');
+			let users_id = $('#users_id').val();
+
+			if(users_id != null){
+			let yesNo = confirm('정말 입력하시겠습니까?');
+					alert('로그인 후 다시 시도하세요');
+				}
+		});
+</script>

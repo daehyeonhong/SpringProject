@@ -1,7 +1,5 @@
 package shop.carrental.controller;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +14,6 @@ import shop.carrental.domain.Criteria;
 import shop.carrental.domain.NoticeDTO;
 import shop.carrental.domain.InquiryDTO;
 import shop.carrental.service.CustomerService;
-import shop.carrental.service.UserService;
 
 @Controller
 @Log4j
@@ -25,7 +22,6 @@ import shop.carrental.service.UserService;
 public class CustomerController {
 
 	private CustomerService customerService;
-	private UserService userService;
 
 	@GetMapping("/")
 	public void basic() {
