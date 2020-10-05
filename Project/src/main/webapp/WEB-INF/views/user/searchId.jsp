@@ -23,10 +23,9 @@
 	</div>
 	<div class="col-sm-6">
 		<input type="text" class="form-control" id="authenticode" /> <input
-			type="text" class="form-control" id="authenticodeConfirm" />
+			type="hidden" class="form-control" id="authenticodeConfirm" />
 		<form action="/user/searchId" id="emailForm" method="post">
-			<input class="form-control" type="text" name="users_email"
-				id="users_email" />
+			<input class="form-control" type="hidden" name="users_email" id="users_email" />
 			<button class="btn btn-success" type="button" onclick="checkAuthenticode()">인증하기</button>
 		</form>
 	</div>

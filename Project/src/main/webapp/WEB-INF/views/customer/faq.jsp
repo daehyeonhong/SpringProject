@@ -63,7 +63,7 @@
 			</div>
 		</div>
 
-		<div align="center">
+		<%-- <div align="center">
 			<nav aria-label="Page navigation">
 				<ul class="pagination justify-content-center">
 						<li class="page-item"><a class="page-link" href="#" aria-label="Previous">
@@ -91,7 +91,7 @@
 					</li>
 				</ul>
 			</nav>
-		</div>
+		</div> --%>
 		</div>
 
 	</div>

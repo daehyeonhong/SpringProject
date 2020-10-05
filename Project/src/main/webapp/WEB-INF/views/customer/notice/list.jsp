@@ -68,9 +68,9 @@
 					</li>
 				</ul>
 			</nav>
-			<div>
+			<!-- <div>
 				<button id="registerBtn" type="button" class="btn btn-xs btn-primary">새 글 동록</button>
-			</div>
+			</div> -->
 		</div>
 
 		<form id="actionForm" action="/customer/notice/list" method="GET">

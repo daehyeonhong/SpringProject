@@ -6,8 +6,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
+import shop.carrental.domain.AppointVO;
 import shop.carrental.domain.Criteria;
 import shop.carrental.domain.InquiryDTO;
+import shop.carrental.domain.ReserveVO;
 import shop.carrental.domain.UsersDTO;
 import shop.carrental.mappers.GeneralMapper;
 import shop.carrental.mappers.UserMapper;
@@ -98,6 +100,54 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean updatePassword(UsersDTO dto) {
 		return userMapper.updatePassword(dto) == 1;
+	}
+
+	@Override
+	public List<AppointVO> mycar(String users_id) {
+		// TODO Auto-generated method stub
+		return userMapper.mycar(users_id);
+	}
+
+	@Override
+	public List<ReserveVO> myShortCar(String users_id) {
+		// TODO Auto-generated method stub
+		return userMapper.myShortCar(users_id);
+	}
+
+	@Override
+	public void updateUser(UsersDTO dto) {
+		log.info("updateUser" + dto);
+
+		userMapper.updateUser(dto);
+	}
+
+	@Override
+	public int userNicknameCheck(String users_nickname) {
+		log.info("userNicknameCheck" + users_nickname);
+
+		return userMapper.userNicknameCheck(users_nickname);
+	}
+
+	@Override
+	public int userPhoneCheck(String users_phone) {
+		log.info("userPhoneCheck" + users_phone);
+
+		return userMapper.userPhoneCheck(users_phone);
+	}
+
+	@Override
+	public int userEmailCheck(String users_email) {
+		log.info("userEmailCheck" + users_email);
+
+		return userMapper.userEmailCheck(users_email);
+	}
+
+	@Override
+	public int userLicenseCheck(String license) {
+		log.info("userLicenseCheck" + license);
+
+		return userMapper.userLicenseCheck(license);
+
 	}
 
 }

@@ -18,12 +18,12 @@
 				<td class="nav-item">
 					<a class="nav-link h5" href="${route}/faq?type=1">자주찾는질문</a>
 				</td>
-				<td class="nav-item">
+				<%-- <td class="nav-item">
 					<a class="nav-link h5" href="${route}/branch">지점안내</a>
 				</td>
 				<td class="nav-item">
 					<a class="nav-link h5" href="${route}/form/application">양식다운로드</a>
-				</td>
+				</td> --%>
 			</tr>
 		</table>
 	</nav>

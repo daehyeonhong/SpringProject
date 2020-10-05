@@ -37,11 +37,19 @@ public class PaymentController {
 	}
 
 	@GetMapping("/kakaoPaySuccess")
-	public void kakaoPaySuccess(@RequestParam("pg_token") String pg_token, @RequestAttribute("vo") ReserveVO vo,
+	public void kakaoPaySuccess(@RequestParam("pg_token") String pg_token, @ModelAttribute("vo") ReserveVO vo,
 			Model model) {
 		log.info("kakaoPaySuccess :: pg_token ==> " + pg_token);
 
 		model.addAttribute("info", paymentService.kakaoPayInfo(pg_token, vo));
+	}
+
+	@PostMapping("/reservePay")
+	public String reservePay(ReserveVO vo, Model model) {
+		log.info("reservePay" + vo);
+		model.addAttribute("reserve", vo);
+
+		return "redirect:" + paymentService.kakaoPay(vo);
 	}
 
 }

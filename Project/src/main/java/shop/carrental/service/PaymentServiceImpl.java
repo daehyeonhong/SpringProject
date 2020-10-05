@@ -38,12 +38,18 @@ public class PaymentServiceImpl implements PaymentService {
 		MultiValueMap<String, String> parameters = new LinkedMultiValueMap<String, String>();
 		String users_id = vo.getUsers_id();
 		String item_name = vo.getCar_model() + vo.getTrim_name();
-		String total_amount = Integer.toString(vo.getTotal_amount() * 100);
+		String peroid = Integer.toString(vo.getPeriod());
+		String total_amount = Integer
+				.toString(vo.getAmount().getTotal_amount() == 0 ? 1000 : vo.getAmount().getTotal_amount());
+		log.info(users_id);
+		log.info(item_name);
+		log.info(peroid);
+		log.info(total_amount);
 		parameters.add("cid", "TC0ONETIME");
 		parameters.add("partner_order_id", "1001");
 		parameters.add("partner_user_id", users_id);
 		parameters.add("item_name", item_name);
-		parameters.add("quantity", "4");
+		parameters.add("quantity", peroid);
 		parameters.add("total_amount", total_amount);
 		parameters.add("tax_free_amount", "0");
 		parameters.add("approval_url", "http://localhost:8181/payment/kakaoPaySuccess");
@@ -56,6 +62,8 @@ public class PaymentServiceImpl implements PaymentService {
 					KakaoPayReadyVO.class);
 			log.info(kakaoPayReadyVO);
 
+
+			kakaoPayApprovalVO.setReserve_seq(vo.getReserve_seq());
 			return kakaoPayReadyVO.getNext_redirect_pc_url();
 		} catch (RestClientException | URISyntaxException e) {
 			e.printStackTrace();

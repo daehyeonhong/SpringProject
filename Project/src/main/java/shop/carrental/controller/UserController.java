@@ -1,5 +1,7 @@
 package shop.carrental.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.apache.ibatis.annotations.Param;
@@ -11,12 +13,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
+import shop.carrental.domain.AppointVO;
 import shop.carrental.domain.Criteria;
 import shop.carrental.domain.PageVO;
+import shop.carrental.domain.ReserveVO;
 import shop.carrental.domain.UsersDTO;
 import shop.carrental.service.UserService;
 import shop.carrental.util.VerifyReCAPTCHA;
@@ -115,10 +120,79 @@ public class UserController {
 		return session.getAttribute("users_id") != null ? "/user/update" : "redirect:/user/login";
 	}
 
+	@PostMapping("/update")
+	public String updateUser(UsersDTO dto, HttpSession session) {
+		log.info("updateUser");
+
+		dto.setUsers_id(session.getAttribute("users_id").toString());
+
+		userService.updateUser(dto);
+
+		return "redirect:/";
+	}
+
+	@ResponseBody
+	@GetMapping("/user/nicknameCheck")
+	public int nicknameCheck(@RequestParam("users_nickname") String users_nickname) {
+		log.info("nicknameCheck");
+
+		return userService.userNicknameCheck(users_nickname);
+	}
+
+	@ResponseBody
+	@GetMapping("/user/phoneCheck")
+	public int phoneCheck(@RequestParam("users_phone") String users_phone) {
+		log.info("phoneCheck");
+
+		return userService.userPhoneCheck(users_phone);
+	}
+
+	@ResponseBody
+	@GetMapping("/user/emailCheck")
+	public int emailCheck(@RequestParam("users_email") String users_email) {
+		log.info("emailCheck");
+
+		return userService.userEmailCheck(users_email);
+	}
+
+	@ResponseBody
+	@GetMapping("/user/licenseCheck")
+	public int licenseCheck(@RequestParam("license") String license) {
+		log.info("licenseCheck");
+
+		return userService.userLicenseCheck(license);
+	}
+
 	@GetMapping("/myPage")
 	public String myPage(HttpSession session) {
 		log.info("myPage");
 		return session.getAttribute("users_id") == null ? "/user/login" : "redirect:/user/myPage/general";
+	}
+
+	@GetMapping("/myCar")
+	public String mycar(HttpSession session, Model model) {
+		log.info("mycar");
+
+		String users_id = session.getAttribute("users_id").toString();
+
+		List<AppointVO> user = userService.mycar(users_id);
+
+		model.addAttribute("user", user);
+		return "/user/mycar";
+
+	}
+
+	@GetMapping("/myShortCar")
+	public String myShortCar(HttpSession session, Model model) {
+		log.info("myShortCar");
+
+		String users_id = session.getAttribute("users_id").toString();
+
+		List<ReserveVO> user = userService.myShortCar(users_id);
+
+		model.addAttribute("shortuser", user);
+		return "/user/myShortCar";
+
 	}
 
 	@GetMapping("/myPage/general")
