@@ -13,7 +13,7 @@ public class UsersDTO {
 
 	private Long users_seq;
 
-	private String users_id, password, users_name, users_nickname, users_email, users_phone, license, users_domain;
+	private String users_id, password, users_name, users_nickname, users_email, users_phone, license;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birth_date, users_reg_date, users_update;

@@ -52,7 +52,6 @@
 		<result property="birth_date" column="birth_date" />
 		<result property="users_reg_date" column="users_reg_date" />
 		<result property="users_update" column="users_update" />
-		<result property="users_domain" column="users_domain" />
 	</resultMap>
 
 	<select id="check" resultType="String">
@@ -64,9 +63,9 @@
 	<insert id="register">
 		<![CDATA[
 			INSERT INTO users
-				(users_seq,users_id,password,users_name,users_nickname,birth_date,users_email,users_domain,users_phone)
+				(users_seq,users_id,password,users_name,users_nickname,birth_date,users_email,license,users_phone)
 			VALUES
-				(seq_users.NEXTVAL,#{users_id},#{password},#{users_name},#{users_nickname},#{birth_date},#{users_email},#{users_domain},#{users_phone})
+				(seq_users.NEXTVAL,#{users_id},#{password},#{users_name},#{users_nickname},#{birth_date},#{users_email},#{license},#{users_phone})
 		]]>
 	</insert>
 
@@ -173,6 +172,11 @@
 		select count(*) from users where license=#{license}
 		]]>
 	</select>
-
+	
+	<select id="checkLongEmail" resultType="int">
+		<![CDATA[
+			SELECT COUNT(*) FROM USERS WHERE USERS_EMAIL=#{users_email}
+		]]>
+	</select>
 
 </mapper>

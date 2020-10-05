@@ -45,13 +45,8 @@ public class CustomerController {
 	}
 
 	@GetMapping("/service/general")
-	public void general(Model model, HttpSession session) {
+	public void general(Model model) {
 		log.info("general");
-		String users_id = session.getAttribute("users_id").toString().trim();
-		if (users_id.length() != 0) {
-			String users_email = userService.getEmail(users_id);
-			model.addAttribute("users_email", users_email);
-		}
 		model.addAttribute("target", "general");
 	}
 

@@ -19,10 +19,9 @@
 					<form action="/customer/service/inquiry" method="post">
 						<table class="col-sm-12">
 							<tr>
-								<td colspan="2"><input type="text" class="form-control" name="inquiry_title" placeholder="제목" /></td>
-								<td colspan="1">
-									<span class="form-control">고객ID님</span>
-									<input type="hidden" name="users_id" value="users_id" />
+								<td colspan="3">
+									<input type="text" class="form-control" name="inquiry_title" placeholder="제목" />
+									<input type="hidden" name="users_id" value="${users_id}" />
 								</td>
 							</tr>
 							<tr>
@@ -31,13 +30,6 @@
 										<option value="1">장기</option>
 										<option value="2">단기</option>
 									</select>
-								</td>
-								<td colspan="1"><input type="text" class="form-control" name="email" placeholder="이메일 입력" /></td>
-								<td colspan="1">
-									<div class="input-group input-group-prepend">
-										<span class="form-control col-sm-1">@</span>
-										<input type="text" class="form-control" name="domain" placeholder="메일 주소 입력" />
-									</div>
 								</td>
 							</tr>
 							<tr>

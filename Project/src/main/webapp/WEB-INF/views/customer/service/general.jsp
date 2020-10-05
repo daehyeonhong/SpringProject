@@ -18,11 +18,6 @@
 			<input type="hidden" name="users_id" value="${users_id}" />
 				<table class="col-sm-12">
 					<tr>
-						<td><span class="form-control">${users_name}</span></td>
-						<td><span class="form-control">${users_id}</span></td>
-						<td><span class="form-control">${users_email}</span><td>
-					</tr>
-					<tr>
 						<td colspan="3">
 							<input type="text" class="form-control" name="inquiry_title" placeholder="제목을 입력하해주세요." />
 						</td>

@@ -41,4 +41,6 @@ public interface UserMapper {
 
 	public int userLicenseCheck(String license);
 
+	public int checkLongEmail(String users_email);
+
 }

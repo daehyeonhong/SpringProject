@@ -19,6 +19,14 @@ public class MailController {
 
 	private EmailService emailService;
 
+	@PostMapping(value = "/email/{users_email}/{t}")
+	public ResponseEntity<String> email(@PathVariable("users_email") String users_email, @PathVariable("t") String t) {
+		log.info("EmailAuto");
+
+		return new ResponseEntity<String>(emailService.checkLongEmail(users_email) ? "success" : "failure",
+				HttpStatus.OK);
+	}
+
 	@PostMapping(value = "/register/{domain}/{email}")
 	public ResponseEntity<String> register(@PathVariable("domain") String domain, @PathVariable("email") String email) {
 		log.info("sendEmail");

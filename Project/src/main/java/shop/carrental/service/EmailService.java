@@ -8,4 +8,6 @@ public interface EmailService {
 
 	public String searchId(EmailDTO dto);
 
+	public boolean checkLongEmail(String users_email);
+
 }

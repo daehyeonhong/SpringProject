@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.EmailDTO;
+import shop.carrental.mappers.UserMapper;
 import shop.carrental.util.Authenticode;
 
 @Service
@@ -18,6 +19,7 @@ import shop.carrental.util.Authenticode;
 public class EmailServiceImpl implements EmailService {
 
 	private JavaMailSender javaMailSender;
+	private UserMapper userMapper;
 
 	@Override
 	public String sendRegisterEmail(EmailDTO dto) {
@@ -59,6 +61,11 @@ public class EmailServiceImpl implements EmailService {
 			return null;
 		}
 		return authenticode;
+	}
+
+	@Override
+	public boolean checkLongEmail(String users_email) {
+		return userMapper.checkLongEmail(users_email) == 0;
 	}
 
 }
