@@ -6,4 +6,6 @@ public interface EmailService {
 
 	public String sendRegisterEmail(EmailDTO dto);
 
+	public String searchId(EmailDTO dto);
+
 }

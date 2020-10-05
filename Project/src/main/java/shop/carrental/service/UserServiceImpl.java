@@ -45,10 +45,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public String getId(String users_email, RedirectAttributes redirectAttributes) {
-
+	public String getId(String users_email) {
 		UsersDTO dto = userMapper.getUsers(users_email);
-		redirectAttributes.addFlashAttribute("users", dto);
 		return dto.getUsers_id();
 	}
 
@@ -74,10 +72,27 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public Boolean checkNickname(String users_nickname) {
+	public boolean checkNickname(String users_nickname) {
 		log.info("checkNickname" + users_nickname);
+		return userMapper.checkNickname(users_nickname) == 0;// 일치하는거 없으면 0(false)
+	}
 
-		return userMapper.checkNickname(users_nickname) == 0;
+	@Override
+	public boolean checkPhone(String users_phone) {
+		log.info("checkPhone" + users_phone);
+		return userMapper.checkPhone(users_phone) == 0;// 일치하는거 없으면 0(false)
+	}
+
+	@Override
+	public boolean checkLicense(String license) {
+		log.info("checkLicense" + license);
+		return userMapper.checkLicense(license) == 0;// 일치하는거 없으면 0(false)
+	}
+
+	@Override
+	public boolean checkId(String users_id) {
+		log.info("checkId" + users_id);
+		return userMapper.checkId(users_id) == 0;// 일치하는거 없으면 0(false)
 	}
 
 }

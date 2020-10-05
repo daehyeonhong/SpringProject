@@ -28,4 +28,13 @@ public class MailController {
 		return new ResponseEntity<String>(emailService.sendRegisterEmail(dto), HttpStatus.OK);
 	}
 
+	@PostMapping(value = "/searchId/{domain}/{email}")
+	public ResponseEntity<String> searchId(@PathVariable("domain") String domain, @PathVariable("email") String email) {
+		log.info("sendEmail");
+
+		EmailDTO dto = new EmailDTO();
+		dto.setReceiveMail(email + "@" + domain);
+		return new ResponseEntity<String>(emailService.searchId(dto), HttpStatus.OK);
+	}
+
 }

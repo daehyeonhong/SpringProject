@@ -50,6 +50,7 @@
 		let authenticodeConfirm = $('#authenticodeConfirm').val();
 		let emailForm = $('#emailForm');
 		if(authenticode.trim() != '' & authenticode == authenticodeConfirm){
+			alert('인증되었습니다.');
 			emailForm.submit();
 			} else {
 				alert('확인 후 다시 이용해주세요');

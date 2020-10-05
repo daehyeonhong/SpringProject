@@ -40,4 +40,25 @@ public class EmailServiceImpl implements EmailService {
 		return authenticode;
 	}
 
+	@Override
+	public String searchId(EmailDTO dto) {
+		log.info(dto);
+		dto.setSenderName("TT렌터카");
+		String authenticode = new Authenticode().authenticode();
+		try {
+			MimeMessage message = javaMailSender.createMimeMessage();
+			message.addRecipient(RecipientType.TO, new InternetAddress(dto.getReceiveMail()));
+
+			message.addFrom(new InternetAddress[] { new InternetAddress(dto.getSenderMail(), dto.getSenderName()) });
+
+			message.setSubject("TT렌터카 아이디 찾기 확인 메일");
+			message.setText("인증을 위해 다음 메시지를 입력하세요 ==> " + authenticode);
+			javaMailSender.send(message);
+		} catch (MessagingException | UnsupportedEncodingException e) {
+			e.printStackTrace();
+			return null;
+		}
+		return authenticode;
+	}
+
 }

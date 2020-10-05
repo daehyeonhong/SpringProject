@@ -17,7 +17,7 @@ public interface UserService {
 
 	public void logout(HttpSession session);
 
-	public String getId(String users_email, RedirectAttributes redirectAttributes);
+	public String getId(String users_email);
 
 	public List<InquiryDTO> listInquiry(Criteria criteria);
 
@@ -25,6 +25,12 @@ public interface UserService {
 
 	public String getEmail(String users_id);
 
-	public Boolean checkNickname(String users_nickname);
+	public boolean checkNickname(String users_nickname);
+
+	public boolean checkPhone(String users_phone);
+
+	public boolean checkLicense(String license);
+
+	public boolean checkId(String users_id);
 
 }

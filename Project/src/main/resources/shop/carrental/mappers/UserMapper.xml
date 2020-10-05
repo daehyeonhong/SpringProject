@@ -57,4 +57,22 @@
 		]]>
 	</select>
 
+	<select id="checkPhone" parameterType="string" resultType="int">
+		<![CDATA[
+			SELECT COUNT(*) FROM USERS WHERE USERS_PHONE =#{users_phone}
+		]]>
+	</select>
+
+	<select id="checkLicense" parameterType="string"
+		resultType="int">
+		<![CDATA[
+			SELECT COUNT(*) FROM USERS WHERE LICENSE =#{license}
+		]]>
+	</select>
+
+	<select id="checkId" parameterType="string" resultType="int">
+		<![CDATA[
+			SELECT COUNT(*) FROM USERS WHERE USERS_ID =#{users_id}
+		]]>
+	</select>
 </mapper>

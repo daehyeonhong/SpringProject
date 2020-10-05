@@ -18,20 +18,11 @@
 						<td><span class="text-warning">[${notice.notice_type}]</span></td>
 						<td><span>${notice.notice_title}</span></td>
 						<td><span>${register_date}</span></td>
+						<td><span>${notice.notice_count}</span></td>
 					</tr>
 					<tr>
-						<td colspan="3">
+						<td colspan="4" style="height: 300px;">
 							<span class="word-break m-5">${notice.notice_content}</span>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<span>${notice.notice_count}</span>
-						</td>
-						<td>
-							<span class="text-primary"><i class='far fa-thumbs-up' style='font-size:15px' id='notice_good'>좋아요</i>&nbsp;</span>
-							<span>&nbsp;&nbsp;&nbsp;</span>
-							<span class="text-danger"><i class='far fa-thumbs-down' style='font-size:15px' id='notice_bad'>싫어요</i>&nbsp;</span>
 						</td>
 					</tr>
 				</tbody>

@@ -27,7 +27,7 @@
 						<a class="text-secondary text-decoration-none" href="/user/idSearch">아이디 찾기</a>
 					</td>
 					<td class="col-sm-4">
-						<a class="text-secondary text-decoration-none" href="pwdSearch.jsp">비밀번호 찾기</a>
+						<a class="text-secondary text-decoration-none" href="/user/pwdSearch">비밀번호 찾기</a>
 					</td>
 				</tr>
 			</table>

@@ -16,4 +16,10 @@ public interface UserMapper {
 
 	public int checkNickname(String users_nickname);
 
+	public int checkPhone(String users_phone);
+
+	public int checkLicense(String license);
+
+	public int checkId(String users_id);
+
 }

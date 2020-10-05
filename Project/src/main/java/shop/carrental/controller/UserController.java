@@ -143,24 +143,25 @@ public class UserController {
 		log.info("idSearch");
 	}
 
-	@GetMapping("/emailAuthentication")
-	public void emailAuthentication(HttpSession session) {
+	@GetMapping("/searchId")
+	public void searchId(HttpSession session) {
 		log.info("emailPage");
 	}
 
-	@PostMapping("/emailAuthentication")
-	public String idSearch(String users_email, RedirectAttributes redirectAttributes) {
+	@PostMapping("/searchId")
+	public String searchId(String users_email, RedirectAttributes redirectAttributes) {
 		log.info("email 시도");
 
-		String users_id = userService.getId(users_email, redirectAttributes);
+		String users_id = userService.getId(users_email);
 		log.info(users_id);
-		return users_id != null ? "/user/idSearch_result" : "redirect:/user/emailAuthentication";
+		redirectAttributes.addFlashAttribute("users_id_result", users_id);
+		return "redirect:/user/idSearchResult";
 	}
 
-	@GetMapping("/idSearch_result")
-	public String idSearch_result(HttpSession session) {
-		log.info("idSearch_result");
-		return "/user/idSearch_result";
+	@GetMapping("/idSearchResult")
+	public String idSearchResult() {
+		log.info("idSearchResult");
+		return "/user/idSearchResult";
 	}
 
 	@GetMapping("/pwdSearch")
@@ -169,10 +170,25 @@ public class UserController {
 		return "/user/pwdSearch";
 	}
 
-	@GetMapping("/pwdSearch_result")
-	public String pwdSearch_result(HttpSession session) {
-		log.info("pwdSearch_result");
-		return "/user/pwdSearch_result";
+	@GetMapping("/searchPwd")
+	public void searchPwd() {
+		log.info("searchPwd");
+	}
+
+	@PostMapping("/searchPwd")
+	public String searchPwd(String users_email, RedirectAttributes redirectAttributes) {
+		log.info("email 시도");
+
+		String users_id = userService.getId(users_email);
+		log.info(users_id);
+		redirectAttributes.addFlashAttribute("users_id_result", users_id);
+		return users_id != null ? "redirect:/user/pwdSearchResult" : "users/searchPwd";
+	}
+
+	@GetMapping("/pwdSearchResult")
+	public String pwdSearchResult() {
+		log.info("pwdSearchResult");
+		return "/user/pwdSearchResult";
 	}
 
 	@ResponseBody
@@ -194,6 +210,27 @@ public class UserController {
 		log.info("checkNickname");
 		return new ResponseEntity<String>(userService.checkNickname(users_nickname) ? "success" : "failure",
 				HttpStatus.OK);
+	}
+
+	@ResponseBody
+	@GetMapping(value = "/checkPhone/{users_phone}")
+	public ResponseEntity<String> checkPhone(@PathVariable("users_phone") String users_phone) {
+		log.info("checkPhone");
+		return new ResponseEntity<String>(userService.checkPhone(users_phone) ? "success" : "failure", HttpStatus.OK);
+	}
+
+	@ResponseBody
+	@GetMapping(value = "/checkLicense/{license}")
+	public ResponseEntity<String> checkLicense(@PathVariable("license") String license) {
+		log.info("checkLicense");
+		return new ResponseEntity<String>(userService.checkLicense(license) ? "success" : "failure", HttpStatus.OK);
+	}
+
+	@ResponseBody
+	@GetMapping(value = "/checkId/{users_id}")
+	public ResponseEntity<String> checkId(@PathVariable("users_id") String users_id) {
+		log.info("checkId");
+		return new ResponseEntity<String>(userService.checkId(users_id) ? "success" : "failure", HttpStatus.OK);
 	}
 
 }
