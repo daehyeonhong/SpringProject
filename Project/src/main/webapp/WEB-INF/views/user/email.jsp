@@ -23,12 +23,11 @@
 				</div>
 			</div>
 			<div class="col-sm-6">
-				<form action="/user/register" id="emailForm">
-					<input type="text" name="users_email" id="users_email" />
-					<input type="text" name="users_domain" id="users_domain" />
-					<input type="text" class="form-control" id="authenticode" />
-					<input type="text" class="form-control" id="authenticodeConfirm" />
-					<button type="button" onclick="checkAuthenticode()">인증하기</button>
+				<input type="text" class="form-control" id="authenticode" />
+				<input type="text" class="form-control" id="authenticodeConfirm" />
+				<form action="/user/email" id="emailForm" method="post">
+					<input class="form-control" type="text" name="users_email" id="users_email" />
+					<button class="btn btn-success" type="button" onclick="checkAuthenticode()">인증하기</button>
 				</form>
 			</div>
 		</div>
@@ -40,14 +39,15 @@
 		let authenticodeConfirm = $('#authenticodeConfirm').val();
 		let email = $('#email').val();
 		let domain = $('#domain').val();
-		$('#users_domain').val($('#domain').val());
-		$('#users_email').val($('#email').val());
+		$('#users_email').val($('#email').val() + '@' + $('#domain').val());
 		$.post('/mail/register/'+ domain + '/' + email, function(result){
 			$('#authenticodeConfirm').val(result);
 		});
 	}
 
 	function checkAuthenticode(){
+		let authenticode = $('#authenticode').val();
+		let authenticodeConfirm = $('#authenticodeConfirm').val();
 		let emailForm = $('#emailForm');
 		if(authenticode.trim() != '' & authenticode == authenticodeConfirm){
 			emailForm.submit();

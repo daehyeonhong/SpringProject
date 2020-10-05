@@ -14,7 +14,6 @@
 					    <!-- <span class="form-control"></span> -->
 						<b>아이디</b>	
 						<input type="text" class="form-control" id="users_id" name="users_id" placeholder="아이디" required="required" autofocus="autofocus" />
-						<!-- <button onclick="chk_id()">아이디 중복확인</button> -->
 						<div class="chk_register" id="chk_id"></div>
 					</td>
 				</tr>
@@ -65,7 +64,7 @@
 				<tr>
 					<td>
 					    <b>이메일</b>
-						<input type="text" class="form-control" id="users_email" name="users_email" required="required" />
+						<input type="text" class="form-control" id="users_email" name="users_email" required="required" value="${users.users_email}" readonly="readonly" />
 						<div class="chk_register" id="chk_email"></div>
 					</td>
 				</tr>
