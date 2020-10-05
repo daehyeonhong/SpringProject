@@ -37,6 +37,9 @@
 		<result property="car_year" column="car_year" />
 		<result property="car_model" column="car_model" />
 		<result property="trim_name" column="trim_name" />
+		<result property="branch_address" column="branch_address" />
+		<result property="gps" column="gps" />
+		<result property="gps2" column="gps2" />
 	</resultMap>
 
 	<resultMap type="insuranceDTO" id="insurance">

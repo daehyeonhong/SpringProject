@@ -88,11 +88,13 @@
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="/user/update">개인정보수정</a>
 						</div>
+			<li class="nav-item"><a class="nav-link" href="/user/myCar">장기 예약 목록 </a></li>
+			<li class="nav-item"><a class="nav-link" href="/user/myShortCar">단기 예약 확인</a></li>
+			<li class="nav-item"><a class="nav-link" href="/user/myPage/general?inquiry_type=1">MY렌터카</a></li>
 					</c:otherwise>
 				</c:choose></li>
-			<li class="nav-item"><a class="nav-link" href="/user/myPage/general?inquiry_type=1">MY렌터카</a></li>
-			<li class="nav-item"><a class="nav-link" href="/customer/notice/list">고객센터</a></li>
 			<%} %>
+			<li class="nav-item"><a class="nav-link" href="/customer/notice/list">고객센터</a></li>
 		</ul>
 	</nav>
 		</div>

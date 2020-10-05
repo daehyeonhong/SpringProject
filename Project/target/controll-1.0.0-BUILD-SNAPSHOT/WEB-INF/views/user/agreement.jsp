@@ -20,7 +20,7 @@ if($('#req1').is(":checked")==false | $('#req2').is(":checked")==false | $('#req
 	alert("필수사항에 동의해 주세요.");
 	return false;
 }else{
-	location.href="/user/register" ;
+	location.href="/user/email" ;
 }
 });
 });

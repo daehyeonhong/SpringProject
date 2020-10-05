@@ -19,7 +19,6 @@
 						<th>구분</th>
 						<th>제목</th>
 						<th>조회수</th>
-						<th>좋아요:싫어요</th>
 						<th>등록일</th>
 					</tr>
 				</thead>
@@ -32,7 +31,6 @@
 							<td><span>${notice.notice_type}</span></td>
 							<td class="text-left"><a class="move" href="${seq}">${notice.notice_title}</a></td>
 							<td><span>${notice.notice_count}</span></td>
-							<td><span><i class='far fa-thumbs-up text-primary' style='font-size:15px'>&nbsp;${notice.notice_good}</i>&nbsp;&nbsp;&nbsp;&nbsp;<i class='far fa-thumbs-down text-danger' style='font-size:15px'>&nbsp;${notice.notice_bad}</i></span></td>
 							<td><span>${reg_date}</span></td>
 						</tr>	
 					</c:forEach>
@@ -70,9 +68,9 @@
 					</li>
 				</ul>
 			</nav>
-			<div>
+			<!-- <div>
 				<button id="registerBtn" type="button" class="btn btn-xs btn-primary">새 글 동록</button>
-			</div>
+			</div> -->
 		</div>
 
 		<form id="actionForm" action="/customer/notice/list" method="GET">

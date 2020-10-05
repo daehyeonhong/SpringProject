@@ -75,16 +75,23 @@
 				<div class="row col-sm-12">
 					<button class="col btn border btn-light">홈 화면으로 가기</button>
 					<div>&nbsp;&nbsp;</div>
-					<button class="col btn border btn-light">확인</button>
+					<form action="/payment/reservePay" method="post">
+						<input type="text" name="reserve_seq" value="${reserve.reserve_seq}" />
+						<input type="text" name="sc_seq" value="${reserve.sc_seq}" />
+						<input type="text" name="users_id" value="${reserve.users_id}" />
+						<input type="text" name="insurance_name" value="${reserve.insurance_name}" />
+						<input type="text" name="trim_name" value="${reserve.trim_name}" />
+						<input type="text" name="car_model" value="${reserve.car_model}" />
+						<input type="text" name="nomal_price" value="${reserve.nomal_price}" />
+						<input type="text" name="fare" value="${reserve.fare}" />
+						<input type="text" name="period" value="${reserve.period}" />
+						<input type="text" name="total_amount" value="${reserve.total_amount}" />
+					<button class="col btn border btn-light">결제</button>
+					</form>
 			</div>
 			</div>
 			<br>
 			<br>
 		</div>
 	</div>
-<!-- <div class="container">
-	<div class="row" align="center">
-	<input type="button" class="col-sm-6 btn btn-outline-info m-2 p-2" onclick="homehome()" value="메인페이지로 가기"/><input id='reserved' class='col-sm-6 btn btn-outline-warning m-2 p-2' type='button' onclick='reserved()' value='예약' />
-	</div>
-	</div> -->
 </div>
