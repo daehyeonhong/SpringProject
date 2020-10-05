@@ -19,7 +19,7 @@
 			if(sep == "id") { // 아이디찾기
 				location.href = './idSearch_result.jsp'; 
 			} else {
-				location.href = './pwdSearchResult.jsp'; 
+				location.href = './changePwd.jsp'; 
 			}
 			
 		}

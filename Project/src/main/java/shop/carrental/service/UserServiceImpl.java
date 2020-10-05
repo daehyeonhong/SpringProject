@@ -95,4 +95,9 @@ public class UserServiceImpl implements UserService {
 		return userMapper.checkId(users_id) == 0;// 일치하는거 없으면 0(false)
 	}
 
+	@Override
+	public boolean updatePassword(UsersDTO dto) {
+		return userMapper.updatePassword(dto) == 1;
+	}
+
 }

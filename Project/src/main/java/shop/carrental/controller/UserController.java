@@ -182,13 +182,20 @@ public class UserController {
 		String users_id = userService.getId(users_email);
 		log.info(users_id);
 		redirectAttributes.addFlashAttribute("users_id_result", users_id);
-		return users_id != null ? "redirect:/user/pwdSearchResult" : "users/searchPwd";
+		return users_id != null ? "redirect:/user/changePwd" : "users/searchPwd";
 	}
 
-	@GetMapping("/pwdSearchResult")
-	public String pwdSearchResult() {
-		log.info("pwdSearchResult");
-		return "/user/pwdSearchResult";
+	@GetMapping("/changePwd")
+	public void changePwd() {
+		log.info("changePwd");
+	}
+
+	@PostMapping("/changePwd")
+	public String changePwd(UsersDTO dto) {
+		log.info("changePwd" + dto);
+
+		boolean result = userService.updatePassword(dto);
+		return result ? "redirect:/user/login" : "/user/changePwd";
 	}
 
 	@ResponseBody

@@ -22,4 +22,6 @@ public interface UserMapper {
 
 	public int checkId(String users_id);
 
+	public int updatePassword(UsersDTO dto);
+
 }

@@ -33,4 +33,6 @@ public interface UserService {
 
 	public boolean checkId(String users_id);
 
+	public boolean updatePassword(UsersDTO dto);
+
 }

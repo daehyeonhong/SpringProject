@@ -75,4 +75,11 @@
 			SELECT COUNT(*) FROM USERS WHERE USERS_ID =#{users_id}
 		]]>
 	</select>
+
+	<update id="updatePassword">
+		<![CDATA[
+			UPDATE USERS SET PASSWORD = #{password} WHERE USERS_ID=#{users_id}
+		]]>
+	</update>
+
 </mapper>

@@ -36,7 +36,7 @@ function finish_click() {
 	if(sep == "id") { // 아이디찾기
 		location.href = './idSearch_result'; 
 	} else {
-		location.href = './pwdSearchResult'; 
+		location.href = './changePwd'; 
 	}
 }
 </script>
