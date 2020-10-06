@@ -4,7 +4,7 @@
 <fmt:formatDate var="start_date" value="${reserve.start_date}" pattern="yyyy년 MM월 dd일"/>
 <fmt:formatDate var="end_date" value="${reserve.end_date}" pattern="yyyy년 MM월 dd일"/>
 <div class="jumbotron bg-white">
-	<div class="container col-sm-6">
+	<div class="container col-sm-8">
 		<h1>예약완료</h1>
 		<hr>
 	</div>

@@ -16,7 +16,7 @@
 						<div class="input-group">
 						<input type="text" class="col form-control" id="users_id" name="users_id" placeholder="아이디" required="required" autofocus="autofocus" maxlength="19" onkeypress="if(event.keyCode ==32) event.returnValue=false;" />
 							<div class="input-group-append">
-						<button class="col btn btn-primary" id="idBtn" type="button" onclick="chk_id()">중복 확인</button>
+						<button class="col btn btn-primary" id="idBtn" type="button">중복 확인</button>
 							</div></div>
 						<div class="chk_register" id="chk_id"></div>
 						<input type="hidden" class="chkD" id="chk_idD"></input>
@@ -50,7 +50,7 @@
 					    <div class="input-group">
 						<input type="text" class="form-control" id="users_nickname" name="users_nickname" placeholder="닉네임" required="required" maxlength="5"onkeypress="if(event.keyCode ==32) event.returnValue=false;"/>
 						<div class="input-group-append">
-						<button class="col btn btn-primary" id="nicknameBtn" type="button" onclick="nicknameChk()">중복 확인</button>
+						<button class="col btn btn-primary" id="nicknameBtn" type="button">중복 확인</button>
 						</div></div>
 						<div class="chk_register" id="chk_nickname"></div>
 						<input type="hidden" class="chkD" id="chk_nicknameD"></input>
@@ -69,7 +69,7 @@
 					     <div class="input-group">
 						<input type="text" class="form-control" id="users_phone" name="users_phone" required="required" maxlength="13"onkeypress="if(event.keyCode ==32) event.returnValue=false;"/>
 						<div class="input-group-append">
-						<button class="col btn btn-primary" id="phoneBtn" type="button" onclick="phoneChk()">중복 확인</button>
+						<button class="col btn btn-primary" id="phoneBtn" type="button">중복 확인</button>
 						</div></div>
 						<div class="chk_register" id="chk_phone"></div>
 						<input type="hidden" class="chkD" id="chk_phoneD"></input>
@@ -88,7 +88,7 @@
 					    <div class="input-group">
 						<input type="text" class="form-control" id="license" name="license" required="required" onkeypress="if(event.keyCode ==32) event.returnValue=false;"/>
 						<div class="input-group-append">
-						<button class="col btn btn-primary" id="licenseBtn" type="button" onclick="licenseChk()">중복 확인</button>
+						<button class="col btn btn-primary" id="licenseBtn" type="button">중복 확인</button>
 						</div></div>
 						<div class="chk_register" id="chk_license"></div>
 						<input type="hidden" class="chkD" id="chk_licenseD"></input>
@@ -320,7 +320,7 @@ $('#birth_date').blur(function(){
 var chk_register = new Array(8).fill(false);
 $('#registerBtn').click(function(){
    /* id정규식 */
-   if (idV.test($('#users_id').val())$("#chk_idD").val()=='success'){
+   if (idV.test($('#users_id').val())&$("#chk_idD").val()=='success'){
       chk_register[0] = true;
    } else {
       chk_register[0] = false;

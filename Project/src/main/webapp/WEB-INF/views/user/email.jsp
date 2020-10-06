@@ -3,7 +3,7 @@
 <article>
 	<div class="container col-sm-4 card" align="center">
 		<br>
-		<h3>이메일 인증</h3>
+		<h3>이메일 인증</h3><br><br>
 		
 			<div class="row form-group">
 				
@@ -21,17 +21,16 @@
                                                
 				
 				</div>
-				
+				<br><br>
 				
 			
-			<div class="col-sm-8">
-				<input type="text" class="form-control" id="authenticode" /> 
-				<input type="text" class="form-control" id="authenticodeConfirm" />
-				<form action="/user/email" id="emailForm" method="post">
-					<input class="form-control" type="text" name="users_email"
-						id="users_email" /> <br>
-					<button class="btn btn-success" type="button"
-						onclick="checkAuthenticode()">인증하기</button>
+			<div class="row">
+				<span class="col-sm-4">인증 번호  : </span><input type="text" class="col-sm-6 form-control" id="authenticode" /> <span class="col-sm-2"> </span>
+				<span class="col-sm-4">인증 번호 : </span><input type="text" class="col-sm-6 form-control" id="authenticodeConfirm" /> <span class="col-sm-2"> </span>
+				
+				<form action="/user/email" id="emailForm" method="post" class="row col-sm-12">
+					<span class="col-sm-4">이메일 :</span><input class="col-sm-7 form-control" type="text" name="users_email" id="users_email" /> <span class="col-sm-1"></span>
+					<br><span class="col-sm-4"> </span><button class="col-sm-4 btn btn-success" type="button" onclick="checkAuthenticode()">인증하기</button>
 					<br>
 				</form>
 			</div>

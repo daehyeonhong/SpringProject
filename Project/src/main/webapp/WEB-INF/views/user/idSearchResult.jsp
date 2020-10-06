@@ -11,9 +11,9 @@
 	</div>
 	<hr />
 	<button type="button" class="btn btn-secondary col-sm-5"
-		onclick="location.href='./pwdSearch.jsp'">비밀번호 찾기</button>
+		onclick="location.href='/user/pwdSearch'">비밀번호 찾기</button>
 	<button type="button" class="btn btn-danger col-sm-5"
-		onclick="location.href='./login.jsp'">로그인</button>
+		onclick="location.href='/user/login'">로그인</button>
 </div>
 <br>
 </div>

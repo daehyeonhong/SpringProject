@@ -84,11 +84,11 @@ public class UserController {
 	}
 
 	@PostMapping(value = "/email")
-	public String email(UsersDTO dto, Model model) {
+	public String email(UsersDTO dto, RedirectAttributes rttr) {
 		log.info("email" + dto);
 
-		model.addAttribute("users", dto);
-		return "/user/register";
+		rttr.addFlashAttribute("users", dto);
+		return "redirect:/user/register";
 	}
 
 	@GetMapping("/register")

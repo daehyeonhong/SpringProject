@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<article class="container">
+<article class="container-fluid">
 			<div class="row">
 			<table class="col-sm-12 m-0 p-0">
 				<tr>
@@ -24,7 +23,6 @@
 			</div>
 </article>
 			<br>
-			<div class="container">
 			<div class="row text-center" style="background-color:#F6F6F6;">지점 선택</div>
 			<div class="row">
 				<select class="form-control" name="branch_seq" id="branch_seq">
@@ -32,7 +30,6 @@
 								<option value="${branch.branch_seq}">${branch.branch_name}</option>
 						</c:forEach>
 				</select>
-			</div>
 			</div>
 			<br>
 			<!-- <span id="branchInfo"></span> -->

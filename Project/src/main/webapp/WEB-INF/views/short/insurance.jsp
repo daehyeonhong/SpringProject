@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<div class="container col-sm-12">
+<div class="container">
 <h2>차량손해면책제도</h2>
 <hr>
 <br>

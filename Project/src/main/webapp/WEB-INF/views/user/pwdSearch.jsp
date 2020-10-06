@@ -5,7 +5,7 @@
 		<p align="center" style="font-size: 16px; line-height: 26px;">
 			회원가입 시 사용하신 회원정보로 비밀번호를 <br>찾을 수 있습니다.
 		</p>
-		<img onclick="location.href='/user/searchPwd'" style="cursor: pointer" src="../images/e-mail_2.png" class="square" width="100" height="100" /><br> <br>
+		<button onclick="location.href='/user/searchPwd'" class="btn btn-info">비밀번호 찾기</button><br> <br>
 		<ul>
 			<li>고객님의 가입여부확인 및 개인정보보호를 위해 본인확인을 통한 회원인증 서비스를 시행하고 있습니다.</li>
 			<li>본인명의의 휴대폰으로만 본인인증이 가능합니다. 아이핀 (i-PIN) ID가 없는 경우 한국신용정보㈜에서 발급 후 사용 가능합니다.</li>

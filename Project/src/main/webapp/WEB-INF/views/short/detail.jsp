@@ -46,8 +46,8 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
 		/* 		location.href='./shortTerm_payment2'; */
 	}
 </script>
-<div class="container col-sm-6">
-	<div class="container">
+<div class="container">
+<div class="container">
 		<div class="row">
 			<table style="width: 100%">
 				<tr>
@@ -65,11 +65,10 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
 				</tr>
 			</table>
 		</div>
+</div>		
 		<!-- title2 -->
-
-		<div
-			class="row"
-			style="border: 1px solid #eeeeee; padding-top: 20px; padding-bottom: 20px">
+	<div class="container">
+		<div class="row" style="border: 1px solid #eeeeee; padding-top: 20px; padding-bottom: 20px">
 			<div class="col-md-5" style="border-spacing: 5px">
 				<img src="/resources/images/${car.img_seq}.jpg" style="width: 100%" />
 			</div>
@@ -97,7 +96,7 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
 				<p>표준렌탈료<font size="5" color="red">${price}</font></p>
 			</div>
 		</div>
-	</div>
+		</div>
 	<br />
 	<div style="padding-top: 30px; padding-bottom: 30px">
 		<h4>차량 정보</h4>
@@ -296,7 +295,6 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
 	</div>
 	</div>
 </div>
-
 <script type="text/javascript">
 	$().ready(function () {
 		reserve({
@@ -320,7 +318,7 @@ uri="http://java.sun.com/jsp/jstl/fmt"%>
 					".json",
 				function (reserve) {
 					let html = "";
-					html += '<div class="col-sm-6">';
+					html += '<div class="container">';
 					html += '<form action="/short/detail" id="reserveForm" method="post">';
 					html += '<input type="hidden" name="users_id" value="${users_id}" />';
 					html += '<input type="hidden" name="sc_seq" value="' + reserve.sc_seq + '" />';

@@ -19,7 +19,7 @@
 
 <!-- 단기렌트 제목틀-->
 <div class="jumbotron bg-white">
-  <div class="container col-sm-6">
+  <div class="container">
   <h1>보험대차 안내<br><br></h1>
   <hr>
   </div>

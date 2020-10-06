@@ -29,7 +29,7 @@
   </div>
 </div>
 
-<div class="container col-sm-6">
+<div class="container">
 
 
 <!--안내 메뉴바  -->

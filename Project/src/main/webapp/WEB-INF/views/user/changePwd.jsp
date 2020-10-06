@@ -15,7 +15,7 @@
 				<input type="password" class="form-control" id="passwordConfirm" placeholder="비밀번호 재입력">
 			</div>
 			<div class="row container">
-				<button type="button" onclick="checkBtn()">비밀번호 변경</button>
+				<button type="button" class="btn btn-info" onclick="checkBtn()">비밀번호 변경</button>
 			</div>
 		</form>
 	</div>

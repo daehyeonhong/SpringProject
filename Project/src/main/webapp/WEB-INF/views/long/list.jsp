@@ -6,8 +6,8 @@
 <style>
 	#ulStyle1,#ulStyle2{list-style:none;}
 </style>
-<article class="container col-sm-6">
-<div class="container border">
+<article class="container-fluid">
+<div class="row">
 		<br><br>
 			<div class="row col-sm-12">
 				<div class="col-sm-6">
@@ -36,7 +36,7 @@
 
 	
 		<br>
-		<div class="container">
+		<div class="container-fluid">
 		<h3 class="row">검색결과</h3>
 		<hr class="row" color="black" />
 	<div class="row" id="list"></div>

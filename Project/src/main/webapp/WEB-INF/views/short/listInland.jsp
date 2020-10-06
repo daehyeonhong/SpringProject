@@ -91,7 +91,7 @@ hr {
 	}
 </script>
 
-<div class="container col-sm-6">
+<div class="container-fluid">
 	<div class="row">
 		<h3 class="row col m-0 p-0">
 			기간ㆍ지점ㆍ차량 선택 <span style="font-size: 12px; margin-bottom: 0px; padding-bottom: 0px;"><strong>기간ㆍ지점ㆍ차량</strong>은
@@ -119,6 +119,6 @@ hr {
 						<br>
 					</fieldset>
 				</div></td>
-		</tr>
+				</tr>
 	</table>
 </div>

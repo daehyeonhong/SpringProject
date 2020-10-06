@@ -11,13 +11,13 @@
   </style>
 <!-- 단기렌트 제목틀-->
 <div class="jumbotron bg-white">
-  <div class="container col-sm-6">
+  <div class="container col-sm-8">
   <h1>결제완료</h1>
   <hr>
   </div>
 </div>
 <form name="reserveForm3" action="/short/payComplete" method="post">
-<div class="container col-sm-6">
+<div class="container col-sm-8">
 	<div class="container" align="center">
 		<h2><b style="color: orange;">결제가</b><span>&nbsp;완료되었습니다.</span></h2><br>
 		<p>예약한 내용을 확인해주세요.</p>

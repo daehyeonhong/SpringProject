@@ -39,8 +39,7 @@
 	transition: max-height 0.2s ease-out;
 }
 </style>
-	<div class="container col-sm-6">	
-	<div class="container">	
+	<div class="container-fluid">	
 	<div class="row">
 			<table style="width: 100%">
 				<tr>
@@ -158,7 +157,6 @@
 			</ul>
 				<br>
 		</div>
-	</div>
 	</div>
 <script>
 	var acc = document.getElementsByClassName("accordion");
