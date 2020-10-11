@@ -2,7 +2,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <html>
 <head>
-<title>어쩌고 렌터카</title>
+<title>TT Rental</title>
 <tiles:insertAttribute name="css" />
 <tiles:insertAttribute name="script" />
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
