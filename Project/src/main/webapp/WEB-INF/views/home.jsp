@@ -28,8 +28,8 @@
 	<div class="container">
 		<table>
 			<tr class="row" style="height:350px;">
-				<td class="col-sm-3" style="height: 100%;">
-					<button onclick="location.href='/long/'" class="btn text-dark" style="height: 100%;border:1px solid white; background: rgba(255, 255, 255,0.5);" id="1">
+				<td class="col-sm-4" style="height: 100%;">
+					<button onclick="location.href='/long/list'" class="btn text-dark" style="height: 100%;border:1px solid white; background: rgba(255, 255, 255,0.5);" id="1">
 						<div>
 							<p class="h3">신차 다이렉트</p>
 							<p class="text-warning">───</p>
@@ -41,7 +41,7 @@
 					</button>
 				</td>
 				
-				<td class="col-sm-3" style="height: 100%;">
+				<td class="col-sm-4" style="height: 100%;">
 					<button onclick="location.href='/short/listJeju'" class="btn text-dark" style="height: 100%; border:1px solid white; background: rgba(255, 255, 255,0.5);" id="2">
 						<div>
 							<p class="h3">제주 단기</p>
@@ -54,21 +54,8 @@
 					</button>
 				</td>
 
-				<td class="col-sm-3"	style="height: 100%;">
-					<button class="btn text-dark" onclick="location.href='/short/listInland'" style="height: 100%;border:1px solid white; background: rgba(255, 255, 255,0.5);" id="3">
-						<div>
-							<p class="h3">내륙 단기</p>
-							<p class="text-warning">───</p>
-							<p class="text-warning">제휴 할인 혜택으로</p>
-							<p>더욱 가볍게!빠른 실시간 예약</p>
-							<p><img alt="haha" src="/resources/images/img_short_icon.png"></p>
-							<p>내륙 빠른 예약 --></p>
-						</div>
-					</button>
-				</td>
-
-				<td class="col-sm-3" style="height: 100%;">
-					<button	class="btn text-dark" onclick="location.href='/customer/'" style="height: 100%;border:1px solid white; background: rgba(255, 255, 255,0.5);" id="4">
+				<td class="col-sm-4" style="height: 100%;">
+					<button	class="btn text-dark" onclick="location.href='/customer/notice/list'" style="height: 100%;border:1px solid white; background: rgba(255, 255, 255,0.5);" id="4">
 						<div>
 							<p class="h3">게시판 보기</p>
 							<p class="text-warning">───</p>
@@ -101,7 +88,7 @@
 			</div>	 
 		</div>
 		<div class="carousel-item">
-			<img src="/resources/images/기아자동차.jpg"	width="100%" height="600">
+			<img src="/resources/images/kia.jpg"	width="100%" height="600">
 			<div class="carousel-caption">
 				<h3>기아 자동차</h3>
 				<h5>정교하게 완성된 프리미엄 퍼포먼스 세단, Stinger Meister</h5>
