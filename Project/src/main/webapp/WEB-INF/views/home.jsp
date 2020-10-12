@@ -42,14 +42,14 @@
 				</td>
 				
 				<td class="col-sm-4" style="height: 100%;">
-					<button onclick="location.href='/short/listJeju'" class="btn text-dark" style="height: 100%; border:1px solid white; background: rgba(255, 255, 255,0.5);" id="2">
+					<button class="btn text-dark" onclick="location.href='/short/listInland'" style="height: 100%;border:1px solid white; background: rgba(255, 255, 255,0.5);" id="3">
 						<div>
-							<p class="h3">제주 단기</p>
+							<p class="h3">내륙 단기</p>
 							<p class="text-warning">───</p>
-							<p class="text-warning">바로 출발 서비스로</p>
-							<p>기다림 없이! 빠른 렌터카 대여</p>
+							<p class="text-warning">제휴 할인 혜택으로</p>
+							<p>더욱 가볍게!빠른 실시간 예약</p>
 							<p><img alt="haha" src="/resources/images/img_short_icon.png"></p>
-							<p>제주 빠른 예약 --></p>
+							<p>내륙 빠른 예약 --></p>
 						</div>
 					</button>
 				</td>
