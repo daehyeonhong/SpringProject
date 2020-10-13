@@ -2,18 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!-- <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
-<link rel="stylesheet"
-	href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" /> -->
 <style>
 strong {
 	color: orange;
@@ -55,9 +43,9 @@ hr {
 						"",
 						"left=600, top=300, width=600, height=600,toolbar=no, scrollbars=no, status=no, resizable=no");
 	}/* 
-			function list_photo(){
-					reserveForm.submit();
-				} */
+				function list_photo(){
+						reserveForm.submit();
+					} */
 	function addop(add) {
 		let addoption = document.getElementById(add).value;
 		document.getElementById("addoptionh").innerHTML = addoption;
@@ -94,13 +82,15 @@ hr {
 <div class="container-fluid">
 	<div class="row">
 		<h3 class="row col m-0 p-0">
-			기간ㆍ지점ㆍ차량 선택 <span style="font-size: 12px; margin-bottom: 0px; padding-bottom: 0px;"><strong>기간ㆍ지점ㆍ차량</strong>은
+			기간ㆍ지점ㆍ차량 선택 <span
+				style="font-size: 12px; margin-bottom: 0px; padding-bottom: 0px;"><strong>기간ㆍ지점ㆍ차량</strong>은
 				순서와 관계없이 <strong>선택 예약이 가능</strong>합니다.</span>
 		</h3>
-		<button class="col-sm-2 btn btn-outline-warning" id="btnSc" style="margin-bottom:0px;">목록보기</button>
+		<button class="col-sm-2 btn btn-outline-warning" id="btnSc"
+			style="margin-bottom: 0px;">목록보기</button>
 	</div>
 	<!--  comment row글씨 아래로 -->
-<hr class="row">
+	<hr class="row">
 	<%@ include file="list.jsp"%>
 	<!-- 기간지점선택테이블 -->
 	<table class="col-sm-12" style="width: 100%">
@@ -119,6 +109,6 @@ hr {
 						<br>
 					</fieldset>
 				</div></td>
-				</tr>
+		</tr>
 	</table>
 </div>
