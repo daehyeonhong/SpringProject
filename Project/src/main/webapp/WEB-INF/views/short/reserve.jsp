@@ -73,20 +73,20 @@
 			<br>
 				<div class="container" align="center">
 				<div class="row col-sm-12">
-					<button class="col btn border btn-light">홈 화면으로 가기</button>
+					<a href="/" class="col btn border btn-light">홈 화면으로 가기</a>
 					<div>&nbsp;&nbsp;</div>
 					<form action="/payment/reservePay" method="post">
-						<input type="text" name="reserve_seq" value="${reserve.reserve_seq}" />
-						<input type="text" name="sc_seq" value="${reserve.sc_seq}" />
-						<input type="text" name="users_id" value="${reserve.users_id}" />
-						<input type="text" name="insurance_name" value="${reserve.insurance_name}" />
-						<input type="text" name="trim_name" value="${reserve.trim_name}" />
-						<input type="text" name="car_model" value="${reserve.car_model}" />
-						<input type="text" name="nomal_price" value="${reserve.nomal_price}" />
-						<input type="text" name="fare" value="${reserve.fare}" />
-						<input type="text" name="period" value="${reserve.period}" />
-						<input type="text" name="total_amount" value="${reserve.total_amount}" />
-					<button class="col btn border btn-light">결제</button>
+						<input type="hidden" name="reserve_seq" value="${reserve.reserve_seq}" />
+						<input type="hidden" name="sc_seq" value="${reserve.sc_seq}" />
+						<input type="hidden" name="users_id" value="${reserve.users_id}" />
+						<input type="hidden" name="insurance_name" value="${reserve.insurance_name}" />
+						<input type="hidden" name="trim_name" value="${reserve.trim_name}" />
+						<input type="hidden" name="car_model" value="${reserve.car_model}" />
+						<input type="hidden" name="nomal_price" value="${reserve.nomal_price}" />
+						<input type="hidden" name="fare" value="${reserve.fare}" />
+						<input type="hidden" name="period" value="${reserve.period}" />
+						<input type="hidden" name="total_amount" value="${reserve.total_amount}" />
+					<!-- <button class="col btn border btn-light">결제</button> -->
 					</form>
 			</div>
 			</div>

@@ -242,7 +242,7 @@
 				}
 			});
 		} else {
-			$("#chk_nickname").text("2~6자 이내로 입력해주세요.");
+			$("#chk_nickname").text("2~10자 이내로 입력해주세요.");
 			$("#users_nickname").css("border", "1px solid red");
 		}
 	});
@@ -366,8 +366,8 @@
 	let pwV = /^[a-z0-9]{10,20}$/;
 	let mailV = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 	let phoneV = /^01[0-9]-([0-9]{3,4})-([0-9]{4})$/;
-	let nameV = /^[a-zA-Z가-힣]{2,6}$/;
-	let nickV = /^[0-9a-zA-Z가-힣]{2,6}$/;
-	let licenseV = /^[0-9]{2,6}$/;
+	let nameV = /^[가-힣]{2,6}$/;
+	let nickV = /^[0-9a-zA-Z가-힣]{2,10}$/;
+	let licenseV = /^[0-9]{6,6}$/;
 	let birthV = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/;
 </script>

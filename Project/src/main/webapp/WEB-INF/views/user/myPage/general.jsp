@@ -12,7 +12,7 @@
 			<a type="button" href="/user/myPage/general?inquiry_type=2" class="btn btn-${type != 1 ? '' : 'outline-'}secondary">렌터카상담</a>
 		</div>
 		<div class="text-right">
-			<a href="/customer/faq" class="btn btn-outline-dark">자주찾는질문</a>
+			<a href="/customer/faq?type=1" class="btn btn-outline-dark">자주찾는질문</a>
 			<a href="/customer/service/rental" class="btn btn-outline-dark">고객 상담</a>
 		</div>
 		<hr color="black">

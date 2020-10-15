@@ -131,7 +131,7 @@
 											let v = "${users.users_nickname}";
 											let user_nickname = $(
 													'#users_nickname').val();
-											let idJ = /^[a-z0-9]{4,12}$/;
+											let idJ = /^[a-z0-9]{4,20}$/;
 											$
 													.ajax({
 														url : '${pageContext.request.contextPath}/user/nicknameCheck?users_nickname='
@@ -438,8 +438,7 @@
 											let v = "${users.license}";
 											let user_license = $('#license')
 													.val();
-											let idJ = /^(?<!\d)(?!0000)\d{4}(?!\d)/;
-
+											let idJ = /^[0-9]{6,6}$/;
 											$
 													.ajax({
 														url : '${pageContext.request.contextPath}/user/licenseCheck?license='
@@ -503,7 +502,7 @@
 																	$(
 																			'#license_check')
 																			.text(
-																					"####에 맞게 넣으세요:) :)");
+																					"######에 맞게 넣으세요:) :)");
 																	$(
 																			'#license_check')
 																			.css(
