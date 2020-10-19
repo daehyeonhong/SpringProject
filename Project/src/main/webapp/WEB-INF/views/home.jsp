@@ -26,12 +26,12 @@
 		
 	<div class="container col-sm-8 justify-content-center">
 	<div class="container">
-		<table>
+		<table class="col-sm-12">
 			<tr class="row" style="height:350px;">
 				<td class="col-sm-4" style="height: 100%;">
 					<button onclick="location.href='/long/list'" class="btn text-dark" style="height: 100%;border:1px solid white; background: rgba(255, 255, 255,0.5);" id="1">
 						<div>
-							<p class="h3">신차 다이렉트</p>
+							<p class="h3">장기 렌탈</p>
 							<p class="text-warning">───</p>
 							<p class="text-warning">경제적인 신차 구매</p>
 							<p>더 좋은 차를 가지는 합리적인 방법!</p>
@@ -44,12 +44,12 @@
 				<td class="col-sm-4" style="height: 100%;">
 					<button class="btn text-dark" onclick="location.href='/short/listInland'" style="height: 100%;border:1px solid white; background: rgba(255, 255, 255,0.5);" id="3">
 						<div>
-							<p class="h3">내륙 단기</p>
+							<p class="h3">단기 렌탈</p>
 							<p class="text-warning">───</p>
-							<p class="text-warning">제휴 할인 혜택으로</p>
-							<p>더욱 가볍게!빠른 실시간 예약</p>
+							<p class="text-warning">제휴 할인 혜택으로 더욱 가볍게!</p>
+							<p>빠른 실시간 예약</p>
 							<p><img alt="haha" src="/resources/images/img_short_icon.png"></p>
-							<p>내륙 빠른 예약 --></p>
+							<p>빠른 예약 --></p>
 						</div>
 					</button>
 				</td>
@@ -57,12 +57,13 @@
 				<td class="col-sm-4" style="height: 100%;">
 					<button	class="btn text-dark" onclick="location.href='/customer/notice/list'" style="height: 100%;border:1px solid white; background: rgba(255, 255, 255,0.5);" id="4">
 						<div>
-							<p class="h3">게시판 보기</p>
+							<p class="h3">고객센터</p>
 							<p class="text-warning">───</p>
-							<p class="text-warning">믿을 수 있는 중고차 렌트</p>
-							<p>이젠 사지말고 가성비 좋은 렌터카로!</p>
+							<p class="text-warning">공지사항</p>
+							<p>Lorem ipsum dolor sit amet</p>
+							<p>consectetur, adipisicing elit.</p>
 							<p><img alt="haha" src="/resources/images/img_car_icon.png"></p>
-							<p>이벤트 확인 --></p>
+							<p>공지사항 확인 --></p>
 						</div>
 					</button>
 				</td>
