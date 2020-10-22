@@ -158,7 +158,24 @@
 				<br>
 		</div>
 	</div>
-<script>
+<script type="text/javascript">
+$(function() {
+	$('#appoint_date').datetimepicker({
+		inline : true,
+		sideBySide : true,
+		format : 'L',
+		useCurrent : false
+	});
+	$('#appoint_date').datetimepicker('minDate', new Date());
+	$("#appoint_date").on("change.datetimepicker", function(event) {
+		let yesNo = confirm($('#appoint_date').val+'에 예약하시겠습니까?');
+		if (yesNo){
+			$('#appoint_date').attr('readonly');
+			} else {
+				alert('취소 되었습니다.');
+				}
+	});
+});
 	var acc = document.getElementsByClassName("accordion");
 	var i;
 
@@ -173,15 +190,6 @@
 			}
 		});
 	}
-	$(function() {
-		$('#appoint_date').datetimepicker({
-			inline : true,
-			sideBySide : true,
-			format : 'L',
-			useCurrent : false
-		});
-		$('#appoint_date').datetimepicker('minDate', new Date());
-	});
 	function appointConfirm(){
 	let users_id = '${users_id}'.trim();
 	if (users_id.length==0 || users_id==null){

@@ -33,8 +33,7 @@
 <!-- <span id="branchInfo"></span> -->
 <div id="list" class="row m-0 p-0" align="center"></div>
 <script type="text/javascript">
-	$()
-			.ready(
+	$().ready(
 					function() {
 						list({
 							'start_date' : moment(new Date()).format(
