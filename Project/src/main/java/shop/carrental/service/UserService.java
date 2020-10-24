@@ -2,8 +2,6 @@ package shop.carrental.service;
 
 import java.util.List;
 import javax.servlet.http.HttpSession;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import shop.carrental.domain.AppointVO;
 import shop.carrental.domain.Criteria;
 import shop.carrental.domain.InquiryDTO;

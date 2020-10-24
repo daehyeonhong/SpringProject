@@ -3,7 +3,6 @@ package shop.carrental.service;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import shop.carrental.domain.AppointVO;
